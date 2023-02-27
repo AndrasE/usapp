@@ -3,7 +3,7 @@ import {ImageBackground, Text, TouchableWithoutFeedback} from 'react-native';
 import Lottie from 'lottie-react-native';
 import {_signInWithGoogle} from '../../config/firebase/GoogleSingIn.js';
 
-export default function SignInScreen({}) {
+export default function SignInScreen({ navigation }) {
   async function googleSignin() {
     _signInWithGoogle().then(data => {
       if (!data) {
@@ -11,9 +11,12 @@ export default function SignInScreen({}) {
         return;
       }
       console.log('=> Success', data);
+      setTimeout(() => {
+        navigation.navigate("singInSucces")
+      }, 70);
     });
   }
-
+ 
   return (
     <ImageBackground
       source={require('../../assets/signin.jpg')}
@@ -32,7 +35,7 @@ export default function SignInScreen({}) {
           paddingBottom: 30,
           textAlign: 'center',
         }}>
-        sign-in with your Google account
+        Sign-in with your Google account
       </Text>
       <TouchableWithoutFeedback onPress={() => googleSignin()}>
         <Lottie
