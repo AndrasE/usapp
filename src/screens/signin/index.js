@@ -11,9 +11,7 @@ export default function SignInScreen({ navigation }) {
         return;
       }
       console.log('=> Success', data);
-      setTimeout(() => {
-        navigation.navigate("singInSucces")
-      }, 70);
+      navigation.navigate("chat");
     });
   }
  
