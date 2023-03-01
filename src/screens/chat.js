@@ -7,7 +7,7 @@ export default function ChatScreen () {
 
   return (
     <ImageBackground
-      source={require('../../assets/signin.jpg')}
+      source={require('../assets/signin.jpg')}
       resizeMode={'cover'}
       style={{
         flex: 1,
@@ -38,7 +38,7 @@ export default function ChatScreen () {
           Nice to have you here..
         </Text>
       </Animated.View>
-      <Lottie style={{ paddingTop: 70, height: 170 }} source={require('../../assets/search.json')} autoPlay loop={false} speed={0.7}
+      <Lottie style={{ paddingTop: 70, height: 170 }} source={require('../assets/search.json')} autoPlay loop={false} speed={0.7}
       />
       <Animated.View entering={FadeIn.duration(500).delay(250)}>
         <Text
