@@ -11,6 +11,7 @@ export default function SignInScreen({ navigation }) {
         return;
       }
       console.log('=> Success', data);
+      
       navigation.navigate("chat");
     });
   }
