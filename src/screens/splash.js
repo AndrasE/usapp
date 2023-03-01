@@ -14,7 +14,7 @@ export default function SplashScreen({ navigation }) {
 
   return (
     <ImageBackground
-      source={require('../../assets/signin.jpg')}
+      source={require('../assets/signin.jpg')}
       resizeMode={'cover'}
       style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 30 }}>
       <Animated.View
@@ -27,7 +27,7 @@ export default function SplashScreen({ navigation }) {
       >
         <Text style={{ fontFamily: "SpaceMonoRegular", fontSize: 25, marginTop: 68, color: "black", padding: 55 }}>to</Text>
       </Animated.View>
-      <Lottie style={{ paddingTop: 70 }} source={require('../../assets/splash.json')} autoPlay={false} loop={false} speed={0.7} ref={animation => { this.anim = animation }}
+      <Lottie style={{ paddingTop: 70 }} source={require('../assets/splash.json')} autoPlay={false} loop={false} speed={0.7} ref={animation => { this.anim = animation }}
       />
       <Animated.View
         entering={FadeIn.duration(600).delay(800)}
