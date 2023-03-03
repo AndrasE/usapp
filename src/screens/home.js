@@ -3,7 +3,7 @@ import {Text, ImageBackground} from 'react-native';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Lottie from 'lottie-react-native';
 
-export default function ChatScreen () {
+export default function HomeScreen () {
 
   return (
     <ImageBackground
