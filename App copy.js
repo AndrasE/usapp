@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from './src/screens/splash';
 import SignInScreen from './src/screens/signin';
 import HomeScreen from './src/screens/home';
+// import {_signInWithGoogle} from '../config/firebase/GoogleSingIn.js';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -21,4 +23,10 @@ const App = () => {
 };
 
 
-export default App;
+export default function App() {
+  return (
+    <AuthenticatedUserProvider>
+      <RootNavigator />
+    </AuthenticatedUserProvider>
+  );
+}
