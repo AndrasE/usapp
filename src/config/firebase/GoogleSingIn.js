@@ -16,8 +16,13 @@ export const _signInWithGoogle = async () => {
     const {idToken} = await GoogleSignin.signIn();
     const googleCredentials = auth.GoogleAuthProvider.credential(idToken);
     auth().signInWithCredential(googleCredentials);
-
-    return (userInfo);
+    const user = {
+      name: userInfo.user.name.split(" ")[0],
+      email: userInfo.user.email,
+      photoUrl: userInfo.user.photo
+    }
+    return (user);
+    
   } catch (error) {
     console.log('=> Google Sign In Error:', error);
     return null;
