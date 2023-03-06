@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import auth from '@react-native-firebase/auth';
+import { UserAuthContextProvider } from './src/config/context/userAuthContext';
 
 import SplashScreen from './src/screens/splash';
 import SignInScreen from './src/screens/signin';
@@ -29,6 +30,7 @@ const App = () => {
 
   return (
     <>
+    <UserAuthContextProvider>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
@@ -48,6 +50,7 @@ const App = () => {
           />
         </Stack.Navigator>
       </NavigationContainer>
+      </UserAuthContextProvider>
     </>
   );
 };
