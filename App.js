@@ -9,8 +9,11 @@ import HomeScreen from './src/screens/home';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+
+
   return (
     <UserAuthContextProvider>
+      
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
