@@ -6,7 +6,7 @@ import { useUserAuth } from "../config/context/userAuthContext"
 
 export default function HomeScreen () {
   const { user } = useUserAuth();
-  console.log("logged in as:", {user});
+
 
   return (
     <ImageBackground
@@ -26,7 +26,7 @@ export default function HomeScreen () {
             letterSpacing: 5,
             paddingTop: 75
           }}>
-          Hi {user.name}!
+          Hi {user.displayName}!
         </Text>
       </Animated.View>
       <Animated.View entering={FadeIn.duration(500).delay(250)}>
