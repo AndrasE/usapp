@@ -1,20 +1,16 @@
 import React from 'react';
 import {ImageBackground, Text, TouchableWithoutFeedback} from 'react-native';
 import Lottie from 'lottie-react-native';
-import {_signInWithGoogle} from '../config/firebase/GoogleSingIn.js';
+import { useUserAuth } from '../config/context/userAuthContext';
 
 
 export default function SignInScreen({ navigation }) {
-   async function googleSignin() {
-     _signInWithGoogle().then(data => {
-       if (!data) {
-       console.log('=> Error', 'no data');
-         return;
-       }
-       console.log('=> Success', data);
-       navigation.navigate("home");
-    });
- }
+
+  const { _signInWithGoogle } = useUserAuth();
+
+   function handleSignIn() {
+       _signInWithGoogle();
+    };
  
   return (
     <ImageBackground
@@ -36,7 +32,7 @@ export default function SignInScreen({ navigation }) {
         }}>
         Sign-in with your Google account
       </Text>
-      <TouchableWithoutFeedback onPress={() => googleSignin()}>
+      <TouchableWithoutFeedback onPress={() => handleSignIn()}>
         <Lottie
           style={{width: 200}}
           source={require('../assets/google-singin.json')}
