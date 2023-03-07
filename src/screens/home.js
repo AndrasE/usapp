@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Text, ImageBackground} from 'react-native';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Lottie from 'lottie-react-native';
+import { useUserAuth } from "../config/context/userAuthContext"
 
 export default function HomeScreen () {
+  const { user } = useUserAuth();
+  console.log("logged in as:", {user});
 
   return (
     <ImageBackground
@@ -23,7 +26,7 @@ export default function HomeScreen () {
             letterSpacing: 5,
             paddingTop: 75
           }}>
-          Hi Sarah!
+          Hi {user.name}!
         </Text>
       </Animated.View>
       <Animated.View entering={FadeIn.duration(500).delay(250)}>
