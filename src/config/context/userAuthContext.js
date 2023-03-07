@@ -1,5 +1,6 @@
-import React, {useState, createContext, useContext} from 'react';
+import React, {useState, createContext, useContext, useEffect} from 'react';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+
 import auth from '@react-native-firebase/auth';
 
 const userAuthContext = createContext();
@@ -21,17 +22,28 @@ export function UserAuthContextProvider({children}) {
       // this.setState({ userInfo });
       const {idToken} = await GoogleSignin.signIn();
       const googleCredentials = auth.GoogleAuthProvider.credential(idToken);
-      await auth().signInWithCredential(googleCredentials);
-      setUser({
-        name: userInfo.user.name.split(' ')[0],
-        email: userInfo.user.email,
-        photoUrl: userInfo.user.photo,
-      });
+      auth().signInWithCredential(googleCredentials);
+      // setUser({                                  <<<=== not needed to set it as react-native firebase pckd
+      //   name: userInfo.user.name.split(' ')[0],  <<<=== will take care of it using onAuthStateChanged()
+      //   email: userInfo.user.email,              <<<=== from '@react-native-firebase/auth'
+      //   photoUrl: userInfo.user.photo,           <<<=== https://rnfirebase.io/auth/usage
+      // });
       console.log('sign in succesful by', userInfo.user.name.split(' ')[0]);
     } catch (error) {
       console.log('sign in error:', error);
     }
   };
+
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user);
+    console.log(user);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
 
   return (
     <userAuthContext.Provider value={{user, _signInWithGoogle}}>
