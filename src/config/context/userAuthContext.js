@@ -1,12 +1,15 @@
 import React, {useState, createContext, useContext, useEffect} from 'react';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {GoogleSignin, signOut} from '@react-native-google-signin/google-signin';
 
 import auth from '@react-native-firebase/auth';
 
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({children}) {
-  const [user, setUser] = useState({});
+
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
 
   const _signInWithGoogle = async () => {
     try {
@@ -28,25 +31,34 @@ export function UserAuthContextProvider({children}) {
       //   email: userInfo.user.email,              <<<=== from '@react-native-firebase/auth'
       //   photoUrl: userInfo.user.photo,           <<<=== https://rnfirebase.io/auth/usage
       // });
-      console.log('sign in succesful by', userInfo.user.name.split(' ')[0]);
+      console.log('User logged in as ===>', userInfo.user.name.split(' ')[0]);
     } catch (error) {
-      console.log('sign in error:', error);
+      console.log('Sign in error: ===>', error);
     }
   };
 
-  // Handle user state changes
+  // Handle user state changes on login saves user
   function onAuthStateChanged(user) {
     setUser(user);
-    console.log(user);
+    if (initializing) setInitializing(false);
+    console.log("User is ===>", user);
   }
-
+  
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);
 
+  if (initializing) return null;
+
+  function logOut() {
+    auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
+  }
+
   return (
-    <userAuthContext.Provider value={{user, _signInWithGoogle}}>
+    <userAuthContext.Provider value={{user, _signInWithGoogle, logOut}}>
       {children}
     </userAuthContext.Provider>
   );
