@@ -1,12 +1,16 @@
 import React, {useContext} from 'react';
-import {Text, ImageBackground} from 'react-native';
+import {Text, ImageBackground, Button} from 'react-native';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Lottie from 'lottie-react-native';
 import { useUserAuth } from "../config/context/userAuthContext"
 
 export default function HomeScreen () {
-  const { user } = useUserAuth();
+  const { user, logOut } = useUserAuth();
+ 
 
+function handleLoginPress() {
+  logOut()
+}
 
   return (
     <ImageBackground
@@ -26,7 +30,7 @@ export default function HomeScreen () {
             letterSpacing: 5,
             paddingTop: 75
           }}>
-          Hi {user.displayName}!
+          Hi user!
         </Text>
       </Animated.View>
       <Animated.View entering={FadeIn.duration(500).delay(250)}>
@@ -57,6 +61,7 @@ export default function HomeScreen () {
           Search for other users by their gmail and start chatting
         </Text>
       </Animated.View>
+      <Button title='logout'onPress={handleLoginPress} ></Button>
     </ImageBackground>
   );
 }
