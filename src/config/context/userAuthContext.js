@@ -1,15 +1,13 @@
-import React, {createContext, useState } from 'react';
+import React, {useState, createContext, useContext,  } from 'react';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 
 const userAuthContext = createContext();
 
-const USER = { isGuestUser: true } 
-
 export function UserAuthContextProvider({ children }) {
-  const [user, setUser] = useState(USER);
+  const [user, setUser] = useState({});
 
- function _signInWithGoogle() { async () => {
+  const _signInWithGoogle = async () => {
   try {
     GoogleSignin.configure({
       offlineAccess: false,
@@ -19,25 +17,22 @@ export function UserAuthContextProvider({ children }) {
     });
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
+  
     // this.setState({ userInfo });
     const {idToken} = await GoogleSignin.signIn();
     const googleCredentials = auth.GoogleAuthProvider.credential(idToken);
     auth().signInWithCredential(googleCredentials);
-    setUser({
-      isGuestUser: false,
-      name: "asdasd",
-      photoUrl: "someatuff"
+  
+    setUser ({
+      name: userInfo.user.name.split(" ")[0],
+      email: userInfo.user.email,
+      photoUrl: userInfo.user.photo
     })
-    console.log(user);
-
-    return (userInfo);
+    console.log("sign in succesful by", userInfo.user.name);
   } catch (error) {
-    console.log('=> Google Sign In Error:', error);
-    return null;
+    console.log('sign in error:', error);
   }
 };
-}
-
 
   return (
   <userAuthContext.Provider value={{user, _signInWithGoogle}}>
@@ -46,4 +41,7 @@ export function UserAuthContextProvider({ children }) {
   )
 };
 
-export default userAuthContext;
+export function useUserAuth() {
+  return useContext(userAuthContext);
+}
+
