@@ -4,11 +4,12 @@ import Animated, {FadeIn} from 'react-native-reanimated';
 import Lottie from 'lottie-react-native';
 import { useUserAuth } from "../config/context/userAuthContext"
 
-export default function HomeScreen () {
+export default function HomeScreen ({navigation}) {
   const { user, logOut } = useUserAuth();
  
 function handleLoginPress() {
   logOut()
+  navigation.navigate("home")
 }
 
   return (
@@ -49,7 +50,7 @@ function handleLoginPress() {
       <Animated.View entering={FadeIn.duration(500).delay(250)}>
         <Text
           style={{
-            paddingTop: 120,
+            paddingTop: 100,
             fontFamily: 'SpaceMonoRegular',
             fontSize: 20,
             marginTop: 68,
