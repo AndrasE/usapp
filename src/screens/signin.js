@@ -8,8 +8,7 @@ export default function SignInScreen({navigation}) {
 
   function handleSignIn() {
     _signInWithGoogle();
-    
-    navigation.navigate('home');
+    navigation.navigate('/home');
   }
 
   return (
