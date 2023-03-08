@@ -1,18 +1,17 @@
 import React from 'react';
 import {ImageBackground, Text, TouchableWithoutFeedback} from 'react-native';
 import Lottie from 'lottie-react-native';
-import { useUserAuth } from '../config/context/userAuthContext';
+import {useUserAuth} from '../config/context/userAuthContext';
 
+export default function SignInScreen({navigation}) {
+  const {_signInWithGoogle} = useUserAuth();
 
-export default function SignInScreen({ navigation }) {
+  function handleSignIn() {
+    _signInWithGoogle();
+    
+    navigation.navigate('home');
+  }
 
-  const { _signInWithGoogle } = useUserAuth();
-
-   function handleSignIn() {
-       _signInWithGoogle();
-       navigation.navigate("home")
-    };
- 
   return (
     <ImageBackground
       source={require('../assets/signin.jpg')}
