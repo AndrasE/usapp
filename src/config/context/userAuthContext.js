@@ -5,6 +5,8 @@ import auth from '@react-native-firebase/auth';
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({children}) {
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
 
   const _signInWithGoogle = async () => {
@@ -36,14 +38,17 @@ export function UserAuthContextProvider({children}) {
   // Handle user state changes on login saves user
   function onAuthStateChanged(user) {
     setUser(user);
+    if (initializing) setInitializing(false);
     console.log('User is ===>', user);
+    console.log('User initializing ===>', initializing);
+    if (initializing) return null;
+    console.log('User initializing ===>', initializing);
   }
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);
-
 
   function logOut() {
     auth()
@@ -52,7 +57,8 @@ export function UserAuthContextProvider({children}) {
   }
 
   return (
-    <userAuthContext.Provider value={{user, _signInWithGoogle, logOut}}>
+    <userAuthContext.Provider
+      value={{user, initializing, _signInWithGoogle, logOut}}>
       {children}
     </userAuthContext.Provider>
   );

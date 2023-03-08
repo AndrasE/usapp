@@ -1,16 +1,16 @@
 import React from 'react';
-import {Text, ImageBackground, Button} from 'react-native';
+import {Text, ImageBackground, Button, Image} from 'react-native';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Lottie from 'lottie-react-native';
-import { useUserAuth } from "../config/context/userAuthContext"
+import {useUserAuth} from '../config/context/userAuthContext';
 
-export default function HomeScreen ({navigation}) {
-  const { user, logOut } = useUserAuth();
- 
-function handleLoginPress() {
-  logOut()
-  navigation.navigate("home")
-}
+export default function HomeScreen({navigation}) {
+  const {user, logOut} = useUserAuth();
+
+  function handleLoginPress() {
+    logOut();
+    navigation.navigate('home');
+  }
 
   return (
     <ImageBackground
@@ -28,9 +28,9 @@ function handleLoginPress() {
             fontFamily: 'SpaceMonoRegular',
             color: 'white',
             letterSpacing: 5,
-            paddingTop: 75
+            paddingTop: 75,
           }}>
-          Hi {user.displayName}!
+          Hi {user.displayName.split(' ')[0]}!
         </Text>
       </Animated.View>
       <Animated.View entering={FadeIn.duration(500).delay(250)}>
@@ -45,7 +45,12 @@ function handleLoginPress() {
           Nice to have you here..
         </Text>
       </Animated.View>
-      <Lottie style={{ paddingTop: 70, height: 170 }} source={require('../assets/search.json')} autoPlay loop={false} speed={0.7}
+      <Lottie
+        style={{paddingTop: 70, height: 170}}
+        source={require('../assets/search.json')}
+        autoPlay
+        loop={false}
+        speed={0.7}
       />
       <Animated.View entering={FadeIn.duration(500).delay(250)}>
         <Text
@@ -56,12 +61,12 @@ function handleLoginPress() {
             marginTop: 68,
             color: 'white',
             letterSpacing: 5,
-            textAlign: "center",
+            textAlign: 'center',
           }}>
           Search for other users by their gmail and start chatting
         </Text>
       </Animated.View>
-      <Button title='logout'onPress={handleLoginPress} ></Button>
+      <Button title="logout" onPress={handleLoginPress}></Button>
     </ImageBackground>
   );
 }
