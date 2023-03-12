@@ -10,9 +10,8 @@ import {useUserAuth} from './src/config/context/userAuthContext';
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
-  const {user} = useUserAuth();
-
-  //
+  // await splash screen to finish the animation and firebase to get connected and establish //
+  // if the user is authenticated and call homestack to conditinally render stacks//
   const [splash, setSplash] = useState(true);
 
   setTimeout(() => {
@@ -32,6 +31,13 @@ function RootNavigator() {
       </NavigationContainer>
     );
   } else {
+    return <HomeStack />;
+  }
+
+  function HomeStack() {
+    // if user exist ergo != null conditinally rendering the stack screen home or login//
+    const {user} = useUserAuth();
+
     return (
       <NavigationContainer>
         <Stack.Navigator>
