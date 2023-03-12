@@ -3,7 +3,7 @@ import {ImageBackground, Text, TouchableWithoutFeedback} from 'react-native';
 import Lottie from 'lottie-react-native';
 import {useUserAuth} from '../config/context/userAuthContext';
 
-export default function SignInScreen({navigation}) {
+export default function SignInScreen() {
   const {_signInWithGoogle} = useUserAuth();
 
   function handleSignIn() {
