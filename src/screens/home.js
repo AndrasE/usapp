@@ -1,15 +1,14 @@
 import React from 'react';
-import {Text, ImageBackground, Button, Image} from 'react-native';
+import {Text, ImageBackground, Button} from 'react-native';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Lottie from 'lottie-react-native';
 import {useUserAuth} from '../config/context/userAuthContext';
 
-export default function HomeScreen({navigation}) {
+export default function HomeScreen() {
   const {user, logOut} = useUserAuth();
 
   function handleLoginPress() {
     logOut();
-    navigation.navigate('home');
   }
 
   return (

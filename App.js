@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
 import SplashScreen from './src/screens/splash';
 import SignInScreen from './src/screens/signin';
@@ -8,6 +9,7 @@ import HomeScreen from './src/screens/home';
 import {useUserAuth} from './src/config/context/userAuthContext';
 
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 function RootNavigator() {
   // await splash screen to finish the animation and firebase to get connected and establish //
@@ -19,17 +21,7 @@ function RootNavigator() {
   }, 1700);
 
   if (splash === true) {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name={'splash'}
-            component={SplashScreen}
-            options={{headerShown: false}}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
+    return <SplashScreen />;
   } else {
     return <HomeStack />;
   }
@@ -62,6 +54,16 @@ function RootNavigator() {
       </NavigationContainer>
     );
   }
+}
+
+function DrawerNavStack() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
 }
 
 export default function App() {
