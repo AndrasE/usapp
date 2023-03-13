@@ -1,5 +1,10 @@
-import React from 'react';
-import {ImageBackground, Text, TouchableWithoutFeedback} from 'react-native';
+import React, {useState} from 'react';
+import {
+  Image,
+  ImageBackground,
+  Text,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import Lottie from 'lottie-react-native';
 import {useUserAuth} from '../config/context/userAuthContext';
 
@@ -8,7 +13,10 @@ export default function SignInScreen() {
 
   function handleSignIn() {
     _signInWithGoogle();
+    setShowGif(100);
   }
+
+  const [showGif, setShowGif] = useState(0);
 
   return (
     <ImageBackground
@@ -30,6 +38,7 @@ export default function SignInScreen() {
         }}>
         Sign-in with your Google account
       </Text>
+
       <TouchableWithoutFeedback onPress={() => handleSignIn()}>
         <Lottie
           style={{width: 200}}
@@ -39,6 +48,16 @@ export default function SignInScreen() {
           speed={1.2}
         />
       </TouchableWithoutFeedback>
+      <Image
+        source={require('../assets/loading.gif')}
+        style={{
+          height: 3,
+          width: '122%',
+          opacity: showGif,
+          position: 'relative',
+          bottom: 35,
+        }}
+      />
     </ImageBackground>
   );
 }
