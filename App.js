@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
 import SplashScreen from './src/screens/splash';
 import SignInScreen from './src/screens/signin';
 import HomeScreen from './src/screens/home';
+import AsdScreen from './src/screens/asd';
 import {useUserAuth} from './src/config/context/userAuthContext';
 
-const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 function RootNavigator() {
@@ -32,40 +31,21 @@ function RootNavigator() {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator>
-          {user ? (
-            <Stack.Group>
-              <Stack.Screen
-                name={'home'}
-                component={HomeScreen}
-                options={{headerShown: false}}
-              />
-            </Stack.Group>
-          ) : (
-            <Stack.Group>
-              <Stack.Screen
-                name={'signIn'}
-                component={SignInScreen}
-                options={{headerShown: false}}
-              />
-            </Stack.Group>
-          )}
-        </Stack.Navigator>
+        {user ? (
+          <Drawer.Navigator screenOptions={{headerShown: false}}>
+            <Drawer.Screen name="Chats" component={HomeScreen} />
+            <Drawer.Screen name="asd" component={AsdScreen} />
+          </Drawer.Navigator>
+        ) : (
+          <SignInScreen />
+        )}
       </NavigationContainer>
     );
   }
 }
 
-function DrawerNavStack() {
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
-}
-
+// Necessary to wrap the Home/Login stacks in order to have access to the Context //
+// <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
 export default function App() {
   return (
     <UserAuthContextProvider>

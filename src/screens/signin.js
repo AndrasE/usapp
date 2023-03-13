@@ -52,10 +52,10 @@ export default function SignInScreen() {
         source={require('../assets/loading.gif')}
         style={{
           height: 3,
-          width: '122%',
+          width: '100%',
           opacity: showGif,
           position: 'relative',
-          bottom: 35,
+          bottom: 30,
         }}
       />
     </ImageBackground>
