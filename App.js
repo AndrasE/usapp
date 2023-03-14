@@ -39,7 +39,9 @@ function RootNavigator() {
         {user ? (
           <Drawer.Navigator
             drawerContent={props => <CustomDrawer {...props} />}
-            screenOptions={{headerShown: false}}>
+            screenOptions={{headerShown: false}}
+            swipeEdgeWidth={500}
+            >
             <Drawer.Screen name="Chats" component={HomeScreen} />
             <Drawer.Screen name="asd" component={AsdScreen} />
             <Drawer.Screen name="asd2" component={Asd2Screen} />
