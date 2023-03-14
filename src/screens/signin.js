@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Modal from "react-native-modal"
+import Modal from 'react-native-modal';
 import {
   Image,
   ImageBackground,
@@ -18,6 +18,28 @@ export default function SignInScreen() {
   }
 
   const [showGif, setShowGif] = useState(0);
+
+  function ModalTester() {
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    const toggleModal = () => {
+      setModalVisible(!isModalVisible);
+    };
+
+    return (
+      <View style={{flex: 1}}>
+        <Button title="Show modal" onPress={toggleModal} />
+
+        <Modal isVisible={isModalVisible}>
+          <View style={{flex: 1}}>
+            <Text>Hello!</Text>
+
+            <Button title="Hide modal" onPress={toggleModal} />
+          </View>
+        </Modal>
+      </View>
+    );
+  }
 
   return (
     <ImageBackground
@@ -59,13 +81,13 @@ export default function SignInScreen() {
           bottom: 30,
         }}
       />
-        <View>
-      <Modal>
-        <View style={{ flex: 1 }}>
-          <Text>I am the modal content!</Text>
-        </View>
-      </Modal>
-    </View>
+      <View>
+        <Modal>
+          <View style={{flex: 1}}>
+            <Text>I am the modal content!</Text>
+          </View>
+        </Modal>
+      </View>
     </ImageBackground>
   );
 }
