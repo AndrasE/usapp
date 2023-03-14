@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Modal from "react-native-modal"
 import {
   Image,
   ImageBackground,
@@ -58,6 +59,13 @@ export default function SignInScreen() {
           bottom: 30,
         }}
       />
+        <View>
+      <Modal>
+        <View style={{ flex: 1 }}>
+          <Text>I am the modal content!</Text>
+        </View>
+      </Modal>
+    </View>
     </ImageBackground>
   );
 }
