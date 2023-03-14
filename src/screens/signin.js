@@ -4,6 +4,8 @@ import {
   Image,
   ImageBackground,
   Text,
+  View,
+  Button,
   TouchableWithoutFeedback,
 } from 'react-native';
 import Lottie from 'lottie-react-native';
@@ -19,27 +21,17 @@ export default function SignInScreen() {
 
   const [showGif, setShowGif] = useState(0);
 
-  function ModalTester() {
+
     const [isModalVisible, setModalVisible] = useState(false);
 
     const toggleModal = () => {
       setModalVisible(!isModalVisible);
     };
 
-    return (
-      <View style={{flex: 1}}>
-        <Button title="Show modal" onPress={toggleModal} />
 
-        <Modal isVisible={isModalVisible}>
-          <View style={{flex: 1}}>
-            <Text>Hello!</Text>
-
-            <Button title="Hide modal" onPress={toggleModal} />
-          </View>
-        </Modal>
-      </View>
-    );
-  }
+      
+ 
+  
 
   return (
     <ImageBackground
@@ -71,6 +63,14 @@ export default function SignInScreen() {
           speed={1.2}
         />
       </TouchableWithoutFeedback>
+
+      <Text onPress={toggleModal}>privacy statement</Text>
+        <Modal isVisible={isModalVisible}>
+          <View style={{flex: 1}}>
+            <Text>Hello!</Text>
+            <Button title="Hide modal" onPress={toggleModal} />
+          </View>
+        </Modal>
       <Image
         source={require('../assets/loading.gif')}
         style={{
@@ -81,13 +81,9 @@ export default function SignInScreen() {
           bottom: 30,
         }}
       />
-      <View>
-        <Modal>
-          <View style={{flex: 1}}>
-            <Text>I am the modal content!</Text>
-          </View>
-        </Modal>
-      </View>
+     
     </ImageBackground>
   );
 }
+
+
