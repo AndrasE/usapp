@@ -2,11 +2,16 @@ import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
-import SplashScreen from './src/screens/splash';
-import SignInScreen from './src/screens/signin';
-import HomeScreen from './src/screens/home';
-import AsdScreen from './src/screens/asd';
 import {useUserAuth} from './src/config/context/userAuthContext';
+import {
+  SplashScreen,
+  SignInScreen,
+  HomeScreen,
+  AsdScreen,
+  Asd2Screen,
+  Asd3Screen,
+} from './src/navigations/ScreensImport';
+import CustomDrawer from './src/navigations/CustomDrawer';
 
 const Drawer = createDrawerNavigator();
 
@@ -32,9 +37,13 @@ function RootNavigator() {
     return (
       <NavigationContainer>
         {user ? (
-          <Drawer.Navigator screenOptions={{headerShown: false}}>
+          <Drawer.Navigator
+            drawerContent={props => <CustomDrawer {...props} />}
+            screenOptions={{headerShown: false}}>
             <Drawer.Screen name="Chats" component={HomeScreen} />
             <Drawer.Screen name="asd" component={AsdScreen} />
+            <Drawer.Screen name="asd2" component={Asd2Screen} />
+            <Drawer.Screen name="asd3" component={Asd3Screen} />
           </Drawer.Navigator>
         ) : (
           <SignInScreen />

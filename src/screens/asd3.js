@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, ImageBackground} from 'react-native';
 
-export default function AsdScreen() {
+export default function Asd3Screen() {
   return (
     <ImageBackground
       source={require('../assets/signin.jpg')}
@@ -19,7 +19,7 @@ export default function AsdScreen() {
           color: 'white',
           letterSpacing: 5,
         }}>
-       ASD1111
+        ASD3333333
       </Text>
     </ImageBackground>
   );
