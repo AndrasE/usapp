@@ -3,17 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
 import {useUserAuth} from './src/config/context/userAuthContext';
-import {
-  SplashScreen,
-  SignInScreen,
-  HomeScreen,
-  AsdScreen,
-  Asd2Screen,
-  Asd3Screen,
-} from './src/navigations/ScreensImport';
-import CustomDrawer from './src/navigations/CustomDrawer';
-
-const Drawer = createDrawerNavigator();
+import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
+import DrawerNavigator from './src/navigations/DrawerNavigator';
 
 function RootNavigator() {
   // await splash screen to finish the animation and firebase to get connected and establish //
@@ -36,20 +27,7 @@ function RootNavigator() {
 
     return (
       <NavigationContainer>
-        {user ? (
-          <Drawer.Navigator
-            drawerContent={props => <CustomDrawer {...props} />}
-            screenOptions={{headerShown: false}}
-            swipeEdgeWidth={500}
-            >
-            <Drawer.Screen name="Chats" component={HomeScreen} />
-            <Drawer.Screen name="asd" component={AsdScreen} />
-            <Drawer.Screen name="asd2" component={Asd2Screen} />
-            <Drawer.Screen name="asd3" component={Asd3Screen} />
-          </Drawer.Navigator>
-        ) : (
-          <SignInScreen />
-        )}
+        {user ? <DrawerNavigator /> : <SignInScreen />}
       </NavigationContainer>
     );
   }
