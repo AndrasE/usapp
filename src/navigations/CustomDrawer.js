@@ -14,10 +14,10 @@ const CustomDrawer = props => {
     <View style={{flex: 1}}>
       <DrawerContentScrollView
         {...props}
-        contentContainerStyle={{backgroundColor: '#186d9c'}}>
+        contentContainerStyle={{paddingTop: 0}}>
         <ImageBackground
           source={require('../assets/drawercover.jpg')}
-          style={{height: 170, width: '100%'}}>
+          style={{height: 170, width: '100%', marginBottom:15}}>
           <Image
             source={{uri: profileImgUrl}}
             style={{
@@ -26,6 +26,8 @@ const CustomDrawer = props => {
               borderRadius: 40,
               margin: 10,
               alignSelf: 'flex-end',
+              borderColor: "white",
+              borderWidth: 1
             }}
           />
           <Text style={{ fontSize: 30,
@@ -43,10 +45,6 @@ const CustomDrawer = props => {
         </ImageBackground>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
-
-      <View>
-        <Text>alloooo</Text>
-      </View>
     </View>
   );
 };

@@ -70,20 +70,21 @@ export default function SignInScreen() {
         onPress={toggleModal}>
         privacy statement
       </Text>
+      <View style={{flexDirection: 'column'}}>
+        <Modal
+          isVisible={isModalVisible}
+          style={{
+            backgroundColor: 'white',
 
-      <Modal
-        isVisible={isModalVisible}
-        style={{
-          backgroundColor: 'white',
-          justifyContent: 'center',
-          borderRadius: 8,
-          alignItems: 'center',
-          marginTop: 75,
-          marginBottom: 75,
-          marginLeft: 45,
-          marginRight: 45,
-        }}>
-        <View style={{}}>
+            borderRadius: 8,
+
+            paddingTop: 55,
+            marginTop: 75,
+            marginBottom: 75,
+            paddingBottom: 55,
+            marginLeft: 45,
+            marginRight: 45,
+          }}>
           <Text
             style={{
               textAlign: 'center',
@@ -93,8 +94,10 @@ export default function SignInScreen() {
               margin: 16,
               bottom: 10,
               position: 'relative',
-              top: -30,
+              top: -10,
               letterSpacing: 5,
+              flex: 1,
+              justifyContent: 'flex-start',
             }}>
             Privacy
           </Text>
@@ -108,25 +111,28 @@ export default function SignInScreen() {
               margin: 16,
               bottom: 10,
               letterSpacing: 1.2,
-
+              flex: 4,
             }}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            and essentially unchanged. Idt was popularised in with the release
+            and essentially unchanged. Idt was popularised in with the release
+            of Letraset sheets containing Lorem Ipsum passages..asdasdasd
           </Text>
-          <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          <View
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              flex: 1,
+              justifyContent: 'flex-end',
+            }}>
             <LinearGradient
               start={{x: 0, y: 0}}
               end={{x: 1, y: 1}}
               locations={[0.0, 0.99]}
               colors={['#0065ff', '#6942ef']}
-              style={{padding: 2, marginTop: 20, borderRadius: 15}}>
+              style={{padding: 2, borderRadius: 15, }}>
               <Text
                 onPress={toggleModal}
                 style={{
@@ -134,16 +140,16 @@ export default function SignInScreen() {
                   fontFamily: 'SpaceMonoRegular',
                   color: 'white',
                   fontSize: 18,
-
                   width: 70,
+                  position: 'relative',
+                  top: -2
                 }}>
                 got it
               </Text>
             </LinearGradient>
           </View>
-        </View>
-      </Modal>
-
+        </Modal>
+      </View>
       <Image
         source={require('../assets/loading.gif')}
         style={{
