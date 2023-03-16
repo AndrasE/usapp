@@ -1,14 +1,21 @@
-import {Text, StyleSheet, View, Image, ImageBackground} from 'react-native';
+import {Text, View, Image, ImageBackground} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
 import {
   DrawerContentScrollView,
+  DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {useUserAuth} from '../config/context/userAuthContext';
 
+
 const CustomDrawer = props => {
-  const {user} = useUserAuth();
+  const {user, logOut} = useUserAuth();
   const profileImgUrl = user.photoURL;
+
+  function handleLogoutClick() {
+    logOut()
+  }
 
   return (
     <View style={{flex: 1}}>
@@ -57,6 +64,28 @@ const CustomDrawer = props => {
         </ImageBackground>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
+      <DrawerItem
+        inactiveBackgroundColor="#8AC7DB"
+        activeBackgroundColor="rgba(0, 0, gr0, .04)"
+        inactiveTintColor="white"
+        icon={({color, size}) => (
+          <Icon
+            name="exit-outline"
+            color={color}
+            size={25}
+            style={{marginLeft: 50}}
+          />
+        )}
+        label="Sign Out"
+        labelStyle={{
+          fontFamily: 'SpaceMonoRegular',
+          letterSpacing: 2,
+          fontSize: 17,
+        }}
+        onPress={() => {
+          handleLogoutClick();
+        }}
+      />
     </View>
   );
 };

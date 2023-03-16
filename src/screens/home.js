@@ -5,11 +5,11 @@ import Lottie from 'lottie-react-native';
 import {useUserAuth} from '../config/context/userAuthContext';
 
 export default function HomeScreen() {
-  const {user, logOut} = useUserAuth();
+  // const {user, logOut} = useUserAuth();
 
-  function handleLoginPress() {
-    logOut();
-  }
+  // function handleLoginPress() {
+  //   logOut();
+  // }
 
   return (
     <ImageBackground
@@ -29,7 +29,9 @@ export default function HomeScreen() {
             letterSpacing: 5,
             paddingTop: 75,
           }}>
-          Hi {user.displayName.split(' ')[0]}!
+          Hi 
+          {/* {user.displayName.split(' ')[0]} */}
+          !
         </Text>
       </Animated.View>
       <Animated.View entering={FadeIn.duration(500).delay(250)}>
@@ -65,7 +67,7 @@ export default function HomeScreen() {
           Search for other users by their gmail and start chatting
         </Text>
       </Animated.View>
-      <Button title="logout" onPress={handleLoginPress}></Button>
+      {/* <Button title="logout" onPress={handleLoginPress}></Button> */}
     </ImageBackground>
   );
 }
