@@ -1,19 +1,22 @@
 import React from 'react';
-import {createDrawerNavigator, DrawerItem} from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
-import {HomeScreen, AsdScreen, Asd2Screen, Asd3Screen} from './ScreensImport';
+import {HomeScreen, AsdScreen, Asd2Screen} from './ScreensImport';
+import {useUserTheme} from '../config/context/userThemeContext';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
+  const {colorful} = useUserTheme();
+
   return (
     <Drawer.Navigator
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor: '#3780a3',
+        drawerActiveBackgroundColor: colorful.bg1,
         drawerActiveTintColor: 'white',
         drawerLabelStyle: {
           fontFamily: 'SpaceMonoRegular',
@@ -82,7 +85,7 @@ function DrawerNavigator() {
           ),
         }}
       />
-    </Drawer.Navigator> 
+    </Drawer.Navigator>
   );
 }
 
