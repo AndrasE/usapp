@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
 import {useUserAuth} from './src/config/context/userAuthContext';
+import {UserThemeContextProvider} from './src/config/context/userThemeContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 
@@ -37,8 +37,10 @@ function RootNavigator() {
 // <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
 export default function App() {
   return (
-    <UserAuthContextProvider>
-      <RootNavigator />
-    </UserAuthContextProvider>
+    <UserThemeContextProvider>
+      <UserAuthContextProvider>
+        <RootNavigator />
+      </UserAuthContextProvider>
+    </UserThemeContextProvider>
   );
 }
