@@ -9,11 +9,14 @@ import {
 import {useUserAuth} from '../config/context/userAuthContext';
 import {useUserTheme} from '../config/context/userThemeContext';
 
+
+
+
 const CustomDrawer = props => {
   const {user, logOut} = useUserAuth();
   const profileImgUrl = user.photoURL;
 
-  const {setTheme} = useUserAuth();
+  const {ddd} = useUserTheme();
 
   function handleLogoutClick() {
     logOut();
@@ -71,9 +74,9 @@ const CustomDrawer = props => {
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <DrawerItem
-        inactiveBackgroundColor="#8AC7DB"
+        inactiveBackgroundColor="gray"
         inactiveTintColor="white"
-        label="asdasd"
+        label="themeswap"
         labelStyle={{
           fontFamily: 'SpaceMonoRegular',
           letterSpacing: 2,
