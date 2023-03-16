@@ -66,7 +66,6 @@ const CustomDrawer = props => {
       </DrawerContentScrollView>
       <DrawerItem
         inactiveBackgroundColor="#8AC7DB"
-        activeBackgroundColor="rgba(0, 0, gr0, .04)"
         inactiveTintColor="white"
         icon={({color, size}) => (
           <Icon
