@@ -18,13 +18,13 @@ const CustomDrawer = props => {
   }
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, marginBottom: 5}}>
       <DrawerContentScrollView
         {...props}
         contentContainerStyle={{paddingTop: 0}}>
         <ImageBackground
           source={require('../assets/drawercover.jpg')}
-          style={{height: 170, width: '100%', marginBottom: 15}}>
+          style={{height: 170, width: '100%', marginBottom: 6}}>
           <Image
             source={{uri: profileImgUrl}}
             style={{
