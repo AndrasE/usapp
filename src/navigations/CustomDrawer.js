@@ -7,21 +7,27 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {useUserAuth} from '../config/context/userAuthContext';
-
+import {useUserTheme} from '../config/context/userThemeContext';
 
 const CustomDrawer = props => {
   const {user, logOut} = useUserAuth();
   const profileImgUrl = user.photoURL;
 
+  const {setTheme} = useUserAuth();
+
   function handleLogoutClick() {
-    logOut()
+    logOut();
+  }
+
+  function themestuff() {
+    ddd();
   }
 
   return (
-    <View style={{flex: 1, paddingBottom: 5, backgroundColor: "#e2e5de"}}>
+    <View style={{flex: 1, paddingBottom: 5, backgroundColor: '#e2e5de'}}>
       <DrawerContentScrollView
         {...props}
-        contentContainerStyle={{paddingTop: 0, paddingBottom:0}}>
+        contentContainerStyle={{paddingTop: 0, paddingBottom: 0}}>
         <ImageBackground
           source={require('../assets/drawercover.jpg')}
           style={{height: 170, width: '100%', marginBottom: 6}}>
@@ -64,6 +70,19 @@ const CustomDrawer = props => {
         </ImageBackground>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
+      <DrawerItem
+        inactiveBackgroundColor="#8AC7DB"
+        inactiveTintColor="white"
+        label="asdasd"
+        labelStyle={{
+          fontFamily: 'SpaceMonoRegular',
+          letterSpacing: 2,
+          fontSize: 17,
+        }}
+        onPress={() => {
+          themestuff();
+        }}
+      />
       <DrawerItem
         inactiveBackgroundColor="#8AC7DB"
         inactiveTintColor="white"
