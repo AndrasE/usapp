@@ -9,14 +9,14 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
-  const {colorful} = useUserTheme();
+  const {theme} = useUserTheme();
 
   return (
     <Drawer.Navigator
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor: colorful.bg1,
+        drawerActiveBackgroundColor: theme.colorful.bg1,
         drawerActiveTintColor: 'white',
         drawerLabelStyle: {
           fontFamily: 'SpaceMonoRegular',
@@ -29,7 +29,7 @@ function DrawerNavigator() {
         name="Chats"
         component={HomeScreen}
         options={{
-          title: 'Home',
+          title: 'Chats',
           drawerIcon: ({color, size}) => (
             <Icon
               name="md-chatbubble-ellipses-outline"
