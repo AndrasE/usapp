@@ -19,7 +19,7 @@ export function UserThemeContextProvider({children}) {
 
  const [theme, setTheme] = useState(colorful)
   
-  function ddd () {
+  function ddd() {
     setTheme(dark)
   }
 
