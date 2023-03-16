@@ -18,10 +18,10 @@ const CustomDrawer = props => {
   }
 
   return (
-    <View style={{flex: 1, marginBottom: 5}}>
+    <View style={{flex: 1, paddingBottom: 5, backgroundColor: "#e2e5de"}}>
       <DrawerContentScrollView
         {...props}
-        contentContainerStyle={{paddingTop: 0}}>
+        contentContainerStyle={{paddingTop: 0, paddingBottom:0}}>
         <ImageBackground
           source={require('../assets/drawercover.jpg')}
           style={{height: 170, width: '100%', marginBottom: 6}}>
