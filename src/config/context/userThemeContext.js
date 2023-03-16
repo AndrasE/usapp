@@ -19,8 +19,13 @@ export function UserThemeContextProvider({children}) {
 
  const [theme, setTheme] = useState(colorful)
   
+  function ddd () {
+    setTheme(dark)
+  }
+
+
   return (
-    <userThemeContext.Provider value={{theme, setTheme}}>
+    <userThemeContext.Provider value={{theme, setTheme, ddd}}>
       {children}
     </userThemeContext.Provider>
   );
