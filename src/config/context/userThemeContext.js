@@ -17,7 +17,7 @@ export function UserThemeContextProvider({children}) {
     bg1: '#000000',
     bg2: '#000000'}
 
- const [theme, setTheme] = useState({colorful})
+ const [theme, setTheme] = useState(colorful)
   
   return (
     <userThemeContext.Provider value={{theme, setTheme}}>
