@@ -89,7 +89,7 @@ const CustomDrawer = props => {
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <DrawerItem
-        inactiveBackgroundColor={theme.textbg1}
+        inactiveBackgroundColor={theme.textbg2}
         inactiveTintColor={theme.text1}
         label="L I G H T"
         labelStyle={{
@@ -102,7 +102,7 @@ const CustomDrawer = props => {
         }}
       />
       <DrawerItem
-        inactiveBackgroundColor={theme.textbg1}
+        inactiveBackgroundColor={theme.textbg2}
         inactiveTintColor={theme.text1}
         label="D A R K"
         labelStyle={{
@@ -115,7 +115,7 @@ const CustomDrawer = props => {
         }}
       />
       <DrawerItem
-        inactiveBackgroundColor={theme.textbg1}
+        inactiveBackgroundColor={theme.textbg2}
         inactiveTintColor={theme.text1}
         icon={({color, size}) => (
           <Icon
