@@ -16,8 +16,9 @@ function DrawerNavigator() {
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor: theme.bg1,
-        drawerActiveTintColor: 'white',
+        drawerActiveBackgroundColor: theme.textbg1,
+        drawerActiveTintColor: theme.text1,
+        drawerInactiveTintColor: theme.text2,
         drawerLabelStyle: {
           fontFamily: 'SpaceMonoRegular',
           letterSpacing: 2,
@@ -80,7 +81,7 @@ function DrawerNavigator() {
               name="md-partly-sunny-outline"
               size={25}
               color={color}
-              style={{marginLeft: 50,}}
+              style={{marginLeft: 50}}
             />
           ),
         }}
