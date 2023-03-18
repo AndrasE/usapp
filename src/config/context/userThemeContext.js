@@ -1,5 +1,4 @@
 import React, {createContext, useContext, useState} from 'react';
-import images from '../../navigations/DrawerBgImages';
 
 const userThemeContext = createContext();
 
@@ -12,6 +11,7 @@ export function UserThemeContextProvider({children}) {
     textbg2: '#3780a3',
     profpicborder: '#FFFFFF',
     drawerbg: '#FFFFFF',
+    togglebg: '#FFFFFF'
   };
 
   const dark = {
@@ -22,10 +22,12 @@ export function UserThemeContextProvider({children}) {
     textbg2: '#000000',
     profpicborder: '#b3b3b3',
     drawerbg: '#333333',
+    togglebg: '#333333'
   };
 
   const [theme, setTheme] = useState(light);
 
+  
   function setUserDarkTheme() {
     setTheme(dark);
   }
@@ -33,9 +35,15 @@ export function UserThemeContextProvider({children}) {
     setTheme(light);
   }
 
+  function setUserTheme() {
+    setTheme(dark);
+   
+  }
+
   return (
     <userThemeContext.Provider
-      value={{theme, setUserDarkTheme, setUserLightTheme}}>
+
+      value={{theme, setUserTheme ,setUserDarkTheme, setTheme, setUserLightTheme}}>
       {children}
     </userThemeContext.Provider>
   );

@@ -9,15 +9,27 @@ import {
 import {useUserAuth} from '../config/context/userAuthContext';
 import {useUserTheme} from '../config/context/userThemeContext';
 import images from './DrawerBgImages';
+import SwitchSelector from 'react-native-switch-selector';
 
 const CustomDrawer = props => {
   const {user, logOut} = useUserAuth();
   const profileImgUrl = user.photoURL;
 
-  const {theme, setUserDarkTheme, setUserLightTheme} = useUserTheme();
+  const {theme, setUserTheme, setUserDarkTheme, setUserLightTheme} =
+    useUserTheme();
 
   function handleLogoutClick() {
     logOut();
+  }
+
+  function handleUserThemeChoice(value) {
+    if (value == "light") {
+      setUserLightTheme();
+    } if (value == "dark") { 
+        setUserDarkTheme();
+    } else {
+      null
+    }
   }
 
   function handleDarkThemeClick() {
@@ -88,6 +100,32 @@ const CustomDrawer = props => {
         </ImageBackground>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
+      <View style={{marginLeft: 9, marginRight: 9, marginBottom: 5}}>
+        <SwitchSelector
+          initial={0}
+          fontSize={15}
+          selectedTextStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
+          textStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
+          height={45}
+          borderWidth={1.5}
+          borderRadius={5}
+          padding={11}
+          onPress={value => {
+            handleUserThemeChoice(value)
+          }}
+          textColor={theme.text2}
+          backgroundColor={theme.togglebg}
+          selectedColor={theme.text1}
+          buttonColor={theme.textbg2}
+          borderColor={theme.textbg2}
+          hasPadding
+          options={[
+            {label: 'light', value: 'light'},
+            {label: 'default', value: 'default'},
+            {label: 'dark', value: 'dark'},
+          ]}
+        />
+      </View>
       <DrawerItem
         inactiveBackgroundColor={theme.textbg2}
         inactiveTintColor={theme.text1}
