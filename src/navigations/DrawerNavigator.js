@@ -1,7 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
-import {HomeScreen, AsdScreen, Asd2Screen} from './ScreensImport';
+import {HomeScreen, AsdScreen, Asd2Screen, Asd3Screen} from './ScreensImport';
 import {useUserTheme} from '../config/context/userThemeContext';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -73,7 +73,7 @@ function DrawerNavigator() {
       />
       <Drawer.Screen
         name="Theme"
-        component={Asd2Screen}
+        component={Asd3Screen}
         options={{
           title: 'Theme',
           drawerIcon: ({color, size}) => (
