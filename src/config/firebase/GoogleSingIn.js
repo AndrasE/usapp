@@ -1,6 +1,22 @@
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
-import { userAuthContext } from '../context/userAuthContext'
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDcrW4flxv6Pi0ejQZ45IQ9psjFDnU8k6U",
+  authDomain: "usapp-1d1ea.firebaseapp.com",
+  databaseURL: "https://usapp-1d1ea-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "usapp-1d1ea",
+  storageBucket: "usapp-1d1ea.appspot.com",
+  messagingSenderId: "826456309695",
+  appId: "1:826456309695:web:ded484e944c7448a406b0a"
+};
+
+// Initialize Firebase
+
 
 export const _signInWithGoogle = async () => {
   try {
