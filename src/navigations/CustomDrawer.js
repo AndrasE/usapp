@@ -13,7 +13,7 @@ import SwitchSelector from 'react-native-switch-selector';
 
 const CustomDrawer = props => {
   const {user, logOut} = useUserAuth();
-  const profileImgUrl = user.photoURL;
+  const profileImgUrl = user.photo;
 
   const {theme, setUserTheme, setUserDarkTheme, setUserLightTheme} =
     useUserTheme();
@@ -83,7 +83,7 @@ const CustomDrawer = props => {
               textAlign: 'right',
             }}>
             {' '}
-            {user.displayName.split(' ')[0]}
+            {user.name.split(' ')[0]}
           </Text>
           <Text
             style={{
