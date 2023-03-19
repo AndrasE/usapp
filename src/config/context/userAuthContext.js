@@ -5,8 +5,7 @@ import initalizeFirebaseDb from '../firebase/Firebase';
 
 //imported here  from Firebase.js so when authentication happen firebase is initalized as well, otherwise will be error:
 //Firebase: Need to provide options, when not being deployed to hosting via source. (app/no-options)
-
-initalizeFirebaseDb
+initalizeFirebaseDb;
 
 const userAuthContext = createContext();
 
