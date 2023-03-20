@@ -17,10 +17,9 @@ const userAuthContext = createContext();
 export function UserAuthContextProvider({children}) {
   //imported from Firebase.js so when authentication happen firebase is initalized as well, otherwise will be error || connect to firebaseDb//
   initalizeFirebaseDb;
- 
 
   const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
+  const [userDetails, setUserDetails] = useState();
   const [email, setEmail] = useState(null);
   const [users, setUsers] = useState([]);
   const [userToAdd, setUserToAdd] = useState(null);
@@ -51,7 +50,7 @@ export function UserAuthContextProvider({children}) {
         setMyData(newUserObj);
       }
 
-      // console.log(database);
+      console.log(database);
     } catch (error) {
       console.error(error);
     }
@@ -67,24 +66,21 @@ export function UserAuthContextProvider({children}) {
   //handle user state changes on login saves user
   function onAuthStateChanged(user) {
     if (user != null) {
-      setEmail(user.email);
-
-      setUser({
-        email: user.email,
+      setUserDetails({
         name: user.displayName,
+        email: user.email,
         photo: user.photoURL,
+        theme: "default"
       });
-      console.log(user);
-
-      checkUserInDb(user);
+      // checkUserInDb(user);
     } else {
-      setUser(null);
+      setUserDetails(null);
     }
-    // console.log(user);
     if (initializing) setInitializing(false);
     // console.log('User initializing ===>', initializing);
-    if (initializing) return null;
-    // console.log('User initializing ===>', initializing);
+    if (initializing) 
+    console.log('User initializing ===>', initializing);
+    return null;
   }
 
   useEffect(() => {
@@ -100,7 +96,7 @@ export function UserAuthContextProvider({children}) {
 
   return (
     <userAuthContext.Provider
-      value={{user, initializing, _signInWithGoogle, logOut}}>
+      value={{userDetails, initializing, _signInWithGoogle, logOut}}>
       {children}
     </userAuthContext.Provider>
   );
