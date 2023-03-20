@@ -12,8 +12,8 @@ import images from './DrawerBgImages';
 import SwitchSelector from 'react-native-switch-selector';
 
 const CustomDrawer = props => {
-  const {user, logOut} = useUserAuth();
-  const profileImgUrl = user.photo;
+  const {userDetails, logOut} = useUserAuth();
+  const profileImgUrl = userDetails.photo;
 
   const {theme, setUserTheme, setUserDarkTheme, setUserLightTheme} =
     useUserTheme();
@@ -23,12 +23,13 @@ const CustomDrawer = props => {
   }
 
   function handleUserThemeChoice(value) {
-    if (value == "light") {
+    if (value == 'light') {
       setUserLightTheme();
-    } if (value == "dark") { 
-        setUserDarkTheme();
+    }
+    if (value == 'dark') {
+      setUserDarkTheme();
     } else {
-      null
+      null;
     }
   }
 
@@ -83,7 +84,7 @@ const CustomDrawer = props => {
               textAlign: 'right',
             }}>
             {' '}
-            {user.name.split(' ')[0]}
+            {userDetails.name.split(' ')[0]}
           </Text>
           <Text
             style={{
@@ -95,7 +96,7 @@ const CustomDrawer = props => {
               textAlign: 'right',
             }}>
             {' '}
-            {user.email}
+            {userDetails.email}
           </Text>
         </ImageBackground>
         <DrawerItemList {...props} />
@@ -111,7 +112,7 @@ const CustomDrawer = props => {
           borderRadius={5}
           padding={11}
           onPress={value => {
-            handleUserThemeChoice(value)
+            handleUserThemeChoice(value);
           }}
           textColor={theme.text2}
           backgroundColor={theme.togglebg}

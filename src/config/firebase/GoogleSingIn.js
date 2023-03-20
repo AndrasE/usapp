@@ -11,7 +11,6 @@ export const _signInWithGoogle = async () => {
     });
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
-    // this.setState({ userInfo });
     const {idToken} = await GoogleSignin.signIn();
     const googleCredentials = auth.GoogleAuthProvider.credential(idToken);
     auth().signInWithCredential(googleCredentials);
