@@ -26,60 +26,59 @@ export function UserAuthContextProvider({children}) {
   const [selectedUser, setSelectedUser] = useState(null);
   const [myData, setMyData] = useState(null);
 
-  async function checkUserInDb(user) {
+  async function checkUserInDb() {
     console.log('checking user in db');
-    console.log(user.email);
+    console.log(email);
     console.log('====================================');
     try {
       const database = getDatabase();
       //first check if the user registered before
 
-      const userObj = await findUser(email);
+      const userObj = await findUser(userDetails.name);
 
       if (userObj) {
         setMyData(userObj);
       } else {
         const newUserObj = {
-          name: user.displayName,
-          photo: user.photoURL,
-          email: user.email,
+          name: userDetails.name, 
+          photo: userDetails.photo,
+          email: userDetails.email,
           theme: 'light',
         };
-
-        set(ref(database, `users/${email}`), newUserObj);
+        set(ref(database, `users/${userDetails.name}`), newUserObj);
         setMyData(newUserObj);
       }
-
-      console.log(database);
+      // console.log(database);
     } catch (error) {
       console.error(error);
     }
   }
 
-  //finduser called in checkUserInDb
-  const findUser = async email => {
-    const database = getDatabase();
+    //  finduser called in checkUserInDb
+   const findUser = async email => {
+   const database = getDatabase();
     const mySnapshot = await get(ref(database, `users/${email}`));
     return mySnapshot.val();
   };
 
   //handle user state changes on login saves user
   function onAuthStateChanged(user) {
-    if (user != null) {
+    if (user !== null) {
+      // console.log(user);
       setUserDetails({
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,
-        theme: "default"
+        theme: 'default',
       });
-      // checkUserInDb(user);
+      setEmail(user.email)
+      checkUserInDb()
     } else {
       setUserDetails(null);
     }
     if (initializing) setInitializing(false);
     // console.log('User initializing ===>', initializing);
-    if (initializing) 
-    console.log('User initializing ===>', initializing);
+    if (initializing) console.log('User initializing ===>', initializing);
     return null;
   }
 
