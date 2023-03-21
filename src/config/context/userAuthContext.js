@@ -28,9 +28,8 @@ export function UserAuthContextProvider({children}) {
 
   const checkUserInDb = async () => {
     console.log('====================================');
-console.log(userDetails)
-
-  }
+    console.log(userDetails);
+  };
 
   //  finduser called in checkUserInDb
   const findUser = async email => {
@@ -56,15 +55,13 @@ console.log(userDetails)
   }
 
   if (userDetails !== null && initializing === false) {
-    setTimeout(checkUserInDb, 1500)
+    setTimeout(checkUserInDb, 1500);
   }
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);
-
- 
 
   function logOut() {
     auth()
@@ -74,7 +71,7 @@ console.log(userDetails)
 
   return (
     <userAuthContext.Provider
-      value={{initializing, _signInWithGoogle, userDetails,logOut}}>
+      value={{initializing, _signInWithGoogle, userDetails, logOut}}>
       {children}
     </userAuthContext.Provider>
   );
