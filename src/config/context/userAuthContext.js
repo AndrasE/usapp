@@ -29,6 +29,28 @@ export function UserAuthContextProvider({children}) {
   const checkUserInDb = async () => {
     console.log('====================================');
     console.log(userDetails);
+    try {
+      const database = getDatabase();
+      //first check if the user registered before
+  
+      const userObj = await findUser(userDetails.name);
+  
+      if (userObj) {
+        setMyData(userObj);
+      } else {
+        const newUserObj = {
+          name: userDetails.name,
+          photo: userDetails.photo,
+          email: userDetails.email,
+          theme: 'light',
+        };
+        set(ref(database, `users/${userDetails.name}`), newUserObj);
+        setMyData(newUserObj);
+      }
+      // console.log(database);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   //  finduser called in checkUserInDb
@@ -55,7 +77,7 @@ export function UserAuthContextProvider({children}) {
   }
 
   if (userDetails !== null && initializing === false) {
-    setTimeout(checkUserInDb, 1500);
+    checkUserInDb()
   }
 
   useEffect(() => {
