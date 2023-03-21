@@ -20,43 +20,21 @@ export function UserAuthContextProvider({children}) {
 
   const [initializing, setInitializing] = useState(true);
   const [userDetails, setUserDetails] = useState();
-  const [email, setEmail] = useState(null);
   const [users, setUsers] = useState([]);
   const [userToAdd, setUserToAdd] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
   const [myData, setMyData] = useState(null);
+  const [user, setUser] = useState();
 
-  async function checkUserInDb() {
-    console.log('checking user in db');
-    console.log(email);
+  const checkUserInDb = async () => {
     console.log('====================================');
-    try {
-      const database = getDatabase();
-      //first check if the user registered before
+console.log(userDetails)
 
-      const userObj = await findUser(userDetails.name);
-
-      if (userObj) {
-        setMyData(userObj);
-      } else {
-        const newUserObj = {
-          name: userDetails.name, 
-          photo: userDetails.photo,
-          email: userDetails.email,
-          theme: 'light',
-        };
-        set(ref(database, `users/${userDetails.name}`), newUserObj);
-        setMyData(newUserObj);
-      }
-      // console.log(database);
-    } catch (error) {
-      console.error(error);
-    }
   }
 
-    //  finduser called in checkUserInDb
-   const findUser = async email => {
-   const database = getDatabase();
+  //  finduser called in checkUserInDb
+  const findUser = async email => {
+    const database = getDatabase();
     const mySnapshot = await get(ref(database, `users/${email}`));
     return mySnapshot.val();
   };
@@ -64,28 +42,29 @@ export function UserAuthContextProvider({children}) {
   //handle user state changes on login saves user
   function onAuthStateChanged(user) {
     if (user !== null) {
-      // console.log(user);
       setUserDetails({
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,
         theme: 'default',
       });
-      setEmail(user.email)
-      checkUserInDb()
+      if (initializing) setInitializing(false);
     } else {
       setUserDetails(null);
+      setInitializing(true);
     }
-    if (initializing) setInitializing(false);
-    // console.log('User initializing ===>', initializing);
-    if (initializing) console.log('User initializing ===>', initializing);
-    return null;
+  }
+
+  if (userDetails !== null && initializing === false) {
+    setTimeout(checkUserInDb, 1500)
   }
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);
+
+ 
 
   function logOut() {
     auth()
@@ -95,7 +74,7 @@ export function UserAuthContextProvider({children}) {
 
   return (
     <userAuthContext.Provider
-      value={{userDetails, initializing, _signInWithGoogle, logOut}}>
+      value={{initializing, _signInWithGoogle, userDetails,logOut}}>
       {children}
     </userAuthContext.Provider>
   );
