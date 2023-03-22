@@ -13,7 +13,7 @@ import SwitchSelector from 'react-native-switch-selector';
 
 const CustomDrawer = props => {
   const {user, logOut} = useUserAuth();
-  const {theme, setUserThemeFunction, imgSource, toggleBtnState} =
+  const {theme, setUserThemeFunction, imgSource, toggleBtnState, textSize} =
     useUserTheme();
 
   const profileImgUrl = user.photoURL;
@@ -44,7 +44,7 @@ const CustomDrawer = props => {
           />
           <Text
             style={{
-              fontSize: 30,
+              fontSize: textSize.nameHeader,
               fontFamily: 'SpaceMonoRegular',
               color: theme.text1,
               letterSpacing: 5,
@@ -56,7 +56,7 @@ const CustomDrawer = props => {
           </Text>
           <Text
             style={{
-              fontSize: 15,
+              fontSize: textSize.emailHeader,
               fontFamily: 'SpaceMonoRegular',
               color: theme.text1,
               letterSpacing: 3,
@@ -71,14 +71,14 @@ const CustomDrawer = props => {
       </DrawerContentScrollView>
       <View style={{marginLeft: 9, marginRight: 9, marginBottom: 5}}>
         <SwitchSelector
+        style={{marginBottom: 7}}
           initial={toggleBtnState}
-          fontSize={15}
+          fontSize={textSize.drawerItems}
           selectedTextStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
           textStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
           height={45}
           borderWidth={1.5}
           borderRadius={5}
-          padding={11}
           onPress={value => {
             setUserThemeFunction(value);
           }}
@@ -94,6 +94,30 @@ const CustomDrawer = props => {
             {label: 'dark', value: 'dark'},
           ]}
         />
+        <SwitchSelector
+        style={{marginBottom: 20}}
+          initial={toggleBtnState}
+          fontSize={textSize.drawerItems}
+          selectedTextStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
+          textStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
+          height={45}
+          borderWidth={1.5}
+          borderRadius={5}
+          onPress={value => {
+            setUserThemeFunction(value);
+          }}
+          textColor={theme.text2}
+          backgroundColor={theme.togglebg}
+          selectedColor={theme.text1}
+          buttonColor={theme.textbg2}
+          borderColor={theme.textbg2}
+          hasPadding
+          options={[
+            {label: 's', value: 'light'},
+            {label: 'm', value: 'waifu'},
+            {label: 'l', value: 'dark'},
+          ]}
+        />
       </View>
       <DrawerItem
         inactiveBackgroundColor={theme.textbg2}
@@ -102,7 +126,7 @@ const CustomDrawer = props => {
           <Icon
             name="exit-outline"
             color={color}
-            size={25}
+            size={textSize.drawerItemsIcon}
             style={{marginLeft: 50}}
           />
         )}
@@ -110,7 +134,7 @@ const CustomDrawer = props => {
         labelStyle={{
           fontFamily: 'SpaceMonoRegular',
           letterSpacing: 2,
-          fontSize: 17,
+          fontSize: textSize.drawerItems,
         }}
         onPress={() => {
           handleLogoutClick();

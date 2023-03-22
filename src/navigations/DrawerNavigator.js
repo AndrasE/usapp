@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
-  const {theme} = useUserTheme();
+  const {theme, textSize} = useUserTheme();
 
   return (
     <Drawer.Navigator
@@ -22,7 +22,7 @@ function DrawerNavigator() {
         drawerLabelStyle: {
           fontFamily: 'SpaceMonoRegular',
           letterSpacing: 2,
-          fontSize: 17,
+          fontSize: textSize.drawerItems,
         },
       }}
       swipeEdgeWidth={500}>
@@ -34,7 +34,7 @@ function DrawerNavigator() {
           drawerIcon: ({color, size}) => (
             <Icon
               name="md-chatbubble-ellipses-outline"
-              size={25}
+              size={textSize.drawerItemsIcon}
               color={color}
               style={{marginLeft: 50}}
             />
@@ -49,7 +49,7 @@ function DrawerNavigator() {
           drawerIcon: ({color, size}) => (
             <Icon
               name="search-sharp"
-              size={25}
+              size={textSize.drawerItemsIcon}
               color={color}
               style={{marginLeft: 50}}
             />
@@ -64,7 +64,7 @@ function DrawerNavigator() {
           drawerIcon: ({color, size}) => (
             <Icon
               name="md-git-compare"
-              size={25}
+              size={textSize.drawerItemsIcon}
               color={color}
               style={{marginLeft: 50}}
             />
@@ -79,7 +79,7 @@ function DrawerNavigator() {
           drawerIcon: ({color, size}) => (
             <Icon
               name="md-partly-sunny-outline"
-              size={25}
+              size={textSize.drawerItemsIcon}
               color={color}
               style={{marginLeft: 50}}
             />
@@ -91,4 +91,3 @@ function DrawerNavigator() {
 }
 
 export default DrawerNavigator;
-// const styles = StyleSheet.create({})
