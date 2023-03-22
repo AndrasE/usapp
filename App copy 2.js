@@ -12,8 +12,6 @@ const App = () => {
 
 
   return (
-
-      
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
