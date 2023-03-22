@@ -45,7 +45,7 @@ export function UserThemeContextProvider({children}) {
     preferencesText: 13,
   };
 
-  const normal = {
+  const medium = {
     nameHeader: 29,
     emailHeader: 15,
     drawerItems: 17,
@@ -61,37 +61,54 @@ export function UserThemeContextProvider({children}) {
     preferencesText: 17,
   };
 
-
   const [theme, setTheme] = useState(waifu);
-  const [textSize, setTextSize] = useState(normal)
+  const [textSize, setTextSize] = useState(medium)
   // required to dinamically load images, as React Native doesn't deal with dynamic images, only static images
   // get name of theme from userThemeContext and set the require path from DrawerBgImages.js
   // https://stackoverflow.com/questions/30854232/react-native-image-require-module-using-dynamic-names
   const [imgSource, setImageSource] = useState(images.waifu.uri);
-  const [toggleBtnState, setToggleBtnState] = useState(1);
+  const [toggleThemeBtnState, setToggleThemeBtnState] = useState(1);
+  const [toggleTextSizeBtnState, setTextSizeBtnState] = useState(1);
 
   function setUserThemeFunction(value) {
     switch (value) {
       case 'light':
         setTheme(light);
         setImageSource(images.light.uri);
-        setToggleBtnState(0);
+        setToggleThemeBtnState(0);
         break;
       case 'waifu':
         setTheme(waifu);
         setImageSource(images.waifu.uri);
-        setToggleBtnState(1);
+        setToggleThemeBtnState(1);
         break;
       case 'dark':
         setTheme(dark);
         setImageSource(images.dark.uri);
-        setToggleBtnState(2);
+        setToggleThemeBtnState(2);
+        break;
+    }
+  }
+
+  function setUserTextSizeFunction(value) {
+    switch (value) {
+      case 'small':
+        setTextSize(small)
+        setTextSizeBtnState(0);
+        break;
+      case 'medium':
+        setTextSize(medium)
+        setTextSizeBtnState(1);
+        break;
+      case 'large':
+        setTextSize(large)
+        setTextSizeBtnState(2);
         break;
     }
   }
 
   return (
-    <userThemeContext.Provider value={{theme, setUserThemeFunction, imgSource, toggleBtnState, textSize}}>
+    <userThemeContext.Provider value={{theme, setUserThemeFunction, imgSource, toggleThemeBtnState, textSize, setUserTextSizeFunction, toggleTextSizeBtnState}}>
       {children}
     </userThemeContext.Provider>
   );
