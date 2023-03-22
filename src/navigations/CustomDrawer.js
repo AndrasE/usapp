@@ -107,12 +107,11 @@ const CustomDrawer = props => {
           hasPadding
           options={[
             {label: 'light', value: 'light'},
-            {label: 'default', value: 'origin'},
+            {label: 'cute', value: 'origin'},
             {label: 'dark', value: 'dark'},
           ]}
         />
       </View>
-
       <DrawerItem
         inactiveBackgroundColor={theme.textbg2}
         inactiveTintColor={theme.text1}
