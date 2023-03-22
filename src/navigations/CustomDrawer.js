@@ -1,14 +1,14 @@
 import {Text, View, Image, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import React, {useState} from 'react';
+import React from 'react';
 import {
+  Drawer,
   DrawerContentScrollView,
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {useUserAuth} from '../config/context/userAuthContext';
 import {useUserTheme} from '../config/context/userThemeContext';
-import images from './DrawerBgImages';
 import SwitchSelector from 'react-native-switch-selector';
 
 const CustomDrawer = props => {
@@ -70,8 +70,15 @@ const CustomDrawer = props => {
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <View style={{marginLeft: 9, marginRight: 9, marginBottom: 5}}>
+        <View style={{flexDirection: 'row', alignItems: 'center', marginBottom:5}}>
+          <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
+          <View>
+            <Text style={{fontWeight: 400 ,textAlign: 'center', color: theme.text2, fontSize: textSize.preferences}}>  preferences  </Text>
+          </View>
+          <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
+        </View>
         <SwitchSelector
-        style={{marginBottom: 7}}
+          style={{marginBottom: 7}}
           initial={toggleBtnState}
           fontSize={textSize.drawerItems}
           selectedTextStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
@@ -95,7 +102,8 @@ const CustomDrawer = props => {
           ]}
         />
         <SwitchSelector
-        style={{marginBottom: 20}}
+                  style={{marginBottom: 12}}
+
           initial={toggleBtnState}
           fontSize={textSize.drawerItems}
           selectedTextStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
@@ -118,7 +126,14 @@ const CustomDrawer = props => {
             {label: 'l', value: 'dark'},
           ]}
         />
+       <View>
+        <View style={{flexDirection: 'row', alignItems: 'center', marginBottom:5}}>
+          <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
+          <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
+        </View>
+        </View>
       </View>
+      
       <DrawerItem
         inactiveBackgroundColor={theme.textbg2}
         inactiveTintColor={theme.text1}
