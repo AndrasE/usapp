@@ -24,11 +24,11 @@ function RootNavigator() {
 
   function HomeStack() {
     // if user exist ergo != null conditinally rendering the stack screen home or login//
-    const {userDetails, checkUserInDb} = useUserAuth();
+    const {user} = useUserAuth();
     // console.log("Accessing it by user ===>",userDetails);
     return (
       <NavigationContainer>
-        {userDetails ? <DrawerNavigator /> : <SignInScreen />}
+        {user ? <DrawerNavigator /> : <SignInScreen />}
       </NavigationContainer>
     );
   }

@@ -12,8 +12,8 @@ import images from './DrawerBgImages';
 import SwitchSelector from 'react-native-switch-selector';
 
 const CustomDrawer = props => {
-  const {userDetails, logOut} = useUserAuth();
-  const profileImgUrl = userDetails.photo;
+  const {user, logOut} = useUserAuth();
+  const profileImgUrl = user.photoURL;
 
   const {theme, setUserTheme, setUserDarkTheme, setUserLightTheme} =
     useUserTheme();
@@ -84,7 +84,7 @@ const CustomDrawer = props => {
               textAlign: 'right',
             }}>
             {' '}
-            {userDetails.name.split(' ')[0]}
+            {user.displayName.split(' ')[0]}
           </Text>
           <Text
             style={{
@@ -96,7 +96,7 @@ const CustomDrawer = props => {
               textAlign: 'right',
             }}>
             {' '}
-            {userDetails.email}
+            {user.email}
           </Text>
         </ImageBackground>
         <DrawerItemList {...props} />
