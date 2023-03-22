@@ -15,14 +15,14 @@ export function UserThemeContextProvider({children}) {
   };
 
   const origin = {
-    name: 'light',
+    name: 'origin',
     text1: '#FFFFFF',
     text2: '#000000',
-    textbg1: '#63b4cf',
-    textbg2: '#3780a3',
-    profpicborder: '#FFFFFF',
-    drawerbg: '#FFFFFF',
-    togglebg: '#FFFFFF',
+    textbg1: '#FF577F',
+    textbg2: '#FF577F',
+    profpicborder: '#FFACAC',
+    drawerbg: '#FFACAC',
+    togglebg: '#FFACAC',
   };
 
   const dark = {
@@ -36,7 +36,7 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#333333',
   };
 
-  const [theme, setTheme] = useState(light);
+  const [theme, setTheme] = useState(origin);
 
   function setUserTheme(value) {
     switch (value) {

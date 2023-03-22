@@ -3,7 +3,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
 import {useUserAuth} from './src/config/context/userAuthContext';
 import {UserThemeContextProvider} from './src/config/context/userThemeContext';
-import {UserDbContextProvider} from './src/config/context/userDbContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 
@@ -38,12 +37,10 @@ function RootNavigator() {
 // <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
 export default function App() {
   return (
-    <UserDbContextProvider>
       <UserAuthContextProvider>
         <UserThemeContextProvider>
           <RootNavigator />
         </UserThemeContextProvider>
       </UserAuthContextProvider>
-    </UserDbContextProvider>
   );
 }
