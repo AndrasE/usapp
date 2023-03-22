@@ -15,31 +15,16 @@ const CustomDrawer = props => {
   const {user, logOut} = useUserAuth();
   const profileImgUrl = user.photoURL;
 
-  const {theme, setUserTheme, setUserDarkTheme, setUserLightTheme} =
-    useUserTheme();
+  const {theme, setUserTheme} = useUserTheme();
 
   function handleLogoutClick() {
     logOut();
   }
 
   function handleUserThemeChoice(value) {
-    if (value == 'light') {
-      setUserLightTheme();
-    }
-    if (value == 'dark') {
-      setUserDarkTheme();
-    } else {
-      null;
-    }
+    setUserTheme(value);
   }
 
-  function handleDarkThemeClick() {
-    setUserDarkTheme();
-  }
-
-  function handleLightThemeClick() {
-    setUserLightTheme();
-  }
   // required to dinamically load images, as React Native doesn't deal with dynamic images, only static images
   // get name of theme from userThemeContext and set the require path from DrawerBgImages.js
   // https://stackoverflow.com/questions/30854232/react-native-image-require-module-using-dynamic-names
@@ -122,37 +107,12 @@ const CustomDrawer = props => {
           hasPadding
           options={[
             {label: 'light', value: 'light'},
-            {label: 'default', value: 'default'},
+            {label: 'default', value: 'origin'},
             {label: 'dark', value: 'dark'},
           ]}
         />
       </View>
-      <DrawerItem
-        inactiveBackgroundColor={theme.textbg2}
-        inactiveTintColor={theme.text1}
-        label="L I G H T"
-        labelStyle={{
-          fontFamily: 'SpaceMonoRegular',
-          letterSpacing: 2,
-          fontSize: 17,
-        }}
-        onPress={() => {
-          handleLightThemeClick();
-        }}
-      />
-      <DrawerItem
-        inactiveBackgroundColor={theme.textbg2}
-        inactiveTintColor={theme.text1}
-        label="D A R K"
-        labelStyle={{
-          fontFamily: 'SpaceMonoRegular',
-          letterSpacing: 2,
-          fontSize: 17,
-        }}
-        onPress={() => {
-          handleDarkThemeClick();
-        }}
-      />
+
       <DrawerItem
         inactiveBackgroundColor={theme.textbg2}
         inactiveTintColor={theme.text1}
@@ -179,4 +139,3 @@ const CustomDrawer = props => {
 };
 
 export default CustomDrawer;
-// const styles = StyleSheet.create({})
