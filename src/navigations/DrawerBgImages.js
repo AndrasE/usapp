@@ -5,8 +5,8 @@ const images = {
   light: {
     uri: require('../assets/lightdrawercover.jpg'),
   },
-  origin: {
-    uri: require('../assets/darkdrawercover.jpg'),
+  waifu: {
+    uri: require('../assets/waifudrawercover.png'),
   },
   dark: {
     uri: require('../assets/darkdrawercover.jpg'),

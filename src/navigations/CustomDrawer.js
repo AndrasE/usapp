@@ -1,6 +1,6 @@
 import {Text, View, Image, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   DrawerContentScrollView,
   DrawerItem,
@@ -13,30 +13,13 @@ import SwitchSelector from 'react-native-switch-selector';
 
 const CustomDrawer = props => {
   const {user, logOut} = useUserAuth();
-  const profileImgUrl = user.photoURL;
+  const {theme, setUserThemeFunction, imgSource, toggleBtnState} =
+    useUserTheme();
 
-  const {theme, setUserTheme} = useUserTheme();
+  const profileImgUrl = user.photoURL;
 
   function handleLogoutClick() {
     logOut();
-  }
-
-  function handleUserThemeChoice(value) {
-    setUserTheme(value);
-  }
-
-  // required to dinamically load images, as React Native doesn't deal with dynamic images, only static images
-  // get name of theme from userThemeContext and set the require path from DrawerBgImages.js
-  // https://stackoverflow.com/questions/30854232/react-native-image-require-module-using-dynamic-names
-  let imgSource = null;
-
-  if (theme.name == 'light') {
-    imgSource = images.light.uri;
-  }
-  if (theme.name == 'dark') {
-    imgSource = images.dark.uri;
-  } else {
-    imgSource = images.light.uri;
   }
 
   return (
@@ -88,7 +71,7 @@ const CustomDrawer = props => {
       </DrawerContentScrollView>
       <View style={{marginLeft: 9, marginRight: 9, marginBottom: 5}}>
         <SwitchSelector
-          initial={1}
+          initial={toggleBtnState}
           fontSize={15}
           selectedTextStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
           textStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
@@ -97,7 +80,7 @@ const CustomDrawer = props => {
           borderRadius={5}
           padding={11}
           onPress={value => {
-            handleUserThemeChoice(value);
+            setUserThemeFunction(value);
           }}
           textColor={theme.text2}
           backgroundColor={theme.togglebg}
@@ -107,7 +90,7 @@ const CustomDrawer = props => {
           hasPadding
           options={[
             {label: 'light', value: 'light'},
-            {label: 'waifu', value: 'origin'},
+            {label: 'waifu', value: 'waifu'},
             {label: 'dark', value: 'dark'},
           ]}
         />
