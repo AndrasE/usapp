@@ -62,7 +62,7 @@ export function UserThemeContextProvider({children}) {
   };
 
   const [theme, setTheme] = useState(waifu);
-  const [textSize, setTextSize] = useState(medium)
+  const [textSize, setTextSize] = useState(medium);
   // required to dinamically load images, as React Native doesn't deal with dynamic images, only static images
   // get name of theme from userThemeContext and set the require path from DrawerBgImages.js
   // https://stackoverflow.com/questions/30854232/react-native-image-require-module-using-dynamic-names
@@ -93,22 +93,31 @@ export function UserThemeContextProvider({children}) {
   function setUserTextSizeFunction(value) {
     switch (value) {
       case 'small':
-        setTextSize(small)
+        setTextSize(small);
         setTextSizeBtnState(0);
         break;
       case 'medium':
-        setTextSize(medium)
+        setTextSize(medium);
         setTextSizeBtnState(1);
         break;
       case 'large':
-        setTextSize(large)
+        setTextSize(large);
         setTextSizeBtnState(2);
         break;
     }
   }
 
   return (
-    <userThemeContext.Provider value={{theme, setUserThemeFunction, imgSource, toggleThemeBtnState, textSize, setUserTextSizeFunction, toggleTextSizeBtnState}}>
+    <userThemeContext.Provider
+      value={{
+        theme,
+        setUserThemeFunction,
+        imgSource,
+        toggleThemeBtnState,
+        textSize,
+        setUserTextSizeFunction,
+        toggleTextSizeBtnState,
+      }}>
       {children}
     </userThemeContext.Provider>
   );
