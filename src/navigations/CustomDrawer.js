@@ -88,7 +88,7 @@ const CustomDrawer = props => {
       </DrawerContentScrollView>
       <View style={{marginLeft: 9, marginRight: 9, marginBottom: 5}}>
         <SwitchSelector
-          initial={0}
+          initial={1}
           fontSize={15}
           selectedTextStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
           textStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
@@ -107,7 +107,7 @@ const CustomDrawer = props => {
           hasPadding
           options={[
             {label: 'light', value: 'light'},
-            {label: 'cute', value: 'origin'},
+            {label: 'waifu', value: 'origin'},
             {label: 'dark', value: 'dark'},
           ]}
         />
