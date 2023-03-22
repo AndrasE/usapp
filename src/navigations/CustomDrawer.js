@@ -2,7 +2,6 @@ import {Text, View, Image, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
 import {
-  Drawer,
   DrawerContentScrollView,
   DrawerItem,
   DrawerItemList,
@@ -13,8 +12,15 @@ import SwitchSelector from 'react-native-switch-selector';
 
 const CustomDrawer = props => {
   const {user, logOut} = useUserAuth();
-  const {theme, setUserThemeFunction, imgSource, toggleBtnState, textSize} =
-    useUserTheme();
+  const {
+    theme,
+    setUserThemeFunction,
+    imgSource,
+    toggleThemeBtnState,
+    textSize,
+    setUserTextSizeFunction,
+    toggleTextSizeBtnState,
+  } = useUserTheme();
 
   const profileImgUrl = user.photoURL;
 
@@ -70,16 +76,26 @@ const CustomDrawer = props => {
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <View style={{marginLeft: 9, marginRight: 9, marginBottom: 5}}>
-        <View style={{flexDirection: 'row', alignItems: 'center', marginBottom:5}}>
+        <View
+          style={{flexDirection: 'row', alignItems: 'center', marginBottom: 5}}>
           <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
           <View>
-            <Text style={{fontWeight: 400 ,textAlign: 'center', color: theme.text2, fontSize: textSize.preferences}}>  preferences  </Text>
+            <Text
+              style={{
+                fontWeight: 400,
+                textAlign: 'center',
+                color: theme.text2,
+                fontSize: textSize.preferences,
+              }}>
+              {' '}
+              preferences{' '}
+            </Text>
           </View>
           <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
         </View>
         <SwitchSelector
           style={{marginBottom: 7}}
-          initial={toggleBtnState}
+          initial={toggleThemeBtnState}
           fontSize={textSize.drawerItems}
           selectedTextStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
           textStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
@@ -102,9 +118,8 @@ const CustomDrawer = props => {
           ]}
         />
         <SwitchSelector
-                  style={{marginBottom: 12}}
-
-          initial={toggleBtnState}
+          style={{marginBottom: 12}}
+          initial={toggleTextSizeBtnState}
           fontSize={textSize.drawerItems}
           selectedTextStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
           textStyle={{fontFamily: 'SpaceMonoRegular', letterSpacing: 3}}
@@ -112,7 +127,7 @@ const CustomDrawer = props => {
           borderWidth={1.5}
           borderRadius={5}
           onPress={value => {
-            setUserThemeFunction(value);
+            setUserTextSizeFunction(value);
           }}
           textColor={theme.text2}
           backgroundColor={theme.togglebg}
@@ -121,19 +136,28 @@ const CustomDrawer = props => {
           borderColor={theme.textbg2}
           hasPadding
           options={[
-            {label: 's', value: 'light'},
-            {label: 'm', value: 'waifu'},
-            {label: 'l', value: 'dark'},
+            {label: 'sm', value: 'small'},
+            {label: 'm', value: 'medium'},
+            {label: 'lg', value: 'large'},
           ]}
         />
-       <View>
-        <View style={{flexDirection: 'row', alignItems: 'center', marginBottom:5}}>
-          <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
-          <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
-        </View>
+        <View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginBottom: 5,
+            }}>
+            <View
+              style={{flex: 1, height: 1, backgroundColor: theme.textbg2}}
+            />
+            <View
+              style={{flex: 1, height: 1, backgroundColor: theme.textbg2}}
+            />
+          </View>
         </View>
       </View>
-      
+
       <DrawerItem
         inactiveBackgroundColor={theme.textbg2}
         inactiveTintColor={theme.text1}
