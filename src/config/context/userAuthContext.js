@@ -15,6 +15,7 @@ import {
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({children}) {
+  
   //imported from Firebase.js so when authentication happen firebase is initalized as well, otherwise will be error || connect to firebaseDb//
   initalizeFirebaseDb;
 
@@ -26,58 +27,58 @@ export function UserAuthContextProvider({children}) {
   const [myData, setMyData] = useState(null);
   const [user, setUser] = useState();
 
-  const checkUserInDb = async () => {
-    console.log('====================================');
-    console.log(userDetails);
+  const checkUserInDb = async user => {
+    console.log('=========> Checking user in database:', user.email);
+    const emailName = user.email.substring(0, user.email.indexOf('@'));
+
     try {
       const database = getDatabase();
       //first check if the user registered before
-  
-      const userObj = await findUser(userDetails.name);
-  
+      const userObj = await findUser(emailName);
       if (userObj) {
         setMyData(userObj);
       } else {
         const newUserObj = {
-          name: userDetails.name,
-          photo: userDetails.photo,
-          email: userDetails.email,
-          theme: 'light',
+          name: user.displayName,
+          photo: user.photoURL,
+          email: user.email,
+          theme: 'default',
         };
-        set(ref(database, `users/${userDetails.name}`), newUserObj);
+        set(ref(database, `users/${emailName}`), newUserObj);
         setMyData(newUserObj);
       }
-      // console.log(database);
     } catch (error) {
       console.error(error);
     }
   };
 
-  //  finduser called in checkUserInDb
-  const findUser = async email => {
+  //finduser called in checkUserInDb
+  const findUser = async emailName => {
     const database = getDatabase();
-    const mySnapshot = await get(ref(database, `users/${email}`));
+    const mySnapshot = await get(ref(database, `users/${emailName}`));
     return mySnapshot.val();
   };
 
-  //handle user state changes on login saves user
+  //handle user state changes on login saves user, needed to debounce it as onAuthStateChange has multiple states,so useEffect would run 2-3x times making the checkUserDB() and create a loop, or if trying to set a state withing the onAuthState change, as it runs through multiple states will create undefined object first few times which cant be used in checkUserDb(), a bit meh situation but debouncing will prevent this to happen https://stackoverflow.com/questions/37673616/firebase-android-onauthstatechanged-called-twice //
+  var debounceTimeout;
+  const DebounceDueTime = 200; // 200ms
   function onAuthStateChanged(user) {
-    if (user !== null) {
-      setUserDetails({
-        name: user.displayName,
-        email: user.email,
-        photo: user.photoURL,
-        theme: 'default',
-      });
-      if (initializing) setInitializing(false);
-    } else {
-      setUserDetails(null);
-      setInitializing(true);
-    }
+    if (debounceTimeout) clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(() => {
+      debounceTimeout = null;
+      handleAuthStateChanged(user);
+    }, DebounceDueTime);
   }
 
-  if (userDetails !== null && initializing === false) {
-    checkUserInDb()
+  function handleAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) setInitializing(false);
+    if (user !== null) {
+      console.log('=========> User is authenticated already:', user);
+      checkUserInDb(user);
+    } else {
+      console.log('=========> User not found or signed out:', user);
+    }
   }
 
   useEffect(() => {
@@ -88,12 +89,12 @@ export function UserAuthContextProvider({children}) {
   function logOut() {
     auth()
       .signOut()
-      .then(() => console.log('User signed out!'));
+      .then(() => console.log('=========> User signed out!'));
   }
 
   return (
     <userAuthContext.Provider
-      value={{initializing, _signInWithGoogle, userDetails, logOut}}>
+      value={{initializing, _signInWithGoogle, user, userDetails, logOut}}>
       {children}
     </userAuthContext.Provider>
   );
