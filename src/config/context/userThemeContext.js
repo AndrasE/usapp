@@ -42,6 +42,7 @@ export function UserThemeContextProvider({children}) {
     emailHeader: 13,
     drawerItem: 15,
     drawerItemsIcon: 21,
+    preferencesText: 13,
   };
 
   const normal = {
@@ -49,6 +50,7 @@ export function UserThemeContextProvider({children}) {
     emailHeader: 15,
     drawerItems: 17,
     drawerItemsIcon: 25,
+    preferencesText: 15,
   };
 
   const large = {
@@ -56,6 +58,7 @@ export function UserThemeContextProvider({children}) {
     emailHeader: 17,
     drawerItems: 21,
     drawerItemsIcon: 30,
+    preferencesText: 17,
   };
 
 
