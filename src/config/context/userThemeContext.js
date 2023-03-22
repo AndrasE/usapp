@@ -37,7 +37,30 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#333333',
   };
 
+  const small = {
+    nameHeader: 27,
+    emailHeader: 13,
+    drawerItem: 15,
+    drawerItemsIcon: 21,
+  };
+
+  const normal = {
+    nameHeader: 29,
+    emailHeader: 15,
+    drawerItems: 17,
+    drawerItemsIcon: 25,
+  };
+
+  const large = {
+    nameHeader: 31,
+    emailHeader: 17,
+    drawerItems: 21,
+    drawerItemsIcon: 30,
+  };
+
+
   const [theme, setTheme] = useState(waifu);
+  const [textSize, setTextSize] = useState(large)
   // required to dinamically load images, as React Native doesn't deal with dynamic images, only static images
   // get name of theme from userThemeContext and set the require path from DrawerBgImages.js
   // https://stackoverflow.com/questions/30854232/react-native-image-require-module-using-dynamic-names
@@ -65,7 +88,7 @@ export function UserThemeContextProvider({children}) {
   }
 
   return (
-    <userThemeContext.Provider value={{theme, setUserThemeFunction, imgSource, toggleBtnState}}>
+    <userThemeContext.Provider value={{theme, setUserThemeFunction, imgSource, toggleBtnState, textSize}}>
       {children}
     </userThemeContext.Provider>
   );
