@@ -11,15 +11,15 @@ function RootNavigator() {
   // if the user is authenticated and call homestack to conditinally render stacks//
   const [splash, setSplash] = useState(true);
 
-  setTimeout(() => {
-    setSplash(false);
-  }, 1700);
+  // setTimeout(() => {
+  //   setSplash(false);
+  // }, 1700);
 
-  if (splash === true) {
-    return <SplashScreen />;
-  } else {
+  // if (splash === true) {
+  //   return <SplashScreen />;
+  // } else {
     return <HomeStack />;
-  }
+  // }
 
   function HomeStack() {
     // if user exist ergo != null conditinally rendering the stack screen home or login//
