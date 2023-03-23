@@ -15,7 +15,6 @@ import {
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({children}) {
-  
   //imported from Firebase.js so when authentication happen firebase is initalized as well, otherwise will be error || connect to firebaseDb//
   initalizeFirebaseDb;
 
@@ -42,11 +41,13 @@ export function UserAuthContextProvider({children}) {
           name: user.displayName,
           photo: user.photoURL,
           email: user.email,
-          theme: 'default',
+          theme: 'light',
+          text: 'normal',
         };
         set(ref(database, `users/${emailName}`), newUserObj);
         setMyData(newUserObj);
       }
+      console.log(myData);
     } catch (error) {
       console.error(error);
     }
