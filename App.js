@@ -6,25 +6,26 @@ import {UserThemeContextProvider} from './src/config/context/userThemeContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 
+
 function RootNavigator() {
   // await splash screen to finish the animation and firebase to get connected and establish //
   // if the user is authenticated and call homestack to conditinally render stacks//
   const [splash, setSplash] = useState(true);
+  const {user, myData} = useUserAuth();
 
+// console.log("asdasdasd", myData);
   // setTimeout(() => {
   //   setSplash(false);
   // }, 1700);
 
   // if (splash === true) {
   //   return <SplashScreen />;
-  // } else {
-    return <HomeStack />;
+  // } else { 
+  return <HomeStack />; 
   // }
 
+  // If user exist ergo != null conditinally rendering the stack screen home or login//
   function HomeStack() {
-    // if user exist ergo != null conditinally rendering the stack screen home or login//
-    const {user} = useUserAuth();
-    // console.log("Accessing it by user ===>",userDetails);
     return (
       <NavigationContainer>
         {user ? <DrawerNavigator /> : <SignInScreen />}
@@ -37,10 +38,10 @@ function RootNavigator() {
 // <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
 export default function App() {
   return (
-      <UserAuthContextProvider>
-        <UserThemeContextProvider>
-          <RootNavigator />
-        </UserThemeContextProvider>
-      </UserAuthContextProvider>
+    <UserAuthContextProvider>
+      <UserThemeContextProvider>
+        <RootNavigator />
+      </UserThemeContextProvider>
+    </UserAuthContextProvider>
   );
 }

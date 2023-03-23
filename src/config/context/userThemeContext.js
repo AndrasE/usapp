@@ -1,19 +1,24 @@
 import React, {createContext, useContext, useState} from 'react';
 import images from '../../navigations/DrawerBgImages';
-// import { useUserAuth } from './userAuthContext';
-// import {
-//   getDatabase,
-//   get,
-//   ref,
-//   set,
-//   onValue,
-//   push,
-//   update,
-// } from 'firebase/database';
+import { useUserAuth } from './userAuthContext';
+import {
+  getDatabase,
+  get,
+  ref,
+  set,
+  onValue,
+  push,
+  update,
+} from 'firebase/database';
 
 const userThemeContext = createContext();
 
 export function UserThemeContextProvider({children}) {
+
+  // const {user} = useUserAuth();
+  // console.log(user);
+
+
   const light = {
     name: 'light',
     text1: '#FFFFFF',
