@@ -12,6 +12,7 @@ function RootNavigator() {
   // if the user is authenticated and call homestack to conditinally render stacks//
   const [splash, setSplash] = useState(true);
   const {user, myData} = useUserAuth();
+  
 
 // console.log("asdasdasd", myData);
   // setTimeout(() => {
