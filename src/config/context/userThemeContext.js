@@ -38,26 +38,35 @@ export function UserThemeContextProvider({children}) {
   };
 
   const small = {
+    profPicsize: 75,
+    headerImgHeight: 160,
     nameHeader: 27,
     emailHeader: 13,
     drawerItem: 15,
     drawerItemsIcon: 21,
+    drawerItemMarginLeft: 55,
     preferencesText: 13,
   };
 
   const medium = {
+    profPicsize: 80,
+    headerImgHeight: 170,
     nameHeader: 29,
     emailHeader: 15,
     drawerItems: 17,
     drawerItemsIcon: 25,
+    drawerItemMarginLeft: 52,
     preferencesText: 15,
   };
 
   const large = {
+    profPicsize: 85,
+    headerImgHeight: 180,
     nameHeader: 31,
     emailHeader: 17,
     drawerItems: 21,
     drawerItemsIcon: 30,
+    drawerItemMarginLeft: 43,
     preferencesText: 17,
   };
 

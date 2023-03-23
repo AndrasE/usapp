@@ -35,12 +35,16 @@ const CustomDrawer = props => {
         contentContainerStyle={{paddingTop: 0, paddingBottom: 0}}>
         <ImageBackground
           source={imgSource}
-          style={{height: 170, width: '100%', marginBottom: 6}}>
+          style={{
+            height: textSize.headerImgHeight,
+            width: '100%',
+            marginBottom: 6,
+          }}>
           <Image
             source={{uri: profileImgUrl}}
             style={{
-              height: 80,
-              width: 80,
+              height: textSize.profPicsize,
+              width: textSize.profPicsize,
               borderRadius: 40,
               margin: 10,
               alignSelf: 'flex-end',
@@ -85,7 +89,7 @@ const CustomDrawer = props => {
                 fontWeight: 400,
                 textAlign: 'center',
                 color: theme.text2,
-                fontSize: textSize.preferences,
+                fontSize: textSize.preferencesText,
               }}>
               {' '}
               preferences{' '}
@@ -166,7 +170,7 @@ const CustomDrawer = props => {
             name="exit-outline"
             color={color}
             size={textSize.drawerItemsIcon}
-            style={{marginLeft: 50}}
+            style={{marginLeft: textSize.drawerItemMarginLeft}}
           />
         )}
         label="Sign Out"
