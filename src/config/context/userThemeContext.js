@@ -1,5 +1,15 @@
 import React, {createContext, useContext, useState} from 'react';
 import images from '../../navigations/DrawerBgImages';
+// import { useUserAuth } from './userAuthContext';
+// import {
+//   getDatabase,
+//   get,
+//   ref,
+//   set,
+//   onValue,
+//   push,
+//   update,
+// } from 'firebase/database';
 
 const userThemeContext = createContext();
 
