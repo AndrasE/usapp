@@ -36,7 +36,7 @@ function DrawerNavigator() {
               name="md-chatbubble-ellipses-outline"
               size={textSize.drawerItemsIcon}
               color={color}
-              style={{marginLeft: 50}}
+              style={{marginLeft: textSize.drawerItemMarginLeft}}
             />
           ),
         }}
@@ -51,7 +51,7 @@ function DrawerNavigator() {
               name="search-sharp"
               size={textSize.drawerItemsIcon}
               color={color}
-              style={{marginLeft: 50}}
+              style={{marginLeft: textSize.drawerItemMarginLeft}}
             />
           ),
         }}
@@ -66,7 +66,7 @@ function DrawerNavigator() {
               name="md-git-compare"
               size={textSize.drawerItemsIcon}
               color={color}
-              style={{marginLeft: 50}}
+              style={{marginLeft: textSize.drawerItemMarginLeft}}
             />
           ),
         }}
@@ -81,7 +81,7 @@ function DrawerNavigator() {
               name="md-partly-sunny-outline"
               size={textSize.drawerItemsIcon}
               color={color}
-              style={{marginLeft: 50}}
+              style={{marginLeft: textSize.drawerItemMarginLeft}}
             />
           ),
         }}
