@@ -15,10 +15,10 @@ const userThemeContext = createContext();
 
 export function UserThemeContextProvider({children}) {
 
-  const {user} = useUserAuth();
-  if (user) {
-    console.log(user);
-  }
+  // const {user} = useUserAuth();
+  // if (user) {
+  //   console.log(user);
+  // }
 
 
   const light = {
