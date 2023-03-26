@@ -23,80 +23,81 @@ export function UserAuthContextProvider({children}) {
   // const [users, setUsers] = useState([]);
   // const [userToAdd, setUserToAdd] = useState(null);
   // const [selectedUser, setSelectedUser] = useState(null);
-  // const [myData, setMyData] = useState();
+  const [myData, setMyData] = useState();
   const [user, setUser] = useState();
 
-  // const checkUserInDb = async user => {
-  //   console.log('====> Checking user in database with email:', user.email);
-  //   console.log("======================================================================")
+  const checkUserInDb = async user => {
+    console.log('====> Checking user in database with email:', user.email);
+    console.log(
+      '======================================================================',
+    );
 
-  //   const emailName = user.email.substring(0, user.email.indexOf('@'));
-  //   try {
-  //     const database = getDatabase();
-  //     //first check if the user registered before
-  //     const userObj = await findUser(emailName);
-  //     if (userObj) {
-  //       setMyData(userObj)
-  //       console.log('====> Found in Database with email:', user.email);
-  //     } else {
-  //       const newUserObj = {
-  //         name: user.displayName,
-  //         photo: user.photoURL,
-  //         email: user.email,
-  //         theme: 'light',
-  //         text: 'normal',
-  //       };
-  //       set(ref(database, `users/${emailName}`), newUserObj);
-  //       setMyData(newUserObj);
-  //       console.log('====> User created in Database with email:', user.email);
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  //   console.log('====> User in Database:', myData);
-  //   console.log("======================================================================")
-  // };
-  // //  console.log('====> User in Database:', myData);
+    const emailName = user.email.substring(0, user.email.indexOf('@'));
+    try {
+      const database = getDatabase();
+      //first check if the user registered before
+      const userObj = await findUser(emailName);
+      if (userObj) {
+        setMyData(userObj);
+        console.log('====> Found in database with email:', user.email);
+        console.log("sssssss", userObj);
+      } else {
+        const newUserObj = {
+          name: user.displayName,
+          photo: user.photoURL,
+          email: user.email,
+          theme: 'light',
+          text: 'normal',
+        };
+        set(ref(database, `users/${emailName}`), newUserObj);
+        setMyData(newUserObj);
+        console.log('====> User created in database with email:', user.email);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+    console.log('====> User in database:', myData);
+    console.log(
+      '======================================================================',
+    );
+  };
+  //  console.log('====> User in Database:', myData);
 
-  // //finduser called in checkUserInDb
-  // const findUser = async emailName => {
-  //   const database = getDatabase();
-  //   const mySnapshot = await get(ref(database, `users/${emailName}`));
-  //   return mySnapshot.val();
-  // };
+  //finduser called in checkUserInDb
+  const findUser = async emailName => {
+    const database = getDatabase();
+    const mySnapshot = await get(ref(database, `users/${emailName}`));
+    return mySnapshot.val();
+  };
 
   //handle user state changes on login saves user, needed to debounce it as onAuthStateChange has multiple states,so useEffect would run 2-3x times making the checkUserDB() and create a loop, or if trying to set a state withing the onAuthState change, as it runs through multiple states will create undefined object first few times which cant be used in checkUserDb(), a bit meh situation but debouncing will prevent this to happen https://stackoverflow.com/questions/37673616/firebase-android-onauthstatechanged-called-twice //
-  // var debounceTimeout;
-  // const DebounceDueTime = 200; // 200ms
-  // function onAuthStateChanged(user) {
-  //   if (debounceTimeout) clearTimeout(debounceTimeout);
-  //   debounceTimeout = setTimeout(() => {
-  //     debounceTimeout = null;
-  //     handleAuthStateChanged(user);
-  //   }, DebounceDueTime);
-  // }
+  var debounceTimeout;
+  const DebounceDueTime = 200; // 200ms
+  function onAuthStateChanged(user) {
+    if (debounceTimeout) clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(() => {
+      debounceTimeout = null;
+      handleAuthStateChanged(user);
+    }, DebounceDueTime);
+  }
   // console.log(user);
 
-  // function handleAuthStateChanged(user) {
-  //   setUser(user);
+  function handleAuthStateChanged(user) {
+    setUser(user);
     // if (initializing) setInitializing(false);
-    // if (user !== null) {
-    //   console.log('====> User is authenticated already as:', user.email);
-      // checkUserInDb(user);
-    // } else {
-    //   console.log('====> User not found or signed out:', user);
-    // }
-  // }
-// console.log(".");
+    if (user !== null) {
+      console.log('====> User is authenticated as:', user.email);
+      checkUserInDb(user);
+    } else {
+      console.log('====> User not found or signed out:', user);
+    }
+  }
+  // console.log(".");
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    function onAuthStateChanged(user) {
-      setUser(user);
-      // if (initializing) setInitializing(false);
-    }
     return subscriber; // unsubscribe on unmount
   }, []);
-console.log();
+
   function logOut() {
     auth()
       .signOut()
@@ -104,8 +105,7 @@ console.log();
   }
 
   return (
-    <userAuthContext.Provider
-      value={{ _signInWithGoogle, user, logOut}}>
+    <userAuthContext.Provider value={{_signInWithGoogle, user, logOut}}>
       {children}
     </userAuthContext.Provider>
   );
