@@ -7,13 +7,13 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {useUserAuth} from '../config/context/userAuthContext';
-import { useUserDb } from '../config/context/userDbContext';
+// import { useUserDb } from '../config/context/userDbContext';
 import {useUserTheme} from '../config/context/userThemeContext';
 import SwitchSelector from 'react-native-switch-selector';
 
 const CustomDrawer = props => {
-  const { logOut} = useUserAuth();
-  const { myData} = useUserDb();
+  const { user, logOut} = useUserAuth();
+  // const { myData} = useUserDb();
   const {
     theme,
     setUserThemeFunction,
@@ -24,7 +24,7 @@ const CustomDrawer = props => {
     toggleTextSizeBtnState,
   } = useUserTheme();
 
-  const profileImgUrl = myData.photo;
+  const profileImgUrl = user.photoURL;
 
   function handleLogoutClick() {
     logOut();
@@ -64,7 +64,7 @@ const CustomDrawer = props => {
               textAlign: 'right',
             }}>
             {' '}
-            {myData.name.split(' ')[0]}
+            {user.displayName.split(' ')[0]}
           </Text>
           <Text
             style={{
@@ -76,7 +76,7 @@ const CustomDrawer = props => {
               textAlign: 'right',
             }}>
             {' '}
-            {myData.email}
+            {user.email}
           </Text>
         </ImageBackground>
         <DrawerItemList {...props} />
