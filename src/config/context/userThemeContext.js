@@ -1,10 +1,13 @@
 import React, {createContext, useContext, useState} from 'react';
 import images from '../../navigations/DrawerBgImages';
-
+import { useUserDb } from './userDbContext';
 
 const userThemeContext = createContext();
 
 export function UserThemeContextProvider({children}) {
+
+  const {myData} = useUserDb();
+  // console.log("sssss", myData);
 
   const light = {
     name: 'light',
@@ -72,13 +75,13 @@ export function UserThemeContextProvider({children}) {
     preferencesText: 17,
   };
 
-  const [theme, setTheme] = useState(waifu);
+  const [theme, setTheme] = useState(light);
   const [textSize, setTextSize] = useState(medium);
   // required to dinamically load images, as React Native doesn't deal with dynamic images, only static images
   // get name of theme from userThemeContext and set the require path from DrawerBgImages.js
   // https://stackoverflow.com/questions/30854232/react-native-image-require-module-using-dynamic-names
-  const [imgSource, setImageSource] = useState(images.waifu.uri);
-  const [toggleThemeBtnState, setToggleThemeBtnState] = useState(1);
+  const [imgSource, setImageSource] = useState(images.light.uri);
+  const [toggleThemeBtnState, setToggleThemeBtnState] = useState(0);
   const [toggleTextSizeBtnState, setTextSizeBtnState] = useState(1);
 
   function setUserThemeFunction(value) {
