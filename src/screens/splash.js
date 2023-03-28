@@ -46,7 +46,7 @@ export default function SplashScreen() {
         source={require('../assets/splash.json')}
         autoPlay={true}
         loop={false}
-        speed={0.6}
+        speed={0.7}
       />
       <Animated.View entering={FadeIn.duration(600).delay(600)}>
         <Text
