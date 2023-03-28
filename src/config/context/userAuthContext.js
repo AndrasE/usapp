@@ -5,9 +5,7 @@ import auth from '@react-native-firebase/auth';
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({children}) {
-  const [user, setUser] = useState();
-
-  
+  const [user, setUser] = useState(null);
   //handle user state changes on login saves user, needed to debounce it as onAuthStateChange has multiple states,so useEffect would run 2-3x times making the checkUserDB() and create a loop, or if trying to set a state withing the onAuthState change, as it runs through multiple states will create undefined object first few times which cant be used in checkUserDb(), a bit meh situation but debouncing will prevent this to happen https://stackoverflow.com/questions/37673616/firebase-android-onauthstatechanged-called-twice //
   var debounceTimeout;
   const DebounceDueTime = 200; // 200ms
@@ -21,9 +19,8 @@ export function UserAuthContextProvider({children}) {
   // console.log(user);
 
   function handleAuthStateChanged(user) {
-    setUser(user);
-    // if (initializing) setInitializing(false);
     if (user !== null) {
+      setUser(user);
       console.log('====> User is authenticated as:', user.email);
       // checkUserInDb(user);
     } else {
@@ -40,6 +37,7 @@ export function UserAuthContextProvider({children}) {
     auth()
       .signOut()
       .then(() => console.log('====> User signed out!'));
+    setUser(null);
   }
 
   return (
