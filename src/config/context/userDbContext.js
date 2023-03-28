@@ -22,8 +22,8 @@ export function UserDbContextProvider({children}) {
   // const [users, setUsers] = useState([]);
   // const [userToAdd, setUserToAdd] = useState(null);
   // const [selectedUser, setSelectedUser] = useState(null);
-  const [myData, setMyData, _signInWithGoogle] = useState();
-
+  const [myData, setMyData] = useState();
+ 
   const {user} = useUserAuth();
   // if (user) {console.log(user);}
 
@@ -68,15 +68,13 @@ export function UserDbContextProvider({children}) {
   useEffect(() => {
     if (user) {
       checkUserInDb(user);
-      // setInitializing(false);
     } else {
-      // setInitializing(true);
       setMyData()
     }
   }, [user]);
 
   return (
-    <userDbContext.Provider value={{myData, _signInWithGoogle}}>
+    <userDbContext.Provider value={{myData}}>
       {children}
     </userDbContext.Provider>
   );
