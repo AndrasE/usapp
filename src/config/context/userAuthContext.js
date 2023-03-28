@@ -21,6 +21,9 @@ export function UserAuthContextProvider({children}) {
   function handleAuthStateChanged(user) {
     if (user !== null) {
       setUser(user);
+      console.log(
+        '======================================================================',
+      );
       console.log('====> User is authenticated as:', user.email);
       // checkUserInDb(user);
     } else {
