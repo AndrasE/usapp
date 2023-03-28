@@ -1,17 +1,9 @@
 import React from 'react';
-import {Text, ImageBackground} from 'react-native';
+import {Text, ImageBackground, View} from 'react-native';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Lottie from 'lottie-react-native';
 
 export default function SplashScreen() {
-  setTimeout(() => {
-    this.anim.play();
-  }, 1000);
-
-  // setTimeout(() => {
-  //   navigation.replace("signIn")
-  // }, 2100);
-
   return (
     <ImageBackground
       source={require('../assets/signin.jpg')}
@@ -29,40 +21,41 @@ export default function SplashScreen() {
             fontFamily: 'SpaceMonoRegular',
             color: 'white',
             letterSpacing: 5,
+            marginBottom: 55,
+            alignItems: "flex-start"
           }}>
           Welcome
         </Text>
-      </Animated.View>
-      <Animated.View entering={FadeIn.duration(500).delay(250)}>
         <Text
           style={{
             fontFamily: 'SpaceMonoRegular',
             fontSize: 25,
-            marginTop: 68,
-            color: 'black',
-            padding: 55,
+            color: 'white',
+            textAlign: "center"
           }}>
           to
         </Text>
+        <Text
+          style={{
+            marginTop: 165,
+          }}>
+        </Text>
       </Animated.View>
+     
       <Lottie
-        style={{paddingTop: 70}}
         source={require('../assets/splash.json')}
-        autoPlay={false}
+        autoPlay={true}
         loop={false}
-        speed={0.7}
-        ref={animation => {
-          this.anim = animation;
-        }}
+        speed={0.6}
       />
-      <Animated.View entering={FadeIn.duration(600).delay(800)}>
+      <Animated.View entering={FadeIn.duration(600).delay(600)}>
         <Text
           style={{
             letterSpacing: 2.5,
             fontFamily: 'SpaceMonoRegular',
             fontSize: 75,
-            paddingTop: 25,
             color: '#fff',
+            marginBottom: 75
           }}>
           us
         </Text>
