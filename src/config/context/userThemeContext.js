@@ -1,10 +1,15 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 import images from '../../navigations/DrawerBgImages';
-// import { useUserDb } from './userDbContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const userThemeContext = createContext();
 
+  
 export function UserThemeContextProvider({children}) {
+
+
+
 
   // const {myData} = useUserDb();
   // // console.log("sssss", myData);
@@ -75,7 +80,10 @@ export function UserThemeContextProvider({children}) {
     preferencesText: 17,
   };
 
+
   const [theme, setTheme] = useState(light);
+// console.log(getData());
+
   const [textSize, setTextSize] = useState(medium);
   // required to dinamically load images, as React Native doesn't deal with dynamic images, only static images
   // get name of theme from userThemeContext and set the require path from DrawerBgImages.js
@@ -90,16 +98,20 @@ export function UserThemeContextProvider({children}) {
         setTheme(light);
         setImageSource(images.light.uri);
         setToggleThemeBtnState(0);
+        storeData("theme", value)
+        getData()
         break;
       case 'waifu':
         setTheme(waifu);
         setImageSource(images.waifu.uri);
         setToggleThemeBtnState(1);
+        storeData(value)
         break;
       case 'dark':
         setTheme(dark);
         setImageSource(images.dark.uri);
         setToggleThemeBtnState(2);
+        storeData(value)
         break;
     }
   }
@@ -136,6 +148,7 @@ export function UserThemeContextProvider({children}) {
     </userThemeContext.Provider>
   );
 }
+
 
 export function useUserTheme() {
   return useContext(userThemeContext);

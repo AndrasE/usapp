@@ -23,7 +23,7 @@ function RootNavigator() {
     return <SplashScreen />;
   } else {
     if (myData) {
-      console.log('====> User in database:', myData);
+      console.log('====> User in database:',myData.name,"🧡 Welcome on board!🧡");
       console.log(
         '======================================================================',
       );
