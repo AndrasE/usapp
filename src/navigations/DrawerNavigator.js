@@ -1,7 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
-import {HomeScreen, AsdScreen, Asd2Screen, Asd3Screen} from './ScreensImport';
+import {HomeScreen, AsdScreen, SearchScreen, Asd3Screen} from './ScreensImport';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -42,7 +42,7 @@ function DrawerNavigator() {
       />
       <Drawer.Screen
         name="Search"
-        component={AsdScreen}
+        component={SearchScreen}
         options={{
           title: 'Search',
           drawerIcon: ({color, size}) => (
@@ -56,8 +56,8 @@ function DrawerNavigator() {
         }}
       />
       <Drawer.Screen
-        name="ChatGpt"
-        component={Asd2Screen}
+        name="AsdScreen"
+        component={AsdScreen}
         options={{
           title: 'ChatGpt',
           drawerIcon: ({color, size}) => (
