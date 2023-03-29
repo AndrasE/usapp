@@ -24,10 +24,13 @@ export function UserAuthContextProvider({children}) {
       console.log(
         '======================================================================',
       );
-      console.log('====> User is authenticated as:', user.email);
+      console.log('====> User is authenticated as:', user.email, "👌");
       // checkUserInDb(user);
     } else {
-      console.log('====> User not found or signed out:', user);
+      console.log(
+        '======================================================================',
+      );
+      console.log('====> User not found or signed out, User:',user,"====> Please sign-in! 🙌");
     }
   }
   // console.log(".");
@@ -39,7 +42,7 @@ export function UserAuthContextProvider({children}) {
   function logOut() {
     auth()
       .signOut()
-      .then(() => console.log('====> User signed out!'));
+      .then(() => console.log('====> User signed out! 👋'));
     setUser(null);
   }
 

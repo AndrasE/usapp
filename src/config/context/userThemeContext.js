@@ -2,18 +2,10 @@ import React, {createContext, useContext, useEffect, useState} from 'react';
 import images from '../../navigations/DrawerBgImages';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 const userThemeContext = createContext();
 
-  
 export function UserThemeContextProvider({children}) {
-
-
-
-
-  // const {myData} = useUserDb();
-  // // console.log("sssss", myData);
-
+  // Theme Settings //
   const light = {
     name: 'light',
     text1: '#FFFFFF',
@@ -47,6 +39,7 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#333333',
   };
 
+  // Size Settings //
   const small = {
     profPicsize: 75,
     headerImgHeight: 160,
@@ -80,10 +73,85 @@ export function UserThemeContextProvider({children}) {
     preferencesText: 17,
   };
 
+  const saveTheme = async value => {
+    try {
+      AsyncStorage.setItem('userTheme', value);
+      console.log(value);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getTheme = async () => {
+    try {
+      const userThemeAS = await AsyncStorage.getItem('userTheme');
+      console.log('Applying user theme setting:', userThemeAS, '🌈');
+
+      switch (userThemeAS) {
+        case 'light':
+          setTheme(light);
+          setImageSource(images.light.uri);
+          setToggleThemeBtnState(0);
+          break;
+        case 'waifu':
+          setTheme(waifu);
+          setImageSource(images.waifu.uri);
+          setToggleThemeBtnState(1);
+          break;
+        case 'dark':
+          setTheme(dark);
+          setImageSource(images.dark.uri);
+          setToggleThemeBtnState(2);
+          break;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const saveText = async value => {
+    try {
+      AsyncStorage.setItem('userText', value);
+      console.log(value);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getText = async () => {
+    try {
+      const userTextAS = await AsyncStorage.getItem('userText');
+      console.log('Applying user size setting:', userTextAS, '📐');
+
+      switch (userTextAS) {
+        case 'small':
+          setTextSize(small);
+          setTextSizeBtnState(0);
+          break;
+        case 'medium':
+          setTextSize(medium);
+          setTextSizeBtnState(1);
+          break;
+        case 'large':
+          setTextSize(large);
+          setTextSizeBtnState(2);
+          break;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  React.useEffect(() => {
+    getTheme();
+    getText();
+    console.log(
+      '======================================================================',
+    );
+    console.log('Loading settings from Async-Storage 📦');
+  }, []);
 
   const [theme, setTheme] = useState(light);
-// console.log(getData());
-
   const [textSize, setTextSize] = useState(medium);
   // required to dinamically load images, as React Native doesn't deal with dynamic images, only static images
   // get name of theme from userThemeContext and set the require path from DrawerBgImages.js
@@ -98,20 +166,20 @@ export function UserThemeContextProvider({children}) {
         setTheme(light);
         setImageSource(images.light.uri);
         setToggleThemeBtnState(0);
-        storeData("theme", value)
-        getData()
+        saveTheme(value);
+        console.log(value);
         break;
       case 'waifu':
         setTheme(waifu);
         setImageSource(images.waifu.uri);
         setToggleThemeBtnState(1);
-        storeData(value)
+        saveTheme(value);
         break;
       case 'dark':
         setTheme(dark);
         setImageSource(images.dark.uri);
         setToggleThemeBtnState(2);
-        storeData(value)
+        saveTheme(value);
         break;
     }
   }
@@ -121,14 +189,18 @@ export function UserThemeContextProvider({children}) {
       case 'small':
         setTextSize(small);
         setTextSizeBtnState(0);
+        saveText(value);
         break;
       case 'medium':
         setTextSize(medium);
         setTextSizeBtnState(1);
+        saveText(value);
+
         break;
       case 'large':
         setTextSize(large);
         setTextSizeBtnState(2);
+        saveText(value);
         break;
     }
   }
@@ -148,7 +220,6 @@ export function UserThemeContextProvider({children}) {
     </userThemeContext.Provider>
   );
 }
-
 
 export function useUserTheme() {
   return useContext(userThemeContext);

@@ -8,6 +8,8 @@ import {UserThemeContextProvider} from './src/config/context/userThemeContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 
+
+
 function RootNavigator() {
   // await splash screen to finish the animation and firebase to get connected and establish //
   // if the user is authenticated and call homestack to conditinally render stacks//
@@ -46,6 +48,7 @@ function RootNavigator() {
 // Necessary to wrap the Home/Login stacks in order to have access to the Context //
 // <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
 export default function App() {
+
   return (
     <UserAuthContextProvider>
       <UserDbContextProvider>

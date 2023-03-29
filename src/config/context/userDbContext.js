@@ -23,12 +23,16 @@ export function UserDbContextProvider({children}) {
   // const [userToAdd, setUserToAdd] = useState(null);
   // const [selectedUser, setSelectedUser] = useState(null);
   const [myData, setMyData] = useState();
- 
+
   const {user} = useUserAuth();
   // if (user) {console.log(user);}
 
   const checkUserInDb = async user => {
-    console.log('====> Checking user in database with email:', user.email);
+    console.log(
+      '====> Checking user in database with email:',
+      user.email,
+      '🔍',
+    );
     console.log(
       '======================================================================',
     );
@@ -40,7 +44,7 @@ export function UserDbContextProvider({children}) {
       const userObj = await findUser(emailName);
       if (userObj) {
         setMyData(userObj);
-        console.log('====> Found in database with email:', user.email);
+        console.log('====> Found in database with email:', user.email, '👈');
       } else {
         const newUserObj = {
           name: user.displayName,
@@ -51,7 +55,11 @@ export function UserDbContextProvider({children}) {
         };
         set(ref(database, `users/${emailName}`), newUserObj);
         setMyData(newUserObj);
-        console.log('====> User created in database with email:', user.email);
+        console.log(
+          '====> User created in database with email:',
+          user.email,
+          '👉',
+        );
       }
     } catch (error) {
       console.error(error);
@@ -69,14 +77,12 @@ export function UserDbContextProvider({children}) {
     if (user) {
       checkUserInDb(user);
     } else {
-      setMyData()
+      setMyData();
     }
   }, [user]);
 
   return (
-    <userDbContext.Provider value={{myData}}>
-      {children}
-    </userDbContext.Provider>
+    <userDbContext.Provider value={{myData}}>{children}</userDbContext.Provider>
   );
 }
 
