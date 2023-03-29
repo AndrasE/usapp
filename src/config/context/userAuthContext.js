@@ -16,7 +16,6 @@ export function UserAuthContextProvider({children}) {
       handleAuthStateChanged(user);
     }, DebounceDueTime);
   }
-  // console.log(user);
 
   function handleAuthStateChanged(user) {
     if (user !== null) {
@@ -25,7 +24,6 @@ export function UserAuthContextProvider({children}) {
         '======================================================================',
       );
       console.log('====> User is authenticated as:', user.email, "👌");
-      // checkUserInDb(user);
     } else {
       console.log(
         '======================================================================',
@@ -33,7 +31,7 @@ export function UserAuthContextProvider({children}) {
       console.log('====> User not found or signed out, User:',user,"====> Please sign-in! 🙌");
     }
   }
-  // console.log(".");
+
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
