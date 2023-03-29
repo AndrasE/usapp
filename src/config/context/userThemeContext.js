@@ -76,7 +76,7 @@ export function UserThemeContextProvider({children}) {
   const saveTheme = async value => {
     try {
       AsyncStorage.setItem('userTheme', value);
-      console.log(value);
+      console.log("New theme chosen by user:",value,"😎");
     } catch (err) {
       console.log(err);
     }
@@ -112,7 +112,7 @@ export function UserThemeContextProvider({children}) {
   const saveText = async value => {
     try {
       AsyncStorage.setItem('userText', value);
-      console.log(value);
+      console.log("New text-size chosen by user:",value,"🔠");
     } catch (err) {
       console.log(err);
     }
@@ -167,7 +167,6 @@ export function UserThemeContextProvider({children}) {
         setImageSource(images.light.uri);
         setToggleThemeBtnState(0);
         saveTheme(value);
-        console.log(value);
         break;
       case 'waifu':
         setTheme(waifu);
