@@ -47,6 +47,7 @@ export function UserDbContextProvider({children}) {
         console.log('====> Found in database with email:', user.email, '👈');
       } else {
         const newUserObj = {
+          username: emailName,
           name: user.displayName,
           photo: user.photoURL,
           email: user.email
@@ -64,12 +65,76 @@ export function UserDbContextProvider({children}) {
     }
   };
 
-  //finduser called in checkUserInDb
+  //finduser signed-in in  database (checkUserInDb)
   const findUser = async emailName => {
     const database = getDatabase();
     const mySnapshot = await get(ref(database, `users/${emailName}`));
     return mySnapshot.val();
   };
+
+const onAddFriend = async name => {
+  console.log(name);
+    try {
+      //find user and add it to my friends and also add me to his friends
+      const database = getDatabase();
+
+      const user = await findUser(name);
+
+      if (user) {
+        if (user.username === myData.username) {
+          // don't let user add himself
+          return;
+        }
+
+        if (
+          myData.friends &&
+          myData.friends.findIndex(f => f.username === user.username) > 0
+        ) {
+          // don't let user add a user twice
+          return;
+        }
+
+        // create a chatroom and store the chatroom id
+
+        const newChatroomRef = push(ref(database, 'chatrooms'), {
+          firstUser: myData.username,
+          secondUser: user.username,
+          messages: [],
+        });
+
+        const newChatroomId = newChatroomRef.key;
+
+        const userFriends = user.friends || [];
+        //join myself to this user friend list
+        update(ref(database, `users/${user.username}`), {
+          friends: [
+            ...userFriends,
+            {
+              username: myData.username,
+              avatar: myData.avatar,
+              chatroomId: newChatroomId,
+            },
+          ],
+        });
+
+        const myFriends = myData.friends || [];
+        //add this user to my friend list
+        update(ref(database, `users/${myData.username}`), {
+          friends: [
+            ...myFriends,
+            {
+              username: user.username,
+              avatar: user.avatar,
+              chatroomId: newChatroomId,
+            },
+          ],
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   useEffect(() => {
     if (user) {
@@ -80,7 +145,7 @@ export function UserDbContextProvider({children}) {
   }, [user]);
 
   return (
-    <userDbContext.Provider value={{myData}}>{children}</userDbContext.Provider>
+    <userDbContext.Provider value={{myData, onAddFriend}}>{children}</userDbContext.Provider>
   );
 }
 

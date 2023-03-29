@@ -3,6 +3,7 @@ import {Button, StyleSheet, TextInput, View} from 'react-native';
 
 export default function Login({onLogin, username, setUsername}) {
   return (
+    
     <View style={styles.container}>
       <TextInput
         style={styles.input}
