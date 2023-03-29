@@ -49,9 +49,7 @@ export function UserDbContextProvider({children}) {
         const newUserObj = {
           name: user.displayName,
           photo: user.photoURL,
-          email: user.email,
-          theme: 'light',
-          text: 'normal',
+          email: user.email
         };
         set(ref(database, `users/${emailName}`), newUserObj);
         setMyData(newUserObj);

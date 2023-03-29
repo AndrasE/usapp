@@ -8,8 +8,6 @@ import {UserThemeContextProvider} from './src/config/context/userThemeContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 
-
-
 function RootNavigator() {
   // await splash screen to finish the animation and firebase to get connected and establish //
   // if the user is authenticated and call homestack to conditinally render stacks//
@@ -25,17 +23,17 @@ function RootNavigator() {
     return <SplashScreen />;
   } else {
     if (myData) {
-      console.log('====> User in database:',myData.name,"🧡 Welcome on board!🧡");
+      console.log('====> User in database:',myData.name,"🧡🍾🥳 Welcome on board!🥳🍾🧡");
       console.log(
         '======================================================================',
       );
+       // If myData exist ergo user logged in and databse found/created returning Homescreen, otherwise Login screen//
       return <HomeStack />;
     } else {
       return <SignInScreen />;
     }
   }
 
-  // If user exist ergo != null conditinally rendering the stack screen home or login//
   function HomeStack() {
     return (
       <NavigationContainer>
