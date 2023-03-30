@@ -11,9 +11,11 @@ import {
 } from 'react-native';
 import Lottie from 'lottie-react-native';
 import {useUserAuth} from '../config/context/userAuthContext';
+import {useUserTheme} from '../config/context/userThemeContext';
 
 export default function SignInScreen() {
   const {_signInWithGoogle} = useUserAuth();
+  const {theme} = useUserTheme();
 
   function handleSignIn() {
     _signInWithGoogle();
@@ -131,8 +133,8 @@ export default function SignInScreen() {
               start={{x: 0, y: 0}}
               end={{x: 1, y: 1}}
               locations={[0.0, 0.99]}
-              colors={['#0065ff', '#6942ef']}
-              style={{padding: 2, borderRadius: 15, }}>
+              colors={['#93d1ed', '#63b4cf']}
+              style={{padding: 2, borderRadius: 15}}>
               <Text
                 onPress={toggleModal}
                 style={{
@@ -142,7 +144,7 @@ export default function SignInScreen() {
                   fontSize: 18,
                   width: 70,
                   position: 'relative',
-                  top: -2
+                  top: -2,
                 }}>
                 got it
               </Text>
