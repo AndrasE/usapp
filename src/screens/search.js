@@ -60,6 +60,7 @@ export default function SearchScreen() {
             value={value}
             placeholder="example"
             placeholderTextColor="#D3D3D9"
+            autoCapitalize="none"
           />
           <LinearGradient
             start={{x: 0, y: 0}}
@@ -71,9 +72,17 @@ export default function SearchScreen() {
               width: 150,
               fontFamily: 'SpaceMonoRegular',
               justifyContent: 'center',
-              alignItems: 'center'
+              alignItems: 'center',
             }}>
-            <Text style={{ fontSize: 20, letterSpacing: 3, position: "relative", top: -2}}>@gmail.com</Text>
+            <Text
+              style={{
+                fontSize: 20,
+                letterSpacing: 3,
+                position: 'relative',
+                top: -2,
+              }}>
+              @gmail.com
+            </Text>
           </LinearGradient>
         </View>
         <TouchableOpacity
@@ -90,9 +99,9 @@ export default function SearchScreen() {
               borderRadius: 15,
               marginTop: 20,
               marginBottom: 20,
-              alignContent: "center",
-              justifyContent: "center",
-              alignItems: "center"
+              alignContent: 'center',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}>
             <Text
               style={{
@@ -101,7 +110,6 @@ export default function SearchScreen() {
                 color: theme.text1,
                 fontSize: 20,
                 width: 70,
-                
               }}>
               search
             </Text>

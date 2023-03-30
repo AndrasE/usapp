@@ -80,6 +80,8 @@ export function UserDbContextProvider({children}) {
 
       const user = await findUser(name);
       if (user) {
+        // const who =  myData.friends.findIndex(f => f.username)
+        // console.log(who);
         if (user.username === myData.username) {
           console.log('You cant add yourself as a friend!⛔');
           return;
@@ -87,7 +89,7 @@ export function UserDbContextProvider({children}) {
 
         if (
           myData.friends &&
-          myData.friends.findIndex(f => f.username === user.username) > 0
+          myData.friends.findIndex(f => f.username) > -1
         ) {
           console.log('This friend already been added previously..😝');
           return;
@@ -104,7 +106,7 @@ export function UserDbContextProvider({children}) {
 
         const userFriends = user.friends || [];
         //join myself to this user friend list
-        update(ref(database, `users/${user.username}`), {
+        update(ref(database, `users/${user.name}`), {
           friends: [
             ...userFriends,
             {
