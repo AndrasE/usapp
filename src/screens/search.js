@@ -5,14 +5,22 @@ import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import Lottie from 'lottie-react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import Modal from 'react-native-modal';
 
 export default function SearchScreen() {
   const {theme, textSize} = useUserTheme();
   const {onAddFriend} = useUserDb();
   const [value, setValue] = useState();
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   return (
-    <>
+    <View
+      style={{
+        flex: 1,
+      }}>
       <LinearGradient
         start={{x: 0, y: 0}}
         end={{x: 1, y: 1}}
@@ -88,7 +96,7 @@ export default function SearchScreen() {
         <TouchableOpacity
           style={{alignItems: 'center'}}
           title={'Add User'}
-          onPress={() => onAddFriend(value)}>
+          onPress={() => setModalVisible(true)}>
           <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 1, y: 1}}
@@ -116,6 +124,75 @@ export default function SearchScreen() {
           </LinearGradient>
         </TouchableOpacity>
       </LinearGradient>
-    </>
+
+      <Modal
+        backdropColor="#B4B3DB"
+        backdropOpacity={0.2}
+        animationIn="zoomInDown"
+        animationOut="zoomOutUp"
+        animationInTiming={600}
+        animationOutTiming={600}
+        backdropTransitionInTiming={600}
+        backdropTransitionOutTiming={600}
+        isVisible={isModalVisible}
+        style={{
+          height: 150,
+          marginBottom: 150,
+          marginTop: 150,
+          marginLeft: 40,
+          marginRight: 40,
+        }}>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 1}}
+          locations={[0.0, 0.59]}
+          colors={[theme.appbg2, theme.appbg1]}
+          style={{
+            flex: 1,
+            alignContent: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: 25,
+          }}>
+          <Text
+            style={{
+              fontSize: 22,
+              fontFamily: 'SpaceMonoRegular',
+              color: theme.text1,
+              letterSpacing: 5,
+              textAlign: 'center',
+              marginBottom: 15,
+            }}>
+            Search for other users by their gmail and start chatting
+          </Text>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 1}}
+            locations={[0.0, 0.99]}
+            colors={[theme.appbg2, theme.appbg1]}
+            style={{
+              padding: 3,
+              borderRadius: 15,
+              marginTop: 20,
+              marginBottom: 20,
+              alignContent: 'center',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text
+              onPress={toggleModal}
+              style={{
+                textAlign: 'center',
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                fontSize: 20,
+                width: 70,
+              }}>
+              got it
+            </Text>
+          </LinearGradient>
+        </LinearGradient>
+      </Modal>
+    </View>
   );
 }
