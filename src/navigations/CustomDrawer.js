@@ -64,7 +64,7 @@ const CustomDrawer = props => {
               textAlign: 'right',
             }}>
             {' '}
-            {myData.name.split(' ')[0]}
+            {myData.name}
           </Text>
           <Text
             style={{
