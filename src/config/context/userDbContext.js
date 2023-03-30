@@ -50,7 +50,7 @@ export function UserDbContextProvider({children}) {
       } else {
         const newUserObj = {
           username: emailName,
-          name: user.displayName,
+          name: user.displayName.split(' ')[0],
           photo: user.photoURL,
           email: user.email,
         };
