@@ -43,24 +43,39 @@ export default function SearchScreen() {
           }}>
           Search for other users by their gmail and start chatting
         </Text>
-
-        <TextInput
-          style={{
-            backgroundColor: theme.text1,
-            marginTop: 20,
-            marginBottom: 10,
-            width: 200,
-            borderRadius: 15,
-            color: 'black',
-            fontFamily: 'SpaceMonoRegular',
-            fontSize: 20,
-            letterSpacing: 3,
-          }}
-          onChangeText={setValue}
-          value={value}
-          placeholder="email adress"
-          placeholderTextColor="#D3D3D9"
+        <View style={{flexDirection: 'row', marginTop: 20, marginBottom: 10}}>
+          <TextInput
+            style={{
+              paddingLeft: 10,
+              backgroundColor: theme.text1,
+              width: 150,
+              borderTopLeftRadius: 15,
+              borderBottomLeftRadius: 15,
+              color: theme.textbg1,
+              fontFamily: 'SpaceMonoRegular',
+              fontSize: 20,
+              letterSpacing: 3,
+            }}
+            onChangeText={setValue}
+            value={value}
+            placeholder="example"
+            placeholderTextColor="#D3D3D9"
           />
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 1}}
+            locations={[0.0, 0.99]}
+            colors={[theme.appbg1, theme.appbg2]}
+            style={{
+              backgroundColor: theme.text1,
+              width: 150,
+              fontFamily: 'SpaceMonoRegular',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+            <Text style={{ fontSize: 20, letterSpacing: 3, position: "relative", top: -2}}>@gmail.com</Text>
+          </LinearGradient>
+        </View>
         <TouchableOpacity
           style={{alignItems: 'center'}}
           title={'Add User'}
@@ -75,6 +90,9 @@ export default function SearchScreen() {
               borderRadius: 15,
               marginTop: 20,
               marginBottom: 20,
+              alignContent: "center",
+              justifyContent: "center",
+              alignItems: "center"
             }}>
             <Text
               style={{
@@ -83,8 +101,7 @@ export default function SearchScreen() {
                 color: theme.text1,
                 fontSize: 20,
                 width: 70,
-                position: 'relative',
-                top: -2,
+                
               }}>
               search
             </Text>
