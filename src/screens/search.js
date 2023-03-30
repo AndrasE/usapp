@@ -33,6 +33,7 @@ export default function SearchScreen() {
   }
 
   const onAddFriend = async name => {
+    if(name !== undefined && name.length > 3) {
     console.log('Searching for user:', name + '@gmail.com 🔍');
     try {
       //find user and add it to my friends and also add me to his friends
@@ -115,9 +116,15 @@ export default function SearchScreen() {
     } catch (error) {
       console.error(error);
     }
+   
+    
+  } else {
     console.log(
-      '======================================================================',
+      'You are truly a silly sausuge!🌭',
     );
+  }
+  console.log(
+    '======================================================================',)
   };
 
   //finduser signed-in in  database
