@@ -20,8 +20,9 @@ export default function SearchScreen() {
   const {theme, textSize} = useUserTheme();
   const {myData} = useUserDb();
   const [value, setValue] = useState();
-  const [searchedMessege, setSearchedMessege] = useState();
   const [searchedUserPic, setSearchedUserPic] = useState();
+  const [searchedUserName, setSearchedUserName] = useState();
+  const [searchedMessege, setSearchedMessege] = useState();
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -43,6 +44,7 @@ export default function SearchScreen() {
         // console.log(who);
         if (user.username === myData.username) {
           setSearchedUserPic(myData.photo);
+          setSearchedUserName(myData.name)
           setSearchedMessege('You can`t add yourself as a friend, schizo..');
           setModalVisible(true);
 
@@ -52,6 +54,7 @@ export default function SearchScreen() {
 
         if (myData.friends && myData.friends.findIndex(f => f.username) > -1) {
           setSearchedUserPic(user.photo);
+          setSearchedUserName(user.name)
           setSearchedMessege(
             'You forgot about your friend?? Already been added..',
           );
@@ -59,7 +62,6 @@ export default function SearchScreen() {
           console.log('This friend already been added previously..😝');
           return;
         }
-
         // create a chatroom and store the chatroom id
         const newChatroomRef = push(ref(database, 'chatrooms'), {
           firstUser: myData.username,
@@ -95,7 +97,8 @@ export default function SearchScreen() {
           ],
         });
         setSearchedUserPic(user.photo);
-        setSearchedMessege(user.name + ' and You now friends. Be a good one!');
+        setSearchedUserName(user.name)
+        setSearchedMessege("and you now friends. Be a good one!");
         setModalVisible(true);
         console.log(
           'User found and added as friend, chatroom created. Hurray!🎉',
@@ -104,13 +107,17 @@ export default function SearchScreen() {
         setSearchedUserPic(
           'https://www.pmlive.com/__data/assets/image/0017/450215/behavioural-economics.jpg',
         );
-        setSearchedMessege(value + '?? There must be a typo somewhere!');
+        setSearchedUserName(value + " ??")
+        setSearchedMessege('There must be a typo somewhere!');
         setModalVisible(true);
         console.log('There is no such user registered, typo?🙄');
       }
     } catch (error) {
       console.error(error);
     }
+    console.log(
+      '======================================================================',
+    );
   };
 
   //finduser signed-in in  database
@@ -260,11 +267,24 @@ export default function SearchScreen() {
               height: 100,
               width: 100,
               borderRadius: 40,
-              margin: 25,
+              marginTop: 15,
+              
               borderColor: theme.text1,
               borderWidth: 1,
             }}
           />
+           <Text
+            style={{
+              fontSize: 35,
+              fontFamily: 'SpaceMonoRegular',
+              color: theme.text1,
+              letterSpacing: 5,
+              textAlign: 'center',
+              padding: 15,
+              lineHeight: 35,
+            }}>
+            {searchedUserName}
+          </Text>
           <Text
             style={{
               fontSize: 22,
