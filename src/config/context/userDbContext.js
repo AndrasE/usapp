@@ -50,7 +50,7 @@ export function UserDbContextProvider({children}) {
           username: emailName,
           name: user.displayName,
           photo: user.photoURL,
-          email: user.email
+          email: user.email,
         };
         set(ref(database, `users/${emailName}`), newUserObj);
         setMyData(newUserObj);
@@ -72,17 +72,16 @@ export function UserDbContextProvider({children}) {
     return mySnapshot.val();
   };
 
-const onAddFriend = async name => {
-  console.log(name);
+  const onAddFriend = async name => {
+    console.log('Searching for user:', name + '@gmail.com 🔍');
     try {
       //find user and add it to my friends and also add me to his friends
       const database = getDatabase();
 
       const user = await findUser(name);
-
       if (user) {
         if (user.username === myData.username) {
-          // don't let user add himself
+          console.log('You cant add yourself as a friend!⛔');
           return;
         }
 
@@ -90,12 +89,11 @@ const onAddFriend = async name => {
           myData.friends &&
           myData.friends.findIndex(f => f.username === user.username) > 0
         ) {
-          // don't let user add a user twice
+          console.log('This friend already been added previously..😝');
           return;
         }
 
         // create a chatroom and store the chatroom id
-
         const newChatroomRef = push(ref(database, 'chatrooms'), {
           firstUser: myData.username,
           secondUser: user.username,
@@ -111,7 +109,7 @@ const onAddFriend = async name => {
             ...userFriends,
             {
               username: myData.username,
-              avatar: myData.avatar,
+              photo: myData.photo,
               chatroomId: newChatroomId,
             },
           ],
@@ -124,17 +122,21 @@ const onAddFriend = async name => {
             ...myFriends,
             {
               username: user.username,
-              avatar: user.avatar,
+              photo: user.photo,
               chatroomId: newChatroomId,
             },
           ],
         });
+        console.log(
+          'User found and added as friend, chatroom created. Hurray!🎉',
+        );
+      } else {
+        console.log('There is no such user registered, typo?🙄');
       }
     } catch (error) {
       console.error(error);
     }
   };
-
 
   useEffect(() => {
     if (user) {
@@ -145,7 +147,9 @@ const onAddFriend = async name => {
   }, [user]);
 
   return (
-    <userDbContext.Provider value={{myData, onAddFriend}}>{children}</userDbContext.Provider>
+    <userDbContext.Provider value={{myData, onAddFriend}}>
+      {children}
+    </userDbContext.Provider>
   );
 }
 

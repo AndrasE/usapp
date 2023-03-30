@@ -15,6 +15,8 @@ export function UserThemeContextProvider({children}) {
     profpicborder: '#FFFFFF',
     drawerbg: '#FFFFFF',
     togglebg: '#FFFFFF',
+    appbg1:  '#cce5f0',
+    appbg2:'#93d1ed',
   };
 
   const waifu = {
@@ -26,6 +28,8 @@ export function UserThemeContextProvider({children}) {
     profpicborder: '#FFACAC',
     drawerbg: '#FFACAC',
     togglebg: '#FFACAC',
+    appbg1:  '#FFACAC',
+    appbg2:'#FF577F',
   };
 
   const dark = {
@@ -37,6 +41,8 @@ export function UserThemeContextProvider({children}) {
     profpicborder: '#b3b3b3',
     drawerbg: '#333333',
     togglebg: '#333333',
+    appbg1:  '#5f5f5f',
+    appbg2:'#000000',
   };
 
   // Size Settings //
