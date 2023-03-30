@@ -136,7 +136,6 @@ export default function SearchScreen() {
         backdropTransitionOutTiming={600}
         isVisible={isModalVisible}
         style={{
-          height: 150,
           marginBottom: 150,
           marginTop: 150,
           marginLeft: 40,
