@@ -16,8 +16,8 @@ export default function SearchScreen() {
       <LinearGradient
         start={{x: 0, y: 0}}
         end={{x: 1, y: 1}}
-        locations={[0.0, 0.69]}
-        colors={[theme.textbg1, theme.textbg2]}
+        locations={[0.0, 0.59]}
+        colors={[theme.appbg1, theme.appbg2]}
         style={{
           padding: 40,
           flex: 1,
@@ -34,21 +34,33 @@ export default function SearchScreen() {
         />
         <Text
           style={{
-            fontSize: 35,
+            fontSize: 22,
             fontFamily: 'SpaceMonoRegular',
             color: theme.text1,
             letterSpacing: 5,
             textAlign: 'center',
+            marginBottom: 15,
           }}>
-          Search for other users
+          Search for other users by their gmail and start chatting
         </Text>
 
         <TextInput
-          style={{backgroundColor: theme.text1, marginTop: 20, width: 200, borderRadius: 15}}
+          style={{
+            backgroundColor: theme.text1,
+            marginTop: 20,
+            marginBottom: 10,
+            width: 200,
+            borderRadius: 15,
+            color: 'black',
+            fontFamily: 'SpaceMonoRegular',
+            fontSize: 20,
+            letterSpacing: 3,
+          }}
           onChangeText={setValue}
           value={value}
-        />
-
+          placeholder="email adress"
+          placeholderTextColor="#D3D3D9"
+          />
         <TouchableOpacity
           style={{alignItems: 'center'}}
           title={'Add User'}
@@ -57,8 +69,13 @@ export default function SearchScreen() {
             start={{x: 0, y: 0}}
             end={{x: 1, y: 1}}
             locations={[0.0, 0.99]}
-            colors={[theme.textbg1, theme.textbg1]}
-            style={{padding: 2, borderRadius: 15, marginTop: 20}}>
+            colors={[theme.appbg2, theme.appbg1]}
+            style={{
+              padding: 3,
+              borderRadius: 15,
+              marginTop: 20,
+              marginBottom: 20,
+            }}>
             <Text
               style={{
                 textAlign: 'center',
