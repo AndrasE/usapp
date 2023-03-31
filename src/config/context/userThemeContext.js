@@ -17,6 +17,7 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#FFFFFF',
     appbg1: '#cce5f0',
     appbg2: '#93d1ed',
+    drawerheader: "#63b4cf",
   };
 
   const waifu = {
@@ -30,6 +31,7 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#FFACAC',
     appbg1: '#FFACAC',
     appbg2: '#FF577F',
+    drawerheader:'#FF577F',
   };
 
   const dark = {
@@ -43,6 +45,7 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#333333',
     appbg1: '#5f5f5f',
     appbg2: '#000000',
+    drawerheader: '#000000',
   };
 
   // Size Settings //
@@ -61,6 +64,7 @@ export function UserThemeContextProvider({children}) {
     textinputsize: 15,
     textinputwidth: 140,
     modalpicheight: 90,
+    drawerheaderheight: 51,
   };
 
   const medium = {
@@ -78,6 +82,7 @@ export function UserThemeContextProvider({children}) {
     textinputsize: 20,
     textinputwidth: 150,
     modalpicheight: 100,
+    drawerheaderheight: 56,
   };
 
   const large = {
@@ -95,6 +100,7 @@ export function UserThemeContextProvider({children}) {
     textinputsize: 25,
     textinputwidth: 180,
     modalpicheight: 110,
+    drawerheaderheight: 60,
   };
 
   const saveTheme = async value => {
