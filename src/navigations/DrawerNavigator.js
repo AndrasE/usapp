@@ -4,17 +4,38 @@ import CustomDrawer from './CustomDrawer';
 import {HomeScreen, AsdScreen, SearchScreen, Asd3Screen} from './ScreensImport';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {DrawerActions} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
+const ToggleDrawer = () => {
+  const {toggleDrawer, closeDrawer, openDrawer} = useNavigation();
+};
 const Drawer = createDrawerNavigator();
 
-function DrawerNavigator() {
+function DrawerNavigator({navigation}) {
   const {theme, textSize} = useUserTheme();
 
   return (
     <Drawer.Navigator
+      navigation
+      initialRouteName="Chats"
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: theme.drawerheader,
+          height: textSize.drawerheaderheight,
+        },
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          color: theme.text1,
+          fontFamily: 'SpaceMonoRegular',
+          fontSize: textSize.drawerItemsIcon - 2,
+          letterSpacing: 3,
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
         drawerActiveBackgroundColor: theme.textbg1,
         drawerActiveTintColor: theme.text1,
         drawerInactiveTintColor: theme.text2,
@@ -23,6 +44,12 @@ function DrawerNavigator() {
           letterSpacing: 2,
           fontSize: textSize.drawerItems,
         },
+        headerTintColor:theme.text1,
+        // headerLeft: props => (
+        //   <TouchableOpacity onPress={() => props.navigation.toggleDrawer()}>
+        //     <Icon name="enter" size={30} color={theme.text1} />
+        //   </TouchableOpacity>
+        // ),
       }}
       swipeEdgeWidth={500}>
       <Drawer.Screen
