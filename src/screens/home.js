@@ -475,7 +475,7 @@ export default function SearchScreen() {
 //   };
 
 //   switch (currentPage) {
-   
+
 //     case 'users':
 //       return (
 //         <Users
