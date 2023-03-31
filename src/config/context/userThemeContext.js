@@ -15,8 +15,8 @@ export function UserThemeContextProvider({children}) {
     profpicborder: '#FFFFFF',
     drawerbg: '#FFFFFF',
     togglebg: '#FFFFFF',
-    appbg1:  '#cce5f0',
-    appbg2:'#93d1ed',
+    appbg1: '#cce5f0',
+    appbg2: '#93d1ed',
   };
 
   const waifu = {
@@ -28,8 +28,8 @@ export function UserThemeContextProvider({children}) {
     profpicborder: '#FFACAC',
     drawerbg: '#FFACAC',
     togglebg: '#FFACAC',
-    appbg1:  '#FFACAC',
-    appbg2:'#FF577F',
+    appbg1: '#FFACAC',
+    appbg2: '#FF577F',
   };
 
   const dark = {
@@ -41,8 +41,8 @@ export function UserThemeContextProvider({children}) {
     profpicborder: '#b3b3b3',
     drawerbg: '#333333',
     togglebg: '#333333',
-    appbg1:  '#5f5f5f',
-    appbg2:'#000000',
+    appbg1: '#5f5f5f',
+    appbg2: '#000000',
   };
 
   // Size Settings //
@@ -55,6 +55,12 @@ export function UserThemeContextProvider({children}) {
     drawerItemsIcon: 21,
     drawerItemMarginLeft: 55,
     preferencesText: 13,
+    btns: 17,
+    lottieheight: 85,
+    searchheader: 20,
+    textinputsize: 15,
+    textinputwidth: 140,
+    modalpicheight: 90,
   };
 
   const medium = {
@@ -66,6 +72,12 @@ export function UserThemeContextProvider({children}) {
     drawerItemsIcon: 25,
     drawerItemMarginLeft: 52,
     preferencesText: 15,
+    btns: 19,
+    lottieheight: 100,
+    searchheader: 25,
+    textinputsize: 20,
+    textinputwidth: 150,
+    modalpicheight: 100,
   };
 
   const large = {
@@ -77,12 +89,18 @@ export function UserThemeContextProvider({children}) {
     drawerItemsIcon: 30,
     drawerItemMarginLeft: 43,
     preferencesText: 17,
+    btns: 21,
+    lottieheight: 115,
+    searchheader: 30,
+    textinputsize: 25,
+    textinputwidth: 180,
+    modalpicheight: 110,
   };
 
   const saveTheme = async value => {
     try {
       AsyncStorage.setItem('userTheme', value);
-      console.log("New theme chosen by user:",value,"😎");
+      console.log('New theme chosen by user:', value, '😎');
     } catch (err) {
       console.log(err);
     }
@@ -118,7 +136,7 @@ export function UserThemeContextProvider({children}) {
   const saveText = async value => {
     try {
       AsyncStorage.setItem('userText', value);
-      console.log("New text-size chosen by user:",value,"🔠");
+      console.log('New text-size chosen by user:', value, '🔠');
     } catch (err) {
       console.log(err);
     }

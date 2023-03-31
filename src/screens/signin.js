@@ -8,6 +8,7 @@ import {
   Text,
   View,
   TouchableWithoutFeedback,
+  Linking,
 } from 'react-native';
 import Lottie from 'lottie-react-native';
 import {useUserAuth} from '../config/context/userAuthContext';
@@ -15,7 +16,7 @@ import {useUserTheme} from '../config/context/userThemeContext';
 
 export default function SignInScreen() {
   const {_signInWithGoogle} = useUserAuth();
-  const {theme} = useUserTheme();
+  const {theme, textSize} = useUserTheme();
 
   function handleSignIn() {
     _signInWithGoogle();
@@ -76,79 +77,97 @@ export default function SignInScreen() {
         <Modal
           isVisible={isModalVisible}
           style={{
-            backgroundColor: 'white',
-
-            borderRadius: 8,
-
-            paddingTop: 55,
-            marginTop: 75,
+            paddingTop: 65,
+            marginTop: 65,
             marginBottom: 75,
             paddingBottom: 55,
-            marginLeft: 45,
-            marginRight: 45,
+            marginLeft: 40,
+            marginRight: 40,
           }}>
-          <Text
-            style={{
-              textAlign: 'center',
-              fontFamily: 'SpaceMonoRegular',
-              color: 'black',
-              fontSize: 30,
-              margin: 16,
-              bottom: 10,
-              position: 'relative',
-              top: -10,
-              letterSpacing: 5,
-              flex: 1,
-              justifyContent: 'flex-start',
-            }}>
-            Privacy
-          </Text>
-          <Text
-            style={{
-              textAlign: 'justify',
-              lineHeight: 25,
-              fontFamily: 'SpaceMonoRegular',
-              color: 'black',
-              fontSize: 15,
-              margin: 16,
-              bottom: 10,
-              letterSpacing: 1.2,
-              flex: 4,
-            }}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and essentially unchanged. Idt was popularised in with the release
-            and essentially unchanged. Idt was popularised in with the release
-            of Letraset sheets containing Lorem Ipsum passages..asdasdasd
-          </Text>
           <View
             style={{
+              flexDirection: 'column',
+              alignContent: 'center',
+              // justifyContent: 'center',
               alignItems: 'center',
-              justifyContent: 'center',
-              flex: 1,
-              justifyContent: 'flex-end',
+              borderRadius: 25,
+              backgroundColor: theme.textbg1,
+              padding: 25,
             }}>
-            <LinearGradient
-              start={{x: 0, y: 0}}
-              end={{x: 1, y: 1}}
-              locations={[0.0, 0.99]}
-              colors={['#93d1ed', '#63b4cf']}
-              style={{padding: 2, borderRadius: 15}}>
-              <Text
-                onPress={toggleModal}
-                style={{
-                  textAlign: 'center',
-                  fontFamily: 'SpaceMonoRegular',
-                  color: 'white',
-                  fontSize: 18,
-                  width: 70,
-                  position: 'relative',
-                  top: -2,
-                }}>
-                got it
-              </Text>
-            </LinearGradient>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                fontSize: textSize.nameHeader,
+                margin: 16,
+                letterSpacing: 5,
+              }}>
+              Privacy
+            </Text>
+            <Text
+              style={{
+                textAlign: 'justify',
+                lineHeight: 25,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                fontSize: textSize.emailHeader,
+                margin: 16,
+                lineHeight: 28,
+                letterSpacing: 1.2,
+              }}>
+              He there, I hope to welcome you as one of US! You will be able to
+              log out or delete all your data and any point after registration.
+              This app was created by me, Andras and you also welcome to add me
+              as friend and raise any concerns you may have. You also can find
+              me here:
+            </Text>
+            <Text
+              Text
+              onPress={() =>
+                Linking.openURL('https://andrasegyed.netlify.app/')
+              }
+              style={{
+                textDecorationLine: 'underline',
+                textAlign: 'justify',
+                lineHeight: 25,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                fontSize: textSize.emailHeader,
+                marginBottom: 16,
+                lineHeight: 28,
+                letterSpacing: 1.2,
+              }}>
+              andrasegyed.netlify.app
+            </Text>
+
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: 25,
+              }}>
+              <LinearGradient
+                start={{x: 0, y: 0}}
+                end={{x: 1, y: 1}}
+                locations={[0.0, 0.99]}
+                colors={[theme.appbg1, theme.appbg2]}
+                style={{padding: 2, borderRadius: 15}}>
+                <Text
+                  onPress={toggleModal}
+                  style={{
+                    textAlign: 'center',
+                    fontFamily: 'SpaceMonoRegular',
+                    color: 'white',
+                    fontSize: textSize.btns,
+                    width: 70,
+                    position: 'relative',
+                    top: -2,
+                  }}>
+                  got it
+                </Text>
+              </LinearGradient>
+            </View>
           </View>
         </Modal>
       </View>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Image, Text, TextInput, View} from 'react-native';
+import {Image, Text, TextInput, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
@@ -26,6 +26,7 @@ export default function SearchScreen() {
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
+    setValue('');
   };
 
   function handleSearchPress() {
@@ -33,98 +34,97 @@ export default function SearchScreen() {
   }
 
   const onAddFriend = async name => {
-    if(name !== undefined && name.length > 3) {
-    console.log('Searching for user:', name + '@gmail.com 🔍');
-    try {
-      //find user and add it to my friends and also add me to his friends
-      const database = getDatabase();
+    if (name !== undefined && name.length > 3) {
+      console.log('Searching for user:', name + '@gmail.com 🔍');
+      try {
+        //find user and add it to my friends and also add me to his friends
+        const database = getDatabase();
 
-      const user = await findUser(name);
-      if (user) {
-        // const who =  myData.friends.findIndex(f => f.username)
-        // console.log(who);
-        if (user.username === myData.username) {
-          setSearchedUserPic(myData.photo);
-          setSearchedUserName(myData.name)
-          setSearchedMessege('You can`t add yourself as a friend, schizo..');
-          setModalVisible(true);
+        const user = await findUser(name);
+        if (user) {
+          // const who =  myData.friends.findIndex(f => f.username)
+          // console.log(who);
+          if (user.username === myData.username) {
+            setSearchedUserPic(myData.photo);
+            setSearchedUserName(myData.name);
+            setSearchedMessege('You can`t add yourself as a friend, schizo..');
+            setModalVisible(true);
 
-          console.log('You cant add yourself as a friend!⛔');
-          return;
-        }
+            console.log('You cant add yourself as a friend!⛔');
+            return;
+          }
+          if (
+            myData.friends &&
+            myData.friends.findIndex(f => f.username) > -1
+          ) {
+            setSearchedUserPic(user.photo);
+            setSearchedUserName(user.name);
+            setSearchedMessege(
+              'You forgot about your friend?? Already been added..',
+            );
+            setModalVisible(true);
+            console.log('This friend already been added previously..😝');
+            return;
+          }
+          // create a chatroom and store the chatroom id
+          const newChatroomRef = push(ref(database, 'chatrooms'), {
+            firstUser: myData.username,
+            secondUser: user.username,
+            messages: [],
+          });
 
-        if (myData.friends && myData.friends.findIndex(f => f.username) > -1) {
+          const newChatroomId = newChatroomRef.key;
+
+          const userFriends = user.friends || [];
+          //join myself to this user friend list
+          update(ref(database, `users/${user.username}`), {
+            friends: [
+              ...userFriends,
+              {
+                username: myData.username,
+                photo: myData.photo,
+                chatroomId: newChatroomId,
+              },
+            ],
+          });
+
+          const myFriends = myData.friends || [];
+          //add this user to my friend list
+          update(ref(database, `users/${myData.username}`), {
+            friends: [
+              ...myFriends,
+              {
+                username: user.username,
+                photo: user.photo,
+                chatroomId: newChatroomId,
+              },
+            ],
+          });
           setSearchedUserPic(user.photo);
-          setSearchedUserName(user.name)
-          setSearchedMessege(
-            'You forgot about your friend?? Already been added..',
-          );
+          setSearchedUserName(user.name);
+          setSearchedMessege('and you now friends. Be a good one!');
           setModalVisible(true);
-          console.log('This friend already been added previously..😝');
-          return;
+          console.log(
+            'User found and added as friend, chatroom created. Hurray!🎉',
+          );
+        } else {
+          setSearchedUserPic(
+            'https://www.pmlive.com/__data/assets/image/0017/450215/behavioural-economics.jpg',
+          );
+          setSearchedUserName(value + ' ??');
+          setSearchedMessege('There must be a typo somewhere!');
+          setModalVisible(true);
+          console.log('There is no such user registered, typo?🙄');
         }
-        // create a chatroom and store the chatroom id
-        const newChatroomRef = push(ref(database, 'chatrooms'), {
-          firstUser: myData.username,
-          secondUser: user.username,
-          messages: [],
-        });
-
-        const newChatroomId = newChatroomRef.key;
-
-        const userFriends = user.friends || [];
-        //join myself to this user friend list
-        update(ref(database, `users/${user.name}`), {
-          friends: [
-            ...userFriends,
-            {
-              username: myData.username,
-              photo: myData.photo,
-              chatroomId: newChatroomId,
-            },
-          ],
-        });
-
-        const myFriends = myData.friends || [];
-        //add this user to my friend list
-        update(ref(database, `users/${myData.username}`), {
-          friends: [
-            ...myFriends,
-            {
-              username: user.username,
-              photo: user.photo,
-              chatroomId: newChatroomId,
-            },
-          ],
-        });
-        setSearchedUserPic(user.photo);
-        setSearchedUserName(user.name)
-        setSearchedMessege("and you now friends. Be a good one!");
-        setModalVisible(true);
-        console.log(
-          'User found and added as friend, chatroom created. Hurray!🎉',
-        );
-      } else {
-        setSearchedUserPic(
-          'https://www.pmlive.com/__data/assets/image/0017/450215/behavioural-economics.jpg',
-        );
-        setSearchedUserName(value + " ??")
-        setSearchedMessege('There must be a typo somewhere!');
-        setModalVisible(true);
-        console.log('There is no such user registered, typo?🙄');
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
+    } else {
+      console.log('You are truly a silly sausuge!🌭');
     }
-   
-    
-  } else {
     console.log(
-      'You are truly a silly sausuge!🌭',
+      '======================================================================',
     );
-  }
-  console.log(
-    '======================================================================',)
   };
 
   //finduser signed-in in  database
@@ -152,7 +152,11 @@ export default function SearchScreen() {
           alignItems: 'center',
         }}>
         <Lottie
-          style={{height: 100, position: 'relative', top: -15}}
+          style={{
+            height: textSize.lottieheight,
+            position: 'relative',
+            top: -15,
+          }}
           source={require('../assets/search.json')}
           autoPlay
           loop={false}
@@ -160,7 +164,7 @@ export default function SearchScreen() {
         />
         <Text
           style={{
-            fontSize: 22,
+            fontSize: textSize.searchheader,
             fontFamily: 'SpaceMonoRegular',
             color: theme.text1,
             letterSpacing: 5,
@@ -169,17 +173,17 @@ export default function SearchScreen() {
           }}>
           Search for other users by their gmail and start chatting
         </Text>
-        <View style={{flexDirection: 'row', marginTop: 20, marginBottom: 10}}>
+        <View style={{flexDirection: 'row', marginTop: 20, marginBottom: 25}}>
           <TextInput
             style={{
               paddingLeft: 10,
               backgroundColor: theme.text1,
-              width: 150,
+              width: textSize.textinputwidth,
               borderTopLeftRadius: 15,
               borderBottomLeftRadius: 15,
               color: theme.textbg1,
               fontFamily: 'SpaceMonoRegular',
-              fontSize: 20,
+              fontSize: textSize.textinputsize,
               letterSpacing: 3,
             }}
             onChangeText={setValue}
@@ -195,14 +199,14 @@ export default function SearchScreen() {
             colors={[theme.appbg1, theme.appbg2]}
             style={{
               backgroundColor: theme.text1,
-              width: 150,
+              width: textSize.textinputwidth,
               fontFamily: 'SpaceMonoRegular',
               justifyContent: 'center',
               alignItems: 'center',
             }}>
             <Text
               style={{
-                fontSize: 20,
+                fontSize: textSize.textinputsize,
                 letterSpacing: 3,
                 position: 'relative',
                 top: -2,
@@ -234,7 +238,7 @@ export default function SearchScreen() {
                 textAlign: 'center',
                 fontFamily: 'SpaceMonoRegular',
                 color: theme.text1,
-                fontSize: 20,
+                fontSize: textSize.btns,
                 width: 70,
               }}>
               search
@@ -260,7 +264,7 @@ export default function SearchScreen() {
         }}>
         <View
           style={{
-            flexDirection: "column",
+            flexDirection: 'column',
             alignContent: 'center',
             // justifyContent: 'center',
             alignItems: 'center',
@@ -271,18 +275,17 @@ export default function SearchScreen() {
           <Image
             source={{uri: searchedUserPic}}
             style={{
-              height: 100,
-              width: 100,
+              height: textSize.modalpicheight,
+              width: textSize.modalpicheight,
               borderRadius: 40,
               marginTop: 15,
-              
               borderColor: theme.text1,
               borderWidth: 1,
             }}
           />
-           <Text
+          <Text
             style={{
-              fontSize: 35,
+              fontSize: textSize.searchheader + 5,
               fontFamily: 'SpaceMonoRegular',
               color: theme.text1,
               letterSpacing: 5,
@@ -294,7 +297,7 @@ export default function SearchScreen() {
           </Text>
           <Text
             style={{
-              fontSize: 22,
+              fontSize: textSize.textinputsize,
               fontFamily: 'SpaceMonoRegular',
               color: theme.text1,
               letterSpacing: 5,
@@ -313,6 +316,7 @@ export default function SearchScreen() {
             style={{
               padding: 3,
               borderRadius: 15,
+              marginBottom: 15,
             }}>
             <Text
               onPress={toggleModal}
@@ -320,7 +324,7 @@ export default function SearchScreen() {
                 textAlign: 'center',
                 fontFamily: 'SpaceMonoRegular',
                 color: theme.text1,
-                fontSize: 20,
+                fontSize: textSize.btns,
                 width: 70,
                 position: 'relative',
                 top: -2,
