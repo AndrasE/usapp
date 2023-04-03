@@ -6,16 +6,10 @@ import {HomeScreen, AsdScreen, SearchScreen, Asd3Screen} from './ScreensImport';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
-import {DrawerActions} from '@react-navigation/native';
-import {CommonActions} from '@react-navigation/native';
 
-const ToggleDrawer = () => {
-  const {toggleDrawer, closeDrawer, openDrawer} = useNavigation();
-};
 const Drawer = createDrawerNavigator();
 
-function DrawerNavigator({navigation}) {
+function DrawerNavigator() {
   const {theme, textSize} = useUserTheme();
 
   return (
