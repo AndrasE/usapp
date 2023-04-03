@@ -1,12 +1,14 @@
 import React from 'react';
+import {Image, Text, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
 import {HomeScreen, AsdScreen, SearchScreen, Asd3Screen} from './ScreensImport';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {DrawerActions} from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
+import {DrawerActions} from '@react-navigation/native';
+import {CommonActions} from '@react-navigation/native';
 
 const ToggleDrawer = () => {
   const {toggleDrawer, closeDrawer, openDrawer} = useNavigation();
@@ -18,10 +20,27 @@ function DrawerNavigator({navigation}) {
 
   return (
     <Drawer.Navigator
-      navigation
+      backBehavior="history"
       initialRouteName="Chats"
       drawerContent={props => <CustomDrawer {...props} />}
-      screenOptions={{
+      screenOptions={({navigation}) => ({
+        headerLeft: () => (
+          <TouchableOpacity
+            onPress={() => {
+              if (navigation.canGoBack()) {
+                navigation.goBack();
+              }
+            }}>
+            <Image
+              source={require('../assets/back.png')}
+              style={{
+                width: textSize.drawerItemsIcon,
+                height: textSize.drawerItemsIcon,
+                marginLeft: 5,
+              }}
+            />
+          </TouchableOpacity>
+        ),
         headerShown: true,
         headerStyle: {
           backgroundColor: theme.drawerheader,
@@ -44,13 +63,8 @@ function DrawerNavigator({navigation}) {
           letterSpacing: 2,
           fontSize: textSize.drawerItems,
         },
-        headerTintColor:theme.text1,
-        // headerLeft: props => (
-        //   <TouchableOpacity onPress={() => props.navigation.toggleDrawer()}>
-        //     <Icon name="enter" size={30} color={theme.text1} />
-        //   </TouchableOpacity>
-        // ),
-      }}
+        headerTintColor: theme.text1,
+      })}
       swipeEdgeWidth={500}>
       <Drawer.Screen
         name="Chats"
