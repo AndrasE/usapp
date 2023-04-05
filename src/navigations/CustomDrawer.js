@@ -46,67 +46,48 @@ const CustomDrawer = props => {
             width: '100%',
             marginBottom: 6,
           }}>
-          <Image
-            source={{uri: profileImgUrl}}
-            style={{
-              height: textSize.profPicsize,
-              width: textSize.profPicsize,
-              borderRadius: 40,
-              margin: 10,
-              alignSelf: 'flex-end',
-              borderColor: theme.text1,
-              borderWidth: 1,
-            }}
-          />
-          <Text
-            style={{
-              fontSize: textSize.nameHeader,
-              fontFamily: 'SpaceMonoRegular',
-              color: theme.text1,
-              letterSpacing: 5,
-              marginRight: 10,
-              textAlign: 'right',
-            }}>
-            {' '}
-            {myData.name}
-          </Text>
-          <Text
-            style={{
-              fontSize: textSize.emailHeader,
-              fontFamily: 'SpaceMonoRegular',
-              color: theme.text1,
-              letterSpacing: 3,
-              marginRight: 10,
-              textAlign: 'right',
-            }}>
-            {' '}
-            {myData.email}
-          </Text>
+          <TouchableOpacity activeOpacity={0.8}>
+            <Image
+              source={{uri: profileImgUrl}}
+              style={{
+                height: textSize.profPicsize,
+                width: textSize.profPicsize,
+                borderRadius: 40,
+                marginTop: 20,
+                marginRight: 10,
+                alignSelf: 'flex-end',
+                borderColor: theme.text1,
+                borderWidth: 1,
+              }}
+            />
+            <Text
+              style={{
+                fontSize: textSize.nameHeader,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                letterSpacing: 4,
+                marginRight: 10,
+                textAlign: 'right',
+              }}>
+              {' '}
+              {myData.name}
+            </Text>
+            <Text
+              style={{
+                fontSize: textSize.emailHeader,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                letterSpacing: 3,
+                marginRight: 10,
+                textAlign: 'right',
+              }}>
+              {' '}
+              {myData.email}
+            </Text>
+          </TouchableOpacity>
         </ImageBackground>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
-      {/* <View
-        style={{
-          position: 'absolute',
-          flex: 1,
-          height: 200,
-          width: 70,
-          height: 70,
-          justifyContent: 'center',
-          alignItems: 'center',
-          top: '45%',
-          left: 255,
-        }}>
-          <TouchableOpacity>
-        <Image
-          source={require('../assets/drawericon.png')}
-          style={{
-            height: textSize.drawerItemsIcon + 15,
-            width: textSize.drawerItemsIcon,
-            opacity: 0.45,
-          }}></Image>
-          </TouchableOpacity>
-      </View> */}
       <View style={{marginLeft: 9, marginRight: 9, marginBottom: 5}}>
         <View
           style={{flexDirection: 'row', alignItems: 'center', marginBottom: 5}}>
