@@ -183,6 +183,7 @@ export function UserThemeContextProvider({children}) {
 
   const [theme, setTheme] = useState(light);
   const [textSize, setTextSize] = useState(medium);
+
   // required to dinamically load images, as React Native doesn't deal with dynamic images, only static images
   // get name of theme from userThemeContext and set the require path from DrawerBgImages.js
   // https://stackoverflow.com/questions/30854232/react-native-image-require-module-using-dynamic-names

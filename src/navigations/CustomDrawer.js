@@ -1,19 +1,23 @@
 import {Text, View, Image, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
+import {NavigationContainer, DrawerActions} from '@react-navigation/native';
+
 import {
   DrawerContentScrollView,
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {useUserAuth} from '../config/context/userAuthContext';
-import { useUserDb } from '../config/context/userDbContext';
+import {useUserDb} from '../config/context/userDbContext';
 import {useUserTheme} from '../config/context/userThemeContext';
 import SwitchSelector from 'react-native-switch-selector';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+// import Sound from 'react-native-sound';
 
 const CustomDrawer = props => {
-  const { logOut} = useUserAuth();
-  const { myData } = useUserDb();
+  const {logOut} = useUserAuth();
+  const {myData} = useUserDb();
   const {
     theme,
     setUserThemeFunction,
@@ -81,6 +85,28 @@ const CustomDrawer = props => {
         </ImageBackground>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
+      {/* <View
+        style={{
+          position: 'absolute',
+          flex: 1,
+          height: 200,
+          width: 70,
+          height: 70,
+          justifyContent: 'center',
+          alignItems: 'center',
+          top: '45%',
+          left: 255,
+        }}>
+          <TouchableOpacity>
+        <Image
+          source={require('../assets/drawericon.png')}
+          style={{
+            height: textSize.drawerItemsIcon + 15,
+            width: textSize.drawerItemsIcon,
+            opacity: 0.45,
+          }}></Image>
+          </TouchableOpacity>
+      </View> */}
       <View style={{marginLeft: 9, marginRight: 9, marginBottom: 5}}>
         <View
           style={{flexDirection: 'row', alignItems: 'center', marginBottom: 5}}>
@@ -91,7 +117,9 @@ const CustomDrawer = props => {
                 fontWeight: 400,
                 textAlign: 'center',
                 color: theme.text2,
-                fontSize: textSize.preferencesText,
+                fontSize: textSize.preferencesText - 2,
+                fontFamily: 'SpaceMonoRegular',
+                letterSpacing: 2,
               }}>
               {' '}
               preferences{' '}

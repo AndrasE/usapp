@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Text, View, Dimensions} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
 import {HomeScreen, AsdScreen, SearchScreen, Asd3Screen} from './ScreensImport';
@@ -11,6 +11,8 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
   const {theme, textSize} = useUserTheme();
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
 
   return (
     <Drawer.Navigator
@@ -26,14 +28,45 @@ function DrawerNavigator() {
               }
             }}>
             <Image
-              source={require('../assets/back.png')}
+              source={require('../assets/backicon.png')}
               style={{
                 width: textSize.drawerItemsIcon,
                 height: textSize.drawerItemsIcon,
                 marginLeft: 5,
+                opacity: 0.7,
               }}
             />
           </TouchableOpacity>
+        ),
+        headerRight: () => (
+          <View
+            style={{
+              paddingTop: 50,
+              position: 'absolute',
+              flex: 1,
+              height: 200,
+              width: 70,
+              height: 70,
+              justifyContent: 'center',
+              alignItems: 'center',
+              top: windowHeight * 0.49,
+              right: windowWidth * 0.88,
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.toggleDrawer();
+              }}>
+              <Image
+                source={require('../assets/drawericon.png')}
+                style={{
+                  marginTop: 150,
+                  marginBottom: 150,
+                  height: textSize.drawerItemsIcon + 15,
+                  width: textSize.drawerItemsIcon,
+                  opacity: 0.45,
+                }}></Image>
+            </TouchableOpacity>
+          </View>
         ),
         headerShown: true,
         headerStyle: {
