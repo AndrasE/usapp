@@ -59,9 +59,7 @@ export default function SearchScreen() {
           ) {
             setSearchedUserPic(user.photo);
             setSearchedUserName(user.name);
-            setSearchedMessege(
-              'You forgot about your friend?? Already been added..',
-            );
+            setSearchedMessege('is already your friend.. Member?');
             setModalVisible(true);
             console.log('This friend already been added previously..😝');
             return;
@@ -167,7 +165,7 @@ export default function SearchScreen() {
             fontSize: textSize.searchheader,
             fontFamily: 'SpaceMonoRegular',
             color: theme.text1,
-            letterSpacing: 5,
+            letterSpacing: 3,
             textAlign: 'center',
             marginBottom: 15,
           }}>
@@ -184,7 +182,7 @@ export default function SearchScreen() {
               color: theme.textbg1,
               fontFamily: 'SpaceMonoRegular',
               fontSize: textSize.textinputsize,
-              letterSpacing: 3,
+              letterSpacing: 2,
             }}
             onChangeText={setValue}
             value={value}
@@ -200,14 +198,14 @@ export default function SearchScreen() {
             style={{
               backgroundColor: theme.text1,
               width: textSize.textinputwidth,
-              fontFamily: 'SpaceMonoRegular',
               justifyContent: 'center',
               alignItems: 'center',
             }}>
             <Text
               style={{
+                fontFamily: 'SpaceMonoRegular',
                 fontSize: textSize.textinputsize,
-                letterSpacing: 3,
+                letterSpacing: 2,
                 position: 'relative',
                 top: -2,
               }}>
@@ -239,7 +237,9 @@ export default function SearchScreen() {
                 fontFamily: 'SpaceMonoRegular',
                 color: theme.text1,
                 fontSize: textSize.btns,
-                width: 70,
+                position: 'relative',
+                letterSpacing: 2,
+                top: -2,
               }}>
               search
             </Text>
@@ -288,7 +288,7 @@ export default function SearchScreen() {
               fontSize: textSize.searchheader + 5,
               fontFamily: 'SpaceMonoRegular',
               color: theme.text1,
-              letterSpacing: 5,
+              letterSpacing: 2,
               textAlign: 'center',
               padding: 15,
               lineHeight: 35,
@@ -300,7 +300,7 @@ export default function SearchScreen() {
               fontSize: textSize.textinputsize,
               fontFamily: 'SpaceMonoRegular',
               color: theme.text1,
-              letterSpacing: 5,
+              letterSpacing: 2,
               textAlign: 'center',
               marginBottom: 25,
               padding: 15,
@@ -325,7 +325,6 @@ export default function SearchScreen() {
                 fontFamily: 'SpaceMonoRegular',
                 color: theme.text1,
                 fontSize: textSize.btns,
-                width: 70,
                 position: 'relative',
                 top: -2,
               }}>
