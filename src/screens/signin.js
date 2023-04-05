@@ -68,7 +68,7 @@ export default function SignInScreen() {
           margin: 16,
           bottom: 10,
           textDecorationLine: 'underline',
-          letterSpacing: 3,
+          letterSpacing: 2,
         }}
         onPress={toggleModal}>
         privacy statement
@@ -101,7 +101,7 @@ export default function SignInScreen() {
                 color: theme.text1,
                 fontSize: textSize.nameHeader,
                 margin: 16,
-                letterSpacing: 5,
+                letterSpacing: 3,
               }}>
               Privacy
             </Text>
@@ -114,7 +114,6 @@ export default function SignInScreen() {
                 fontSize: textSize.emailHeader,
                 margin: 16,
                 lineHeight: 28,
-                letterSpacing: 1.2,
               }}>
               He there, I hope to welcome you as one of US! You will be able to
               log out or delete all your data and any point after registration.
@@ -136,7 +135,6 @@ export default function SignInScreen() {
                 fontSize: textSize.emailHeader,
                 marginBottom: 16,
                 lineHeight: 28,
-                letterSpacing: 1.2,
               }}>
               andrasegyed.netlify.app
             </Text>
@@ -160,8 +158,6 @@ export default function SignInScreen() {
                     fontFamily: 'SpaceMonoRegular',
                     color: 'white',
                     fontSize: textSize.btns,
-                    width: 70,
-                    position: 'relative',
                     top: -2,
                   }}>
                   got it
