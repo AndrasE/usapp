@@ -41,7 +41,6 @@ function DrawerNavigator() {
         headerRight: () => (
           <View
             style={{
-              paddingTop: 50,
               position: 'absolute',
               flex: 1,
               height: 200,
@@ -59,8 +58,10 @@ function DrawerNavigator() {
               <Image
                 source={require('../assets/drawericon.png')}
                 style={{
-                  marginTop: 150,
-                  marginBottom: 150,
+                  marginLeft: 30,
+                  marginRight: 30,
+                  marginTop: 170,
+                  marginBottom: 170,
                   height: textSize.drawerItemsIcon + 15,
                   width: textSize.drawerItemsIcon,
                   opacity: 0.45,
