@@ -20,7 +20,9 @@ export default function ProfileScreen() {
         locations={[0.0, 0.59]}
         colors={[theme.appbg1, theme.appbg2]}
         style={{
-          padding: 30,
+          paddingTop: 30,
+          paddingLeft: 15,
+          paddingRight: 15,
           flex: 1,
         }}>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -52,31 +54,173 @@ export default function ProfileScreen() {
               color: theme.text1,
               letterSpacing: 2,
               textAlign: 'center',
-              marginBottom: 15,
+              marginBottom: 30,
             }}>
             {myData.email}
           </Text>
           <View
-          style={{flexDirection: 'row', alignItems: 'center', marginBottom: 5}}>
-          <View style={{flex: 1, height: 1, backgroundColor: theme.text1}} />
-          <View>
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginBottom: 5,
+            }}>
+            <View style={{flex: 1, height: 1, backgroundColor: theme.text1}} />
+            <View>
+              <Text
+                style={{
+                  fontWeight: 400,
+                  textAlign: 'center',
+                  color: theme.text2,
+                  fontSize: textSize.preferencesText,
+                  fontFamily: 'SpaceMonoRegular',
+                  letterSpacing: 2,
+                  color: theme.text1,
+                }}>
+                {' '}
+                stats{' '}
+              </Text>
+            </View>
+            <View style={{flex: 1, height: 1, backgroundColor: theme.text1}} />
+          </View>
+        </View>
+        <View
+          style={{
+            marginTop: 10,
+            flex: 1,
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: 'flex-start',
+          }}>
+          <View style={{width: ' 50%'}}>
             <Text
               style={{
-                fontWeight: 400,
-                textAlign: 'center',
-                color: theme.text2,
-                fontSize: textSize.preferencesText - 2,
+                fontSize: textSize.emailHeader + 2,
                 fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
                 letterSpacing: 2,
-                color: theme.text1
+                textAlign: 'center',
+                marginBottom: 10,
+                textDecorationLine: 'underline',
               }}>
-              {' '}
-              stats{' '}
+              Registered:
+            </Text>
+            <Text
+              style={{
+                fontSize: textSize.emailHeader,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                letterSpacing: 2,
+                textAlign: 'center',
+              }}>
+              02/03/22
             </Text>
           </View>
-          <View style={{flex: 1, height: 1, backgroundColor: theme.text1}} />
+          <View style={{width: ' 50%', marginBottom: 15}}>
+            <Text
+              style={{
+                fontSize: textSize.emailHeader + 2,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                letterSpacing: 2,
+                textAlign: 'center',
+                marginBottom: 10,
+                textDecorationLine: 'underline',
+              }}>
+              Friends:
+            </Text>
+            <Text
+              style={{
+                fontSize: textSize.emailHeader,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                letterSpacing: 2,
+                textAlign: 'center',
+              }}>
+              666
+            </Text>
+          </View>
+          <View style={{width: ' 50%'}}>
+            <Text
+              style={{
+                fontSize: textSize.emailHeader + 2,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                letterSpacing: 2,
+                textAlign: 'center',
+                marginBottom: 10,
+                textDecorationLine: 'underline',
+              }}>
+              Inbox:
+            </Text>
+            <Text
+              style={{
+                fontSize: textSize.emailHeader,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                letterSpacing: 2,
+                textAlign: 'center',
+              }}>
+              999
+            </Text>
+          </View>
+          <View style={{width: ' 50%'}}>
+            <Text
+              style={{
+                fontSize: textSize.emailHeader + 2,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                letterSpacing: 2,
+                textAlign: 'center',
+                marginBottom: 10,
+                textDecorationLine: 'underline',
+              }}>
+              Outbox:
+            </Text>
+            <Text
+              style={{
+                fontSize: textSize.emailHeader,
+                fontFamily: 'SpaceMonoRegular',
+                color: theme.text1,
+                letterSpacing: 2,
+                textAlign: 'center',
+              }}>
+              999
+            </Text>
+          </View>
+          <View style={{alignSelf: 'flex-end'}}></View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginTop: 100,
+            }}>
+            <View style={{flex: 1, height: 1, backgroundColor: theme.text1}} />
+            <View>
+              <Text
+                style={{
+                  fontWeight: 400,
+                  textAlign: 'center',
+                  color: theme.text2,
+                  fontSize: textSize.preferencesText,
+                  fontFamily: 'SpaceMonoRegular',
+                  letterSpacing: 2,
+                  color: theme.text1,
+                }}>
+                {' '}
+                Dangerzone{' '}
+              </Text>
+            </View>
+            <View style={{flex: 1, height: 1, backgroundColor: theme.text1}} />
+          </View>
         </View>
-        </View>
+        <View
+          style={{
+            marginTop: 15,
+            flex: 1,
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: 'flex-start',
+          }}></View>
       </LinearGradient>
     </View>
   );
