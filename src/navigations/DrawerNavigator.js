@@ -1,8 +1,14 @@
 import React from 'react';
-import {Image, Text, View, Dimensions} from 'react-native';
+import {Image, View, Dimensions} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
-import {HomeScreen, AsdScreen, SearchScreen, Asd3Screen} from './ScreensImport';
+import {
+  HomeScreen,
+  ProfileScreen,
+  AsdScreen,
+  SearchScreen,
+  Asd3Screen,
+} from './ScreensImport';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -94,6 +100,11 @@ function DrawerNavigator() {
         headerTintColor: theme.text1,
       })}
       swipeEdgeWidth={500}>
+      <Drawer.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{drawerItemStyle: {display: "none"}}}
+      />
       <Drawer.Screen
         name="Chats"
         component={HomeScreen}
