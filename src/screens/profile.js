@@ -54,7 +54,7 @@ export default function ProfileScreen() {
               color: theme.text1,
               letterSpacing: 2,
               textAlign: 'center',
-              marginBottom: 30,
+              marginBottom: 35,
             }}>
             {myData.email}
           </Text>
@@ -192,7 +192,7 @@ export default function ProfileScreen() {
             style={{
               flexDirection: 'row',
               alignItems: 'center',
-              marginTop: 100,
+              marginTop: 50,
             }}>
             <View style={{flex: 1, height: 1, backgroundColor: theme.text1}} />
             <View>
