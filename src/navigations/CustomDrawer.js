@@ -1,7 +1,6 @@
 import {Text, View, Image, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
-import {NavigationContainer, DrawerActions} from '@react-navigation/native';
 
 import {
   DrawerContentScrollView,
@@ -13,9 +12,12 @@ import {useUserDb} from '../config/context/userDbContext';
 import {useUserTheme} from '../config/context/userThemeContext';
 import SwitchSelector from 'react-native-switch-selector';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 // import Sound from 'react-native-sound';
 
 const CustomDrawer = props => {
+  const navigation = useNavigation();
+
   const {logOut} = useUserAuth();
   const {myData} = useUserDb();
   const {
@@ -46,7 +48,11 @@ const CustomDrawer = props => {
             width: '100%',
             marginBottom: 6,
           }}>
-          <TouchableOpacity activeOpacity={0.8}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => {
+              navigation.navigate('Profile');
+            }}>
             <Image
               source={{uri: profileImgUrl}}
               style={{
