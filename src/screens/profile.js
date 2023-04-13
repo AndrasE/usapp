@@ -1,10 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useUserTheme} from '../config/context/userThemeContext';
+import {useUserDb} from '../config/context/userDbContext';
 
 export default function ProfileScreen() {
   const {theme, textSize} = useUserTheme();
+  const {myData} = useUserDb();
+  const profileImgUrl = myData.photo;
 
   return (
     <View
@@ -17,23 +20,63 @@ export default function ProfileScreen() {
         locations={[0.0, 0.59]}
         colors={[theme.appbg1, theme.appbg2]}
         style={{
-          padding: 40,
+          padding: 30,
           flex: 1,
-          alignContent: 'center',
-          justifyContent: 'center',
-          alignItems: 'center',
         }}>
-        <Text
-          style={{
-            fontSize: textSize.searchheader,
-            fontFamily: 'SpaceMonoRegular',
-            color: theme.text1,
-            letterSpacing: 3,
-            textAlign: 'center',
-            marginBottom: 15,
-          }}>
-          Search for other users by their gmail and start chatting
-        </Text>
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Image
+            source={{uri: profileImgUrl}}
+            style={{
+              height: textSize.profPicsize + 20,
+              width: textSize.profPicsize + 20,
+              borderRadius: 40,
+              justifyContent: 'center',
+              borderColor: theme.text1,
+              borderWidth: 1,
+            }}
+          />
+          <Text
+            style={{
+              fontSize: textSize.searchheader + 5,
+              fontFamily: 'SpaceMonoRegular',
+              color: theme.text1,
+              letterSpacing: 3,
+              textAlign: 'center',
+            }}>
+            {myData.name}
+          </Text>
+          <Text
+            style={{
+              fontSize: textSize.searchheader - 5,
+              fontFamily: 'SpaceMonoRegular',
+              color: theme.text1,
+              letterSpacing: 2,
+              textAlign: 'center',
+              marginBottom: 15,
+            }}>
+            {myData.email}
+          </Text>
+          <View
+          style={{flexDirection: 'row', alignItems: 'center', marginBottom: 5}}>
+          <View style={{flex: 1, height: 1, backgroundColor: theme.text1}} />
+          <View>
+            <Text
+              style={{
+                fontWeight: 400,
+                textAlign: 'center',
+                color: theme.text2,
+                fontSize: textSize.preferencesText - 2,
+                fontFamily: 'SpaceMonoRegular',
+                letterSpacing: 2,
+                color: theme.text1
+              }}>
+              {' '}
+              stats{' '}
+            </Text>
+          </View>
+          <View style={{flex: 1, height: 1, backgroundColor: theme.text1}} />
+        </View>
+        </View>
       </LinearGradient>
     </View>
   );
