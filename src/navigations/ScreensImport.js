@@ -1,10 +1,10 @@
-import SplashScreen from '../screens/splash';
-import SignInScreen from '../screens/signin';
-import HomeScreen from '../screens/home';
-import AsdScreen from '../screens/asd';
-import SearchScreen from '../screens/search';
-import Asd3Screen from '../screens/asd3';
-import ProfileScreen from '../screens/profile';
+import SplashScreen from '../screens/Splash';
+import SignInScreen from '../screens/Signin';
+import HomeScreen from '../screens/Home';
+import AsdScreen from '../screens/Asd';
+import SearchScreen from '../screens/Search';
+import Asd3Screen from '../screens/Asd3';
+import ProfileScreen from '../screens/Profile';
 
 // just to have everything in one place, so i wont need
 // to import all screens line by line

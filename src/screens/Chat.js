@@ -33,15 +33,15 @@ export default function Chat({onBack, myData, selectedUser}) {
 
   const renderMessages = useCallback(
     msgs => {
-      //structure for chat library:
-      // msg = {
-      //   _id: '',
-      //   user: {
-      //     avatar:'',
-      //     name: '',
-      //     _id: ''
-      //   }
-      // }
+      // structure for chat library:
+      msg = {
+        _id: '',
+        user: {
+          avatar:'',
+          name: '',
+          _id: ''
+        }
+      }
 
       return msgs
         ? msgs.reverse().map((msg, index) => ({
