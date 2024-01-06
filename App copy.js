@@ -1,9 +1,9 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SplashScreen from './src/screens/splash';
-import SignInScreen from './src/screens/signin';
-import HomeScreen from './src/screens/home';
+import SplashScreen from './src/screens/Splash';
+import SignInScreen from './src/screens/Signin';
+import HomeScreen from './src/screens/Home';
 // import {_signInWithGoogle} from '../config/firebase/GoogleSingIn.js';
 
 

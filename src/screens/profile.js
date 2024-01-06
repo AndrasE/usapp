@@ -1,8 +1,9 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, Text, View, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
+import {block} from 'react-native-reanimated';
 
 export default function ProfileScreen() {
   const {theme, textSize} = useUserTheme();
@@ -112,7 +113,7 @@ export default function ProfileScreen() {
                 letterSpacing: 2,
                 textAlign: 'center',
               }}>
-              02/03/22
+              date
             </Text>
           </View>
           <View style={{width: ' 50%', marginBottom: 15}}>
@@ -136,7 +137,7 @@ export default function ProfileScreen() {
                 letterSpacing: 2,
                 textAlign: 'center',
               }}>
-              666
+              0
             </Text>
           </View>
           <View style={{width: ' 50%'}}>
@@ -160,7 +161,7 @@ export default function ProfileScreen() {
                 letterSpacing: 2,
                 textAlign: 'center',
               }}>
-              999
+              0
             </Text>
           </View>
           <View style={{width: ' 50%'}}>
@@ -184,7 +185,7 @@ export default function ProfileScreen() {
                 letterSpacing: 2,
                 textAlign: 'center',
               }}>
-              999
+              0
             </Text>
           </View>
           <View style={{alignSelf: 'flex-end'}}></View>
@@ -217,10 +218,54 @@ export default function ProfileScreen() {
           style={{
             marginTop: 15,
             flex: 1,
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignItems: 'flex-start',
-          }}></View>
+          }}>
+          <Text
+            style={{
+              fontSize: textSize.searchheader - 5,
+              textAlign: 'center',
+              fontFamily: 'SpaceMonoRegular',
+              color: theme.text1,
+              fontSize: textSize.btns,
+              position: 'relative',
+              letterSpacing: 2,
+              top: -2,
+            }}>
+            Delete account?
+          </Text>
+          <TouchableOpacity
+            style={{alignItems: 'center', paddingTop: 15}}
+            title={'Del User'}
+            onPress={() =>
+              console.log('I hope to see you again, bye for now! 💀')
+            }>
+            <LinearGradient
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 1}}
+              locations={[0.3, 0.99]}
+              colors={['#f9022b', '#ee6781']}
+              style={{
+                padding: 3,
+                borderRadius: 5,
+                marginTop: 20,
+                marginBottom: 20,
+                alignContent: 'center',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontFamily: 'SpaceMonoRegular',
+                  color: theme.text1,
+                  fontSize: 25,
+                  position: 'relative',
+                  top: -2,
+                }}>
+                💀 delete 💀
+              </Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </LinearGradient>
     </View>
   );
