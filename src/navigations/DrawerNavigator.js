@@ -103,7 +103,7 @@ function DrawerNavigator() {
       <Drawer.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{drawerItemStyle: {display: "none"}}}
+        options={{drawerItemStyle: {display: 'none'}}}
       />
       <Drawer.Screen
         name="Chats"
@@ -139,25 +139,10 @@ function DrawerNavigator() {
         name="AsdScreen"
         component={AsdScreen}
         options={{
-          title: 'ChatGpt',
+          title: 'About',
           drawerIcon: ({color, size}) => (
             <Icon
               name="md-git-compare"
-              size={textSize.drawerItemsIcon}
-              color={color}
-              style={{marginLeft: textSize.drawerItemMarginLeft}}
-            />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Theme"
-        component={Asd3Screen}
-        options={{
-          title: 'Theme',
-          drawerIcon: ({color, size}) => (
-            <Icon
-              name="md-partly-sunny-outline"
               size={textSize.drawerItemsIcon}
               color={color}
               style={{marginLeft: textSize.drawerItemMarginLeft}}
