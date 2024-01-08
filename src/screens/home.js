@@ -29,10 +29,12 @@ export default function SearchScreen() {
     setValue('');
   };
 
+  //pass value onAddFriend
   function handleSearchPress() {
     onAddFriend(value);
   }
 
+    //add friend to database
   const onAddFriend = async name => {
     if (name !== undefined && name.length > 3) {
       console.log('Searching for user:', name + '@gmail.com 🔍');
