@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Image, Text, TextInput, View} from 'react-native';
+import {Image, Text, TextInput, View, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
@@ -15,6 +15,7 @@ import {
   push,
   update,
 } from 'firebase/database';
+import searchScreenStyles from '../styles/searchScreenStyles';
 
 export default function SearchScreen() {
   const {theme, textSize} = useUserTheme();
@@ -132,6 +133,8 @@ export default function SearchScreen() {
     return mySnapshot.val();
   };
 
+  const styles = searchScreenStyles(textSize, theme);
+
   return (
     <View
       style={{
@@ -142,33 +145,15 @@ export default function SearchScreen() {
         end={{x: 1, y: 1}}
         locations={[0.0, 0.59]}
         colors={[theme.appbg1, theme.appbg2]}
-        style={{
-          padding: 40,
-          flex: 1,
-          alignContent: 'center',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+        style={styles.linearGradientBackground}>
         <Lottie
-          style={{
-            height: textSize.lottieheight,
-            position: 'relative',
-            top: -15,
-          }}
+          style={styles.lottie}
           source={require('../assets/search.json')}
           autoPlay
           loop={false}
           speed={0.7}
         />
-        <Text
-          style={{
-            fontSize: textSize.searchheader,
-            fontFamily: 'SpaceMonoRegular',
-            color: theme.text1,
-            letterSpacing: 3,
-            textAlign: 'center',
-            marginBottom: 15,
-          }}>
+        <Text style={styles.text}>
           Search for other users by their gmail and start chatting
         </Text>
         <View style={{flexDirection: 'row', marginTop: 20, marginBottom: 25}}>
