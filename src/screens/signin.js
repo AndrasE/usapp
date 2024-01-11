@@ -13,10 +13,12 @@ import {
 import Lottie from 'lottie-react-native';
 import {useUserAuth} from '../config/context/userAuthContext';
 import {useUserTheme} from '../config/context/userThemeContext';
+import signinScreenStyles from '../styles/signinScreenStyles';
 
 export default function SignInScreen() {
   const {_signInWithGoogle} = useUserAuth();
   const {theme, textSize} = useUserTheme();
+  const styles = signinScreenStyles(theme, textSize);
 
   function handleSignIn() {
     _signInWithGoogle();
@@ -33,23 +35,8 @@ export default function SignInScreen() {
     <ImageBackground
       source={require('../assets/signin.jpg')}
       resizeMode={'cover'}
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 30,
-      }}>
-      <Text
-        style={{
-          fontSize: 35,
-          fontFamily: 'SpaceMonoRegular',
-          color: 'white',
-          paddingBottom: 30,
-          textAlign: 'center',
-        }}>
-        Sign-in with your Google account
-      </Text>
-
+      style={styles.imageBackground}>
+      <Text style={styles.textMain}>Sign-in with your Google account</Text>
       <TouchableWithoutFeedback onPress={() => handleSignIn()}>
         <Lottie
           style={{width: 200}}
@@ -59,62 +46,14 @@ export default function SignInScreen() {
           speed={1.2}
         />
       </TouchableWithoutFeedback>
-
-      <Text
-        style={{
-          fontFamily: 'SpaceMonoRegular',
-          color: 'white',
-          position: 'absolute',
-          margin: 16,
-          bottom: 10,
-          textDecorationLine: 'underline',
-          letterSpacing: 2,
-        }}
-        onPress={toggleModal}>
+      <Text style={styles.textPrivacyStatementBtn} onPress={toggleModal}>
         privacy statement
       </Text>
-      <View style={{flexDirection: 'column'}}>
-        <Modal
-          isVisible={isModalVisible}
-          style={{
-            paddingTop: 65,
-            marginTop: 65,
-            marginBottom: 75,
-            paddingBottom: 55,
-            marginLeft: 40,
-            marginRight: 40,
-          }}>
-          <View
-            style={{
-              flexDirection: 'column',
-              alignContent: 'center',
-              // justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 25,
-              backgroundColor: theme.textbg1,
-              padding: 25,
-            }}>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontFamily: 'SpaceMonoRegular',
-                color: theme.text1,
-                fontSize: textSize.nameHeader,
-                margin: 16,
-                letterSpacing: 3,
-              }}>
-              Privacy
-            </Text>
-            <Text
-              style={{
-                textAlign: 'justify',
-                lineHeight: 25,
-                fontFamily: 'SpaceMonoRegular',
-                color: theme.text1,
-                fontSize: textSize.emailHeader,
-                margin: 16,
-                lineHeight: 28,
-              }}>
+      <View>
+        <Modal isVisible={isModalVisible} style={styles.modal}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalTextMain}>Privacy</Text>
+            <Text style={styles.modalTextSecondary}>
               He there, I hope to welcome you as one of US! You will be able to
               log out or delete all your data and any point after registration.
               This app was created by me, Andras and you also welcome to add me
@@ -126,25 +65,10 @@ export default function SignInScreen() {
               onPress={() =>
                 Linking.openURL('https://andrasegyed.netlify.app/')
               }
-              style={{
-                textDecorationLine: 'underline',
-                textAlign: 'justify',
-                lineHeight: 25,
-                fontFamily: 'SpaceMonoRegular',
-                color: theme.text1,
-                fontSize: textSize.emailHeader,
-                marginBottom: 16,
-                lineHeight: 28,
-              }}>
+              style={styles.modalTextLink}>
               andrasegyed.netlify.app
             </Text>
-
-            <View
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: 25,
-              }}>
+            <View style={styles.modalButtonView}>
               <LinearGradient
                 start={{x: 0, y: 0}}
                 end={{x: 1, y: 1}}
@@ -153,13 +77,7 @@ export default function SignInScreen() {
                 style={{padding: 2, borderRadius: 15}}>
                 <Text
                   onPress={toggleModal}
-                  style={{
-                    textAlign: 'center',
-                    fontFamily: 'SpaceMonoRegular',
-                    color: 'white',
-                    fontSize: textSize.btns,
-                    top: -2,
-                  }}>
+                  style={styles.modalButtonLinearGradientText}>
                   got it
                 </Text>
               </LinearGradient>
@@ -169,13 +87,7 @@ export default function SignInScreen() {
       </View>
       <Image
         source={require('../assets/loading.gif')}
-        style={{
-          height: 3,
-          width: '100%',
-          opacity: showGif,
-          position: 'relative',
-          bottom: 30,
-        }}
+        style={{...styles.loadingGif, ...{opacity: showGif}}}
       />
     </ImageBackground>
   );
