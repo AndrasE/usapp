@@ -12,6 +12,7 @@ import {
 import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import drawerNavigatorStyles from '../styles/drawerNavigatorStyles';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,6 +20,7 @@ function DrawerNavigator() {
   const {theme, textSize} = useUserTheme();
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
+  const styles = drawerNavigatorStyles(textSize);
 
   return (
     <Drawer.Navigator
@@ -35,27 +37,15 @@ function DrawerNavigator() {
             }}>
             <Image
               source={require('../assets/backicon.png')}
-              style={{
-                width: textSize.drawerItemsIcon,
-                height: textSize.drawerItemsIcon,
-                marginLeft: 5,
-                opacity: 0.7,
-              }}
+              style={styles.drawerBackIcon}
             />
           </TouchableOpacity>
         ),
         headerRight: () => (
           <View
             style={{
-              position: 'absolute',
-              flex: 1,
-              height: 200,
-              width: 70,
-              height: 70,
-              justifyContent: 'center',
-              alignItems: 'center',
-              top: windowHeight * 0.49,
-              right: windowWidth * 0.88,
+              ...styles.drawerOpenIconView,
+              ...{top: windowHeight * 0.49, right: windowWidth * 0.88},
             }}>
             <TouchableOpacity
               onPress={() => {
@@ -63,15 +53,7 @@ function DrawerNavigator() {
               }}>
               <Image
                 source={require('../assets/drawericon.png')}
-                style={{
-                  marginLeft: 30,
-                  marginRight: 30,
-                  marginTop: 170,
-                  marginBottom: 170,
-                  height: textSize.drawerItemsIcon + 15,
-                  width: textSize.drawerItemsIcon,
-                  opacity: 0.45,
-                }}></Image>
+                style={styles.drawerOpenIcon}></Image>
             </TouchableOpacity>
           </View>
         ),
