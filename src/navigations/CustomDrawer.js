@@ -1,7 +1,6 @@
 import {Text, View, Image, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
-
 import {
   DrawerContentScrollView,
   DrawerItem,
@@ -13,7 +12,7 @@ import {useUserTheme} from '../config/context/userThemeContext';
 import SwitchSelector from 'react-native-switch-selector';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
-// import Sound from 'react-native-sound';
+import customDrawerStyles from '../styles/customDrawerStyles';
 
 const CustomDrawer = props => {
   const navigation = useNavigation();
@@ -29,90 +28,38 @@ const CustomDrawer = props => {
     setUserTextSizeFunction,
     toggleTextSizeBtnState,
   } = useUserTheme();
-
   const profileImgUrl = myData.photo;
+  const styles = customDrawerStyles(theme, textSize);
 
   function handleLogoutClick() {
     logOut();
   }
 
   return (
-    <View style={{flex: 1, paddingBottom: 5, backgroundColor: theme.drawerbg}}>
+    <View style={styles.drawerMainView}>
       <DrawerContentScrollView
         {...props}
         contentContainerStyle={{paddingTop: 0, paddingBottom: 0}}>
-        <ImageBackground
-          source={imgSource}
-          style={{
-            height: textSize.headerImgHeight,
-            width: '100%',
-            marginBottom: 6,
-          }}>
+        <ImageBackground source={imgSource} style={styles.drawerCoverImage}>
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => {
               navigation.navigate('Profile');
             }}>
-            <Image
-              source={{uri: profileImgUrl}}
-              style={{
-                height: textSize.profPicsize,
-                width: textSize.profPicsize,
-                borderRadius: 40,
-                marginTop: 20,
-                marginRight: 10,
-                alignSelf: 'flex-end',
-                borderColor: theme.text1,
-                borderWidth: 1,
-              }}
-            />
-            <Text
-              style={{
-                fontSize: textSize.nameHeader,
-                fontFamily: 'SpaceMonoRegular',
-                color: theme.text1,
-                letterSpacing: 4,
-                marginRight: 10,
-                textAlign: 'right',
-              }}>
-              {' '}
-              {myData.name}
-            </Text>
-            <Text
-              style={{
-                fontSize: textSize.emailHeader,
-                fontFamily: 'SpaceMonoRegular',
-                color: theme.text1,
-                letterSpacing: 3,
-                marginRight: 10,
-                textAlign: 'right',
-              }}>
-              {' '}
-              {myData.email}
-            </Text>
+            <Image source={{uri: profileImgUrl}} style={styles.profileImage} />
+            <Text style={styles.profleNameText}> {myData.name}</Text>
+            <Text style={styles.profileEmailText}> {myData.email}</Text>
           </TouchableOpacity>
         </ImageBackground>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
-      <View style={{marginLeft: 9, marginRight: 9, marginBottom: 5}}>
-        <View
-          style={{flexDirection: 'row', alignItems: 'center', marginBottom: 5}}>
-          <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
+      <View style={styles.switchSelectorView}>
+        <View style={styles.horizontalRuleView}>
+          <View style={styles.horizontalRule} />
           <View>
-            <Text
-              style={{
-                fontWeight: 400,
-                textAlign: 'center',
-                color: theme.text2,
-                fontSize: textSize.preferencesText - 2,
-                fontFamily: 'SpaceMonoRegular',
-                letterSpacing: 2,
-              }}>
-              {' '}
-              preferences{' '}
-            </Text>
+            <Text style={styles.preferencesLabel}> preferences </Text>
           </View>
-          <View style={{flex: 1, height: 1, backgroundColor: theme.textbg2}} />
+          <View style={styles.horizontalRule} />
         </View>
         <SwitchSelector
           style={{marginBottom: 7}}
@@ -169,12 +116,7 @@ const CustomDrawer = props => {
               alignItems: 'center',
               marginBottom: 5,
             }}>
-            <View
-              style={{flex: 1, height: 1, backgroundColor: theme.textbg2}}
-            />
-            <View
-              style={{flex: 1, height: 1, backgroundColor: theme.textbg2}}
-            />
+            <View style={styles.horizontalRule} />
           </View>
         </View>
       </View>
