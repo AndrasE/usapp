@@ -9,7 +9,7 @@ export default function SplashScreen() {
 
   return (
     <ImageBackground
-      source={require('../assets/signin.jpg')}
+      source={require('../assets/backgroundImage.jpg')}
       resizeMode={'cover'}
       style={styles.imageBackground}>
       <Animated.View entering={FadeIn.duration(500).delay(100)}>
@@ -19,7 +19,7 @@ export default function SplashScreen() {
       </Animated.View>
 
       <Lottie
-        source={require('../assets/splash.json')}
+        source={require('../assets/lottieAnimations/splash.json')}
         autoPlay={true}
         loop={false}
         speed={0.7}

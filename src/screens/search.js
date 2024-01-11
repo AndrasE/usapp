@@ -145,7 +145,7 @@ export default function SearchScreen() {
         style={styles.linearGradientBackground}>
         <Lottie
           style={styles.lottie}
-          source={require('../assets/search.json')}
+          source={require('../assets/lottieAnimations/search.json')}
           autoPlay
           loop={false}
           speed={0.7}
