@@ -136,10 +136,7 @@ export default function SearchScreen() {
   const styles = searchScreenStyles(textSize, theme);
 
   return (
-    <View
-      style={{
-        flex: 1,
-      }}>
+    <View style={styles.mainView}>
       <LinearGradient
         start={{x: 0, y: 0}}
         end={{x: 1, y: 1}}
@@ -156,19 +153,9 @@ export default function SearchScreen() {
         <Text style={styles.text}>
           Search for other users by their gmail and start chatting
         </Text>
-        <View style={{flexDirection: 'row', marginTop: 20, marginBottom: 25}}>
+        <View style={styles.textInputView}>
           <TextInput
-            style={{
-              paddingLeft: 10,
-              backgroundColor: theme.text1,
-              width: textSize.textinputwidth,
-              borderTopLeftRadius: 15,
-              borderBottomLeftRadius: 15,
-              color: theme.textbg1,
-              fontFamily: 'SpaceMonoRegular',
-              fontSize: textSize.textinputsize,
-              letterSpacing: 2,
-            }}
+            style={styles.textInput}
             onChangeText={setValue}
             value={value}
             placeholder="example"
@@ -180,54 +167,18 @@ export default function SearchScreen() {
             end={{x: 1, y: 1}}
             locations={[0.0, 0.99]}
             colors={[theme.appbg1, theme.appbg2]}
-            style={{
-              backgroundColor: theme.text1,
-              width: textSize.textinputwidth,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Text
-              style={{
-                fontFamily: 'SpaceMonoRegular',
-                fontSize: textSize.textinputsize,
-                letterSpacing: 2,
-                position: 'relative',
-                top: -2,
-              }}>
-              @gmail.com
-            </Text>
+            style={styles.textInputLinearGradient}>
+            <Text style={styles.textInputLabel}>@gmail.com</Text>
           </LinearGradient>
         </View>
-        <TouchableOpacity
-          style={{alignItems: 'center'}}
-          title={'Add User'}
-          onPress={handleSearchPress}>
+        <TouchableOpacity title={'Add User'} onPress={handleSearchPress}>
           <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 1, y: 1}}
             locations={[0.0, 0.99]}
             colors={[theme.appbg2, theme.appbg1]}
-            style={{
-              padding: 3,
-              borderRadius: 15,
-              marginTop: 20,
-              marginBottom: 20,
-              alignContent: 'center',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontFamily: 'SpaceMonoRegular',
-                color: theme.text1,
-                fontSize: textSize.btns,
-                position: 'relative',
-                letterSpacing: 2,
-                top: -2,
-              }}>
-              search
-            </Text>
+            style={styles.buttonLinearGradient}>
+            <Text style={styles.buttonText}>search</Text>
           </LinearGradient>
         </TouchableOpacity>
       </LinearGradient>
@@ -241,78 +192,18 @@ export default function SearchScreen() {
         backdropTransitionInTiming={600}
         backdropTransitionOutTiming={600}
         isVisible={isModalVisible}
-        style={{
-          marginBottom: 150,
-          marginTop: 150,
-          marginLeft: 40,
-          marginRight: 40,
-        }}>
-        <View
-          style={{
-            flexDirection: 'column',
-            alignContent: 'center',
-            // justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: 25,
-            backgroundColor: theme.appbg1,
-            padding: 25,
-          }}>
-          <Image
-            source={{uri: searchedUserPic}}
-            style={{
-              height: textSize.modalpicheight,
-              width: textSize.modalpicheight,
-              borderRadius: 40,
-              marginTop: 15,
-              borderColor: theme.text1,
-              borderWidth: 1,
-            }}
-          />
-          <Text
-            style={{
-              fontSize: textSize.searchheader + 5,
-              fontFamily: 'SpaceMonoRegular',
-              color: theme.text1,
-              letterSpacing: 2,
-              textAlign: 'center',
-              padding: 15,
-              lineHeight: 35,
-            }}>
-            {searchedUserName}
-          </Text>
-          <Text
-            style={{
-              fontSize: textSize.textinputsize,
-              fontFamily: 'SpaceMonoRegular',
-              color: theme.text1,
-              letterSpacing: 2,
-              textAlign: 'center',
-              marginBottom: 25,
-              padding: 15,
-              lineHeight: 35,
-            }}>
-            {searchedMessege}
-          </Text>
+        style={styles.modal}>
+        <View style={styles.modalView}>
+          <Image source={{uri: searchedUserPic}} style={styles.modalImage} />
+          <Text style={styles.modalTextMain}>{searchedUserName}</Text>
+          <Text style={styles.modalTextSecondary}>{searchedMessege}</Text>
           <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 1, y: 1}}
             locations={[0.0, 0.99]}
             colors={[theme.appbg2, theme.appbg1]}
-            style={{
-              padding: 3,
-              borderRadius: 15,
-              marginBottom: 15,
-            }}>
-            <Text
-              onPress={toggleModal}
-              style={{
-                textAlign: 'center',
-                fontFamily: 'SpaceMonoRegular',
-                color: theme.text1,
-                fontSize: textSize.btns,
-                position: 'relative',
-                top: -2,
-              }}>
+            style={styles.modalButtonLinearGradient}>
+            <Text onPress={toggleModal} style={styles.modalButtonText}>
               got it
             </Text>
           </LinearGradient>
