@@ -157,7 +157,7 @@ export default function SearchScreen() {
             position: 'relative',
             top: -15,
           }}
-          source={require('../assets/search.json')}
+          source={require('../assets/lottieAnimations/search.json')}
           autoPlay
           loop={false}
           speed={0.7}

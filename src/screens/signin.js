@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Modal from 'react-native-modal';
 import LinearGradient from 'react-native-linear-gradient';
-
 import {
   Image,
   ImageBackground,
@@ -33,14 +32,14 @@ export default function SignInScreen() {
 
   return (
     <ImageBackground
-      source={require('../assets/signin.jpg')}
+      source={require('../assets/backgroundImage.jpg')}
       resizeMode={'cover'}
       style={styles.imageBackground}>
       <Text style={styles.textMain}>Sign-in with your Google account</Text>
       <TouchableWithoutFeedback onPress={() => handleSignIn()}>
         <Lottie
           style={{width: 200}}
-          source={require('../assets/google-singin.json')}
+          source={require('../assets/lottieAnimations/google-singin.json')}
           autoPlay
           loop={false}
           speed={1.2}

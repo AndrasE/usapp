@@ -3,13 +3,13 @@
 
 const images = {
   light: {
-    uri: require('../assets/lightdrawercover.jpg'),
+    uri: require('../assets/drawerCoverImages/lightdrawercover.jpg')
   },
   waifu: {
-    uri: require('../assets/waifudrawercover.png'),
+    uri: require('../assets/drawerCoverImages/waifudrawercover.png'),
   },
   dark: {
-    uri: require('../assets/darkdrawercover.jpg'),
+    uri: require('../assets/drawerCoverImages/darkdrawercover.jpg'),
   },
 };
 

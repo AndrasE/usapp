@@ -7,7 +7,7 @@ export default function HomeScreen() {
  
   return (
     <ImageBackground
-      source={require('../assets/signin.jpg')}
+      source={require('../assets/backgroundImage.jpg')}
       resizeMode={'cover'}
       style={{
         flex: 1,
@@ -40,7 +40,7 @@ export default function HomeScreen() {
       </Animated.View>
       <Lottie
         style={{paddingTop: 70, height: 170}}
-        source={require('../assets/search.json')}
+        source={require('../assets/lottieAnimations/search.json')}
         autoPlay
         loop={false}
         speed={0.7}
