@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from '../screens/Splash';
 import SignInScreen from '../screens/Signin';
-import HomeScreen from '../screens/Home';
+import HomeScreen from './Home';
 // import {_signInWithGoogle} from '../config/firebase/GoogleSingIn.js';
 
 

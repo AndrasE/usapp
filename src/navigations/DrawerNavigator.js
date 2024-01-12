@@ -3,8 +3,7 @@ import {Image, View, Dimensions} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
 import {
-  ChatScreen,
-  HomeScreen,
+  ChatsScreen,
   ProfileScreen,
   AsdScreen,
   SearchScreen,
@@ -89,7 +88,7 @@ function DrawerNavigator() {
       />
       <Drawer.Screen
         name="Chats"
-        component={ChatScreen}
+        component={ChatsScreen}
         options={{
           title: 'Chats',
           drawerIcon: ({color, size}) => (
