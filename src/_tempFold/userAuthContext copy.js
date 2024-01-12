@@ -1,7 +1,7 @@
 import React, {useState, createContext, useContext, useEffect} from 'react';
-import {_signInWithGoogle} from '../firebase/GoogleSingIn';
+import {_signInWithGoogle} from '../config/firebase/GoogleSingIn';
 import auth from '@react-native-firebase/auth';
-import initalizeFirebaseDb from '../firebase/Firebase';
+import initalizeFirebaseDb from '../config/firebase/Firebase';
 import {
   getDatabase,
   get,
@@ -40,7 +40,7 @@ export function UserAuthContextProvider({children}) {
       if (userObj) {
         setMyData(userObj);
         console.log('====> Found in database with email:', user.email);
-        console.log("sssssss", userObj);
+        console.log('sssssss', userObj);
       } else {
         const newUserObj = {
           name: user.displayName,
