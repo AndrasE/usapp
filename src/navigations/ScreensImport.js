@@ -1,6 +1,5 @@
 import SplashScreen from '../screens/Splash';
 import SignInScreen from '../screens/Signin';
-import HomeScreen from '../_tempFold/Home';
 import SearchScreen from '../screens/Search';
 import ChatsScreen from '../screens/Chats';
 import AsdScreen from '../screens/Asd';
@@ -11,7 +10,6 @@ import ProfileScreen from '../screens/Profile';
 export {
   SplashScreen,
   SignInScreen,
-  HomeScreen,
   SearchScreen,
   ChatsScreen,
   AsdScreen,
