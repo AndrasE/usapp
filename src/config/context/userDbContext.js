@@ -19,7 +19,6 @@ export function UserDbContextProvider({children}) {
 
   const [myData, setMyData] = useState();
 
-
   const {user} = useUserAuth();
   // if (user) {console.log(user);}
 
@@ -77,9 +76,7 @@ export function UserDbContextProvider({children}) {
   }, [user]);
 
   return (
-    <userDbContext.Provider value={{myData}}>
-      {children}
-    </userDbContext.Provider>
+    <userDbContext.Provider value={{myData}}>{children}</userDbContext.Provider>
   );
 }
 

@@ -23,11 +23,15 @@ function RootNavigator() {
     return <SplashScreen />;
   } else {
     if (myData) {
-      console.log('====> User in database:',myData.name,"🧡 Welcome on board, you are one of US!🧡");
+      console.log(
+        '====> User in database:',
+        myData.name,
+        '🧡 Welcome on board, you are one of US!🧡',
+      );
       console.log(
         '======================================================================',
       );
-       // If myData exist ergo user logged in and databse found/created returning Homescreen, otherwise Login screen//
+      // If myData exist ergo user logged in and databse found/created returning Homescreen, otherwise Login screen//
       return <HomeStack />;
     } else {
       return <SignInScreen />;
@@ -46,7 +50,6 @@ function RootNavigator() {
 // Necessary to wrap the Home/Login stacks in order to have access to the Context //
 // <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
 export default function App() {
-
   return (
     <UserAuthContextProvider>
       <UserDbContextProvider>
