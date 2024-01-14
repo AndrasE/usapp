@@ -18,10 +18,6 @@ export function UserDbContextProvider({children}) {
   initalizeFirebaseDb;
 
   const [myData, setMyData] = useState();
-  const [searchedUserPic, setSearchedUserPic] = useState();
-  const [searchedUserName, setSearchedUserName] = useState();
-  const [searchedMessege, setSearchedMessege] = useState();
-  const [searchModal, setSearchModal] = useState(false);
 
   const {user} = useUserAuth();
   // if (user) {console.log(user);}
@@ -66,7 +62,6 @@ export function UserDbContextProvider({children}) {
 
   // //finduser signed-in in  database
   const findUser = async emailName => {
-    console.log("sd333");
     const database = getDatabase();
     const mySnapshot = await get(ref(database, `users/${emailName}`));
     return mySnapshot.val();
@@ -80,117 +75,8 @@ export function UserDbContextProvider({children}) {
     }
   }, [user]);
 
-  const onAddFriend = async name => {
-    console.log("545565434544554");
-    // if (name !== undefined && name.length > 3) {
-    //   console.log('Searching for user:', name + '@gmail.com 🔍');
-    //   try {
-    //     //find user and add it to my friends and also add me to his friends
-    //     const database = getDatabase();
-
-    //     const user = await findUser(name);
-    //     if (user) {
-    //       // const who =  myData.friends.findIndex(f => f.username)
-    //       // console.log(who);
-    //       if (user.username === myData.username) {
-    //         setSearchedUserPic(myData.photo);
-    //         setSearchedUserName(myData.name);
-    //         setSearchedMessege('You can`t add yourself as a friend, schizo..');
-    //         setSearchModal(true);
-    //         console.log('You cant add yourself as a friend!⛔');
-    //         return;
-    //       }
-    //       if (
-    //         myData.friends &&
-    //         myData.friends.findIndex(f => f.username) > -1
-    //       ) {
-    //         setSearchedUserPic(user.photo);
-    //         setSearchedUserName(user.name);
-    //         setSearchedMessege('is already your friend.. Member?');
-    //         setSearchModal(true);
-    //         console.log('This friend already been added previously..😝');
-    //         return;
-    //       }
-    //       // create a chatroom and store the chatroom id
-    //       const newChatroomRef = push(ref(database, 'chatrooms'), {
-    //         firstUserName: myData.name,
-    //         secondUserName: user.name,
-    //         messages: [],
-    //       });
-
-    //       const newChatroomId = newChatroomRef.key;
-
-    //       const userFriends = user.friends || [];
-    //       //join myself to this user friend list
-    //       update(ref(database, `users/${user.username}`), {
-    //         friends: [
-    //           ...userFriends,
-    //           {
-    //             friendsName: myData.name,
-    //             friendsPhoto: myData.photo,
-    //             chatroomId: newChatroomId,
-    //           },
-    //         ],
-    //       });
-
-    //       const myFriends = myData.friends || [];
-    //       //add this user to my friend list
-    //       update(ref(database, `users/${myData.username}`), {
-    //         friends: [
-    //           ...myFriends,
-    //           {
-    //             friendsName: user.name,
-    //             friendsPhoto: user.photo,
-    //             chatroomId: newChatroomId,
-    //           },
-    //         ],
-    //       });
-    //       setSearchedUserPic(user.photo);
-    //       setSearchedUserName(user.name);
-    //       setSearchedMessege('and you now friends. Be a good one!');
-    //       setSearchModal(true);
-    //       console.log(
-    //         'User found and added as friend, chatroom created. Hurray!🎉',
-    //       );
-    //     } else {
-    //       setSearchedUserPic(
-    //         'https://www.pmlive.com/__data/assets/image/0017/450215/behavioural-economics.jpg',
-    //       );
-    //       // setSearchedUserName(value + ' ??');
-    //       setSearchedMessege('There must be a typo somewhere!');
-    //       setSearchModal(true);
-    //       console.log('There is no such user registered, typo?🙄');
-    //     }
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // } else {
-    //   console.log('You are truly a silly sausuge!🌭');
-    // }
-    // console.log(
-    //   '======================================================================',
-    // );
-  };
-
-  const closeSearchModal = () => {
-    setSearchModal(!searchModal)
-    setSearchedMessege("")
-  }
-
   return (
-    <userDbContext.Provider
-      value={{
-        myData,
-        findUser,
-        searchModal,
-        searchedUserName,
-        searchedUserPic,
-        searchedMessege,
-        onAddFriend,
-        closeSearchModal
-      }}>
-      {children}
-    </userDbContext.Provider>
+    <userDbContext.Provider value={{myData}}>{children}</userDbContext.Provider>
   );
 }
 
