@@ -7,6 +7,8 @@ const userDbContext = createContext();
 
 export function UserDbContextProvider({children}) {
   const [myData, setMyData] = useState();
+  const [users, setUsers] = useState([]);
+
   const {user} = useUserAuth();
 
   //imported from Firebase.js so when authentication happen firebase is initalized as well, otherwise will be error || connect to firebaseDb//
@@ -20,7 +22,7 @@ export function UserDbContextProvider({children}) {
     }
   }, [user]);
 
-  //if user exist check in db if not creating entry
+  //if user exist check in db if not creating new user w details from auth
   const checkUserInDb = async user => {
     console.log(
       '====> Checking user in database with email:',
@@ -34,11 +36,12 @@ export function UserDbContextProvider({children}) {
     const emailName = user.email.substring(0, user.email.indexOf('@'));
     try {
       const database = getDatabase();
-
       const userObj = await findUser(emailName);
+
       if (userObj) {
         setMyData(userObj);
         console.log('====> Found in database with email:', user.email, '👈');
+        setUsers(userObj.friends)
       } else {
         const newUserObj = {
           username: emailName,
@@ -57,6 +60,7 @@ export function UserDbContextProvider({children}) {
     } catch (error) {
       console.error(error);
     }
+    console.log(myData)
   };
 
   //finduser signed-in in database, creating snapsot of db
@@ -67,7 +71,7 @@ export function UserDbContextProvider({children}) {
   };
 
   return (
-    <userDbContext.Provider value={{myData, findUser}}>
+    <userDbContext.Provider value={{myData, findUser, users}}>
       {children}
     </userDbContext.Provider>
   );
