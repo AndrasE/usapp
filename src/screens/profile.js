@@ -3,6 +3,7 @@ import {Image, Text, View, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
+import {block} from 'react-native-reanimated';
 
 export default function ProfileScreen() {
   const {theme, textSize} = useUserTheme();
