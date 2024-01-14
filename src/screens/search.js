@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {Image, Text, TextInput, View, StyleSheet} from 'react-native';
+import {Image, Text, TextInput, View} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
+import Lottie from 'lottie-react-native';
+import Modal from 'react-native-modal';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
-import Lottie from 'lottie-react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import Modal from 'react-native-modal';
+
 import {
   getDatabase,
   get,
@@ -19,119 +20,116 @@ import searchScreenStyles from '../styles/searchScreenStyles';
 
 export default function SearchScreen() {
   const {theme, textSize} = useUserTheme();
-  const {myData} = useUserDb();
+  const {
+    searchModal,
+    closeSearchModal,
+    searchedUserName,
+    searchedUserPic,
+    searchedMessege,
+    onAddFriend,
+  } = useUserDb();
   const [value, setValue] = useState();
-  const [searchedUserPic, setSearchedUserPic] = useState();
-  const [searchedUserName, setSearchedUserName] = useState();
-  const [searchedMessege, setSearchedMessege] = useState();
-  const [isModalVisible, setModalVisible] = useState(false);
+
+  // const [isModalVisible, setModalVisible] = useState(false);
+
   const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-    setValue('');
+    closeSearchModal();
   };
 
   function handleSearchPress() {
     onAddFriend(value);
   }
 
-  const onAddFriend = async name => {
-    if (name !== undefined && name.length > 3) {
-      console.log('Searching for user:', name + '@gmail.com 🔍');
-      try {
-        //find user and add it to my friends and also add me to his friends
-        const database = getDatabase();
+  // const onAddFriend = async name => {
+  //   if (name !== undefined && name.length > 3) {
+  //     console.log('Searching for user:', name + '@gmail.com 🔍');
+  //     try {
+  //       //find user and add it to my friends and also add me to his friends
+  //       const database = getDatabase();
 
-        const user = await findUser(name);
-        if (user) {
-          // const who =  myData.friends.findIndex(f => f.username)
-          // console.log(who);
-          if (user.username === myData.username) {
-            setSearchedUserPic(myData.photo);
-            setSearchedUserName(myData.name);
-            setSearchedMessege('You can`t add yourself as a friend, schizo..');
-            setModalVisible(true);
+  //       const user = await findUser(name);
+  //       if (user) {
+  //         // const who =  myData.friends.findIndex(f => f.username)
+  //         // console.log(who);
+  //         if (user.username === myData.username) {
+  //           setSearchedUserPic(myData.photo);
+  //           setSearchedUserName(myData.name);
+  //           setSearchedMessege('You can`t add yourself as a friend, schizo..');
+  //           setModalVisible(true);
+  //           console.log('You cant add yourself as a friend!⛔');
+  //           return;
+  //         }
+  //         if (
+  //           myData.friends &&
+  //           myData.friends.findIndex(f => f.username) > -1
+  //         ) {
+  //           setSearchedUserPic(user.photo);
+  //           setSearchedUserName(user.name);
+  //           setSearchedMessege('is already your friend.. Member?');
+  //           setModalVisible(true);
+  //           console.log('This friend already been added previously..😝');
+  //           return;
+  //         }
+  //         // create a chatroom and store the chatroom id
+  //         const newChatroomRef = push(ref(database, 'chatrooms'), {
+  //           firstUserName: myData.name,
+  //           secondUserName: user.name,
+  //           messages: [],
+  //         });
 
-            console.log('You cant add yourself as a friend!⛔');
-            return;
-          }
-          if (
-            myData.friends &&
-            myData.friends.findIndex(f => f.username) > -1
-          ) {
-            setSearchedUserPic(user.photo);
-            setSearchedUserName(user.name);
-            setSearchedMessege('is already your friend.. Member?');
-            setModalVisible(true);
-            console.log('This friend already been added previously..😝');
-            return;
-          }
-          // create a chatroom and store the chatroom id
-          const newChatroomRef = push(ref(database, 'chatrooms'), {
-            firstUser: myData.username,
-            secondUser: user.username,
-            messages: [],
-          });
+  //         const newChatroomId = newChatroomRef.key;
 
-          const newChatroomId = newChatroomRef.key;
+  //         const userFriends = user.friends || [];
+  //         //join myself to this user friend list
+  //         update(ref(database, `users/${user.username}`), {
+  //           friends: [
+  //             ...userFriends,
+  //             {
+  //               friendsName: myData.name,
+  //               friendsPhoto: myData.photo,
+  //               chatroomId: newChatroomId,
+  //             },
+  //           ],
+  //         });
 
-          const userFriends = user.friends || [];
-          //join myself to this user friend list
-          update(ref(database, `users/${user.username}`), {
-            friends: [
-              ...userFriends,
-              {
-                username: myData.username,
-                photo: myData.photo,
-                chatroomId: newChatroomId,
-              },
-            ],
-          });
-
-          const myFriends = myData.friends || [];
-          //add this user to my friend list
-          update(ref(database, `users/${myData.username}`), {
-            friends: [
-              ...myFriends,
-              {
-                username: user.username,
-                photo: user.photo,
-                chatroomId: newChatroomId,
-              },
-            ],
-          });
-          setSearchedUserPic(user.photo);
-          setSearchedUserName(user.name);
-          setSearchedMessege('and you now friends. Be a good one!');
-          setModalVisible(true);
-          console.log(
-            'User found and added as friend, chatroom created. Hurray!🎉',
-          );
-        } else {
-          setSearchedUserPic(
-            'https://www.pmlive.com/__data/assets/image/0017/450215/behavioural-economics.jpg',
-          );
-          setSearchedUserName(value + ' ??');
-          setSearchedMessege('There must be a typo somewhere!');
-          setModalVisible(true);
-          console.log('There is no such user registered, typo?🙄');
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    } else {
-      console.log('You are truly a silly sausuge!🌭');
-    }
-    console.log(
-      '======================================================================',
-    );
-  };
-
-  //finduser signed-in in  database
-  const findUser = async name => {
-    const database = getDatabase();
-    const mySnapshot = await get(ref(database, `users/${name}`));
-    return mySnapshot.val();
-  };
+  //         const myFriends = myData.friends || [];
+  //         //add this user to my friend list
+  //         update(ref(database, `users/${myData.username}`), {
+  //           friends: [
+  //             ...myFriends,
+  //             {
+  //               friendsName: user.name,
+  //               friendsPhoto: user.photo,
+  //               chatroomId: newChatroomId,
+  //             },
+  //           ],
+  //         });
+  //         setSearchedUserPic(user.photo);
+  //         setSearchedUserName(user.name);
+  //         setSearchedMessege('and you now friends. Be a good one!');
+  //         setModalVisible(true);
+  //         console.log(
+  //           'User found and added as friend, chatroom created. Hurray!🎉',
+  //         );
+  //       } else {
+  //         setSearchedUserPic(
+  //           'https://www.pmlive.com/__data/assets/image/0017/450215/behavioural-economics.jpg',
+  //         );
+  //         setSearchedUserName(value + ' ??');
+  //         setSearchedMessege('There must be a typo somewhere!');
+  //         setModalVisible(true);
+  //         console.log('There is no such user registered, typo?🙄');
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   } else {
+  //     console.log('You are truly a silly sausuge!🌭');
+  //   }
+  //   console.log(
+  //     '======================================================================',
+  //   );
+  // };
 
   const styles = searchScreenStyles(textSize, theme);
 
@@ -191,7 +189,7 @@ export default function SearchScreen() {
         animationOutTiming={600}
         backdropTransitionInTiming={600}
         backdropTransitionOutTiming={600}
-        isVisible={isModalVisible}
+        isVisible={searchModal}
         style={styles.modal}>
         <View style={styles.modalView}>
           <Image source={{uri: searchedUserPic}} style={styles.modalImage} />
