@@ -1,38 +1,10 @@
-import  React from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
-import {
-  Button,
-  FlatList,
-  Image,
-  Pressable,
-  StyleSheet,
-  TextInput,
-  View,
-  Text,
-} from 'react-native';
-import {useUserDb} from '../config/context/userDbContext';
-import {
-  collection,
-  addDoc,
-  orderBy,
-  query,
-  onSnapshot
-} from 'firebase/firestore';
+import {Image, Pressable, Text, View} from 'react-native';
+import {getDatabase, get, ref, onValue, off, update} from 'firebase/database';
 
 
-export default function Chats ({onBack, selectedUser}) {
-  const {myData} = useUserDb();
-
-  const renderUser = ({item}) => {
-    return (
-      <Pressable 
-      // onPress={() => onClickUser(item)} 
-      style={styles.row}>
-        <Image style={styles.avatar} source={{uri: item.avatar}} />
-        <Text>{item.username}</Text>
-      </Pressable>
-    );
-  };
+export default function Chat({onBack, myData, selectedUser}) {
 
 
   return (
@@ -41,9 +13,9 @@ export default function Chats ({onBack, selectedUser}) {
 
       </Pressable>
       <View>
-       <Text style={{color: "red", fontSize: 30}}> sde</Text> 
+       <Text style={{color: "red", fontSize: 30}}>penisssss</Text> 
       </View>
-     
+   
     </>
   );
 }
