@@ -18,6 +18,10 @@ export function UserDbContextProvider({children}) {
   initalizeFirebaseDb;
 
   const [myData, setMyData] = useState();
+  const [searchedUserPic, setSearchedUserPic] = useState();
+  const [searchedUserName, setSearchedUserName] = useState();
+  const [searchedMessege, setSearchedMessege] = useState();
+  const [searchModal, setSearchModal] = useState(false);
 
   const {user} = useUserAuth();
   // if (user) {console.log(user);}
@@ -70,12 +74,12 @@ export function UserDbContextProvider({children}) {
 
   // //finduser signed-in in  database
   const findUser = async emailName => {
+    console.log("sd333");
     const database = getDatabase();
     const mySnapshot = await get(ref(database, `users/${emailName}`));
     return mySnapshot.val();
   };
 
-<<<<<<< HEAD
   const onAddFriend = async name => {
     console.log("545565434544554");
     setSearchedMessege("sss")
@@ -173,18 +177,21 @@ export function UserDbContextProvider({children}) {
     setSearchModal(!searchModal)
     setSearchedMessege("")
   }
-=======
-  useEffect(() => {
-    if (user) {
-      checkUserInDb(user);
-    } else {
-      setMyData();
-    }
-  }, [user]);
->>>>>>> parent of 1701bdd (test 1)
 
   return (
-    <userDbContext.Provider value={{myData}}>{children}</userDbContext.Provider>
+    <userDbContext.Provider
+      value={{
+        myData,
+        findUser,
+        searchModal,
+        searchedUserName,
+        searchedUserPic,
+        searchedMessege,
+        onAddFriend,
+        closeSearchModal
+      }}>
+      {children}
+    </userDbContext.Provider>
   );
 }
 
