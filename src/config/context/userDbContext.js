@@ -26,6 +26,14 @@ export function UserDbContextProvider({children}) {
   const {user} = useUserAuth();
   // if (user) {console.log(user);}
 
+  useEffect(() => {
+    if (user) {
+      checkUserInDb(user);
+    } else {
+      setMyData();
+    }
+  }, [user]);
+
   const checkUserInDb = async user => {
     console.log(
       '====> Checking user in database with email:',
@@ -72,16 +80,9 @@ export function UserDbContextProvider({children}) {
     return mySnapshot.val();
   };
 
-  useEffect(() => {
-    if (user) {
-      checkUserInDb(user);
-    } else {
-      setMyData();
-    }
-  }, [user]);
-
   const onAddFriend = async name => {
     console.log("545565434544554");
+    setSearchedMessege("sss")
     // if (name !== undefined && name.length > 3) {
     //   console.log('Searching for user:', name + '@gmail.com 🔍');
     //   try {

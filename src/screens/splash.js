@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, ImageBackground, View} from 'react-native';
+import {Text, ImageBackground} from 'react-native';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Lottie from 'lottie-react-native';
 import splashScreenStyles from '../styles/splashScreenStyles';
