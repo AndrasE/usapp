@@ -23,12 +23,16 @@ export function UserAuthContextProvider({children}) {
       console.log(
         '======================================================================',
       );
-      console.log('====> User is authenticated as:', user.email, "👌");
+      console.log('====> User is authenticated as:', user.email, '👌');
     } else {
       console.log(
         '======================================================================',
       );
-      console.log('====> User not found or signed out, User:',user,"====> Please sign-in! 🙌");
+      console.log(
+        '====> User not found or signed out, User:',
+        user,
+        '====> Please sign-in! 🙌',
+      );
     }
   }
 
