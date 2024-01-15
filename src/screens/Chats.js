@@ -13,15 +13,15 @@ export default function Chat({user, selectedUser}) {
   const renderUser = ({item}) => {
     return (
       <Pressable  style={styles.row}>
-        {/* <Image style={styles.avatar} source={{uri: myData.photo}} /> */}
-        <Text style={{color: "red"}}>{item.name}</Text>
+        <Image style={styles.avatar} source={{uri: item.friendsPhoto}} />
+        <Text style={{color: "red"}}>{item.friendsName}</Text>
       </Pressable>
     );
   };
   return (
     <>
       <View>
-       <Text style={{color: "red", fontSize: 30}}>penisssss</Text> 
+       {/* <Text style={{color: "red", fontSize: 30}}>penisssss</Text>  */}
        <Button
        title={myData.name}
         onPress={()=> console.log(users)}
