@@ -13,7 +13,7 @@ const chatsScreenStyles = (theme, textSize) =>
       padding: 10,
       alignItems: 'center',
       borderBottomColor: theme.textbg1,
-      borderBottomWidth: 1,
+      borderBottomWidth: 1.2,
     },
     photos: {
       width: textSize.profPicsize - 20,
