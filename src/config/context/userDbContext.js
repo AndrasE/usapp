@@ -1,7 +1,7 @@
 import React, {useState, createContext, useContext, useEffect} from 'react';
 import {useUserAuth} from './userAuthContext';
 import initalizeFirebaseDb from '../firebase/Firebase';
-import {getDatabase, get, ref, set} from 'firebase/database';
+import {getDatabase, get, ref, set, onValue} from 'firebase/database';
 
 const userDbContext = createContext();
 
@@ -41,7 +41,7 @@ export function UserDbContextProvider({children}) {
       if (userObj) {
         setMyData(userObj);
         console.log('====> Found in database with email:', user.email, '👈');
-        setUsers(userObj.friends)
+        setUsers(userObj.friends);
       } else {
         const newUserObj = {
           username: emailName,
@@ -57,10 +57,20 @@ export function UserDbContextProvider({children}) {
           '👉',
         );
       }
+      // set friends list change listener
+      const myUserRef = ref(database, `users/${emailName}`);
+      onValue(myUserRef, snapshot => {
+        const data = snapshot.val();
+        setUsers(data.friends);
+        setMyData(prevData => ({
+          ...prevData,
+          friends: data.friends,
+        }));
+      });
     } catch (error) {
       console.error(error);
     }
-    console.log(myData)
+    console.log('asasasas' + myData);
   };
 
   //finduser signed-in in database, creating snapsot of db
