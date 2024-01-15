@@ -27,8 +27,8 @@ export default function Chat({user, selectedUser}) {
         <LinearGradient
           start={{x: 0, y: 0}}
           end={{x: 1, y: 1}}
-          locations={[0.1, 0.89]}
-          colors={[theme.appbg2, theme.appbg1]}
+          locations={[0.0, 0.59]}
+          colors={[theme.appbg1, theme.appbg2]}
           style={styles.linearGradientBackground}>
           <FlatList data={users} renderItem={renderUser} />
         </LinearGradient>
@@ -36,4 +36,3 @@ export default function Chat({user, selectedUser}) {
     </>
   );
 }
-

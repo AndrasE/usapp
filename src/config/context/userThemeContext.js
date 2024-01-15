@@ -17,7 +17,7 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#FFFFFF',
     appbg1: '#cce5f0',
     appbg2: '#93d1ed',
-    drawerheader: "#63b4cf",
+    drawerheader: '#63b4cf',
   };
 
   const waifu = {
@@ -31,7 +31,7 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#FFACAC',
     appbg1: '#FFACAC',
     appbg2: '#FF577F',
-    drawerheader:'#FF577F',
+    drawerheader: '#FF577F',
   };
 
   const dark = {
