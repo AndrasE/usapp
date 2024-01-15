@@ -75,8 +75,8 @@ export default function SearchScreen() {
             friends: [
               ...userFriends,
               {
-                username: myData.username,
-                photo: myData.photo,
+                friendsName: myData.name,
+                friendsPhoto: myData.photo,
                 chatroomId: newChatroomId,
               },
             ],
@@ -88,8 +88,8 @@ export default function SearchScreen() {
             friends: [
               ...myFriends,
               {
-                username: user.username,
-                photo: user.photo,
+                friendsName: user.name,
+                friendsPhoto: user.photo,
                 chatroomId: newChatroomId,
               },
             ],
