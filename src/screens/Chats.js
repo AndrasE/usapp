@@ -27,7 +27,7 @@ export default function Chat({user, selectedUser}) {
         <LinearGradient
           start={{x: 0, y: 0}}
           end={{x: 1, y: 1}}
-          locations={[0.0, 0.89]}
+          locations={[0.1, 0.89]}
           colors={[theme.appbg2, theme.appbg1]}
           style={styles.linearGradientBackground}>
           <FlatList data={users} renderItem={renderUser} />
@@ -36,27 +36,4 @@ export default function Chat({user, selectedUser}) {
     </>
   );
 }
-// const styles = StyleSheet.create({
-//   avatar: {
-//     width: 50,
-//     height: 50,
-//     marginRight: 10,
-//   },
-//   row: {
-//     flexDirection: 'row',
-//     padding: 10,
-//     alignItems: 'center',
-//     borderBottomColor: '#cacaca',
-//     borderBottomWidth: 1,
-//   },
-//   addUser: {
-//     flexDirection: 'row',
-//     padding: 10,
-//   },
-//   input: {
-//     backgroundColor: '#cacaca',
-//     flex: 1,
-//     marginRight: 10,
-//     padding: 10,
-//   },
-// });
+
