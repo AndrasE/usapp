@@ -6,8 +6,9 @@ import {getDatabase, get, ref, set, onValue} from 'firebase/database';
 const userDbContext = createContext();
 
 export function UserDbContextProvider({children}) {
-  const [myData, setMyData] = useState();
+  const [myData, setMyData] = useState(null);
   const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const {user} = useUserAuth();
 
@@ -81,11 +82,18 @@ export function UserDbContextProvider({children}) {
   };
 
   const onClickUser = user => {
-    console.log(user);
+    setSelectedUser(user);
+    console.log(
+      '====> Checking user heading over to chat with your friend,',
+      user.friendsName+'. Be nice!😇',
+    );
+    console.log(
+      '======================================================================',
+    );
   };
 
   return (
-    <userDbContext.Provider value={{myData, findUser, users, onClickUser}}>
+    <userDbContext.Provider value={{myData, findUser, users, onClickUser, selectedUser}}>
       {children}
     </userDbContext.Provider>
   );
