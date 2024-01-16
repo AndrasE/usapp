@@ -6,13 +6,13 @@ import {FlatList} from 'react-native-gesture-handler';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import LinearGradient from 'react-native-linear-gradient';
-import chatsScreenStyles from '../styles/chatsScreenStyles';
+import friendsScreenStyles from '../styles/friendsScreenStyles';
 import {useNavigation} from '@react-navigation/native';
 
-export default function Chats() {
+export default function Friends() {
   const {theme, textSize} = useUserTheme();
   const {users, onClickUser} = useUserDb();
-  const styles = chatsScreenStyles(theme, textSize);
+  const styles = friendsScreenStyles(theme, textSize);
   const navigation = useNavigation();
   const renderUser = ({item}) => {
   
