@@ -1,13 +1,12 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
-import {Button, Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import {getDatabase, get, ref, onValue, off, update} from 'firebase/database';
+import {Image, Pressable, Text, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
+import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import friendsScreenStyles from '../styles/friendsScreenStyles';
-import {useNavigation} from '@react-navigation/native';
 
 export default function Friends() {
   const {theme, textSize} = useUserTheme();
@@ -15,14 +14,13 @@ export default function Friends() {
   const styles = friendsScreenStyles(theme, textSize);
   const navigation = useNavigation();
   const renderUser = ({item}) => {
-  
     function handleFriendClick() {
-        navigation.navigate('Chat');
-        onClickUser(item)
+      navigation.navigate('Chat');
+      onClickUser(item);
     }
 
     return (
-      <Pressable style={styles.row} onPress={handleFriendClick} >
+      <Pressable style={styles.row} onPress={handleFriendClick}>
         <Image style={styles.photos} source={{uri: item.friendsPhoto}} />
         <Text style={styles.names}>{item.friendsName}</Text>
       </Pressable>
