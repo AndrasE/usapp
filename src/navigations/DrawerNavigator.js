@@ -7,6 +7,7 @@ import {
   ProfileScreen,
   AsdScreen,
   SearchScreen,
+  ChatScreen,
 } from './ScreensImport';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -91,7 +92,7 @@ function DrawerNavigator() {
         component={ChatsScreen}
         options={{
           title: 'Chats',
-          drawerIcon: ({color, size}) => (
+          drawerIcon: ({color}) => (
             <Icon
               name="md-chatbubble-ellipses-outline"
               size={textSize.drawerItemsIcon}
@@ -106,7 +107,7 @@ function DrawerNavigator() {
         component={SearchScreen}
         options={{
           title: 'Search',
-          drawerIcon: ({color, size}) => (
+          drawerIcon: ({color}) => (
             <Icon
               name="search-sharp"
               size={textSize.drawerItemsIcon}
@@ -121,7 +122,7 @@ function DrawerNavigator() {
         component={AsdScreen}
         options={{
           title: 'About',
-          drawerIcon: ({color, size}) => (
+          drawerIcon: ({color}) => (
             <Icon
               name="md-git-compare"
               size={textSize.drawerItemsIcon}
@@ -129,6 +130,15 @@ function DrawerNavigator() {
               style={{marginLeft: textSize.drawerItemMarginLeft}}
             />
           ),
+        }}
+      />
+      {/* this is hidden only exist to be managed by navigator*/}
+      <Drawer.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{
+          title: 'Chat',
+          drawerItemStyle: {display: 'none'},
         }}
       />
     </Drawer.Navigator>
