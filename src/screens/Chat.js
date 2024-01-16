@@ -1,21 +1,19 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {GiftedChat} from 'react-native-gifted-chat';
-import {Button, Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import {getDatabase, get, ref, onValue, off, update} from 'firebase/database';
+import React from 'react';
+import {Image, Pressable,Text, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import LinearGradient from 'react-native-linear-gradient';
-import chatsScreenStyles from '../styles/chatsScreenStyles';
+import chatScreenStyles from '../styles/chatScreenStyles';
 
-export default function Chats() {
+export default function Chat() {
   const {theme, textSize} = useUserTheme();
   const {users} = useUserDb();
-  const styles = chatsScreenStyles(theme, textSize);
+  const styles = chatScreenStyles(theme, textSize);
 
   const renderUser = ({item}) => {
     return (
-      <Pressable style={styles.row}>
+      <Pressable style={styles.row} onPress={()=> console.log(item)}>
         <Image style={styles.photos} source={{uri: item.friendsPhoto}} />
         <Text style={styles.names}>{item.friendsName}</Text>
       </Pressable>
