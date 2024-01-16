@@ -7,15 +7,22 @@ import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import LinearGradient from 'react-native-linear-gradient';
 import chatsScreenStyles from '../styles/chatsScreenStyles';
+import {useNavigation} from '@react-navigation/native';
 
 export default function Chats() {
   const {theme, textSize} = useUserTheme();
-  const {users} = useUserDb();
+  const {users, onClickUser} = useUserDb();
   const styles = chatsScreenStyles(theme, textSize);
-
+  const navigation = useNavigation();
   const renderUser = ({item}) => {
+  
+    function handleFriendClick() {
+        navigation.navigate('Chat');
+        onClickUser(item)
+    }
+
     return (
-      <Pressable style={styles.row}>
+      <Pressable style={styles.row} onPress={handleFriendClick} >
         <Image style={styles.photos} source={{uri: item.friendsPhoto}} />
         <Text style={styles.names}>{item.friendsName}</Text>
       </Pressable>

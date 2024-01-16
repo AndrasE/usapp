@@ -80,8 +80,12 @@ export function UserDbContextProvider({children}) {
     return mySnapshot.val();
   };
 
+  const onClickUser = user => {
+    console.log(user);
+  };
+
   return (
-    <userDbContext.Provider value={{myData, findUser, users}}>
+    <userDbContext.Provider value={{myData, findUser, users, onClickUser}}>
       {children}
     </userDbContext.Provider>
   );
