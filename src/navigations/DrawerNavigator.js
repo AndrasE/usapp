@@ -3,7 +3,7 @@ import {Image, View, Dimensions} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
 import {
-  ChatsScreen,
+  FriendsScreen,
   ProfileScreen,
   AsdScreen,
   SearchScreen,
@@ -25,7 +25,7 @@ function DrawerNavigator() {
   return (
     <Drawer.Navigator
       backBehavior="history"
-      initialRouteName="Chats"
+      initialRouteName="Friends"
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={({navigation}) => ({
         headerLeft: () => (
@@ -88,10 +88,10 @@ function DrawerNavigator() {
         options={{drawerItemStyle: {display: 'none'}}}
       />
       <Drawer.Screen
-        name="Chats"
-        component={ChatsScreen}
+        name="Friends"
+        component={FriendsScreen}
         options={{
-          title: 'Chats',
+          title: 'Friends',
           drawerIcon: ({color}) => (
             <Icon
               name="md-chatbubble-ellipses-outline"
