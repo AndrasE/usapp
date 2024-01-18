@@ -13,15 +13,18 @@ import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import drawerNavigatorStyles from '../styles/drawerNavigatorStyles';
+import { useUserDb } from '../config/context/userDbContext';
 
 const Drawer = createDrawerNavigator();
+
 
 function DrawerNavigator() {
   const {theme, textSize} = useUserTheme();
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
   const styles = drawerNavigatorStyles(textSize);
-
+  const {mydata} = useUserDb()
+  
   return (
     <Drawer.Navigator
       backBehavior="history"
