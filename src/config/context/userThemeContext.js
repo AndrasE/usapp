@@ -77,8 +77,8 @@ export function UserThemeContextProvider({children}) {
     textinputwidth: 140,
     modalpicheight: 90,
     drawerheaderheight: 51,
-    bubbleheight: 48,
-    bubbletextsize: 15
+    bubbleheight: 46,
+    bubbletextsize: 14
   };
 
   const medium = {
@@ -98,7 +98,7 @@ export function UserThemeContextProvider({children}) {
     modalpicheight: 100,
     drawerheaderheight: 56,
     bubbleheight: 51,
-    bubbletextsize: 18
+    bubbletextsize: 17
   };
 
   const large = {

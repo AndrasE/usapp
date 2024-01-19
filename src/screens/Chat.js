@@ -3,7 +3,13 @@ import {Button, Image, Text, View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import {getDatabase, get, ref, onValue, off, update} from 'firebase/database';
-import {GiftedChat, Bubble} from 'react-native-gifted-chat';
+import {
+  GiftedChat,
+  Day,
+  Bubble,
+  Time,
+  MessageStatusIndicator,
+} from 'react-native-gifted-chat';
 import LinearGradient from 'react-native-linear-gradient';
 import chatScreenStyles from '../styles/chatScreenStyles';
 
@@ -127,19 +133,35 @@ export default function Chat() {
           <GiftedChat
             messages={messages}
             onSend={newMessage => onSend(newMessage)}
-            renderBubble={props => {
+            renderDay={props => {
+              return <Day {...props} textStyle={styles.dayDate} />;
+            }}
+            renderTime={props => {
               return (
-                <Bubble
+                <Time
                   {...props}
-                  textStyle={{
-                    right: styles.bubbleTextRight,
-                    left: styles.bubbleTextLeft,
-                  }}
-                  wrapperStyle={{
-                    left: styles.bubbleWrapperLeft,
-                    right: styles.bubbleWrapperRight,
+                  timeTextStyle={{
+                    left: styles.bubbleTimeStampLeft,
+                    right: styles.bubbleTimeStampRight,
                   }}
                 />
+              );
+            }}
+            renderBubble={props => {
+              return (
+                <View style={{paddingRight: 5}}>
+                  <Bubble
+                    {...props}
+                    textStyle={{
+                      right: styles.bubbleTextRight,
+                      left: styles.bubbleTextLeft,
+                    }}
+                    wrapperStyle={{
+                      left: styles.bubbleWrapperLeft,
+                      right: styles.bubbleWrapperRight,
+                    }}
+                  />
+                </View>
               );
             }}
             user={{
