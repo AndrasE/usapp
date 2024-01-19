@@ -77,6 +77,8 @@ export function UserThemeContextProvider({children}) {
     textinputwidth: 140,
     modalpicheight: 90,
     drawerheaderheight: 51,
+    bubbleheight: 48,
+    bubbletextsize: 15
   };
 
   const medium = {
@@ -95,6 +97,8 @@ export function UserThemeContextProvider({children}) {
     textinputwidth: 150,
     modalpicheight: 100,
     drawerheaderheight: 56,
+    bubbleheight: 51,
+    bubbletextsize: 18
   };
 
   const large = {
@@ -113,6 +117,8 @@ export function UserThemeContextProvider({children}) {
     textinputwidth: 180,
     modalpicheight: 110,
     drawerheaderheight: 60,
+    bubbleheight: 65,
+    bubbletextsize: 21
   };
 
   const saveTheme = async value => {
