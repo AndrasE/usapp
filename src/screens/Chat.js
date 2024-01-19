@@ -134,19 +134,25 @@ export default function Chat() {
                   {...props}
                   textStyle={{
                     right: {
+                      paddingTop: 18,
                       color: "#ffff",
+                      fontSize: textSize.bubbletextsize,
                       fontFamily: "SpaceMonoRegular"
                     },
                     left: {
+                      paddingTop: 18,
                       color: "#191919",
+                      fontSize: textSize.bubbletextsize,
                       fontFamily: "SpaceMonoRegular"
                     },
                   }}
                   wrapperStyle={{
                     left: {
+                      height: textSize.bubbleheight,
                       backgroundColor: theme.bubbleleft,
                     },
                     right: {
+                      height: textSize.bubbleheight,
                       backgroundColor: theme.bubbleright,
                       borderWidth: 1,
                       borderColor: "#ffff"
