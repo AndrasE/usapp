@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {Button, Image, Text, View} from 'react-native';
+import {View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import {getDatabase, get, ref, onValue, off, update} from 'firebase/database';
@@ -8,7 +8,8 @@ import {
   Day,
   Bubble,
   Time,
-  MessageStatusIndicator,
+  InputToolbar,
+  Composer,
 } from 'react-native-gifted-chat';
 import LinearGradient from 'react-native-linear-gradient';
 import chatScreenStyles from '../styles/chatScreenStyles';
@@ -131,8 +132,10 @@ export default function Chat() {
           colors={[theme.appbg1, theme.appbg2]}
           style={styles.linearGradientBackground}>
           <GiftedChat
+
             messages={messages}
             onSend={newMessage => onSend(newMessage)}
+            minInputToolbarHeight={88}
             renderDay={props => {
               return <Day {...props} textStyle={styles.dayDate} />;
             }}
@@ -164,6 +167,21 @@ export default function Chat() {
                 </View>
               );
             }}
+           renderInputToolbar={(props) =>{
+             return (
+             <InputToolbar {...props} 
+             containerStyle={styles.inputToolBar}
+             />
+             );
+            }}
+            renderComposer = {(props) =>{
+              return (
+              <Composer {...props} 
+              placeholderTextColor="#fff"
+              textInputStyle={styles.textInputStyle}
+              />
+              );
+             }}
             user={{
               _id: myData.username,
             }}
