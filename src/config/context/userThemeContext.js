@@ -20,7 +20,7 @@ export function UserThemeContextProvider({children}) {
     drawerheader: '#63b4cf',
     bubbleleft:'#FFFFFF',
     bubbleright:'#63b4cf',
-    bubblelefttext:'#00000',
+    bubblelefttext:'#63b4cf',
     bubblerighttext:'#FFFFFF',
   };
 
@@ -38,7 +38,7 @@ export function UserThemeContextProvider({children}) {
     drawerheader: '#FF577F',
     bubbleleft:'#FFFFFF',
     bubbleright:'#FF577F',
-    bubblelefttext:'#00000',
+    bubblelefttext:'#FF577F',
     bubblerighttext:'#FF577F',
   };
 
@@ -54,9 +54,9 @@ export function UserThemeContextProvider({children}) {
     appbg1: '#5f5f5f',
     appbg2: '#000000',
     drawerheader: '#000000',
-    bubbleleft:'#FFFFFF',
+    bubbleleft:'#333333',
     bubbleright:'#000000',
-    bubblelefttext:'#00000',
+    bubblelefttext:'#FFFFFF',
     bubblerighttext:'#FFFFFF',
   };
 
@@ -118,7 +118,7 @@ export function UserThemeContextProvider({children}) {
     modalpicheight: 110,
     drawerheaderheight: 60,
     bubbleheight: 65,
-    bubbletextsize: 21
+    bubbletextsize: 22
   };
 
   const saveTheme = async value => {
