@@ -7,7 +7,6 @@ import {GiftedChat, Bubble} from 'react-native-gifted-chat';
 import LinearGradient from 'react-native-linear-gradient';
 import chatScreenStyles from '../styles/chatScreenStyles';
 
-
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const {theme, textSize} = useUserTheme();
@@ -127,43 +126,22 @@ export default function Chat() {
           style={styles.linearGradientBackground}>
           <GiftedChat
             messages={messages}
-            onSend={newMessage => onSend(newMessage)}       
-            renderBubble={(props) => {
+            onSend={newMessage => onSend(newMessage)}
+            renderBubble={props => {
               return (
                 <Bubble
                   {...props}
                   textStyle={{
-                    right: {
-                      paddingTop: 18,
-                      color: "#ffff",
-                      fontSize: textSize.bubbletextsize,
-                      fontFamily: "SpaceMonoRegular"
-                    },
-                    left: {
-                      paddingTop: 18,
-                      color: "#191919",
-                      fontSize: textSize.bubbletextsize,
-                      fontFamily: "SpaceMonoRegular"
-                    },
+                    right: styles.bubbleTextRight,
+                    left: styles.bubbleTextLeft,
                   }}
                   wrapperStyle={{
-                    left: {
-                      height: textSize.bubbleheight,
-                      backgroundColor: theme.bubbleleft,
-                    },
-                    right: {
-                      height: textSize.bubbleheight,
-                      backgroundColor: theme.bubbleright,
-                      borderWidth: 1,
-                      borderColor: "#ffff"
-                    },
+                    left: styles.bubbleWrapperLeft,
+                    right: styles.bubbleWrapperRight,
                   }}
                 />
               );
-            }}            
-            shouldUpdateMessage={(props, nextProps) =>
-              props.extraData !== nextProps.extraData
-          }    
+            }}
             user={{
               _id: myData.username,
             }}
