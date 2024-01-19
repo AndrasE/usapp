@@ -13,12 +13,13 @@ const chatScreenStyles = (theme, textSize) =>
       fontSize: textSize.bubbletextsize - 3,
     },
     bubbleTextLeft: {
-      paddingTop: 18,
+      paddingTop: 12,
       color: theme.bubblelefttext,
       fontSize: textSize.bubbletextsize,
       fontFamily: 'SpaceMonoRegular',
     },
     bubbleTextRight: {
+      paddingTop: textSize.bubblepadding,
       color: '#ffff',
       fontSize: textSize.bubbletextsize,
       fontFamily: 'SpaceMonoRegular',
@@ -34,16 +35,20 @@ const chatScreenStyles = (theme, textSize) =>
     },
     bubbleTimeStampLeft: {
       fontFamily: 'SpaceMonoRegular',
-      textAlign: 'right',
-      color: theme.bubbleright,
     },
     bubbleTimeStampRight: {
       fontFamily: 'SpaceMonoRegular',
-
-      color: '#3c3c434d',
-      textAlign: 'right',
-      color: theme.bubbleleft,
     },
+    inputToolBar: {
+      backgroundColor: theme.appbg2,
+      borderTopWidth: 1 ,
+      borderTopColor: '#ffff',
+     },
+     textInputStyle: {
+      lineHeight: textSize.bubbletextsize + 1 ,
+      fontFamily: 'SpaceMonoRegular',
+      fontSize: textSize.bubbletextsize
+     }
   });
 
 export default chatScreenStyles;
