@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {View} from 'react-native';
+import {Image, View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import {getDatabase, get, ref, onValue, off, update} from 'firebase/database';
@@ -10,7 +10,9 @@ import {
   Time,
   InputToolbar,
   Composer,
+  Send,
 } from 'react-native-gifted-chat';
+import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import chatScreenStyles from '../styles/chatScreenStyles';
 
@@ -19,7 +21,6 @@ export default function Chat() {
   const {theme, textSize} = useUserTheme();
   const {myData, selectedUser} = useUserDb();
   const styles = chatScreenStyles(theme, textSize);
-  const profileImgUrl = myData.photo;
 
   useEffect(() => {
     //load old messages
@@ -132,7 +133,6 @@ export default function Chat() {
           colors={[theme.appbg1, theme.appbg2]}
           style={styles.linearGradientBackground}>
           <GiftedChat
-
             messages={messages}
             onSend={newMessage => onSend(newMessage)}
             minInputToolbarHeight={88}
@@ -167,21 +167,39 @@ export default function Chat() {
                 </View>
               );
             }}
-           renderInputToolbar={(props) =>{
-             return (
-             <InputToolbar {...props} 
-             containerStyle={styles.inputToolBar}
-             />
-             );
-            }}
-            renderComposer = {(props) =>{
+            renderInputToolbar={props => {
               return (
-              <Composer {...props} 
-              placeholderTextColor="#fff"
-              textInputStyle={styles.textInputStyle}
-              />
+                <InputToolbar {...props} containerStyle={styles.inputToolBar} />
               );
-             }}
+            }}
+            renderComposer={props => {
+              return (
+                <Composer
+                  {...props}
+                  placeholderTextColor="#fff"
+                  textInputStyle={styles.textInputStyle}
+                />
+              );
+            }}
+            renderSend={props => (
+              <Send
+                {...props}
+                containerStyle={{
+                  height: 60,
+                  width: 60,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Image
+                  source={require('../assets/backicon.png')}
+                  style={{
+                    backgroundColor: 'red',
+                    width: 40,
+                    height: 40,
+                  }}
+                />
+              </Send>
+            )}
             user={{
               _id: myData.username,
             }}
