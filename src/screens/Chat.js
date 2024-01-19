@@ -3,9 +3,10 @@ import {Button, Image, Text, View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import {getDatabase, get, ref, onValue, off, update} from 'firebase/database';
-import {GiftedChat} from 'react-native-gifted-chat';
+import {GiftedChat, Bubble} from 'react-native-gifted-chat';
 import LinearGradient from 'react-native-linear-gradient';
 import chatScreenStyles from '../styles/chatScreenStyles';
+
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -117,31 +118,52 @@ export default function Chat() {
 
   return (
     <>
-      {/* <View style={styles.mainView}> */}
-      {/* <LinearGradient
+      <View style={styles.mainView}>
+        <LinearGradient
           start={{x: 0, y: 0}}
           end={{x: 1, y: 1}}
           locations={[0.0, 0.59]}
           colors={[theme.appbg1, theme.appbg2]}
-          style={styles.linearGradientBackground}> */}
-      {/* <Text style={{color: 'red'}}>{myData.name}</Text>
-          Image
-          <Text style={{color: 'red'}}>{selectedUser.friendsName}</Text> */}
-      {/* <View style={{flex: 1}} > 
-          <Text style={{color: 'red'}}>{selectedUser.friendsName}</Text> 
-          <Button title='asdasdasd' onPress={penis} ></Button>
-          <Image style={{width: 25}} source={{uri: profileImgUrl}}  />
-          </View> */}
-      <GiftedChat
-        showUserAvatar={false}
-        messages={messages}
-        onSend={newMessage => onSend(newMessage)}
-        user={{
-          _id: myData.username,
-        }}
-      />
-      {/* </LinearGradient>
-      {/* </View> */}
+          style={styles.linearGradientBackground}>
+          <GiftedChat
+            messages={messages}
+            onSend={newMessage => onSend(newMessage)}       
+            renderBubble={(props) => {
+              return (
+                <Bubble
+                  {...props}
+                  textStyle={{
+                    right: {
+                      color: "#ffff",
+                      fontFamily: "SpaceMonoRegular"
+                    },
+                    left: {
+                      color: "#191919",
+                      fontFamily: "SpaceMonoRegular"
+                    },
+                  }}
+                  wrapperStyle={{
+                    left: {
+                      backgroundColor: theme.bubbleleft,
+                    },
+                    right: {
+                      backgroundColor: theme.bubbleright,
+                      borderWidth: 1,
+                      borderColor: "#ffff"
+                    },
+                  }}
+                />
+              );
+            }}            
+            shouldUpdateMessage={(props, nextProps) =>
+              props.extraData !== nextProps.extraData
+          }    
+            user={{
+              _id: myData.username,
+            }}
+          />
+        </LinearGradient>
+      </View>
     </>
   );
 }

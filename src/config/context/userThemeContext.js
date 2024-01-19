@@ -18,10 +18,14 @@ export function UserThemeContextProvider({children}) {
     appbg1: '#cce5f0',
     appbg2: '#93d1ed',
     drawerheader: '#63b4cf',
+    bubbleleft:'#FFFFFF',
+    bubbleright:'#63b4cf',
+    bubblelefttext:'#00000',
+    bubblerighttext:'#FFFFFF',
   };
 
   const waifu = {
-    name: 'origin',
+    name: 'waifu',
     text1: '#FFFFFF',
     text2: '#000000',
     textbg1: '#FF577F',
@@ -32,6 +36,10 @@ export function UserThemeContextProvider({children}) {
     appbg1: '#FFACAC',
     appbg2: '#FF577F',
     drawerheader: '#FF577F',
+    bubbleleft:'#FFFFFF',
+    bubbleright:'#FF577F',
+    bubblelefttext:'#00000',
+    bubblerighttext:'#FF577F',
   };
 
   const dark = {
@@ -46,6 +54,10 @@ export function UserThemeContextProvider({children}) {
     appbg1: '#5f5f5f',
     appbg2: '#000000',
     drawerheader: '#000000',
+    bubbleleft:'#FFFFFF',
+    bubbleright:'#000000',
+    bubblelefttext:'#00000',
+    bubblerighttext:'#FFFFFF',
   };
 
   // Size Settings //
