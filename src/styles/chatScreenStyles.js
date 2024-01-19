@@ -43,6 +43,7 @@ const chatScreenStyles = (theme, textSize) =>
       backgroundColor: theme.appbg2,
       borderTopWidth: 1 ,
       borderTopColor: '#ffff',
+      paddingTop: textSize.bubblepadding - 1
      },
      textInputStyle: {
       lineHeight: textSize.bubbletextsize + 1 ,
