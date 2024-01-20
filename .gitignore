@@ -63,5 +63,5 @@ yarn-error.log
 .metro-health-check*
 
 .env
-src/config/firebase/Firebase.js
 src/config/firebase/GoogleSingIn.js
+src/config/firebase/Firebase.js

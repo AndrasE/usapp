@@ -123,16 +123,6 @@ export default function Chat() {
     [fetchMessages, myData.name, selectedUser.chatroomId],
   );
 
-  const shouldUpdateMessage = useCallback((currentProps, nextProps) => {
-    if (
-      currentProps.renderUsernameOnMessage !== nextProps.renderUsernameOnMessage
-    ) {
-      console.log('first');
-      return true;
-    }
-    return false;
-  }, []);
-
   return (
     <>
       <View style={styles.mainView}>

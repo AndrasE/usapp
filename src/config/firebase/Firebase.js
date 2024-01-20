@@ -2,13 +2,13 @@
 import { initializeApp } from "firebase/app";
 import { APIKEY,AUTHDOMAIN, DATABASEURL, PROJECTID,STORAGEBUCKET, MESSAGINGSENDERID, APPID } from '@env';
 
-// TODO: Add SDKs for Firebase products that you want to use
+// TODO: Add SDKs for Firebase products that you want to use //
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: APIKEY,
   authDomain: AUTHDOMAIN,
-  databaseURL: DATABASEURL,
+  databaseURL: "https://usapp-1d1ea-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: PROJECTID,
   storageBucket: STORAGEBUCKET,
   messagingSenderId: MESSAGINGSENDERID,
