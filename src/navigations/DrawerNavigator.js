@@ -23,7 +23,7 @@ function DrawerNavigator() {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
   const styles = drawerNavigatorStyles(textSize);
-  const {mydata} = useUserDb()
+  const {selectedUser} = useUserDb()
   
   return (
     <Drawer.Navigator
@@ -140,8 +140,8 @@ function DrawerNavigator() {
         name="Chat"
         component={ChatScreen}
         options={{
-          title: 'Chat',
-          drawerItemStyle: {display: 'none'},
+          title: "chat",
+          drawerItemStyle: {height: 0},
         }}
       />
     </Drawer.Navigator>
