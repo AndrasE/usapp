@@ -49,6 +49,15 @@ const chatScreenStyles = (theme, textSize) =>
       lineHeight: textSize.bubbletextsize + 1 ,
       fontFamily: 'SpaceMonoRegular',
       fontSize: textSize.bubbletextsize
+     },
+     sendIconContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+     },
+     sendIcon: {
+      fontSize: textSize.bubbletextsize + 5,
+      paddingBottom: textSize.bubblepadding - 1,
+      paddingRight: 5,
      }
   });
 

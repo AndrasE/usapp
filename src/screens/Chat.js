@@ -184,20 +184,15 @@ export default function Chat() {
             renderSend={props => (
               <Send
                 {...props}
-                containerStyle={{
-                  height: 60,
-                  width: 60,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <Image
-                  source={require('../assets/backicon.png')}
-                  style={{
-                    backgroundColor: 'red',
-                    width: 40,
-                    height: 40,
-                  }}
+                containerStyle={styles.sendIconContainer}
+               >
+                  <Icon
+                  name="send-outline"
+                  style={styles.sendIcon}
                 />
+                 
+              
+            
               </Send>
             )}
             user={{
