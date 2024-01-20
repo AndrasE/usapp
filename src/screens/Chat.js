@@ -44,7 +44,7 @@ export default function Chat() {
       //remove chatroom listener
       off(chatroomRef);
     };
-  }, [fetchMessages, renderMessages, selectedUser.chatroomId]);
+  }, [fetchMessages, renderMessages, selectedUser.chatroomId, theme, textSize]);
 
   const renderMessages = useCallback(
     msgs => {
@@ -123,6 +123,16 @@ export default function Chat() {
     [fetchMessages, myData.name, selectedUser.chatroomId],
   );
 
+  const shouldUpdateMessage = useCallback((currentProps, nextProps) => {
+    if (
+      currentProps.renderUsernameOnMessage !== nextProps.renderUsernameOnMessage
+    ) {
+      console.log('first');
+      return true;
+    }
+    return false;
+  }, []);
+
   return (
     <>
       <View style={styles.mainView}>
@@ -136,20 +146,16 @@ export default function Chat() {
             messages={messages}
             onSend={newMessage => onSend(newMessage)}
             minInputToolbarHeight={88}
-            renderDay={props => {
-              return <Day {...props} textStyle={styles.dayDate} />;
-            }}
-            renderTime={props => {
-              return (
-                <Time
-                  {...props}
-                  timeTextStyle={{
-                    left: styles.bubbleTimeStampLeft,
-                    right: styles.bubbleTimeStampRight,
-                  }}
-                />
-              );
-            }}
+            renderDay={props => <Day {...props} textStyle={styles.dayDate} />}
+            renderTime={props => (
+              <Time
+                {...props}
+                timeTextStyle={{
+                  left: styles.bubbleTimeStampLeft,
+                  right: styles.bubbleTimeStampRight,
+                }}
+              />
+            )}
             renderBubble={props => {
               return (
                 <View style={{paddingRight: 5}}>
@@ -167,32 +173,19 @@ export default function Chat() {
                 </View>
               );
             }}
-            renderInputToolbar={props => {
-              return (
-                <InputToolbar {...props} containerStyle={styles.inputToolBar} />
-              );
-            }}
-            renderComposer={props => {
-              return (
-                <Composer
-                  {...props}
-                  placeholderTextColor="#fff"
-                  textInputStyle={styles.textInputStyle}
-                />
-              );
-            }}
-            renderSend={props => (
-              <Send
+            renderInputToolbar={props => (
+              <InputToolbar {...props} containerStyle={styles.inputToolBar} />
+            )}
+            renderComposer={props => (
+              <Composer
                 {...props}
-                containerStyle={styles.sendIconContainer}
-               >
-                  <Icon
-                  name="send-outline"
-                  style={styles.sendIcon}
-                />
-                 
-              
-            
+                placeholderTextColor="#fff"
+                textInputStyle={styles.textInputStyle}
+              />
+            )}
+            renderSend={props => (
+              <Send {...props} containerStyle={styles.sendIconContainer}>
+                <Icon name="send-outline" style={styles.sendIcon} />
               </Send>
             )}
             user={{

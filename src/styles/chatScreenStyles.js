@@ -43,12 +43,14 @@ const chatScreenStyles = (theme, textSize) =>
       backgroundColor: theme.appbg2,
       borderTopWidth: 1 ,
       borderTopColor: '#ffff',
-      paddingTop: textSize.bubblepadding - 1
+      paddingTop: textSize.bubbletextsize - 10 ,
      },
      textInputStyle: {
       lineHeight: textSize.bubbletextsize + 1 ,
       fontFamily: 'SpaceMonoRegular',
-      fontSize: textSize.bubbletextsize
+      fontSize: textSize.bubbletextsize,
+      justifyContent: 'center',
+      alignItems: 'center',
      },
      sendIconContainer: {
       justifyContent: 'center',
@@ -56,8 +58,8 @@ const chatScreenStyles = (theme, textSize) =>
      },
      sendIcon: {
       fontSize: textSize.bubbletextsize + 5,
-      paddingBottom: textSize.bubblepadding - 1,
-      paddingRight: 5,
+      paddingBottom: textSize.bubbletextsize ,
+      paddingRight: 10,
      }
   });
 
