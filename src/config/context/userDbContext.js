@@ -71,7 +71,7 @@ export function UserDbContextProvider({children}) {
     } catch (error) {
       console.error(error);
     }
-    console.log('asasasas' + myData);
+    console.log("mydata:" + myData);
   };
 
   //finduser signed-in in database, creating snapsot of db
