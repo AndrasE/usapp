@@ -8,7 +8,7 @@ const userDbContext = createContext();
 export function UserDbContextProvider({children}) {
   const [myData, setMyData] = useState(null);
   const [users, setUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedUser, setSelectedUser] = useState("");
 
   const {user} = useUserAuth();
 
