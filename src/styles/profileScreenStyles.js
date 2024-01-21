@@ -36,7 +36,12 @@ const profileScreenStyles = (theme, textSize) =>
       color: theme.text1,
       letterSpacing: 2,
       textAlign: 'center',
-      marginBottom: 35,
+      marginBottom: 15,
+    },
+    hrContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      margin: 15,
     },
     hrStyle: {
       flex: 1,
@@ -53,7 +58,6 @@ const profileScreenStyles = (theme, textSize) =>
       color: theme.text1,
     },
     statsView: {
-      marginTop: 10,
       flex: 1,
       flexDirection: 'row',
       flexWrap: 'wrap',
@@ -80,43 +84,6 @@ const profileScreenStyles = (theme, textSize) =>
       textAlign: 'center',
     },
     statsSecondRow: {width: ' 50%'},
-    dangerZoneView: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginTop: 50,
-    },
-    dangerZoneTextView: {
-      marginTop: 15,
-      flex: 1,
-    },
-    dangerZoneText: {
-      fontSize: textSize.searchheader - 5,
-      textAlign: 'center',
-      fontFamily: 'SpaceMonoRegular',
-      color: theme.text1,
-      fontSize: textSize.btns,
-      position: 'relative',
-      letterSpacing: 2,
-      top: -2,
-    },
-    deleteButton: {alignItems: 'center', paddingTop: 15},
-    linearGradientButton: {
-      padding: 3,
-      borderRadius: 5,
-      marginTop: 20,
-      marginBottom: 20,
-      alignContent: 'center',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    linearGradientButtonText: {
-      textAlign: 'center',
-      fontFamily: 'SpaceMonoRegular',
-      color: theme.text1,
-      fontSize: 25,
-      position: 'relative',
-      top: -2,
-    },
   });
 
 export default profileScreenStyles;

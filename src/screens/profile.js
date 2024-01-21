@@ -27,12 +27,7 @@ export default function ProfileScreen() {
           />
           <Text style={styles.textName}>{myData.name}</Text>
           <Text style={styles.textEmail}>{myData.email}</Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginBottom: 5,
-            }}>
+          <View style={styles.hrContainer}>
             <View style={styles.hrStyle} />
             <View>
               <Text style={styles.hrText}> stats </Text>
@@ -57,31 +52,9 @@ export default function ProfileScreen() {
             <Text style={styles.statsHeader}>Outbox:</Text>
             <Text style={styles.statsContent}>0</Text>
           </View>
-          <View style={styles.dangerZoneView}>
-            <View style={styles.hrStyle} />
-            <View>
-              <Text style={styles.hrText}> Dangerzone </Text>
-            </View>
+          <View style={styles.hrContainer}>
             <View style={styles.hrStyle} />
           </View>
-        </View>
-        <View style={styles.dangerZoneTextView}>
-          <Text style={styles.dangerZoneText}>Delete account?</Text>
-          <TouchableOpacity
-            style={styles.deleteButton}
-            title={'Del User'}
-            onPress={() =>
-              console.log('I hope to see you again, bye for now!💀')
-            }>
-            <LinearGradient
-              start={{x: 0, y: 0}}
-              end={{x: 1, y: 1}}
-              locations={[0.3, 0.99]}
-              colors={['#f9022b', '#ee6781']}
-              style={styles.linearGradientButton}>
-              <Text style={styles.linearGradientButtonText}>💀 delete 💀</Text>
-            </LinearGradient>
-          </TouchableOpacity>
         </View>
       </LinearGradient>
     </View>
