@@ -3,6 +3,7 @@ import {Image, Text, View, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
+import Lottie from 'lottie-react-native';
 import profileScreenStyles from '../styles/profileScreenStyles';
 
 export default function ProfileScreen() {
@@ -27,14 +28,16 @@ export default function ProfileScreen() {
           />
           <Text style={styles.textName}>{myData.name}</Text>
           <Text style={styles.textEmail}>{myData.email}</Text>
-          <View style={styles.hrContainer}>
-            <View style={styles.hrStyle} />
-            <View>
-              <Text style={styles.hrText}> stats </Text>
-            </View>
-            <View style={styles.hrStyle} />
-          </View>
         </View>
+
+        <View style={styles.hrContainer}>
+          <View style={styles.hrStyle} />
+          <View>
+            <Text style={styles.hrText}> stats </Text>
+          </View>
+          <View style={styles.hrStyle} />
+        </View>
+        
         <View style={styles.statsView}>
           <View style={styles.statsFirstRow}>
             <Text style={styles.statsHeader}>Registered:</Text>
@@ -55,6 +58,17 @@ export default function ProfileScreen() {
           <View style={styles.hrContainer}>
             <View style={styles.hrStyle} />
           </View>
+        </View>
+
+        <View style={styles.secondaryView}>
+          <Text style={styles.text}>You are my sunshine!</Text>
+          <Lottie
+            style={styles.lottie}
+            source={require('../assets/lottieAnimations/splash.json')}
+            autoPlay
+            loop={false}
+            speed={0.7}
+          />
         </View>
       </LinearGradient>
     </View>
