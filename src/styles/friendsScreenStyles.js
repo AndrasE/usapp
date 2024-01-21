@@ -53,12 +53,11 @@ const chatsScreenStyles = (theme, textSize) =>
       color: theme.text1,
       letterSpacing: 3,
       textAlign: 'center',
-
     },
     lottie: {
       height: textSize.lottieheight + textSize.lottieheight,
       position: "relative",
-      bottom: 35,
+      bottom: 30,
     
     },
   });
