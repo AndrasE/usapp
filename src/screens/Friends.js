@@ -61,7 +61,7 @@ export default function Friends() {
                 style={styles.lottie}
                 source={require('../assets/lottieAnimations/friends.json')}
                 autoPlay
-                loop={false}
+                loop={true}
                 speed={0.7}
               />
             </View>
