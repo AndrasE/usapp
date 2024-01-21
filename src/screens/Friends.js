@@ -27,7 +27,7 @@ export default function Friends() {
     );
   };
 
-  if (users) {
+  if (!users) {
     return (
       <>
         <View style={styles.mainView}>
@@ -54,12 +54,12 @@ export default function Friends() {
             style={styles.linearGradientBackground2}>
             <View style={styles.secondaryView}>
               <Text style={styles.text}>
-                Your friendlist will appear here.Head over to the search
+                Your friendlist will appear here. Head over to the search
                 section.
               </Text>
               <Lottie
                 style={styles.lottie}
-                source={require('../assets/lottieAnimations/Animation - 1705840284722.json')}
+                source={require('../assets/lottieAnimations/friends.json')}
                 autoPlay
                 loop={false}
                 speed={0.7}
