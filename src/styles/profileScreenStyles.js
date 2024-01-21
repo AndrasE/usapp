@@ -84,6 +84,24 @@ const profileScreenStyles = (theme, textSize) =>
       textAlign: 'center',
     },
     statsSecondRow: {width: ' 50%'},
+    secondaryView: {
+      flex: 1,
+      alignContent: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    text: {
+      fontSize: textSize.searchheader,
+      fontFamily: 'SpaceMonoRegular',
+      color: theme.text1,
+      letterSpacing: 3,
+      textAlign: 'center',
+    },
+    lottie: {
+      height: textSize.lottieheight + textSize.lottieheight,
+      position: 'relative',
+      bottom: 25,
+    },
   });
 
 export default profileScreenStyles;
