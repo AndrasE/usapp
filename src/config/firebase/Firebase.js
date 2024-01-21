@@ -8,7 +8,7 @@ import { APIKEY,AUTHDOMAIN, DATABASEURL, PROJECTID,STORAGEBUCKET, MESSAGINGSENDE
 const firebaseConfig = {
   apiKey: APIKEY,
   authDomain: AUTHDOMAIN,
-  databaseURL: DATABASEURL,
+  databaseURL: "https://usapp-1d1ea-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: PROJECTID,
   storageBucket: STORAGEBUCKET,
   messagingSenderId: MESSAGINGSENDERID,
