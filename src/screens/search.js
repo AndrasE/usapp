@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {Image, Text, TextInput, View} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
-import Lottie from 'lottie-react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import Modal from 'react-native-modal';
 import {getDatabase, ref, push, update} from 'firebase/database';
+import LinearGradient from 'react-native-linear-gradient';
+import Modal from 'react-native-modal';
+import Lottie from 'lottie-react-native';
 import searchScreenStyles from '../styles/searchScreenStyles';
 
 export default function SearchScreen() {

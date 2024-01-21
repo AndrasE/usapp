@@ -65,4 +65,3 @@ yarn-error.log
 .env
 src/config/firebase/GoogleSingIn.js
 src/config/firebase/Firebase.js
-src/config/firebase/Firebase.js
