@@ -55,11 +55,13 @@ const chatScreenStyles = (theme, textSize) =>
      sendIconContainer: {
       justifyContent: 'center',
       alignItems: 'center',
+      marginBottom: textSize.bubbletextsize -10 ,
+
      },
      sendIcon: {
-      fontSize: textSize.bubbletextsize + 5,
-      paddingBottom: textSize.bubbletextsize ,
+      fontSize: textSize.bubbletextsize + 10,
       paddingRight: 10,
+      marginLeft: 5
      }
   });
 
