@@ -54,10 +54,10 @@ export default function SignInScreen() {
             <Text style={styles.modalTextMain}>Privacy</Text>
             <Text style={styles.modalTextSecondary}>
               Hi there, I hope to welcome you as one of US! You will be able to
-              log out or delete all your data and any point after registration.
-              This app was created by me, Andras and you also welcome to add me
-              as friend and raise any concerns you may have. You also can find
-              me here:
+              log out or ask me to delete all your data and any point after
+              registration. This app was created by me, Andras and you also
+              welcome to add me as friend and raise any concerns you may have.
+              You also can find me here:
             </Text>
             <Text
               Text

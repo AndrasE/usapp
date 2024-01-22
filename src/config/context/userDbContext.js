@@ -50,7 +50,7 @@ export function UserDbContextProvider({children}) {
           name: user.displayName.split(' ')[0],
           photo: user.photoURL,
           email: user.email,
-          registered: moment().format('lll'),
+          registered: moment().format('ll'),
         };
         set(ref(database, `users/${emailName}`), newUserObj);
         setMyData(newUserObj);
@@ -73,7 +73,6 @@ export function UserDbContextProvider({children}) {
     } catch (error) {
       console.error(error);
     }
-    console.log("mydata:" + myData);
   };
 
   //finduser signed-in in database, creating snapsot of db

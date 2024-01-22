@@ -28,7 +28,7 @@ function DrawerNavigator() {
   return (
     <Drawer.Navigator
       backBehavior="history"
-      initialRouteName="Friends"
+      initialRouteName="{Friends}"
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={({navigation}) => ({
         headerLeft: () => (
