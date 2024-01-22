@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, View, TouchableOpacity} from 'react-native';
+import {Image, Text, View, TouchableOpacity, Button} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
@@ -53,14 +53,6 @@ export default function ProfileScreen() {
           <View style={styles.statsFirstRow}>
             <Text style={styles.statsHeader}>Friends:</Text>
             <Text style={styles.statsContent}>{checkFriendNum()}</Text>
-          </View>
-          <View style={styles.statsSecondRow}>
-            <Text style={styles.statsHeader}>Inbox:</Text>
-            <Text style={styles.statsContent}>0</Text>
-          </View>
-          <View style={styles.statsSecondRow}>
-            <Text style={styles.statsHeader}>Outbox:</Text>
-            <Text style={styles.statsContent}>0</Text>
           </View>
           <View style={styles.hrContainer}>
             <View style={styles.hrStyle} />

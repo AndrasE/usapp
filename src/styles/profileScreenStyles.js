@@ -52,7 +52,7 @@ const profileScreenStyles = (theme, textSize) =>
       fontWeight: 400,
       textAlign: 'center',
       color: theme.text2,
-      fontSize: textSize.preferencesText,
+      fontSize: textSize.preferencesText + 5,
       fontFamily: 'SpaceMonoRegular',
       letterSpacing: 2,
       color: theme.text1,
@@ -68,7 +68,7 @@ const profileScreenStyles = (theme, textSize) =>
       marginBottom: 15,
     },
     statsHeader: {
-      fontSize: textSize.emailHeader + 2,
+      fontSize: textSize.searchheader - 5,
       fontFamily: 'SpaceMonoRegular',
       color: theme.text1,
       letterSpacing: 2,
@@ -77,7 +77,7 @@ const profileScreenStyles = (theme, textSize) =>
       textDecorationLine: 'underline',
     },
     statsContent: {
-      fontSize: textSize.emailHeader,
+      fontSize: textSize.emailHeader + 3,
       fontFamily: 'SpaceMonoRegular',
       color: theme.text1,
       letterSpacing: 2,
