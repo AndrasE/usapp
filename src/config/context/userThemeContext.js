@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
+import React, {createContext, useContext, useState} from 'react';
 import images from '../../navigations/DrawerBgImages';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
