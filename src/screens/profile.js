@@ -10,8 +10,15 @@ export default function ProfileScreen() {
   const {theme, textSize} = useUserTheme();
   const {myData} = useUserDb();
   const profileImgUrl = myData.photo;
-
   const styles = profileScreenStyles(theme, textSize);
+
+  function checkFriendNum() {
+    if (!myData.friends || myData.friends.length == 0) {
+      return '0';
+    } else {
+      return myData.friends.length;
+    }
+  }
 
   return (
     <View style={styles.mainView}>
@@ -37,15 +44,15 @@ export default function ProfileScreen() {
           </View>
           <View style={styles.hrStyle} />
         </View>
-        
+
         <View style={styles.statsView}>
           <View style={styles.statsFirstRow}>
             <Text style={styles.statsHeader}>Registered:</Text>
-            <Text style={styles.statsContent}>date</Text>
+            <Text style={styles.statsContent}>{myData.registered}</Text>
           </View>
           <View style={styles.statsFirstRow}>
             <Text style={styles.statsHeader}>Friends:</Text>
-            <Text style={styles.statsContent}>0</Text>
+            <Text style={styles.statsContent}>{checkFriendNum()}</Text>
           </View>
           <View style={styles.statsSecondRow}>
             <Text style={styles.statsHeader}>Inbox:</Text>

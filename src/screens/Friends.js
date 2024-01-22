@@ -27,7 +27,7 @@ export default function Friends() {
     );
   };
 
-  if (!users) {
+  if (users) {
     return (
       <>
         <View style={styles.mainView}>
