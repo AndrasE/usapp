@@ -18,6 +18,7 @@ export function UserDbContextProvider({children}) {
 
   useEffect(() => {
     if (user) {
+      console.log(user)
       checkUserInDb(user);
     } else {
       setMyData();
