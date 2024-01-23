@@ -11,7 +11,8 @@ const profileScreenStyles = (theme, textSize) =>
       paddingRight: 15,
       flex: 1,
     },
-    profileImageView: {
+    profileView: {
+      flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -68,7 +69,7 @@ const profileScreenStyles = (theme, textSize) =>
       marginBottom: 15,
     },
     statsHeader: {
-      fontSize: textSize.searchheader - 5,
+      fontSize: textSize.preferencesText + 5,
       fontFamily: 'SpaceMonoRegular',
       color: theme.text1,
       letterSpacing: 2,
