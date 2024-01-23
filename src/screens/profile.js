@@ -28,7 +28,7 @@ export default function ProfileScreen() {
         locations={[0.0, 0.59]}
         colors={[theme.appbg1, theme.appbg2]}
         style={styles.linearGradientBackground}>
-        <View style={styles.profileImageView}>
+        <View style={styles.profileView}>
           <Image
             source={{uri: profileImgUrl}}
             style={styles.profileImageStyle}
