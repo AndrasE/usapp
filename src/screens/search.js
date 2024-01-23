@@ -50,7 +50,7 @@ export default function SearchScreen() {
           }
           if (
             myData.friends &&
-            myData.friends.findIndex(f => f.username) > -1
+            myData.friends.findIndex(f => f.friendsUserName) > -1
           ) {
             setSearchedUserPic(user.photo);
             setSearchedUserName(user.name);
@@ -71,11 +71,12 @@ export default function SearchScreen() {
 
           const userFriends = user.friends || [];
           //join myself to this user friends list
-          update(ref(database, `users/${user.username}`), {
+          update(ref(database, `users/${user.name}`), {
             friends: [
               ...userFriends,
               {
                 friendsName: myData.name,
+                friendsUserName: myData.username,
                 friendsPhoto: myData.photo,
                 chatroomId: newChatroomId,
               },
@@ -84,11 +85,12 @@ export default function SearchScreen() {
 
           const myFriends = myData.friends || [];
           //add this user to my friends list
-          update(ref(database, `users/${myData.username}`), {
+          update(ref(database, `users/${myData.name}`), {
             friends: [
               ...myFriends,
               {
                 friendsName: user.name,
+                friendsUserName: user.username,
                 friendsPhoto: user.photo,
                 chatroomId: newChatroomId,
               },
