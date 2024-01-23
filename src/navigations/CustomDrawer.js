@@ -31,7 +31,7 @@ const CustomDrawer = props => {
   } = useUserTheme();
   const profileImgUrl = user.photoURL;
   const profileName = user.displayName.split(' ')[0]
-  const profileEmail = user.email
+  const profileEmail = "@" + user.email.substring(0, user.email.indexOf('@'))
 
   const styles = customDrawerStyles(theme, textSize);
 
@@ -136,7 +136,7 @@ const CustomDrawer = props => {
             style={{marginLeft: textSize.drawerItemMarginLeft}}
           />
         )}
-        label="Sign Out"
+        label="Sign out"
         labelStyle={{
           fontFamily: 'SpaceMonoRegular',
           letterSpacing: 2,
