@@ -71,7 +71,7 @@ export default function SearchScreen() {
 
           const userFriends = user.friends || [];
           //join myself to this user friends list
-          update(ref(database, `users/${user.name}`), {
+          update(ref(database, `users/${user.username}`), {
             friends: [
               ...userFriends,
               {
@@ -85,7 +85,7 @@ export default function SearchScreen() {
 
           const myFriends = myData.friends || [];
           //add this user to my friends list
-          update(ref(database, `users/${myData.name}`), {
+          update(ref(database, `users/${myData.username}`), {
             friends: [
               ...myFriends,
               {
