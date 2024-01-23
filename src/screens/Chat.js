@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {Image, View} from 'react-native';
+import { View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import {getDatabase, get, ref, onValue, off, update} from 'firebase/database';
@@ -64,16 +64,16 @@ export default function Chat() {
             _id: index,
             user: {
               _id:
-                msg.sender === myData.name
+                msg.sender === myData.username
                   ? myData.username
                   : selectedUser.friendsName,
               avatar:
-                msg.sender === myData.name
+                msg.sender === myData.username
                   ? myData.photo
                   : selectedUser.friendsPhoto,
               name:
-                msg.sender === myData.userame
-                  ? myData.name
+                msg.sender === myData.username
+                  ? myData.username
                   : selectedUser.friendsName,
             },
           }))
@@ -112,7 +112,7 @@ export default function Chat() {
           ...lastMessages,
           {
             text: msg[0].text,
-            sender: myData.name,
+            sender: myData.username,
             createdAt: new Date(),
           },
         ],
