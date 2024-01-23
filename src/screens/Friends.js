@@ -10,10 +10,10 @@ import friendsScreenStyles from '../styles/friendsScreenStyles';
 
 export default function Friends() {
   const {theme, textSize} = useUserTheme();
-  const {users, onClickUser} = useUserDb();
+  const {friends, onClickUser} = useUserDb();
   const styles = friendsScreenStyles(theme, textSize);
   const navigation = useNavigation();
-  const renderUser = ({item}) => {
+  const renderFriend = ({item}) => {
     function handleFriendClick() {
       navigation.navigate('Chat');
       onClickUser(item);
@@ -27,7 +27,7 @@ export default function Friends() {
     );
   };
 
-  if (users) {
+  if (friends) {
     return (
       <>
         <View style={styles.mainView}>
@@ -37,7 +37,7 @@ export default function Friends() {
             locations={[0.0, 0.59]}
             colors={[theme.appbg1, theme.appbg2]}
             style={styles.linearGradientBackground}>
-            <FlatList data={users} renderItem={renderUser} />
+            <FlatList data={friends} renderItem={renderFriend} />
           </LinearGradient>
         </View>
       </>
