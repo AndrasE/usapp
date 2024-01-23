@@ -8,7 +8,7 @@ const userDbContext = createContext();
 
 export function UserDbContextProvider({children}) {
   const [myData, setMyData] = useState(null);
-  const [users, setUsers] = useState([]);
+  const [friends, setFriends] = useState([]);
   const [selectedUser, setSelectedUser] = useState("");
 
   const {user} = useUserAuth();
@@ -43,7 +43,7 @@ export function UserDbContextProvider({children}) {
       if (userObj) {
         setMyData(userObj);
         console.log('====> Found in database with email:', user.email, '👈');
-        setUsers(userObj.friends);
+        setFriends(userObj.friends);
       } else {
         const newUserObj = {
           username: emailName,
@@ -64,7 +64,7 @@ export function UserDbContextProvider({children}) {
       const myUserRef = ref(database, `users/${emailName}`);
       onValue(myUserRef, snapshot => {
         const data = snapshot.val();
-        setUsers(data.friends);
+        setFriends(data.friends);
         setMyData(prevData => ({
           ...prevData,
           friends: data.friends,
@@ -94,7 +94,7 @@ export function UserDbContextProvider({children}) {
   };
 
   return (
-    <userDbContext.Provider value={{myData, findUser, users, onClickUser, selectedUser}}>
+    <userDbContext.Provider value={{myData, findUser, friends, onClickUser, selectedUser}}>
       {children}
     </userDbContext.Provider>
   );
