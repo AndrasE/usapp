@@ -85,8 +85,8 @@ export function UserDbContextProvider({children}) {
   const onClickUser = user => {
     setSelectedUser(user);
     console.log(
-      '====> Checking user heading over to chat with your friend,',
-      user.friendsName+'. Be nice!😇',
+      '====> Heading over to chat with your friend,',
+      user.friendsName+'. Be nice! 😇',
     );
     console.log(
       '======================================================================',
