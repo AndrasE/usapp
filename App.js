@@ -21,6 +21,7 @@ function RootNavigator() {
     return <SplashScreen />;
   } else {
     if (user) {
+      console.log(user)
       console.log(
         '====> User in database:',
         user.name,
