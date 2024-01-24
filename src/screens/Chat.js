@@ -35,7 +35,7 @@ export default function Chat() {
     // set chatroom change listener
     const database = getDatabase();
     const chatroomRef = ref(database, `chatrooms/${selectedUser.chatroomId}`);
-    onValue(chatroomRef, snapshot => {
+    get(chatroomRef, snapshot => {
       const data = snapshot.val();
       setMessages(renderMessages(data.messages));
     });
@@ -97,31 +97,31 @@ export default function Chat() {
     return snapshot.val();
   }, [selectedUser.chatroomId]);
 
-  const onSend = useCallback(
-    async (msg = []) => {
-      //send the msg[0] to the other user
-      const database = getDatabase();
+  const onSend = msg => {
+    setMessages(prevMessages => GiftedChat.append(prevMessages, msg)),
+      updateDb(msg);
+  };
 
-      //fetch fresh messages from server
-      const currentChatroom = await fetchMessages();
+  //send the msg[0] to the other user
+  const updateDb = useCallback(async msg => {
+    const database = getDatabase();
 
-      const lastMessages = currentChatroom.messages || [];
+    //fetch fresh messages from server
+    const currentChatroom = await fetchMessages();
 
-      update(ref(database, `chatrooms/${selectedUser.chatroomId}`), {
-        messages: [
-          ...lastMessages,
-          {
-            text: msg[0].text,
-            sender: myData.username,
-            createdAt: new Date(),
-          },
-        ],
-      });
+    const lastMessages = currentChatroom.messages || [];
 
-      setMessages(prevMessages => GiftedChat.append(prevMessages, msg));
-    },
-    [fetchMessages, myData.name, selectedUser.chatroomId],
-  );
+    update(ref(database, `chatrooms/${selectedUser.chatroomId}`), {
+      messages: [
+        ...lastMessages,
+        {
+          text: msg[0].text,
+          sender: myData.username,
+          createdAt: new Date(),
+        },
+      ],
+    });
+  });
 
   return (
     <>
