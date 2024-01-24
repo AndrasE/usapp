@@ -59,7 +59,7 @@ export default function Chat() {
       // }
 
       return msgs
-        ? msgs.reverse().map((msg, index) => ({
+        ? msgs.map((msg, index) => ({
             ...msg,
             _id: index,
             user: {
@@ -134,6 +134,7 @@ export default function Chat() {
           style={styles.linearGradientBackground}>
           <GiftedChat
             messages={messages}
+            inverted={true}
             onSend={newMessage => onSend(newMessage)}
             minInputToolbarHeight={88}
             renderDay={props => <Day {...props} textStyle={styles.dayDate} />}
