@@ -1,5 +1,4 @@
 import React, {useState, createContext, useContext, useEffect} from 'react';
-import moment from 'moment';
 import {useUserAuth} from './userAuthContext';
 import initalizeFirebaseDb from '../firebase/Firebase';
 import {getDatabase, get, ref, set, onValue} from 'firebase/database';
@@ -50,7 +49,6 @@ export function UserDbContextProvider({children}) {
           name: user.displayName.split(' ')[0],
           photo: user.photoURL,
           email: user.email,
-          registered: moment().format('ll'),
         };
         set(ref(database, `users/${emailName}`), newUserObj);
         setMyData(newUserObj);
