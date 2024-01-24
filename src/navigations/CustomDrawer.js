@@ -14,7 +14,6 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import customDrawerStyles from '../styles/customDrawerStyles';
 
-
 const CustomDrawer = props => {
   const navigation = useNavigation();
 
@@ -30,8 +29,8 @@ const CustomDrawer = props => {
     toggleTextSizeBtnState,
   } = useUserTheme();
   const profileImgUrl = user.photoURL;
-  const profileName = user.displayName.split(' ')[0]
-  const profileEmail = "@" + user.email.substring(0, user.email.indexOf('@'))
+  const profileName = user.displayName.split(' ')[0];
+  const profileEmail = '@' + user.email.substring(0, user.email.indexOf('@'));
 
   const styles = customDrawerStyles(theme, textSize);
 
