@@ -175,10 +175,10 @@ export default function SearchScreen() {
         backdropOpacity={0.2}
         animationIn="zoomInDown"
         animationOut="zoomOutUp"
-        animationInTiming={600}
-        animationOutTiming={600}
-        backdropTransitionInTiming={600}
-        backdropTransitionOutTiming={600}
+        animationInTiming={1000}
+        animationOutTiming={1000}
+        backdropTransitionInTiming={1000}
+        backdropTransitionOutTiming={1000}
         isVisible={isModalVisible}
         style={styles.modal}>
         <View style={styles.modalView}>
