@@ -80,7 +80,7 @@ export function UserThemeContextProvider({children}) {
     bubbleheight: 46,
     bubblepadding: 1,
     bubbletextsize: 14,
-
+    sendbuttonmarginbottom: 15,
   };
 
   const medium = {
@@ -101,7 +101,8 @@ export function UserThemeContextProvider({children}) {
     drawerheaderheight: 56,
     bubbleheight: 51,
     bubblepadding: 4,
-    bubbletextsize: 17
+    bubbletextsize: 17,
+    sendbuttonmarginbottom: 17,
   };
 
   const large = {
@@ -122,7 +123,8 @@ export function UserThemeContextProvider({children}) {
     drawerheaderheight: 60,
     bubbleheight: 65,
     bubblepadding: 14,
-    bubbletextsize: 22
+    bubbletextsize: 22,
+    sendbuttonmarginbottom: 19,
   };
 
   const saveTheme = async value => {
@@ -261,10 +263,10 @@ export function UserThemeContextProvider({children}) {
     <userThemeContext.Provider
       value={{
         theme,
+        textSize,
         setUserThemeFunction,
         imgSource,
         toggleThemeBtnState,
-        textSize,
         setUserTextSizeFunction,
         toggleTextSizeBtnState,
       }}>

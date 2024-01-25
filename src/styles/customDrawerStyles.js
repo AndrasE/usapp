@@ -56,8 +56,11 @@ const customDrawerStyles = (theme, textSize) =>
       alignItems: 'center',
       marginBottom: 5,
     },
-
-    horizontalRule: {flex: 1, height: 1, backgroundColor: theme.textbg2},
+    horizontalRule: {
+      flex: 1,
+      height: 1,
+      backgroundColor: theme.textbg2,
+    },
   });
 
 export default customDrawerStyles;

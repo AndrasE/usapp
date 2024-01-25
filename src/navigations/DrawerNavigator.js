@@ -140,7 +140,7 @@ function DrawerNavigator() {
         component={ChatScreen}
         options={{
           title: selectedUser.friendsName,
-          drawerItemStyle: {height: 0},
+          drawerItemStyle: {display: 'none'},
         }}
       />
     </Drawer.Navigator>
