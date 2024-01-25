@@ -135,7 +135,7 @@ export default function Chat() {
           <GiftedChat
             messages={messages}
             inverted={true}
-            minInputToolbarHeight={textSize.bubbletextsize + 50}
+            minInputToolbarHeight={textSize.bubbletextsize + 65}
             minComposerHeight={textSize.bubbletextsize + 33}
             onSend={newMessage => onSend(newMessage)}
             renderDay={props => <Day {...props} textStyle={styles.dayDate} />}
@@ -172,7 +172,6 @@ export default function Chat() {
               <Composer
                 {...props}
                 placeholderTextColor="#fff"
-                placeholderStyle={styles.inputToolBar}
                 textInputStyle={styles.textInputStyle}
               />
             )}
