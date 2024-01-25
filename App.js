@@ -3,9 +3,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
 import {UserDbContextProvider} from './src/config/context/userDbContext';
 import {UserThemeContextProvider} from './src/config/context/userThemeContext';
+import {useUserAuth} from './src/config/context/userAuthContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
-import {useUserAuth} from './src/config/context/userAuthContext';
 
 function RootNavigator() {
   // await splash screen to finish the animation and firebase to get connected and establish //
@@ -21,7 +21,7 @@ function RootNavigator() {
     return <SplashScreen />;
   } else {
     if (user) {
-      console.log(user)
+      console.log(user);
       console.log(
         '====> User in database:',
         user.name,
