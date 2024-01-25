@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
-import {getDatabase, get, ref, onValue, off, update} from 'firebase/database';
+import {getDatabase, get, ref, off, update} from 'firebase/database';
 import {
   GiftedChat,
   Day,
@@ -135,8 +135,9 @@ export default function Chat() {
           <GiftedChat
             messages={messages}
             inverted={true}
+            minInputToolbarHeight={textSize.bubbletextsize + 50}
+            minComposerHeight={textSize.bubbletextsize + 33}
             onSend={newMessage => onSend(newMessage)}
-            minInputToolbarHeight={88}
             renderDay={props => <Day {...props} textStyle={styles.dayDate} />}
             renderTime={props => (
               <Time
@@ -171,6 +172,7 @@ export default function Chat() {
               <Composer
                 {...props}
                 placeholderTextColor="#fff"
+                placeholderStyle={styles.inputToolBar}
                 textInputStyle={styles.textInputStyle}
               />
             )}

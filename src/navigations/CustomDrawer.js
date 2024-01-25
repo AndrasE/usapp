@@ -39,13 +39,15 @@ const CustomDrawer = props => {
   }
 
   return (
-    <View style={styles.drawerMainView}>
+    <View 
+    style={styles.drawerMainView}
+    >
       <DrawerContentScrollView
         {...props}
         contentContainerStyle={{paddingTop: 0, paddingBottom: 0}}>
         <ImageBackground source={imgSource} style={styles.drawerCoverImage}>
           <TouchableOpacity
-            activeOpacity={0.8}
+            activeOpacity={0.5}
             onPress={() => {
               navigation.navigate('Profile');
             }}>

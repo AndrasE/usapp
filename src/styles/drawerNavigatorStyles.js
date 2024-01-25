@@ -24,7 +24,7 @@ const drawerNavigatorStyles = (textSize, theme) =>
       marginBottom: 170,
       height: textSize.drawerItemsIcon + 15,
       width: textSize.drawerItemsIcon,
-      opacity: 0.45,
+      opacity: 0.40,
     },
   });
 

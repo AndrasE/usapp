@@ -41,28 +41,20 @@ const chatScreenStyles = (theme, textSize) =>
     },
     inputToolBar: {
       backgroundColor: theme.appbg2,
-      borderTopWidth: 1 ,
       borderTopColor: '#ffff',
-      paddingTop: textSize.bubbletextsize - 10 ,
-     },
-     textInputStyle: {
-      lineHeight: textSize.bubbletextsize + 1 ,
+    },
+    textInputStyle: {
+      marginTop: textSize.bubbletextsize - 5,
       fontFamily: 'SpaceMonoRegular',
       fontSize: textSize.bubbletextsize,
-      justifyContent: 'center',
-      alignItems: 'center',
-     },
-     sendIconContainer: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginBottom: textSize.bubbletextsize -10 ,
-
-     },
-     sendIcon: {
+    },
+    sendIconContainer: {
+     marginBottom: textSize.sendbuttonmarginbottom,
+    },
+    sendIcon: {
       fontSize: textSize.bubbletextsize + 10,
-      paddingRight: 10,
-      marginLeft: 5
-     }
+      paddingHorizontal: 10,
+    },
   });
 
 export default chatScreenStyles;
