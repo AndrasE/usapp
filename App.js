@@ -1,4 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import { Alert } from 'react-native';
+// import messaging from '@react-native-firebase/messaging';
+
 import {NavigationContainer} from '@react-navigation/native';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
 import {UserDbContextProvider} from './src/config/context/userDbContext';
