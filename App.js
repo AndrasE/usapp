@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { Alert } from 'react-native';
-import messaging from '@react-native-firebase/messaging';
-
+import {Alert} from 'react-native';
+import {messaging, getToken} from '@react-native-firebase/messaging';
+import {PermissionsAndroid} from 'react-native';
+PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 import {NavigationContainer} from '@react-navigation/native';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
 import {UserDbContextProvider} from './src/config/context/userDbContext';
@@ -24,7 +25,6 @@ function RootNavigator() {
     return <SplashScreen />;
   } else {
     if (user) {
-      console.log(user);
       console.log(
         '====> User in database:',
         user.name,
@@ -52,6 +52,48 @@ function RootNavigator() {
 // Necessary to wrap the Home/Login stacks in order to have access to the Context //
 // <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
 export default function App() {
+//   async function requestUserPermission() {
+//     const authStatus = await messaging().requestPermission();
+//     const enabled =
+//       authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+//       authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+//     if (enabled) {
+//       console.log('Authorization status:', authStatus);
+//     }
+//   }
+
+//   useEffect(() => {
+//     if (requestUserPermission()) {
+//       messaging.getToken().then(token => {
+//         console.log(token);
+//       });
+//     } else {
+//       console.log('failed', authStatus);
+//     }
+
+//     //check whether the initalapp is available
+//     messaging()
+//       .getInitalNotification()
+//       .then(remoteMessage => {
+//         if (remoteMessage) {
+//           console.log(
+//             'Notification caused the app to opeb from quit state',
+//             remoteMessage.notification,
+//           );
+//         }
+//       });
+
+//     //type data payload of the screen to open
+
+//     messaging().onNotificationOpenedApp(remoteMessage => {
+//       console.log(
+//         'Notification caused the app to opeb from quit state',
+//         remoteMessage.notification,
+//       );
+//     });
+//   }, []);
+
   return (
     <UserAuthContextProvider>
       <UserDbContextProvider>
