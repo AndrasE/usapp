@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
-import {getDatabase, get, ref, off, update} from 'firebase/database';
+import {getDatabase, get, ref, off, update, onValue} from 'firebase/database';
 import {
   GiftedChat,
   Day,
@@ -26,7 +26,6 @@ export default function Chat() {
     //load old messages
     const loadData = async () => {
       const myChatroom = await fetchMessages();
-
       setMessages(renderMessages(myChatroom.messages));
     };
 
@@ -35,7 +34,7 @@ export default function Chat() {
     // set chatroom change listener
     const database = getDatabase();
     const chatroomRef = ref(database, `chatrooms/${selectedUser.chatroomId}`);
-    get(chatroomRef, snapshot => {
+    onValue(chatroomRef, snapshot => {
       const data = snapshot.val();
       setMessages(renderMessages(data.messages));
     });
@@ -59,7 +58,7 @@ export default function Chat() {
       // }
 
       return msgs
-        ? msgs.map((msg, index) => ({
+        ? msgs.reverse().map((msg, index) => ({
             ...msg,
             _id: index,
             user: {
@@ -134,7 +133,6 @@ export default function Chat() {
           style={styles.linearGradientBackground}>
           <GiftedChat
             messages={messages}
-            inverted={true}
             minInputToolbarHeight={textSize.bubbletextsize + 65}
             minComposerHeight={textSize.bubbletextsize + 33}
             onSend={newMessage => onSend(newMessage)}
