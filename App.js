@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Alert} from 'react-native';
-import {messaging, getToken} from '@react-native-firebase/messaging';
-import {PermissionsAndroid} from 'react-native';
-PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+
 import {NavigationContainer} from '@react-navigation/native';
 import {UserAuthContextProvider} from './src/config/context/userAuthContext';
 import {UserDbContextProvider} from './src/config/context/userDbContext';
@@ -10,6 +8,10 @@ import {UserThemeContextProvider} from './src/config/context/userThemeContext';
 import {useUserAuth} from './src/config/context/userAuthContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
+
+import {messaging, getToken} from '@react-native-firebase/messaging';
+import {PermissionsAndroid} from 'react-native';
+PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 function RootNavigator() {
   // await splash screen to finish the animation and firebase to get connected and establish //
@@ -51,26 +53,26 @@ function RootNavigator() {
 
 // Necessary to wrap the Home/Login stacks in order to have access to the Context //
 // <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
+
 export default function App() {
-//   async function requestUserPermission() {
-//     const authStatus = await messaging().requestPermission();
-//     const enabled =
-//       authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-//       authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+  async function requestUserPermission() {
+    const authStatus = await messaging().requestPermission();
+    const enabled =
+      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
-//     if (enabled) {
-//       console.log('Authorization status:', authStatus);
-//     }
-//   }
+    if (enabled) {
+      console.log('Authorization status:', authStatus);
+    }
+  }
 
-//   useEffect(() => {
-//     if (requestUserPermission()) {
-//       messaging.getToken().then(token => {
-//         console.log(token);
-//       });
-//     } else {
-//       console.log('failed', authStatus);
-//     }
+  // useEffect(() => {
+  //   const unsubscribe = messaging().onMessage(async remoteMessage => {
+  //     Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+  //   });
+
+  //   return unsubscribe;
+  // }, []);
 
 //     //check whether the initalapp is available
 //     messaging()
