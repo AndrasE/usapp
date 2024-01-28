@@ -5,19 +5,20 @@ import {getDatabase, get, ref, set, onValue} from 'firebase/database';
 
 const userDbContext = createContext();
 
-export function UserDbContextProvider({children}) {
+export function UserDbContextProvider({fcmToken, children}) {
   const [myData, setMyData] = useState(null);
   const [friends, setFriends] = useState([]);
   const [selectedUser, setSelectedUser] = useState("");
 
   const {user} = useUserAuth();
-
+  // console.log(token)
   //imported from Firebase.js so when authentication happen firebase is initalized as well, otherwise will be error || connect to firebaseDb//
   initalizeFirebaseDb;
 
   useEffect(() => {
     if (user) {
       checkUserInDb(user);
+      console.log("xxx", fcmToken)
     } else {
       setMyData();
     }
@@ -29,6 +30,7 @@ export function UserDbContextProvider({children}) {
       '====> Checking user in database with email:',
       user.email,
       '🔍',
+      
     );
     console.log(
       '======================================================================',
@@ -49,6 +51,7 @@ export function UserDbContextProvider({children}) {
           name: user.displayName.split(' ')[0],
           photo: user.photoURL,
           email: user.email,
+          fcmToken: fcmToken
         };
         set(ref(database, `users/${emailName}`), newUserObj);
         setMyData(newUserObj);
