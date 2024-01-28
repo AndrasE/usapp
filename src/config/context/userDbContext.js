@@ -30,7 +30,6 @@ export function UserDbContextProvider({fcmToken, children}) {
       '====> Checking user in database with email:',
       user.email,
       '🔍',
-      
     );
     console.log(
       '======================================================================',
