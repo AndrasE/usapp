@@ -8,16 +8,18 @@ import {UserThemeContextProvider} from './src/config/context/userThemeContext';
 import {useUserAuth} from './src/config/context/userAuthContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
+import {messaging} from '@react-native-firebase/messaging';
+import { firebase } from '@react-native-firebase/messaging';
 
-import {messaging, getToken} from '@react-native-firebase/messaging';
-import {PermissionsAndroid} from 'react-native';
-PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 function RootNavigator() {
+ 
+
   // await splash screen to finish the animation and firebase to get connected and establish //
   // if the user is authenticated and call homestack to conditinally render //
   const [splash, setSplash] = useState(true);
   const {user} = useUserAuth();
+
 
   setTimeout(() => {
     setSplash(false);
@@ -55,36 +57,33 @@ function RootNavigator() {
 // <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
 
 export default function App() {
-  async function requestUserPermission() {
-    const authStatus = await messaging().requestPermission();
-    const enabled =
-      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+  const [token, setToken] = useState("")
 
-    if (enabled) {
-      console.log('Authorization status:', authStatus);
-    }
-  }
+  useEffect(() => {
+    firebase.messaging().getToken()
+  .then(fcmToken => {
+    if (fcmToken) {
+      console.log(fcmToken)
+      setToken(fcmToken)
+      // user has a device token
+    } else {
+      // user doesn't have a device token yet
+    } 
+  });
+  }, []);
 
-  // useEffect(() => {
-  //   const unsubscribe = messaging().onMessage(async remoteMessage => {
-  //     Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-  //   });
-
-  //   return unsubscribe;
-  // }, []);
 
 //     //check whether the initalapp is available
-//     messaging()
-//       .getInitalNotification()
-//       .then(remoteMessage => {
-//         if (remoteMessage) {
-//           console.log(
-//             'Notification caused the app to opeb from quit state',
-//             remoteMessage.notification,
-//           );
-//         }
-//       });
+    // messaging()
+    //   .getInitalNotification()
+    //   .then(remoteMessage => {
+    //     if (remoteMessage) {
+    //       console.log(
+    //         'Notification caused the app to opeb from quit state',
+    //         remoteMessage.notification,
+    //       );
+    //     }
+    //   });
 
 //     //type data payload of the screen to open
 
@@ -98,8 +97,8 @@ export default function App() {
 
   return (
     <UserAuthContextProvider>
-      <UserDbContextProvider>
-        <UserThemeContextProvider>
+      <UserDbContextProvider fcmToken={token}>
+        <UserThemeContextProvider >
           <RootNavigator />
         </UserThemeContextProvider>
       </UserDbContextProvider>
