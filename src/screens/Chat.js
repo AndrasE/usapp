@@ -14,6 +14,7 @@ import {
 } from 'react-native-gifted-chat';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
+import messaging from '@react-native-firebase/messaging';
 import chatScreenStyles from '../styles/chatScreenStyles';
 
 export default function Chat() {

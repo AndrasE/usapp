@@ -8,12 +8,12 @@ import {UserThemeContextProvider} from './src/config/context/userThemeContext';
 import {useUserAuth} from './src/config/context/userAuthContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
-import {messaging} from '@react-native-firebase/messaging';
+import {messaging, onMessage, onNotification, onNotificationOpened} from '@react-native-firebase/messaging';
 import { firebase } from '@react-native-firebase/messaging';
 
 
 function RootNavigator() {
- 
+
 
   // await splash screen to finish the animation and firebase to get connected and establish //
   // if the user is authenticated and call homestack to conditinally render //
