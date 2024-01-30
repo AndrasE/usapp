@@ -2,7 +2,6 @@ import React, {useState, createContext, useContext, useEffect} from 'react';
 import {useUserAuth} from './userAuthContext';
 import initalizeFirebaseDb from '../firebase/Firebase';
 import {getDatabase, get, ref, set, onValue} from 'firebase/database';
-
 const userDbContext = createContext();
 
 export function UserDbContextProvider({fcmToken, children}) {
@@ -18,7 +17,6 @@ export function UserDbContextProvider({fcmToken, children}) {
   useEffect(() => {
     if (user) {
       checkUserInDb(user);
-      console.log("xxx", fcmToken)
     } else {
       setMyData();
     }
