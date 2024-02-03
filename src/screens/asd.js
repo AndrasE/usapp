@@ -1,5 +1,6 @@
 import React from 'react';
 import {ImageBackground, Button} from 'react-native';
+import {BEARER} from '@env';
 
 export default function HomeScreen() {
 
@@ -22,7 +23,7 @@ export default function HomeScreen() {
     // Set the request headers
     const headers = {
       'Content-Type': 'application/json',
-      Authorization: 'Bearer ya29.a0AfB_byDEryIpLK9eeHlgJHXQ0Y7VxuVHla_SjUyRXuYioD-VZg6Lo1EdXRmKcuHd8FnbTpN0WRFxyb6SXjB0ogF9nnYfLoaRtTEcYmeCjG9QuC7gHB-xSJdYocByW-SPm673YpGnIquUzWAnVMAOr5zQCpfybAifcaQKaCgYKAVkSARASFQHGX2MiIis28F_4KMVd_IwQ0LIgtg0171'
+      Authorization: BEARER
     };
   
     // Construct the API request URL
