@@ -26,7 +26,7 @@ function RootNavigator() {
     if (user) {
       console.log(
         '====> User in database:',
-        user.name,
+        user.displayName.split(' ')[0],
         '🧡 Welcome on board, you are one of US!🧡',
       );
       console.log(
