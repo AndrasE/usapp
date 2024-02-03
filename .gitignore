@@ -66,3 +66,4 @@ yarn-error.log
 src/config/firebase/GoogleSingIn.js
 src/config/firebase/Firebase.js
 android/app/google-services.json
+android/app/google-services.json
