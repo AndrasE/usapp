@@ -21,7 +21,6 @@ export default function HomeScreen() {
         loop={false}
         speed={0.7}
       />
-  
     </ImageBackground>
   );
 }
