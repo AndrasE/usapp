@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { APIKEY,AUTHDOMAIN, DATABASEURL, PROJECTID,STORAGEBUCKET, MESSAGINGSENDERID, APPID } from '@env';
 
+
 // TODO: Add SDKs for Firebase products that you want to use //
 
 // Your web app's Firebase configuration

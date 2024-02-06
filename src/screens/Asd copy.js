@@ -1,5 +1,6 @@
 import React from 'react';
 import {ImageBackground, Button} from 'react-native';
+import { getFCMAccessToken } from '../config/firebase/GoogleSingIn';
 
 export default function HomeScreen() {
 
@@ -52,7 +53,7 @@ export default function HomeScreen() {
         alignItems: 'center',
         padding: 30,
       }}>
-      <Button onPress={sendMessageToDevice} title='asdasd'/>
+      <Button onPress={getFCMAccessToken} title='asdasd'/>
   
     </ImageBackground>
   );

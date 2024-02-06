@@ -10,6 +10,7 @@ export const _signInWithGoogle = async () => {
       webClientId: WEBCLIENTID,
     });
     await GoogleSignin.hasPlayServices();
+    console.log("first")
     const {idToken} = await GoogleSignin.signIn();
     const googleCredentials = auth.GoogleAuthProvider.credential(idToken);
     auth().signInWithCredential(googleCredentials);

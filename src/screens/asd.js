@@ -1,9 +1,9 @@
 import React from 'react';
 import {ImageBackground, Button} from 'react-native';
-import {BEARER} from '@env';
 
 export default function HomeScreen() {
 
+  
   const sendMessageToDevice = async () => {
     // Construct the request body
     const requestBody = {
@@ -23,7 +23,7 @@ export default function HomeScreen() {
     // Set the request headers
     const headers = {
       'Content-Type': 'application/json',
-      Authorization: BEARER
+      Authorization:  "Bearer ya29.a0AfB_byCxCmBwbGnhykPlk11RIM9EeUUVBz2u-sw9CMjLBeLW4m6AxIg2px6XGSKCSC3HUMf4CN3YvbSxtfeDpUoto-K9bf0RQ180nRimfQI_Bmtk2AFYV2x91XLRxt87Bvj1PNpRWhc2jW3IojRfiXkmsrtHHhss0Rf2aCgYKAVASARASFQHGX2MikDTba4jrLrR6Ki_gkC0cGQ0171"
     };
   
     // Construct the API request URL
@@ -54,7 +54,7 @@ export default function HomeScreen() {
         padding: 30,
       }}>
       <Button onPress={sendMessageToDevice} title='asdasd'/>
-  
+
     </ImageBackground>
   );
 }
