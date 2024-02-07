@@ -7,6 +7,7 @@ import {useUserAuth} from './src/config/context/userAuthContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 import { LogLevel, OneSignal } from 'react-native-onesignal';
+import { ONESIGNALID } from '@env';
 // import messaging from '@react-native-firebase/messaging';
 // import {PermissionsAndroid} from 'react-native';
 // PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
@@ -41,6 +42,31 @@ function RootNavigator() {
   }
 
   function HomeStack() {
+    const {user} = useUserAuth();
+    const emailName = user.email.substring(0, user.email.indexOf('@'));
+
+    // is user logged in redirected to homestack where we set up OneSignal 
+    useEffect(() => {
+      // Remove this method to stop OneSignal Debugging
+     OneSignal.Debug.setLogLevel(LogLevel.Verbose);
+   
+     // OneSignal Initialization
+     OneSignal.initialize(ONESIGNALID);
+    
+     // requestPermission will show the native iOS or Android notification permission prompt.
+     OneSignal.Notifications.requestPermission(true);
+    
+     // Method for listening for notification clicks
+     OneSignal.Notifications.addEventListener('click', (event) => {
+       console.log('OneSignal: notification clicked:', event);
+     });
+    
+     // Log in user for OneSignal service
+     OneSignal.login(emailName);
+      }, []);
+
+
+
     return (
       <NavigationContainer>
         <DrawerNavigator />
@@ -50,56 +76,8 @@ function RootNavigator() {
 }
 
 export default function App() {
-  // const [token, setToken] = useState('');
 
-  // // messaging().onMessage(async remoteMessage => {
-  // //   console.log('Message handled in the backgrossaund!', remoteMessage);
-  // // });
-  // messaging().setBackgroundMessageHandler(async remoteMessage => {
-  //   console.log('Message handled in the background!', remoteMessage);
-  // });
 
-  // function requestAndroidPermission() {
-  //   PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
-  // }
-
-  // async function requestUserPermission() {
-  //   const authorizationStatus = await messaging().requestPermission();
-  
-  //   if (authorizationStatus) {
-  //     console.log('Permission status:', authorizationStatus);
-  //   }
-  // }
-
- 
-
-  useEffect(() => {
-    
-  //   const setUpCloudMessaging = async () => {
-  //     requestUserPermission();
-
-  //     const token = await messaging().getToken();
-  //     console.log('Token is ' + token);
-  //   };
-  //   setUpCloudMessaging();
-
-  // Remove this method to stop OneSignal Debugging
- OneSignal.Debug.setLogLevel(LogLevel.Verbose);
-
- // OneSignal Initialization
- OneSignal.initialize("e5d90d7e-2a17-4f58-a879-8346fbdccceb");
-
- // requestPermission will show the native iOS or Android notification permission prompt.
- // We recommend removing the following code and instead using an In-App Message to prompt for notification permission
- OneSignal.Notifications.requestPermission(true);
-
- // Method for listening for notification clicks
- OneSignal.Notifications.addEventListener('click', (event) => {
-   console.log('OneSignal: notification clicked:', event);
- });
-
- OneSignal.login("123456789");
-  }, []);
 
   // Necessary to wrap the Home/Login stacks in order to have access to the Context //
   // <userAuthContext.Provider value={{...}}> {children} </userAuthContext.Provider> //
