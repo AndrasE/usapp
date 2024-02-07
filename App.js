@@ -32,6 +32,7 @@ function RootNavigator() {
         '🧡 Welcome on board, you are one of US!🧡',
       );
       console.log(
+        user,
         '======================================================================',
       );
       // If myData exist ergo user logged in and databse found/created returning Homescreen, otherwise Login screen//
@@ -64,8 +65,6 @@ function RootNavigator() {
      // Log in user for OneSignal service
      OneSignal.login(emailName);
       }, []);
-
-
 
     return (
       <NavigationContainer>
