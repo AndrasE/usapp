@@ -139,7 +139,7 @@ export function UserThemeContextProvider({children}) {
   const getTheme = async () => {
     try {
       const userThemeAS = await AsyncStorage.getItem('userTheme');
-      console.log('Applying user theme setting:', userThemeAS, '🌈');
+      console.log('Applying user theme setting:', userThemeAS !== null ? userThemeAS : "light" , '🌈');
 
       switch (userThemeAS) {
         case 'light':
@@ -175,7 +175,7 @@ export function UserThemeContextProvider({children}) {
   const getText = async () => {
     try {
       const userTextAS = await AsyncStorage.getItem('userText');
-      console.log('Applying user size setting:', userTextAS, '📐');
+      console.log('Applying user size setting:', userTextAS !== null ? userTextAS : "normal" , '📐');
 
       switch (userTextAS) {
         case 'small':

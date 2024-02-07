@@ -24,12 +24,11 @@ function RootNavigator() {
   } else {
     if (user) {
       console.log(
-        '====> User in database:',
-        user.displayName.split(' ')[0],
-        '🧡 Welcome on board, you are one of US!🧡',
+        '====> User in database: Hi',
+        user.displayName.split(' ')[0]+"!",
+        'Welcome on board, you are one of US! 🧡',
       );
       console.log(
-        user,
         '======================================================================',
       );
       // If myData exist ergo user logged in and databse found/created returning Homescreen, otherwise Login screen//
