@@ -1,33 +1,37 @@
 import React from 'react';
 import {ImageBackground, Button} from 'react-native';
 const axios = require('axios');
-import {ONESIGNALID} from '@env';
+import {ONESIGNALID, ONESIGNALBEARER} from '@env';
 
 export default function HomeScreen() {
 
+  function send() {
   
-  
-    const options = {
-      method: 'POST',
-      url: 'https://api.onesignal.com/notifications',
-      headers: {
-        accept: 'application/json',
-        Authorization: 'Basic' + {ONESIGNALID},
-        'content-type': 'application/json'
-      }
-    };
-    
+  const url = 'https://api.onesignal.com/notifications';
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      Authorization: ONESIGNALBEARER,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      app_id: ONESIGNALID,
+      name: 'asd',
+      included_segments: ['Active Users'],
+      contents: {en: 'English Message'},
+      // custom_data: 'none',
+      external_id: "egyeand"
+    })
+  };
 
-    // axios
-    //   .request(options)
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.error(error);
-    //   });
-  
-    
+  fetch(url, options)
+  .then(res => res.json())
+  .then(json => console.log(json))
+  .catch(err => console.error('error:' + err));
+  }
+
+
   return (
     <ImageBackground
       source={require('../assets/backgroundImage.jpg')}
@@ -37,10 +41,7 @@ export default function HomeScreen() {
         alignItems: 'center',
         padding: 30,
       }}>
-      <Button 
-      // onPress={sendMessageToDevice} 
-      title='asdasd'/>
-
+      <Button onPress={send} title="btn" />
     </ImageBackground>
   );
 }
