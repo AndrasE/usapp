@@ -17,7 +17,7 @@ import customDrawerStyles from '../styles/customDrawerStyles';
 const CustomDrawer = props => {
   const navigation = useNavigation();
 
-  const {logOut} = useUserAuth();
+  const {logOut, user} = useUserAuth();
   const {myData} = useUserDb();
   const {
     theme,
@@ -28,7 +28,10 @@ const CustomDrawer = props => {
     setUserTextSizeFunction,
     toggleTextSizeBtnState,
   } = useUserTheme();
-  const profileImgUrl = myData.photo;
+  const profileImgUrl = user.photoURL;
+  const profileName = user.displayName.split(' ')[0];
+  const profileEmail = '@' + user.email.substring(0, user.email.indexOf('@'));
+
   const styles = customDrawerStyles(theme, textSize);
 
   function handleLogoutClick() {
@@ -36,19 +39,21 @@ const CustomDrawer = props => {
   }
 
   return (
-    <View style={styles.drawerMainView}>
+    <View 
+    style={styles.drawerMainView}
+    >
       <DrawerContentScrollView
         {...props}
         contentContainerStyle={{paddingTop: 0, paddingBottom: 0}}>
         <ImageBackground source={imgSource} style={styles.drawerCoverImage}>
           <TouchableOpacity
-            activeOpacity={0.8}
+            activeOpacity={0.5}
             onPress={() => {
               navigation.navigate('Profile');
             }}>
             <Image source={{uri: profileImgUrl}} style={styles.profileImage} />
-            <Text style={styles.profleNameText}> {myData.name}</Text>
-            <Text style={styles.profileEmailText}> {myData.email}</Text>
+            <Text style={styles.profleNameText}> {profileName}</Text>
+            <Text style={styles.profileEmailText}> {profileEmail}</Text>
           </TouchableOpacity>
         </ImageBackground>
         <DrawerItemList {...props} />
@@ -132,7 +137,7 @@ const CustomDrawer = props => {
             style={{marginLeft: textSize.drawerItemMarginLeft}}
           />
         )}
-        label="Sign Out"
+        label="Sign out"
         labelStyle={{
           fontFamily: 'SpaceMonoRegular',
           letterSpacing: 2,

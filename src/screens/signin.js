@@ -49,15 +49,21 @@ export default function SignInScreen() {
         privacy statement
       </Text>
       <View>
-        <Modal isVisible={isModalVisible} style={styles.modal}>
+        <Modal isVisible={isModalVisible} 
+        animationInTiming={400}
+        animationOutTiming={400}
+        backdropTransitionInTiming={500}
+        backdropTransitionOutTiming={500}
+        
+        style={styles.modal}>
           <View style={styles.modalView}>
             <Text style={styles.modalTextMain}>Privacy</Text>
             <Text style={styles.modalTextSecondary}>
-              He there, I hope to welcome you as one of US! You will be able to
-              log out or delete all your data and any point after registration.
-              This app was created by me, Andras and you also welcome to add me
-              as friend and raise any concerns you may have. You also can find
-              me here:
+              Hi there, I hope to welcome you as one of US! You will be able to
+              log out or ask me to delete all your data and any point after
+              registration. This app was created by me, Andras and you also
+              welcome to add me as friend and raise any concerns you may have.
+              You also can find me here:
             </Text>
             <Text
               Text

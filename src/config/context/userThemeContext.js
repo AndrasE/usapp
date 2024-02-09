@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
+import React, {createContext, useContext, useState} from 'react';
 import images from '../../navigations/DrawerBgImages';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -17,11 +17,15 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#FFFFFF',
     appbg1: '#cce5f0',
     appbg2: '#93d1ed',
-    drawerheader: "#63b4cf",
+    drawerheader: '#63b4cf',
+    bubbleleft:'#FFFFFF',
+    bubbleright:'#63b4cf',
+    bubblelefttext:'#63b4cf',
+    bubblerighttext:'#FFFFFF',
   };
 
   const waifu = {
-    name: 'origin',
+    name: 'waifu',
     text1: '#FFFFFF',
     text2: '#000000',
     textbg1: '#FF577F',
@@ -31,7 +35,11 @@ export function UserThemeContextProvider({children}) {
     togglebg: '#FFACAC',
     appbg1: '#FFACAC',
     appbg2: '#FF577F',
-    drawerheader:'#FF577F',
+    drawerheader: '#FF577F',
+    bubbleleft:'#FFFFFF',
+    bubbleright:'#FF577F',
+    bubblelefttext:'#FF577F',
+    bubblerighttext:'#FF577F',
   };
 
   const dark = {
@@ -46,6 +54,10 @@ export function UserThemeContextProvider({children}) {
     appbg1: '#5f5f5f',
     appbg2: '#000000',
     drawerheader: '#000000',
+    bubbleleft:'#333333',
+    bubbleright:'#000000',
+    bubblelefttext:'#FFFFFF',
+    bubblerighttext:'#FFFFFF',
   };
 
   // Size Settings //
@@ -65,6 +77,10 @@ export function UserThemeContextProvider({children}) {
     textinputwidth: 140,
     modalpicheight: 90,
     drawerheaderheight: 51,
+    bubbleheight: 46,
+    bubblepadding: 1,
+    bubbletextsize: 14,
+    sendbuttonmarginbottom: 15,
   };
 
   const medium = {
@@ -83,6 +99,10 @@ export function UserThemeContextProvider({children}) {
     textinputwidth: 150,
     modalpicheight: 100,
     drawerheaderheight: 56,
+    bubbleheight: 51,
+    bubblepadding: 4,
+    bubbletextsize: 17,
+    sendbuttonmarginbottom: 17,
   };
 
   const large = {
@@ -90,9 +110,9 @@ export function UserThemeContextProvider({children}) {
     headerImgHeight: 180,
     nameHeader: 31,
     emailHeader: 17,
-    drawerItems: 21,
-    drawerItemsIcon: 30,
-    drawerItemMarginLeft: 43,
+    drawerItems: 20,
+    drawerItemsIcon: 27,
+    drawerItemMarginLeft: 38,
     preferencesText: 17,
     btns: 21,
     lottieheight: 115,
@@ -101,6 +121,10 @@ export function UserThemeContextProvider({children}) {
     textinputwidth: 180,
     modalpicheight: 110,
     drawerheaderheight: 60,
+    bubbleheight: 65,
+    bubblepadding: 14,
+    bubbletextsize: 22,
+    sendbuttonmarginbottom: 19,
   };
 
   const saveTheme = async value => {
@@ -115,7 +139,7 @@ export function UserThemeContextProvider({children}) {
   const getTheme = async () => {
     try {
       const userThemeAS = await AsyncStorage.getItem('userTheme');
-      console.log('Applying user theme setting:', userThemeAS, '🌈');
+      console.log('Applying user theme setting:', userThemeAS !== null ? userThemeAS : "light" , '🌈');
 
       switch (userThemeAS) {
         case 'light':
@@ -151,7 +175,7 @@ export function UserThemeContextProvider({children}) {
   const getText = async () => {
     try {
       const userTextAS = await AsyncStorage.getItem('userText');
-      console.log('Applying user size setting:', userTextAS, '📐');
+      console.log('Applying user size setting:', userTextAS !== null ? userTextAS : "normal" , '📐');
 
       switch (userTextAS) {
         case 'small':
@@ -239,10 +263,10 @@ export function UserThemeContextProvider({children}) {
     <userThemeContext.Provider
       value={{
         theme,
+        textSize,
         setUserThemeFunction,
         imgSource,
         toggleThemeBtnState,
-        textSize,
         setUserTextSizeFunction,
         toggleTextSizeBtnState,
       }}>

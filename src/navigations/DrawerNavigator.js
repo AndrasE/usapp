@@ -3,16 +3,17 @@ import {Image, View, Dimensions} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import CustomDrawer from './CustomDrawer';
 import {
-  ChatScreen,
-  HomeScreen,
+  FriendsScreen,
   ProfileScreen,
   AsdScreen,
   SearchScreen,
+  ChatScreen,
 } from './ScreensImport';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import drawerNavigatorStyles from '../styles/drawerNavigatorStyles';
+import {useUserDb} from '../config/context/userDbContext';
 
 const Drawer = createDrawerNavigator();
 
@@ -21,11 +22,12 @@ function DrawerNavigator() {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
   const styles = drawerNavigatorStyles(textSize);
+  const {selectedUser} = useUserDb();
 
   return (
     <Drawer.Navigator
       backBehavior="history"
-      initialRouteName="Chats"
+      initialRouteName="Friends"
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={({navigation}) => ({
         headerLeft: () => (
@@ -88,11 +90,11 @@ function DrawerNavigator() {
         options={{drawerItemStyle: {display: 'none'}}}
       />
       <Drawer.Screen
-        name="Chats"
-        component={ChatScreen}
+        name="Friends"
+        component={FriendsScreen}
         options={{
-          title: 'Chats',
-          drawerIcon: ({color, size}) => (
+          title: 'Friends',
+          drawerIcon: ({color}) => (
             <Icon
               name="md-chatbubble-ellipses-outline"
               size={textSize.drawerItemsIcon}
@@ -107,7 +109,7 @@ function DrawerNavigator() {
         component={SearchScreen}
         options={{
           title: 'Search',
-          drawerIcon: ({color, size}) => (
+          drawerIcon: ({color}) => (
             <Icon
               name="search-sharp"
               size={textSize.drawerItemsIcon}
@@ -122,7 +124,7 @@ function DrawerNavigator() {
         component={AsdScreen}
         options={{
           title: 'About',
-          drawerIcon: ({color, size}) => (
+          drawerIcon: ({color}) => (
             <Icon
               name="md-git-compare"
               size={textSize.drawerItemsIcon}
@@ -130,6 +132,15 @@ function DrawerNavigator() {
               style={{marginLeft: textSize.drawerItemMarginLeft}}
             />
           ),
+        }}
+      />
+      {/* this is hidden only exist to be managed by navigator*/}
+      <Drawer.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{
+          title: selectedUser.friendsName,
+          drawerItemStyle: {display: 'none'},
         }}
       />
     </Drawer.Navigator>
