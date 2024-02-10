@@ -8,6 +8,7 @@ import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 import {LogLevel, OneSignal} from 'react-native-onesignal';
 import {ONESIGNALID} from '@env';
+import { v4 as uuidv4 } from 'uuid';
 
 function RootNavigator() {
   // await splash screen to finish the animation check authorization and firebase to get connected //
@@ -57,7 +58,7 @@ function RootNavigator() {
       OneSignal.Notifications.addEventListener('click', event => {
         console.log('OneSignal: notification clicked:', event);
       });
-
+      
       // Log in user for OneSignal service
       OneSignal.login(emailName);
     }, []);

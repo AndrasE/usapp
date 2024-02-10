@@ -1,34 +1,35 @@
 import React from 'react';
 import {ImageBackground, Button} from 'react-native';
-const axios = require('axios');
 import {ONESIGNALID, ONESIGNALBEARER} from '@env';
+import axios from 'axios';
 
 export default function HomeScreen() {
 
   function send() {
-  
-  const url = 'https://api.onesignal.com/notifications';
-  const options = {
-    method: 'POST',
-    headers: {
-      accept: 'application/json',
-      Authorization: ONESIGNALBEARER,
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify({
-      app_id: ONESIGNALID,
-      name: 'asd',
-      included_segments: ['Active Users'],
-      contents: {en: 'English Message'},
-      // custom_data: 'none',
-      external_id: "egyeand"
-    })
-  };
+    const options = {
+      method: 'POST',
+      url: 'https://api.onesignal.com/notifications',
+      headers: {
+        accept: 'application/json',
+        Authorization: ONESIGNALBEARER,
+        'content-type': 'application/json'
+      },
+      data: {
+        app_id: ONESIGNALID,
+        contents: {en: 'English Message'},
+        // custom_data: 'string',
+        include_external_user_ids: ["rohadtsajt"]
+      }
+    };
 
-  fetch(url, options)
-  .then(res => res.json())
-  .then(json => console.log(json))
-  .catch(err => console.error('error:' + err));
+  axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
   }
 
 
