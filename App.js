@@ -5,10 +5,9 @@ import {UserDbContextProvider} from './src/config/context/userDbContext';
 import {UserThemeContextProvider} from './src/config/context/userThemeContext';
 import {useUserAuth} from './src/config/context/userAuthContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
+import { initializeOnesignal } from './src/config/firebase/OnesignalFunctions';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
-import {LogLevel, OneSignal} from 'react-native-onesignal';
-import {ONESIGNALID} from '@env';
-import { v4 as uuidv4 } from 'uuid';
+
 
 function RootNavigator() {
   // await splash screen to finish the animation check authorization and firebase to get connected //
@@ -45,22 +44,7 @@ function RootNavigator() {
 
     // is user logged in redirected to here(homestack) where we set-up OneSignal
     useEffect(() => {
-      // Remove this method to stop OneSignal Debugging
-      OneSignal.Debug.setLogLevel(LogLevel.Verbose);
-
-      // OneSignal Initialization
-      OneSignal.initialize(ONESIGNALID);
-
-      // requestPermission will show the native iOS or Android notification permission prompt.
-      OneSignal.Notifications.requestPermission(true);
-
-      // Method for listening for notification clicks
-      OneSignal.Notifications.addEventListener('click', event => {
-        console.log('OneSignal: notification clicked:', event);
-      });
-      
-      // Log in user for OneSignal service
-      OneSignal.login(emailName);
+      initializeOnesignal(emailName)
     }, []);
 
     return (

@@ -12,16 +12,18 @@ import {
   Composer,
   Send,
 } from 'react-native-gifted-chat';
+// import axios from 'axios';
+// import {ONESIGNALID, ONESIGNALBEARER} from '@env';
+import {onesignalPushNotification} from '../config/firebase/OnesignalFunctions';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
-import axios from 'axios';
-import {ONESIGNALID, ONESIGNALBEARER} from '@env';
 import chatScreenStyles from '../styles/chatScreenStyles';
 
 export default function Chat() {
-  const [messages, setMessages] = useState([]);
   const {theme, textSize} = useUserTheme();
   const {myData, selectedUser} = useUserDb();
+  const [messages, setMessages] = useState([]);
+
   const styles = chatScreenStyles(theme, textSize);
 
   useEffect(() => {
@@ -100,8 +102,9 @@ export default function Chat() {
 
   const onSend = msg => {
     setMessages(prevMessages => GiftedChat.append(prevMessages, msg)),
-      updateDb(msg);
-      send()
+    updateDb(msg);
+    console.log('Message sent 💬');
+    onesignalPushNotification(selectedUser.friendsName);
   };
 
   //send the msg[0] to the other user
@@ -124,33 +127,6 @@ export default function Chat() {
       ],
     });
   });
-
-  function send() {
-    const options = {
-      method: 'POST',
-      url: 'https://api.onesignal.com/notifications',
-      headers: {
-        accept: 'application/json',
-        Authorization: ONESIGNALBEARER,
-        'content-type': 'application/json'
-      },
-      data: {
-        app_id: ONESIGNALID,
-        contents: {en: 'English Message'},
-        // custom_data: 'string',
-        include_external_user_ids: [selectedUser.friendsUserName]
-      }
-    };
-
-  axios
-  .request(options)
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.error(error);
-  });
-  }
 
   return (
     <>
