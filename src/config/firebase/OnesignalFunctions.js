@@ -3,6 +3,7 @@ import {ONESIGNALID, ONESIGNALBEARER} from '@env';
 import axios from 'axios';
 
 export function onesignalPushNotification(recipient) {
+  console.log(recipient)
   const options = {
     method: 'POST',
     url: 'https://api.onesignal.com/notifications',
@@ -19,6 +20,7 @@ export function onesignalPushNotification(recipient) {
       // included_segments: ['Active Subscriptions'],
       include_external_user_ids: [recipient],
     },
+   
   };
 
   axios
@@ -49,6 +51,7 @@ export function initializeOnesignal(userName) {
   OneSignal.Notifications.addEventListener('click', event => {
     console.log('OneSignal: notification clicked:', event);
   });
+
 
   // Log in user for OneSignal service
   OneSignal.login(userName);
