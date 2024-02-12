@@ -16,9 +16,9 @@ export default function HomeScreen() {
       },
       data: {
         app_id: ONESIGNALID,
+        headings: {en: 'English Message'},
         contents: {en: 'English Message'},
-        // custom_data: 'string',
-        include_external_user_ids: ["rohadtsajt"]
+        include_external_user_ids: ["rohadtsajt", "egyeand"]
       }
     };
 
