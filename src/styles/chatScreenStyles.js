@@ -13,7 +13,7 @@ const chatScreenStyles = (theme, textSize) =>
       fontSize: textSize.bubbletextsize - 3,
     },
     bubbleTextLeft: {
-      paddingTop: 12,
+      paddingTop: textSize.bubblepadding,
       color: theme.bubblelefttext,
       fontSize: textSize.bubbletextsize,
       fontFamily: 'SpaceMonoRegular',

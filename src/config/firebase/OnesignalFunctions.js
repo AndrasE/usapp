@@ -2,8 +2,8 @@ import {LogLevel, OneSignal} from 'react-native-onesignal';
 import {ONESIGNALID, ONESIGNALBEARER} from '@env';
 import axios from 'axios';
 
-export function onesignalPushNotification(recipient) {
-  console.log(recipient)
+export function onesignalPushNotification(friendsUserName, friendsName, msg) {
+  console.log(msg)
   const options = {
     method: 'POST',
     url: 'https://api.onesignal.com/notifications',
@@ -13,16 +13,15 @@ export function onesignalPushNotification(recipient) {
       'content-type': 'application/json',
     },
     data: {
-      name: recipient,
+      name: friendsUserName,
       app_id: ONESIGNALID,
-      contents: {en: 'Hello tester'},
+      contents: {en: friendsName +": " + msg},
       // custom_data: 'string',
       // included_segments: ['Active Subscriptions'],
-      include_external_user_ids: [recipient],
+      include_external_user_ids: [friendsUserName],
     },
-   
   };
-
+  
   axios
     .request(options)
     .then(function () {

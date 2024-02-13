@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {View} from 'react-native';
+import {TextInput, View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import {getDatabase, get, ref, off, update, onValue} from 'firebase/database';
@@ -103,8 +103,8 @@ export default function Chat() {
   const onSend = msg => {
     setMessages(prevMessages => GiftedChat.append(prevMessages, msg)),
     updateDb(msg);
-    console.log('Message sent 💬');
-    onesignalPushNotification(selectedUser.friendsUserName);
+    console.log('Message sent 💬', msg);
+    onesignalPushNotification(selectedUser.friendsUserName, selectedUser.friendsName, msg[0].text);
   };
 
   //send the msg[0] to the other user
