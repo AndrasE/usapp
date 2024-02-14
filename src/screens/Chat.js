@@ -104,7 +104,7 @@ export default function Chat() {
     setMessages(prevMessages => GiftedChat.append(prevMessages, msg)),
     updateDb(msg);
     console.log('Message sent 💬', msg);
-    onesignalPushNotification(selectedUser.friendsUserName, selectedUser.friendsName, msg[0].text);
+    onesignalPushNotification(selectedUser.friendsUserName, myData.name, msg[0].text);
   };
 
   //send the msg[0] to the other user
