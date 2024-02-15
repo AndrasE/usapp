@@ -2,8 +2,17 @@ import React from 'react';
 import {ImageBackground, Button} from 'react-native';
 import {ONESIGNALID, ONESIGNALBEARER} from '@env';
 import axios from 'axios';
+// import { OneSignal } from 'react-native-onesignal';
+// import {useNavigation} from '@react-navigation/native';
+
 
 export default function HomeScreen() {
+  // const navigation = useNavigation();
+  // OneSignal.Notifications.addEventListener('click', event => {
+  //   console.log('there: notification clicked:', event);
+  //   navigation.navigate('Search');
+  // });
+
 
   function send() {
     const options = {

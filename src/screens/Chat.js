@@ -103,7 +103,7 @@ export default function Chat() {
   const onSend = msg => {
     setMessages(prevMessages => GiftedChat.append(prevMessages, msg)),
     updateDb(msg);
-    console.log('Message sent 💬', msg);
+    console.log('Message sent 💬');
     onesignalPushNotification(selectedUser.friendsUserName, myData.name, msg[0].text);
   };
 

@@ -13,6 +13,7 @@ export default function Friends() {
   const {friends, onClickUser} = useUserDb();
   const styles = friendsScreenStyles(theme, textSize);
   const navigation = useNavigation();
+
   const renderFriend = ({item}) => {
     function handleFriendClick() {
       navigation.navigate('Chat');

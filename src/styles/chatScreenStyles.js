@@ -25,7 +25,6 @@ const chatScreenStyles = (theme, textSize) =>
       fontFamily: 'SpaceMonoRegular',
     },
     bubbleWrapperLeft: {
-      // height: textSize.bubbleheight,
       backgroundColor: theme.bubbleleft,
     },
     bubbleWrapperRight: {
