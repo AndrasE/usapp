@@ -94,7 +94,6 @@ export default function Chat() {
     const snapshot = await get(
       ref(database, `chatrooms/${selectedUser.chatroomId}`),
     );
-
     return snapshot.val();
   }, [selectedUser.chatroomId]);
 
