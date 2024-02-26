@@ -15,7 +15,7 @@ export function onesignalPushNotification(friendsUserName, myName, msg) {
     data: {
       name: friendsUserName,
       app_id: ONESIGNALID,
-      contents: {en: myName +": " + msg},
+      contents: {en: myName + msg},
       // custom_data: 'string',
       // included_segments: ['Active Subscriptions'],
       include_external_user_ids: [friendsUserName],

@@ -12,8 +12,6 @@ import {
   Composer,
   Send,
 } from 'react-native-gifted-chat';
-// import axios from 'axios';
-// import {ONESIGNALID, ONESIGNALBEARER} from '@env';
 import {onesignalPushNotification} from '../config/firebase/OnesignalFunctions';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
@@ -104,7 +102,7 @@ export default function Chat() {
     setMessages(prevMessages => GiftedChat.append(prevMessages, msg)),
     updateDb(msg);
     console.log('Message sent 💬');
-    onesignalPushNotification(selectedUser.friendsUserName, myData.name, msg[0].text);
+    onesignalPushNotification(selectedUser.friendsUserName, myData.name +": ", msg[0].text);
   };
 
   //send the msg[0] to the other user

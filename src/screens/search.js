@@ -4,6 +4,7 @@ import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {getDatabase, ref, push, update} from 'firebase/database';
+import { onesignalPushNotification } from '../config/firebase/OnesignalFunctions';
 import LinearGradient from 'react-native-linear-gradient';
 import Modal from 'react-native-modal';
 import Lottie from 'lottie-react-native';
@@ -103,6 +104,7 @@ export default function SearchScreen() {
           console.log(
             'User found and added as friend, chatroom created. Hurray!🎉',
           );
+          onesignalPushNotification(user.username, myData.name, " added you as a friend. 🎉");
         } else {
           setSearchedUserPic(
             'https://www.pmlive.com/__data/assets/image/0017/450215/behavioural-economics.jpg',
