@@ -135,10 +135,11 @@ export default function Chat() {
           colors={[theme.appbg1, theme.appbg2]}
           style={styles.linearGradientBackground}>
           <GiftedChat
+          scrollToBottom={true}
             messages={messages}
             minInputToolbarHeight={textSize.bubbletextsize + 65}
             minComposerHeight={textSize.bubbletextsize + 33}
-            onSend={newMessage => onSend(newMessage)}
+            onSend={messages => onSend(messages)}
             renderDay={props => <Day {...props} textStyle={styles.dayDate} />}
             renderTime={props => (
               <Time
