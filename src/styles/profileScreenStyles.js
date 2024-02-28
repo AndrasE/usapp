@@ -92,7 +92,7 @@ const profileScreenStyles = (theme, textSize) =>
       alignItems: 'center',
     },
     text: {
-      marginTop:textSize.emailHeader +15, 
+      marginTop: textSize.emailHeader + 15,
       fontSize: textSize.emailHeader,
       fontFamily: 'SpaceMonoRegular',
       color: theme.text1,

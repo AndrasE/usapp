@@ -48,7 +48,7 @@ const chatScreenStyles = (theme, textSize) =>
       fontSize: textSize.bubbletextsize,
     },
     sendIconContainer: {
-     marginBottom: textSize.sendbuttonmarginbottom,
+      marginBottom: textSize.sendbuttonmarginbottom,
     },
     sendIcon: {
       fontSize: textSize.bubbletextsize + 10,

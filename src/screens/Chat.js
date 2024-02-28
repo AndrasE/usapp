@@ -99,9 +99,13 @@ export default function Chat() {
 
   const onSend = msg => {
     setMessages(prevMessages => GiftedChat.append(prevMessages, msg)),
-    updateDb(msg);
+      updateDb(msg);
     console.log('Message sent 💬');
-    onesignalPushNotification(selectedUser.friendsUserName, myData.name +": ", msg[0].text);
+    onesignalPushNotification(
+      selectedUser.friendsUserName,
+      myData.name + ': ',
+      msg[0].text,
+    );
   };
 
   //send the msg[0] to the other user
@@ -135,7 +139,7 @@ export default function Chat() {
           colors={[theme.appbg1, theme.appbg2]}
           style={styles.linearGradientBackground}>
           <GiftedChat
-          scrollToBottom={true}
+            scrollToBottom={true}
             messages={messages}
             minInputToolbarHeight={textSize.bubbletextsize + 65}
             minComposerHeight={textSize.bubbletextsize + 33}

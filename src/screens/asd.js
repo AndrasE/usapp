@@ -5,14 +5,12 @@ import axios from 'axios';
 // import { OneSignal } from 'react-native-onesignal';
 // import {useNavigation} from '@react-navigation/native';
 
-
 export default function HomeScreen() {
   // const navigation = useNavigation();
   // OneSignal.Notifications.addEventListener('click', event => {
   //   console.log('there: notification clicked:', event);
   //   navigation.navigate('Search');
   // });
-
 
   function send() {
     const options = {
@@ -21,26 +19,25 @@ export default function HomeScreen() {
       headers: {
         accept: 'application/json',
         Authorization: ONESIGNALBEARER,
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       },
       data: {
         app_id: ONESIGNALID,
         headings: {en: 'English Message'},
         contents: {en: 'English Message'},
-        include_external_user_ids: ["rohadtsajt", "egyeand"]
-      }
+        include_external_user_ids: ['rohadtsajt', 'egyeand'],
+      },
     };
 
-  axios
-  .request(options)
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.error(error);
-  });
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   }
-
 
   return (
     <ImageBackground

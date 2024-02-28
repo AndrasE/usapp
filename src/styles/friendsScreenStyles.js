@@ -28,24 +28,24 @@ const chatsScreenStyles = (theme, textSize) =>
     },
     mainView2: {
       flex: 1,
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     linearGradientBackground2: {
       padding: 40,
       flex: 1,
       alignContent: 'center',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     },
     secondaryView: {
       flex: 1,
       alignContent: 'center',
       justifyContent: 'center',
       alignItems: 'center',
-      position: "relative",
-      bottom: "10%"
+      position: 'relative',
+      bottom: '10%',
     },
     text: {
       fontSize: textSize.searchheader,
@@ -56,9 +56,8 @@ const chatsScreenStyles = (theme, textSize) =>
     },
     lottie: {
       height: textSize.lottieheight + textSize.lottieheight,
-      position: "relative",
+      position: 'relative',
       bottom: 30,
-    
     },
   });
 

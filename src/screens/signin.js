@@ -49,13 +49,13 @@ export default function SignInScreen() {
         privacy statement
       </Text>
       <View>
-        <Modal isVisible={isModalVisible} 
-        animationInTiming={400}
-        animationOutTiming={400}
-        backdropTransitionInTiming={500}
-        backdropTransitionOutTiming={500}
-        
-        style={styles.modal}>
+        <Modal
+          isVisible={isModalVisible}
+          animationInTiming={400}
+          animationOutTiming={400}
+          backdropTransitionInTiming={500}
+          backdropTransitionOutTiming={500}
+          style={styles.modal}>
           <View style={styles.modalView}>
             <Text style={styles.modalTextMain}>Privacy</Text>
             <Text style={styles.modalTextSecondary}>
