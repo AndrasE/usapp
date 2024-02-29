@@ -81,6 +81,7 @@ export function UserThemeContextProvider({children}) {
     bubblepadding: 1,
     bubbletextsize: 14,
     sendbuttonmarginbottom: 15,
+    ioniconpaddingtop: 2
   };
 
   const medium = {
@@ -103,6 +104,7 @@ export function UserThemeContextProvider({children}) {
     bubblepadding: 4,
     bubbletextsize: 17,
     sendbuttonmarginbottom: 17,
+    ioniconpaddingtop: 4
   };
 
   const large = {
@@ -125,6 +127,7 @@ export function UserThemeContextProvider({children}) {
     bubblepadding: 14,
     bubbletextsize: 22,
     sendbuttonmarginbottom: 19,
+    ioniconpaddingtop: 7
   };
 
   const saveTheme = async value => {

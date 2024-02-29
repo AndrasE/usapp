@@ -7,7 +7,6 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {useUserAuth} from '../config/context/userAuthContext';
-import {useUserDb} from '../config/context/userDbContext';
 import {useUserTheme} from '../config/context/userThemeContext';
 import SwitchSelector from 'react-native-switch-selector';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -18,7 +17,7 @@ const CustomDrawer = props => {
   const navigation = useNavigation();
 
   const {logOut, user} = useUserAuth();
-  const {myData} = useUserDb();
+
   const {
     theme,
     setUserThemeFunction,
