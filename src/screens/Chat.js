@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {TextInput, View} from 'react-native';
+import {View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import {getDatabase, get, ref, off, update, onValue} from 'firebase/database';

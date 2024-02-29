@@ -2,7 +2,7 @@ import SplashScreen from '../screens/Splash';
 import SignInScreen from '../screens/Signin';
 import SearchScreen from '../screens/Search';
 import FriendsScreen from '../screens/Friends';
-import AsdScreen from '../screens/Asd';
+import AboutScreen from '../screens/About';
 import ProfileScreen from '../screens/Profile';
 import ChatScreen from '../screens/Chat';
 
@@ -14,6 +14,6 @@ export {
   SearchScreen,
   FriendsScreen,
   ChatScreen,
-  AsdScreen,
+  AboutScreen,
   ProfileScreen,
 };

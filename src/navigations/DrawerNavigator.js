@@ -5,7 +5,7 @@ import CustomDrawer from './CustomDrawer';
 import {
   FriendsScreen,
   ProfileScreen,
-  AsdScreen,
+  AboutScreen,
   SearchScreen,
   ChatScreen,
 } from './ScreensImport';
@@ -120,8 +120,8 @@ function DrawerNavigator() {
         }}
       />
       <Drawer.Screen
-        name="AsdScreen"
-        component={AsdScreen}
+        name="AboutScreen"
+        component={AboutScreen}
         options={{
           title: 'About',
           drawerIcon: ({color}) => (
