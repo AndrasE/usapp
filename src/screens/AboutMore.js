@@ -1,21 +1,14 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
-import {useNavigation} from '@react-navigation/native';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
-import aboutScreenStyles from '../styles/aboutScreenStyles';
+import aboutMoreScreenStyles from '../styles/aboutMoreScreenStyles';
 
-export default function About() {
+export default function AboutMore() {
   const {theme, textSize} = useUserTheme();
-  const navigation = useNavigation();
-
-  const styles = aboutScreenStyles(theme, textSize);
-
-  function handleMoreClick(){
-    navigation.navigate('AboutMore');
-  }
+  const styles = aboutMoreScreenStyles(theme, textSize);
 
   return (
     <>
@@ -32,7 +25,7 @@ export default function About() {
               style={styles.headerView}>
               <Text style={styles.header}>Hello there!</Text>
               <Icon
-                name="hand-left-outline"
+                name="code-working-outline"
                 size={textSize.drawerItemsIcon}
                 color={'#ffff'}
                 style={styles.headerIcon}
@@ -53,20 +46,6 @@ export default function About() {
                 application, if you wish to read further in details about it hit
                 the more button below.
               </Text>
-            </Animated.View>
-            <Animated.View
-              entering={FadeIn.duration(500).delay(500)}
-              iterationCount="infinite">
-              <TouchableOpacity onPress={handleMoreClick}>
-                <LinearGradient
-                  start={{x: 0, y: 0}}
-                  end={{x: 1, y: 1}}
-                  locations={[0.0, 0.99]}
-                  colors={[theme.appbg2, theme.appbg1]}
-                  style={styles.buttonLinearGradient}>
-                  <Text style={styles.buttonText}>more</Text>
-                </LinearGradient>
-              </TouchableOpacity>
             </Animated.View>
           </View>
         </LinearGradient>

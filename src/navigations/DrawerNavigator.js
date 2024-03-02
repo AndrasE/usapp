@@ -8,6 +8,7 @@ import {
   AboutScreen,
   SearchScreen,
   ChatScreen,
+  AboutMoreScreen,
 } from './ScreensImport';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -134,12 +135,20 @@ function DrawerNavigator() {
           ),
         }}
       />
-      {/* this is hidden only exist to be managed by navigator*/}
+      {/* these screens are hidden in navbar only exist to be managed by navigator*/}
       <Drawer.Screen
         name="Chat"
         component={ChatScreen}
         options={{
           title: selectedUser.friendsName,
+          drawerItemStyle: {display: 'none'},
+        }}
+      />
+      <Drawer.Screen
+        name="AboutMore"
+        component={AboutMoreScreen}
+        options={{
+          title: 'About more',
           drawerItemStyle: {display: 'none'},
         }}
       />

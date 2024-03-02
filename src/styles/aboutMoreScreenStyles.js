@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-const aboutScreenStyles = (theme, textSize) =>
+const aboutMoreScreenStyles = (theme, textSize) =>
   StyleSheet.create({
     mainView: {
       flex: 1,
@@ -9,8 +9,6 @@ const aboutScreenStyles = (theme, textSize) =>
       flex: 1,
     },
     contentView: {
-      justifyContent: 'center',
-      alignItems: 'center',
       flex: 1,
       marginTop: 15,
       marginHorizontal: 15,
@@ -27,8 +25,7 @@ const aboutScreenStyles = (theme, textSize) =>
     },
     headerIcon: {
       position: 'relative',
-      top: textSize.ioniconpaddingtop,
-      transform: [{rotate: '15deg'}],
+      top: textSize.ioniconpaddingtop + 2,
     },
     paragraph: {
       paddingTop: 10,
@@ -36,14 +33,13 @@ const aboutScreenStyles = (theme, textSize) =>
       fontSize: textSize.searchheader,
       color: theme.text1,
       fontSize: textSize.btns,
-      textAlign: "center"
     },
     buttonLinearGradient: {
       padding: 3,
       borderRadius: 15,
       marginTop: 20,
       marginBottom: 20,
-      alignSelf: "center"
+      alignSelf: 'center',
     },
     buttonText: {
       textAlign: 'center',
@@ -56,4 +52,4 @@ const aboutScreenStyles = (theme, textSize) =>
     },
   });
 
-export default aboutScreenStyles;
+export default aboutMoreScreenStyles;

@@ -82,7 +82,7 @@ export default function ProfileScreen() {
             source={require('../assets/lottieAnimations/splash.json')}
             autoPlay
             loop={false}
-            speed={0.7}
+            speed={0.4}
           />
         </View>
       </LinearGradient>
