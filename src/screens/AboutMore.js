@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {Fragment} from 'react';
+import {Linking, Text, View} from 'react-native';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -23,7 +23,7 @@ export default function AboutMore() {
             <Animated.View
               entering={FadeIn.duration(500).delay(100)}
               style={styles.headerView}>
-              <Text style={styles.header}>Hello there!</Text>
+              <Text style={styles.header}>Hi, once again!</Text>
               <Icon
                 name="code-working-outline"
                 size={textSize.drawerItemsIcon}
@@ -35,17 +35,152 @@ export default function AboutMore() {
               entering={FadeIn.duration(500).delay(300)}
               iterationCount="infinite">
               <Text style={styles.paragraph}>
-                Weclome to my first React Native app.
+                Here I'll write a bit more in detail about this app and what it
+                took to complete it. If you are not into dev it's probably going
+                to bore you and sounds like a lot of humdrum.
               </Text>
+
               <Text style={styles.paragraph}>
-                Although this project is far from perfect, I managed to achieve
-                the goal that I initially set and proud of this.{' '}
+                If you rather watch a cool video,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/dQw4w9WgXcQ?si=zs1Aw53fugaWTn9G',
+                    )
+                  }>
+                  click here
+                </Text>
+                .
               </Text>
+              <Text style={styles.subHeader}>Tutorials and other</Text>
               <Text style={styles.paragraph}>
-                It took quite a lot of research and studying to complete the
-                application, if you wish to read further in details about it hit
-                the more button below.
+                I watched countless hours of tutorials how to make all this
+                happen. Expecially that I was using react native the first time
+                it very well needed to bring me up to the chellenge. Here is a
+                few that was very helpful for me:{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/I7POH4acHV8?si=ujz9tW3-b0x1LFU8',
+                    )
+                  }>
+                  React native navigation
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/mZXCOdIFg6Q?si=KGwVJEzNPHA6h1a_',
+                    )
+                  }>
+                  Lottie & splash
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/RkQpvlosGz0?si=jaUdyw3E8e13ly2e',
+                    )
+                  }>
+                  React native firebase signin 1
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/8aARNaWR78Q?si=mJEqlk6ffdHqNXbN',
+                    )
+                  }>
+                  React native firebase signin 2
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/RrGtyfo1wr0?si=_J5qp15yHs-VIO9Y',
+                    )
+                  }>
+                  React native firebase signin 3
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/RrGtyfo1wr0?si=isjcxQ1txQlFRCzp',
+                    )
+                  }>
+                  React native firebase signin 2
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/km1qm1Zz2lY?si=owQr0aFeMmk6fvqH',
+                    )
+                  }>
+                  Theming
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/PRGHWgTydyQ?si=b-pveeF2814-PduM',
+                    )
+                  }>
+                  Asyncstorage
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/Z0riAoqXrwo?si=dMS8Pf6LkjIvFCZK',
+                    )
+                  }>
+                  Gifted chat 1
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/EyqI0B4C0D4?si=aYVtswbBJ6xzUHVf',
+                    )
+                  }>
+                  Gifted chat 2
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/Qcxa6dxfUFo?si=xZ3G5Cg0_FpmAU9Q',
+                    )
+                  }>
+                  Push notifications 1
+                </Text>
+                ,{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://youtu.be/X5kjfW1rfig?si=dW8S6h1CiG63fEMC',
+                    )
+                  }>
+                  Push notifications 2
+                </Text>{' '}
+                and many, many more..
               </Text>
+              <Text style={styles.paragraph}></Text>
             </Animated.View>
           </View>
         </LinearGradient>
