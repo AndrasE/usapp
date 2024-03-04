@@ -1,5 +1,6 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Linking, Text, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -12,7 +13,7 @@ export default function AboutMore() {
 
   return (
     <>
-      <View style={styles.mainView}>
+      <ScrollView style={styles.mainView}>
         <LinearGradient
           start={{x: 0, y: 0}}
           end={{x: 1, y: 1}}
@@ -178,13 +179,29 @@ export default function AboutMore() {
                   }>
                   Push notifications 2
                 </Text>{' '}
-                and many, many more..
+                and many, many more.. Obviously it was a new experiance for me
+                so I had to go through all the teething issues. Setting up
+                android studio (had quite a lot issues with AMD drivers) and
+                debuddging. Eventually, I settled to use both a virtual android
+                machine and my physical phone as well.
               </Text>
-              <Text style={styles.paragraph}></Text>
+              <Text style={styles.subHeader}>Expo vs CLI</Text>
+              <Text style={styles.paragraph}>
+                First I created a very barebone react native project where you
+                could login with your google account. My only issue with this
+                was that it needed a redirect and the signin didn't take place
+                within the application. I didn`t find this elegant enough so I
+                managed to find the tutorial where it could be done so I axed
+                that project and moved on to CLI.
+              </Text>
+              <Text style={styles.subHeader}>Packadges</Text>
+              <Text style={styles.paragraph}>
+              Here are some packages I needed for all this to come together: async-storage, eanimated, modal, linear-gradient, moment, switch-selector, lottie, axios, google-signin, vector-icons, firebase/auth, firebase/app, onesignal and of course gifted-chat. 
+              </Text>
             </Animated.View>
           </View>
         </LinearGradient>
-      </View>
+      </ScrollView>
     </>
   );
 }
