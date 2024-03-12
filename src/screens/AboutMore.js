@@ -196,7 +196,11 @@ export default function AboutMore() {
               </Text>
               <Text style={styles.subHeader}>Packadges</Text>
               <Text style={styles.paragraph}>
-              Here are some packages I needed for all this to come together: async-storage, eanimated, modal, linear-gradient, moment, switch-selector, lottie, axios, google-signin, vector-icons, firebase/auth, firebase/app, onesignal and of course gifted-chat. 
+              Here are some rn packages I needed for all this to come together: async-storage, react-native animated, modal, linear-gradient, moment, switch-selector, lottie, axios, google-signin, vector-icons, firebase/auth, firebase/app, onesignal and of course gifted-chat. 
+              </Text>
+              <Text style={styles.subHeader}>Authentication</Text>
+              <Text style={styles.paragraph}>
+              As soon as you click the application icon there a splash screen welcomes you. While the animation of this screen takes place there are many things happening in the background. Firstly checking if the user has previously logged in, if so it will be persistent using onAuthStateChanged from RN-firebase. If this is the first time logging in or being logged out previously we will be redirected to the login screen. Using async-storage the users settings (theme and text-size) saved in the device this will be passed on to the application via userThemeContext.js, it is not set before it will load with a default option. If the user logging in first time using _signInWithGoogle from react-native-google-signin we capture a few details from the user (name, email-address, profile pic), Using these we passed this on via userAuthContext.js and we create an entry in the database with the username set to the email address before the @ symbol. This will be passed onto the app via userDbContext.js. If the user has previously logged in will be present in the database and we can capture a snapshot of the belonging details and serve it to the app. 
               </Text>
             </Animated.View>
           </View>
