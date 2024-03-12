@@ -40,7 +40,6 @@ export default function AboutMore() {
                 took to complete it. If you are not into dev it's probably going
                 to bore you and sounds like a lot of humdrum.
               </Text>
-
               <Text style={styles.paragraph}>
                 If you rather watch a cool video,{' '}
                 <Text
@@ -248,51 +247,11 @@ export default function AboutMore() {
               </Text>
               <Text style={styles.subHeader}>Push notifications</Text>
               <Text style={styles.paragraph}>
-                Oh boi, I learnt quite a bit from this. I never suspected how
-                this works, I thought it would be something simple, but now
-                looking back it does make a lot of sense due to security. I
-                tried and succeeded to send push notifications to devices with
-                cloud-messaging(FCM) and notifee, but eventually I settled with
-                OneSignal. It's slightly more complicated in this app case than
-                for example a standalone app is that we need to be able to send
-                notification to other users from our phone without having admin
-                privileges and also securely. What happens is when you logging
-                in, the OneSignal database will create a user with the username
-                we used in our database, which will be needed to know who is the
-                sender and the receiver of the the pish notification. As we are
-                already speaking with a friend and have its username in our
-                database thats also will be a id of the user in onesignals
-                database so we will know who should be the recipient of the push
-                notification. What I found interesting is that these push
-                notifications are not something I was thinking of before and how
-                it can be used for marketing and engaging purposes. Looking at
-                both google and onesignals dashboard you could create whole
-                campaigns and measure of its success rate, who clicked, who
-                swiped it away and so forth. Now I can see how this is a very important feature of an app. You could send reminders and item`s price has dropped or an abandoned item in the basket or for example try to get away by not doing your lesson on duolingo you definitely will be reminded. 
+              Oh boi, I learnt quite a bit from this. I never suspected how this works, I thought it would be something simple, but now looking back it does make a lot of sense due to security. I tried and succeeded to send push notifications to devices with cloud-messaging(FCM) and notifee, but eventually I settled with OneSignal. It's slightly more complicated in this app case than for example a standalone app is that we need to be able to send notification to other users from our phone without having admin privileges and also securely. What happens is when you log in, the OneSignal database will create a user with the username we used in our database, which will be needed to know who is the sender and the receiver of the push notification. As we are already speaking with a friend and have its username in our database that also will be an id of the user in onesignals database so we will know who should be the recipient of the push notification. What I found interesting is that these push notifications are not something I was thinking of before and how they can be used for marketing and engaging purposes. Looking at both google and onesignals dashboard you could create whole campaigns and measure its success rate, who clicked, who swiped it away and so forth. Now I can see how this is a very important feature of an app. You could send reminders and item`s price has dropped or an abandoned item in the basket or for example try to get away by not doing your lesson on duolingo you definitely will be reminded.
               </Text>
               <Text style={styles.subHeader}>Shortcomings</Text>
               <Text style={styles.paragraph}>
-                Oh boi, I learnt quite a bit from this. I never suspected how
-                this works, I thought it would be something simple, but now
-                looking back it does make a lot of sense due to security. I
-                tried and succeeded to send push notifications to devices with
-                cloud-messaging(FCM) and notifee, but eventually I settled with
-                OneSignal. It's slightly more complicated in this app case than
-                for example a standalone app is that we need to be able to send
-                notification to other users from our phone without having admin
-                privileges and also securely. What happens is when you logging
-                in, the OneSignal database will create a user with the username
-                we used in our database, which will be needed to know who is the
-                sender and the receiver of the the pish notification. As we are
-                already speaking with a friend and have its username in our
-                database thats also will be a id of the user in onesignals
-                database so we will know who should be the recipient of the push
-                notification. What I found interesting is that these push
-                notifications are not something I was thinking of before and how
-                it can be used for marketing and engaging purposes. Looking at
-                both google and onesignals dashboard you could create whole
-                campaigns and measure of its success rate, who clicked, who
-                swiped it away and so forth. Now I can see how this is a very important feature of an app. You could send reminders and item`s price has dropped or an abandoned item in the basket or for example try to get away by not doing your lesson on duolingo you definitely will be reminded. 
+                sdsdsd
               </Text>
             </Animated.View>
           </View>
