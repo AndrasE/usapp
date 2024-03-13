@@ -24,13 +24,18 @@ export default function AboutMore() {
             <Animated.View
               entering={FadeIn.duration(500).delay(100)}
               style={styles.headerView}>
-              <Text style={styles.header}>Hi, once again!</Text>
-              <Icon
-                name="code-working-outline"
-                size={textSize.drawerItemsIcon}
-                color={'#ffff'}
-                style={styles.headerIcon}
-              />
+              <Text style={styles.header}>Hi, once again! </Text>
+            </Animated.View>
+            <Animated.View
+              entering={FadeIn.duration(900).delay(600)}
+              style={styles.headerView}>
+              <Text style={styles.headerIcon}>
+                <Icon
+                  name="code-working-outline"
+                  size={textSize.drawerItemsIcon}
+                  color={'#ffff'}
+                />
+              </Text>
             </Animated.View>
             <Animated.View
               entering={FadeIn.duration(500).delay(300)}
@@ -38,10 +43,8 @@ export default function AboutMore() {
               <Text style={styles.paragraph}>
                 Here I'll write a bit more in detail about this app and what it
                 took to complete it. If you are not into dev it's probably going
-                to bore you and sounds like a lot of humdrum.
-              </Text>
-              <Text style={styles.paragraph}>
-                If you rather watch a cool video,{' '}
+                to bore you and sounds like a lot of humdrum. If you rather
+                watch a cool video,{' '}
                 <Text
                   style={styles.link}
                   onPress={() =>
@@ -55,10 +58,10 @@ export default function AboutMore() {
               </Text>
               <Text style={styles.subHeader}>Tutorials and other</Text>
               <Text style={styles.paragraph}>
-                I watched countless hours of tutorials how to make all this
-                happen. Expecially that I was using react native the first time
-                it very well needed to bring me up to the chellenge. Here is a
-                few that was very helpful for me:{' '}
+                I watched countless hours of tutorials to get an idea how to
+                make all this happen. Expecially that I was using react native
+                the first time it very well needed to bring me up to the
+                chellenge. Here is a few that was very helpful for me:{' '}
                 <Text
                   style={styles.link}
                   onPress={() =>
@@ -188,10 +191,10 @@ export default function AboutMore() {
               <Text style={styles.paragraph}>
                 First I created a very barebone react native project where you
                 could login with your google account. My only issue with this
-                was that it needed a redirect and the signin didn't take place
-                within the application. I didn`t find this elegant enough so I
-                managed to find the tutorial where it could be done so I axed
-                that project and moved on to CLI.
+                was that it needed a redirect to the browiser and the signing in
+                didn't take place within the application. I didn`t find this
+                elegant enough so I managed to find the tutorial where it could
+                be done so I axed that project and moved on to CLI.
               </Text>
               <Text style={styles.subHeader}>Packadges</Text>
               <Text style={styles.paragraph}>
@@ -215,7 +218,7 @@ export default function AboutMore() {
                 set before it will load with a default option. If the user
                 logging in first time using _signInWithGoogle from
                 react-native-google-signin we capture a few details from the
-                user (name, email-address, profile pic), Using these we passed
+                user (name, email-address, profile pic). Using these we passed
                 this on via userAuthContext.js and we create an entry in the
                 database with the username set to the email address before the @
                 symbol. This will be passed onto the app via userDbContext.js.
@@ -247,12 +250,34 @@ export default function AboutMore() {
               </Text>
               <Text style={styles.subHeader}>Push notifications</Text>
               <Text style={styles.paragraph}>
-              Oh boi, I learnt quite a bit from this. I never suspected how this works, I thought it would be something simple, but now looking back it does make a lot of sense due to security. I tried and succeeded to send push notifications to devices with cloud-messaging(FCM) and notifee, but eventually I settled with OneSignal. It's slightly more complicated in this app case than for example a standalone app is that we need to be able to send notification to other users from our phone without having admin privileges and also securely. What happens is when you log in, the OneSignal database will create a user with the username we used in our database, which will be needed to know who is the sender and the receiver of the push notification. As we are already speaking with a friend and have its username in our database that also will be an id of the user in onesignals database so we will know who should be the recipient of the push notification. What I found interesting is that these push notifications are not something I was thinking of before and how they can be used for marketing and engaging purposes. Looking at both google and onesignals dashboard you could create whole campaigns and measure its success rate, who clicked, who swiped it away and so forth. Now I can see how this is a very important feature of an app. You could send reminders and item`s price has dropped or an abandoned item in the basket or for example try to get away by not doing your lesson on duolingo you definitely will be reminded.
+                Oh boi, I learnt quite a bit from this. I never suspected how
+                this works, I thought it would be something simple, but now
+                looking back it does make a lot of sense due to security. I
+                tried and succeeded to send push notifications to devices with
+                cloud-messaging(FCM) and notifee, but eventually I settled with
+                OneSignal. It's slightly more complicated in this app case than
+                for example a standalone app is that we need to be able to send
+                notification to other users from our phone without having admin
+                privileges and also securely. What happens is when you log in,
+                the OneSignal database will create a user with the username we
+                used in our database, which will be needed to know who is the
+                sender and the receiver of the push notification. As we are
+                already speaking with a friend and have its username in our
+                database that also will be an id of the user in onesignals
+                database so we will know who should be the recipient of the push
+                notification. What I found interesting is that these push
+                notifications are not something I was thinking of before and how
+                they can be used for marketing and engaging purposes. Looking at
+                both google and onesignals dashboard you could create whole
+                campaigns and measure its success rate, who clicked, who swiped
+                it away and so forth. Now I can see how this is a very important
+                feature of an app. You could send reminders and item`s price has
+                dropped or an abandoned item in the basket or for example try to
+                get away by not doing your lesson on duolingo you definitely
+                will be reminded.
               </Text>
               <Text style={styles.subHeader}>Shortcomings</Text>
-              <Text style={styles.paragraph}>
-                sdsdsd
-              </Text>
+              <Text style={styles.paragraph}>sdsdsd</Text>
             </Animated.View>
           </View>
         </LinearGradient>

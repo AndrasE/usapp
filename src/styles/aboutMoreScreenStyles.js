@@ -9,26 +9,26 @@ const aboutMoreScreenStyles = (theme, textSize) =>
       flex: 1,
     },
     contentView: {
-      flex: 1,
       marginTop: 15,
       marginHorizontal: 15,
       padding: 15,
     },
     headerView: {
-      flexDirection: 'row',
     },
     header: {
+      textAlign: "center",
       fontFamily: 'SpaceMonoRegular',
       fontSize: textSize.textinputsize,
       color: theme.text1,
-      paddingBottom: 10,
     },
     headerIcon: {
+      textAlign: "center",
       position: 'relative',
-      top: textSize.ioniconpaddingtop-1,
+      paddingBottom:30,
     },
     subHeader: {
-      paddingTop: 20,
+      textAlign: "center",
+      paddingTop: 40,
       paddingBottom:10,
       color: theme.text1,
       fontFamily: 'SpaceMonoRegular',
@@ -38,13 +38,12 @@ const aboutMoreScreenStyles = (theme, textSize) =>
       textDecorationColor: theme.text1,
     },
     paragraph: {
-      textAlign: "justify",
+      textAlign: "center",
       fontFamily: 'SpaceMonoRegular',
       fontSize: textSize.preferencesText,
       color: theme.text1,
     },
     link: {
-      textAlign: "justify",
       fontFamily: 'SpaceMonoRegular',
       fontSize: textSize.preferencesText,
       color: theme.text1,
