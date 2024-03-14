@@ -277,7 +277,34 @@ export default function AboutMore() {
                 will be reminded.
               </Text>
               <Text style={styles.subHeader}>Shortcomings</Text>
-              <Text style={styles.paragraph}>sdsdsd</Text>
+              <Text style={styles.paragraph}>
+                Although, I`m fairly proud of what I achieved from zero there
+                are limitations to this app. There are many more features that
+                could be added. Encrypting messages or being able to delete or
+                edit messages,read-receipt, unfriend people, share pictures and
+                videos with others, groupchat and much more. I also find that
+                Gifted-chat can become laggy at times. I`m not completely
+                certain where the issue is, but I feel that I spent enough time
+                on this app, and I`m ready to move on with a satisfactory
+                result. My girlfriend and I use this regularly now to
+                communicate with each other (hence the name Us). It's a great
+                feeling to know that it's my dedication and ideas that came to
+                life for something that is not just good-looking, but also
+                functional.
+              </Text>
+              <Text style={styles.subHeader}>Farewell</Text>
+              <Text style={styles.paragraph}>
+                Thank you for trying my app out and reaching this far reading
+                about it.🧡
+              </Text>
+              <Text style={styles.paragraph}></Text>
+              <Text
+                style={styles.link}
+                onPress={() =>
+                  Linking.openURL('https://andrasegyed.netlify.app/')
+                }>
+                andrasegyed.netlify.app/
+              </Text>
             </Animated.View>
           </View>
         </LinearGradient>
