@@ -1,5 +1,5 @@
 import React, {useState, createContext, useContext, useEffect} from 'react';
-import {_signInWithGoogle} from '../firebase/GoogleSingIn';
+import {_signInWithGoogle} from '../configs(auth-db-cloudmsg)/GoogleSingIn';
 import auth from '@react-native-firebase/auth';
 
 const userAuthContext = createContext();

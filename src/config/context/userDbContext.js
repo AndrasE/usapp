@@ -1,6 +1,6 @@
 import React, {useState, createContext, useContext, useEffect} from 'react';
 import {useUserAuth} from './userAuthContext';
-import initalizeFirebaseDb from '../firebase/Firebase';
+import initalizeFirebaseDb from '../configs(auth-db-cloudmsg)/Firebase';
 import {getDatabase, get, ref, set, onValue} from 'firebase/database';
 const userDbContext = createContext();
 

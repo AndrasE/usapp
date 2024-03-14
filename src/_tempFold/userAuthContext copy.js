@@ -1,7 +1,7 @@
 import React, {useState, createContext, useContext, useEffect} from 'react';
-import {_signInWithGoogle} from '../config/firebase/GoogleSingIn';
+import {_signInWithGoogle} from '../config/configs(auth-db-cloudmsg)/GoogleSingIn';
 import auth from '@react-native-firebase/auth';
-import initalizeFirebaseDb from '../config/firebase/Firebase';
+import initalizeFirebaseDb from '../config/configs(auth-db-cloudmsg)/Firebase';
 import {
   getDatabase,
   get,

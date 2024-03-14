@@ -5,7 +5,7 @@ import {UserDbContextProvider} from './src/config/context/userDbContext';
 import {UserThemeContextProvider} from './src/config/context/userThemeContext';
 import {useUserAuth} from './src/config/context/userAuthContext';
 import {SplashScreen, SignInScreen} from './src/navigations/ScreensImport';
-import {initializeOnesignal} from './src/config/firebase/OnesignalFunctions';
+import {initializeOnesignal} from './src/config/configs(auth-db-cloudmsg)/OnesignalFunctions';
 import DrawerNavigator from './src/navigations/DrawerNavigator';
 
 function RootNavigator() {

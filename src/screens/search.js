@@ -4,7 +4,7 @@ import {useUserTheme} from '../config/context/userThemeContext';
 import {useUserDb} from '../config/context/userDbContext';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {getDatabase, ref, push, update} from 'firebase/database';
-import {onesignalPushNotification} from '../config/firebase/OnesignalFunctions';
+import {onesignalPushNotification} from '../config/configs(auth-db-cloudmsg)/OnesignalFunctions';
 import LinearGradient from 'react-native-linear-gradient';
 import Modal from 'react-native-modal';
 import Lottie from 'lottie-react-native';

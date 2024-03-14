@@ -12,7 +12,7 @@ import {
   Composer,
   Send,
 } from 'react-native-gifted-chat';
-import {onesignalPushNotification} from '../config/firebase/OnesignalFunctions';
+import {onesignalPushNotification} from '../config/configs(auth-db-cloudmsg)/OnesignalFunctions';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import chatScreenStyles from '../styles/chatScreenStyles';
