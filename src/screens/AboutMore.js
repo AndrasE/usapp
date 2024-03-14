@@ -1,9 +1,10 @@
 import React from 'react';
-import {Linking, Text, View} from 'react-native';
+import {Image, Linking, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Animated, {FadeIn} from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
+import pusheen from "../assets/pusheen-kitten.png"
 import LinearGradient from 'react-native-linear-gradient';
 import aboutMoreScreenStyles from '../styles/aboutMoreScreenStyles';
 
@@ -305,6 +306,7 @@ export default function AboutMore() {
                 }>
                 andrasegyed.netlify.app/
               </Text>
+              <Image style={styles.pusheen} source={pusheen}></Image>
             </Animated.View>
           </View>
         </LinearGradient>

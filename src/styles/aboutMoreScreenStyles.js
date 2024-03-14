@@ -51,6 +51,11 @@ const aboutMoreScreenStyles = (theme, textSize) =>
       textDecorationStyle: 'solid',
       textDecorationColor: theme.text1,
     },
+    pusheen: {
+      alignSelf: 'center',
+      width: 120,
+      height: 120,
+    },
   });
 
 export default aboutMoreScreenStyles;
