@@ -8,6 +8,7 @@ import {onesignalPushNotification} from '../config/configs(auth-db-cloudmsg)/One
 import LinearGradient from 'react-native-linear-gradient';
 import Modal from 'react-native-modal';
 import Lottie from 'lottie-react-native';
+import {WHOIMAGEGDRIVE} from '@env';
 import searchScreenStyles from '../styles/searchScreenStyles';
 
 export default function SearchScreen() {
@@ -110,9 +111,7 @@ export default function SearchScreen() {
             ' added you as a friend. 🎉',
           );
         } else {
-          setSearchedUserPic(
-            'https://www.pmlive.com/__data/assets/image/0017/450215/behavioural-economics.jpg',
-          );
+          setSearchedUserPic(WHOIMAGEGDRIVE);
           setSearchedUserName(value + ' ??');
           setSearchedMessege('There must be a typo somewhere!');
           setModalVisible(true);
