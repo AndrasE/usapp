@@ -1,8 +1,9 @@
 import React from 'react';
-import {Image, Linking, Text, View} from 'react-native';
+import {Linking, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {useUserTheme} from '../config/context/userThemeContext';
 import Animated, {FadeIn} from 'react-native-reanimated';
+import Lottie from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import aboutMoreScreenStyles from '../styles/aboutMoreScreenStyles';
@@ -305,8 +306,14 @@ export default function AboutMore() {
                 }>
                 andrasegyed.netlify.app/
               </Text>
-              <Image source={require('../assets/pusheen-kitten.png')} style={styles.pusheen}></Image>
             </Animated.View>
+            <Lottie
+              source={require('../assets/lottieAnimations/byee.json')}
+              autoPlay={true}
+              loop={true}
+              speed={0.7}
+              style={styles.lottie}
+            />
           </View>
         </LinearGradient>
       </ScrollView>

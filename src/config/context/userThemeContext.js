@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useState} from 'react';
-import images from '../../navigations/DrawerBgImages';
+import images from '../../navigations/DrawerBgImages(Preload)';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const userThemeContext = createContext();

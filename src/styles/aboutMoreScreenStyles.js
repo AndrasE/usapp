@@ -51,7 +51,8 @@ const aboutMoreScreenStyles = (theme, textSize) =>
       textDecorationStyle: 'solid',
       textDecorationColor: theme.text1,
     },
-    pusheen: {
+    lottie: {
+      margin: 10,
       alignSelf: 'center',
       width: 120,
       height: 120,
