@@ -86,7 +86,7 @@ rel="noopener noreferrer"
  href="https://rnfirebase.io/"
 target="_blank"
 rel="noopener noreferrer"
->React-native firebase</a> responseible for authentication session
+>react-native firebase</a> responseible for authentication session
 </li>
 <li><a
  href="https://www.npmjs.com/package/lottie-react-native"
@@ -123,5 +123,11 @@ rel="noopener noreferrer"
 target="_blank"
 rel="noopener noreferrer"
 >react-native-switch-selector</a> tri-state button selecting theme and text settings
+</li>
+<li><a
+ href="https://www.npmjs.com/package/react-native-linear-gradient"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-linear-gradient</a> linear-gradient backgrounds and buttons combined w theming
 </li>
 </p>
