@@ -77,22 +77,30 @@ rel="noopener noreferrer"
 <p>
 Packadges used: 
 <li><a
- href="https://github.com/react-native-google-signin/google-signin"
-target="_blank"
-rel="noopener noreferrer"
->react-native-google-signin</a> authentication via gmail
-</li>
-<li><a
  href="https://rnfirebase.io/"
 target="_blank"
 rel="noopener noreferrer"
->react-native firebase</a> responseible for authentication session
+>react-native firebase</a> responseible for authentication, authentication-session and connecting database  
 </li>
+<ol>
+<li><a
+ href="https://github.com/react-native-google-signin/google-signin"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-google-signin</a> authentication via gmail using react-native firebase
+</li>
+</ol>
 <li><a
  href="https://www.npmjs.com/package/lottie-react-native"
 target="_blank"
 rel="noopener noreferrer"
 >lottie-react-native</a> lottie animations
+</li>
+<li><a
+ href="https://www.npmjs.com/package/react-native-gifted-chat?activeTab=versions"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-gifted-chat</a> complete chat ui 
 </li>
 <li><a
  href="https://docs.swmansion.com/react-native-reanimated/"
@@ -134,6 +142,6 @@ rel="noopener noreferrer"
  href="https://www.npmjs.com/package/react-native-gifted-chat?activeTab=versions"
 target="_blank"
 rel="noopener noreferrer"
->gifted-chat</a> complete chat ui 
+>react-native-gifted-chat</a> complete chat ui 
 </li>
 </p>
