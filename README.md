@@ -77,10 +77,51 @@ rel="noopener noreferrer"
 <p>
 Packadges used: 
 <li><a
+ href="https://github.com/react-native-google-signin/google-signin"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-google-signin</a> authentication via gmail
+</li>
+<li><a
  href="https://rnfirebase.io/"
 target="_blank"
 rel="noopener noreferrer"
->React-native firebase</a> responseible for authentication and session
+>React-native firebase</a> responseible for authentication session
 </li>
-
+<li><a
+ href="https://www.npmjs.com/package/lottie-react-native"
+target="_blank"
+rel="noopener noreferrer"
+>lottie-react-native</a> lottie animations
+</li>
+<li><a
+ href="https://docs.swmansion.com/react-native-reanimated/"
+target="_blank"
+rel="noopener noreferrer"
+>react-native reanimated</a> fade-in animations
+</li>
+<li><a
+ href="https://www.npmjs.com/package/@react-native-async-storage/async-storage"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-async-storage</a> saving users theme and text-size settings locally
+</li>
+<li><a
+ href="https://www.npmjs.com/package/react-native-modal"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-modal</a> pop-up windows
+</li>
+<li><a
+ href="https://www.npmjs.com/package/react-native-switch-selector"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-switch-selector</a> tri-state button selecting theme and text settings
+</li>
+<li><a
+ href="https://www.npmjs.com/package/react-native-switch-selector"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-switch-selector</a> tri-state button selecting theme and text settings
+</li>
 </p>

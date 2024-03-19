@@ -200,7 +200,7 @@ export default function AboutMore() {
               <Text style={styles.subHeader}>Packadges</Text>
               <Text style={styles.paragraph}>
                 Here are some rn packages I needed for all this to come
-                together: async-storage, react-native animated, modal,
+                together: async-storage, react-native reanimated, modal,
                 linear-gradient, moment, switch-selector, lottie, axios,
                 google-signin, vector-icons, firebase/auth, firebase/app,
                 onesignal and of course gifted-chat.
