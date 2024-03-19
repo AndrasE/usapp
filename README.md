@@ -82,4 +82,5 @@ target="_blank"
 rel="noopener noreferrer"
 >React-native firebase</a> responseible for authentication and session
 </li>
-<a
+
+</p>
