@@ -13,6 +13,7 @@
 
 After investing some time in learning react-native, watching countless hours of tutorials, I managed to create this fully functional android chat-app using react native CLI. Feel free to install it and try it out. At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to hit me up of you would like to chat, search for user "rohadtsajt" in the app. 😊
 <br/>
+
 <p>
 Here are a few tutorials I found extremly useful: <br/>
 <a
@@ -70,9 +71,6 @@ href="https://youtu.be/X5kjfW1rfig?si=dW8S6h1CiG63fEMC"
 target="_blank"
 rel="noopener noreferrer"
 >Push notifications 2</a>
-</br>
-</p>
-<p>
 </br>
 </p>
 <p>
