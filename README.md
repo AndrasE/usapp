@@ -14,7 +14,7 @@
 After investing some time in learning react-native, watching countless hours of tutorials, I managed to create this fully functional chat-app. Feel free to install it and try it out. At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). 
 <br/>
 <p>
-Here are some tutorials I found extremly useful: 
+Here are some tutorials I found extremly useful: <br/>
 <a
 href="https://youtu.be/I7POH4acHV8?si=ujz9tW3-b0x1LFU8"
 target="_blank"
