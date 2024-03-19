@@ -24,7 +24,20 @@ href="https://youtu.be/mZXCOdIFg6Q?si=KGwVJEzNPHA6h1a_"
 target="_blank"
 rel="noopener noreferrer"
 >Lottie & splash</a>,
-
-
+<a
+href="https://youtu.be/RkQpvlosGz0?si=jaUdyw3E8e13ly2e"
+target="_blank"
+rel="noopener noreferrer"
+>React-native firebase signin 1</a>,
+<a
+href="https://youtu.be/8aARNaWR78Q?si=mJEqlk6ffdHqNXbN"
+target="_blank"
+rel="noopener noreferrer"
+>React-native firebase signin 2</a>,
+<a
+href="https://youtu.be/RrGtyfo1wr0?si=_J5qp15yHs-VIO9Y"
+target="_blank"
+rel="noopener noreferrer"
+>React-native firebase signin 3</a>,
 
 </p>
