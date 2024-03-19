@@ -56,6 +56,11 @@ target="_blank"
 rel="noopener noreferrer"
 >Gifted chat 1</a>,
 <a
+href="https://youtu.be/Z0riAoqXrwo?si=dMS8Pf6LkjIvFCZK"
+target="_blank"
+rel="noopener noreferrer"
+>Gifted chat 2</a>,
+<a
 href="https://youtu.be/Qcxa6dxfUFo?si=xZ3G5Cg0_FpmAU9Q"
 target="_blank"
 rel="noopener noreferrer"
