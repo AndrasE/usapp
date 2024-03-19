@@ -73,7 +73,9 @@ rel="noopener noreferrer"
 >Push notifications 2</a>
 </br>
 </p>
-
+<p>
+</br>
+</p>
 <p>
 Packadges used: 
 <li><a
@@ -82,7 +84,6 @@ target="_blank"
 rel="noopener noreferrer"
 >react-native firebase</a> responseible for authentication, authentication-session and connecting real-time database  
 </li>
-
 <li><a
  href="https://github.com/react-native-google-signin/google-signin"
 target="_blank"
