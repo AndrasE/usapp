@@ -74,7 +74,7 @@ rel="noopener noreferrer"
 </p>
 
 <p>
-Packadges used: <br/>
+Packadges used: 
 <li><a
  href="https://rnfirebase.io/"
 target="_blank"
