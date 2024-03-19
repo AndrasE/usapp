@@ -149,4 +149,10 @@ target="_blank"
 rel="noopener noreferrer"
 >react-native-axios</a> for api calls to Onesignal sending cloud messages
 </li>
+<li><a
+ href="https://momentjs.com/"
+target="_blank"
+rel="noopener noreferrer"
+>moment.js</a> formating dates
+</li>
 </p>
