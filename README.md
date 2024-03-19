@@ -82,20 +82,13 @@ target="_blank"
 rel="noopener noreferrer"
 >react-native firebase</a> responseible for authentication, authentication-session and connecting real-time database  
 </li>
-<ul>
+
 <li><a
  href="https://github.com/react-native-google-signin/google-signin"
 target="_blank"
 rel="noopener noreferrer"
 >react-native-google-signin</a> social authentication via gmail using react-native firebase
 </li>
-<li><a
- href="https://github.com/react-native-google-signin/google-signin"
-target="_blank"
-rel="noopener noreferrer"
->react-native-google-signin</a> social authentication via gmail using react-native firebase
-</li>
-</ul>
 <li><a
  href="https://www.npmjs.com/package/lottie-react-native"
 target="_blank"
