@@ -145,7 +145,7 @@ rel="noopener noreferrer"
  href="https://www.npmjs.com/package/react-native-axios"
 target="_blank"
 rel="noopener noreferrer"
->react-native-axios</a> for api calls to Onesignal sending cloud messages
+>react-native-axios</a> for api calls to Onesignal / sending cloud messages
 </li>
 <li><a
  href="https://momentjs.com/"
@@ -155,5 +155,5 @@ rel="noopener noreferrer"
 </li>
 </p>
 <p>
-The
+The app built with CLI instead of Expo, the reason for it that I wanted to create an in-app authentication. 
 </p>
