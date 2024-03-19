@@ -14,8 +14,8 @@
 After investing some time in learning react-native, watching countless hours of tutorials, I managed to create this fully functional chat-app. Feel free to install it and try it out. At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). 
 <br/>
 
-<p align="center">
-Here are some tutorials I found extremly useful: <br/>
+<p>
+Here are a few tutorials I found extremly useful: <br/>
 <a
 href="https://youtu.be/I7POH4acHV8?si=ujz9tW3-b0x1LFU8"
 target="_blank"
@@ -55,12 +55,12 @@ rel="noopener noreferrer"
 href="https://youtu.be/Z0riAoqXrwo?si=dMS8Pf6LkjIvFCZK"
 target="_blank"
 rel="noopener noreferrer"
->Gifted chat 1</a>,
+>Gifted-chat 1</a>,
 <a
 href="https://youtu.be/Z0riAoqXrwo?si=dMS8Pf6LkjIvFCZK"
 target="_blank"
 rel="noopener noreferrer"
->Gifted chat 2</a>,
+>Gifted-chat 2</a>,
 <a
 href="https://youtu.be/Qcxa6dxfUFo?si=xZ3G5Cg0_FpmAU9Q"
 target="_blank"
@@ -72,3 +72,13 @@ target="_blank"
 rel="noopener noreferrer"
 >Push notifications 2</a>
 </p>
+
+<p>
+Packadges used: <br/>
+<li><a
+ href="https://rnfirebase.io/"
+target="_blank"
+rel="noopener noreferrer"
+>React-native firebase</a> responseible for authentication and session
+</li>
+<a
