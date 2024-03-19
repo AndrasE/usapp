@@ -18,4 +18,13 @@ Here are some tutorials I found extremly useful:
 href="https://youtu.be/I7POH4acHV8?si=ujz9tW3-b0x1LFU8"
 target="_blank"
 rel="noopener noreferrer"
->React-native navigation</a></p>
+>React-native navigation</a>,
+<a
+href="https://youtu.be/mZXCOdIFg6Q?si=KGwVJEzNPHA6h1a_"
+target="_blank"
+rel="noopener noreferrer"
+>Lottie & splash</a>,
+
+
+
+</p>
