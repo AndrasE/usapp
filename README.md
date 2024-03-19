@@ -119,15 +119,21 @@ rel="noopener noreferrer"
 >react-native-switch-selector</a> tri-state button selecting theme and text settings
 </li>
 <li><a
- href="https://www.npmjs.com/package/react-native-switch-selector"
-target="_blank"
-rel="noopener noreferrer"
->react-native-switch-selector</a> tri-state button selecting theme and text settings
-</li>
-<li><a
  href="https://www.npmjs.com/package/react-native-linear-gradient"
 target="_blank"
 rel="noopener noreferrer"
 >react-native-linear-gradient</a> linear-gradient backgrounds and buttons combined w theming
+</li>
+<li><a
+ href="https://www.npmjs.com/package/react-native-vector-icons"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-vector-icons</a> some icons svgs
+</li>
+<li><a
+ href="https://www.npmjs.com/package/react-native-gifted-chat?activeTab=versions"
+target="_blank"
+rel="noopener noreferrer"
+>gifted-chat</a> complete chat ui 
 </li>
 </p>
