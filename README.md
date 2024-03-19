@@ -11,7 +11,7 @@
 
 ## Hello there 👋
 
-After investing some time in learning react-native, watching countless hours of tutorials, I managed to create this fully functional chat-app. Feel free to install it and try it out. At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). 
+After investing some time in learning react-native, watching countless hours of tutorials, I managed to create this fully functional android chat-app. Feel free to install it and try it out. At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to hit me up of you would like to chat, search for "rohadtsajt" in the app.😊
 <br/>
 
 <p>
