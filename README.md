@@ -96,12 +96,6 @@ rel="noopener noreferrer"
 >lottie-react-native</a> lottie animations
 </li>
 <li><a
- href="https://www.npmjs.com/package/react-native-gifted-chat?activeTab=versions"
-target="_blank"
-rel="noopener noreferrer"
->react-native-gifted-chat</a> complete chat ui 
-</li>
-<li><a
  href="https://docs.swmansion.com/react-native-reanimated/"
 target="_blank"
 rel="noopener noreferrer"
@@ -142,5 +136,17 @@ rel="noopener noreferrer"
 target="_blank"
 rel="noopener noreferrer"
 >react-native-gifted-chat</a> complete chat ui 
+</li>
+<li><a
+ href="https://documentation.onesignal.com/docs/react-native-sdk-setup"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-onesignal</a> push notification and in-app message service for mobile apps
+</li>
+<li><a
+ href="https://www.npmjs.com/package/react-native-axios"
+target="_blank"
+rel="noopener noreferrer"
+>react-native-axios</a> for api calls to Onesignal sending cloud messages
 </li>
 </p>
