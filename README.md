@@ -196,7 +196,7 @@ rel="noopener noreferrer"
 Create a free OneSingal account. Get onesignal-id and onesignal-barer from app/settings:
 
 ```sh
-$ look for OneSignal App ID & Rest API Key
+look for OneSignal App ID & Rest API Key
 ```
 
 Add your own credentials:
