@@ -175,25 +175,25 @@ To install and set up the library, run:
 $ npm i
 ```
 
-Get SHA certificate fingerprint keys
+Get SHA certificate fingerprint keys:
 
 ```sh
 $ cd android && ./gradlew signingReport
 ```
 
-Create a firebase android app with authentication and a real-time database. You may need to go to console.cloud.google.com to enable authentication. (firebase should auto-create it, but not 100% will happen)
+Create a firebase android app with authentication and a real-time database. You may need to go to console.cloud.google.com to enable authentication. (firebase should auto-create it, but not 100% will happen):
 
 ```sh
 insert SHA keys above
 ```
-Add Firebase to your Android project
+Add Firebase to your Android project:
 <p>
 <a
  href="https://firebase.google.com/docs/android/setup"
 target="_blank"
 rel="noopener noreferrer"
 >Add Firebase to your Android project </a></p>
-Create a free OneSingal account. Get onesignal-id and onesignal-barer from app/settings
+Create a free OneSingal account. Get onesignal-id and onesignal-barer from app/settings:
 ```sh
 look for OneSignal App ID & Rest API Key
 ```
@@ -213,10 +213,11 @@ $ npx react-native start
 ```
 
 For building your own version of the apk follow these steps:
-
+```sh
 <p>
 <a
  href="https://medium.com/geekculture/react-native-generate-apk-debug-and-release-apk-4e9981a2ea51"
 target="_blank"
 rel="noopener noreferrer"
 >React Native Generate Debug and Release APK</a></p>
+```
