@@ -191,10 +191,8 @@ $ npx react-native start
 ```
 
 Building a distribution version follow these steps:
-```sh
 <a
  href="https://medium.com/geekculture/react-native-generate-apk-debug-and-release-apk-4e9981a2ea51"
 target="_blank"
 rel="noopener noreferrer"
 >React Native Generate Debug and Release APK</a>
-```
