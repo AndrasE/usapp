@@ -157,6 +157,7 @@ rel="noopener noreferrer"
 <p>
 The app built with react-native-CLI instead of Expo for the reason that I an in-app authentication wihtout a browiser redirect. 
 </p>
+<p>
 ## Run 🚀
 These instructions will get you a copy of the project up and running on a virtual or physical android device. Either install android studio and have a virtual machine and/or have a device where debugging through usb enabled. 
 
@@ -191,7 +192,7 @@ $ npx react-native start
 ```
 
 Building a distribution version follow these steps:
-<p><a
+<a
  href="https://medium.com/geekculture/react-native-generate-apk-debug-and-release-apk-4e9981a2ea51"
 target="_blank"
 rel="noopener noreferrer"
