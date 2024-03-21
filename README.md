@@ -202,7 +202,7 @@ Serving the app:
 $ npx react-native start
 ```
 
-Building a distribution version follow these steps:
+For building your own version of the apk follow these steps:
 
 <p>
 <a
