@@ -157,9 +157,9 @@ rel="noopener noreferrer"
 <p>
 The app built with react-native-CLI instead of Expo for the reason that I an in-app authentication wihtout a browiser redirect. 
 </p>
-<p>
-## Run 🚀
-These instructions will get you a copy of the project up and running on a virtual or physical android device. Either install android studio and have a virtual machine and/or have a device where debugging through usb enabled. 
+
+Run 🚀
+These instructions will get you a copy of the project up and running on a virtual or physical android device. Either install android studio and have a virtual machine and/or have a device where debugging through usb enabled.
 
 Start with cloning this repo on your local machine via cli or github-desktop:
 
@@ -167,31 +167,43 @@ Start with cloning this repo on your local machine via cli or github-desktop:
 $ git clone https://github.com/AndrasE/usapp
 $ cd PROJECTNAME
 ```
+
 To install and set up the library, run:
+
 ```sh
 $ npm i
 ```
+
 Get SHA certificate fingerprint keys
+
 ```sh
 $ cd android && ./gradlew signingReport
 ```
+
 Create a firebase android app with authentication and a real-time database. You may need to go to console.cloud.google.com to enable authentication. (firebase should auto-create it, but not 100% will happen)
+
 ```sh
 insert SHA keys above
 ```
-Create a free OneSingal account. Get onesignal-id and onesignal-barer key 
+
+Create a free OneSingal account. Get onesignal-id and onesignal-barer key
 
 Add your own credentials:
+
 ```sh
-cd PROJECTNAME && touch .env
-setup and insert your own API keys 
+$ cd PROJECTNAME && touch .env
+setup and insert your own API keys
 ```
+
 Serving the app:
+
 ```sh
-$ npx react-native start  
+$ npx react-native start
 ```
 
 Building a distribution version follow these steps:
+
+<p>
 <a
  href="https://medium.com/geekculture/react-native-generate-apk-debug-and-release-apk-4e9981a2ea51"
 target="_blank"
