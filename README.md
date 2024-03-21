@@ -158,7 +158,8 @@ rel="noopener noreferrer"
 The app built with react-native-CLI instead of Expo for the reason that I an in-app authentication wihtout a browiser redirect. 
 </p>
 
-Run 🚀
+## Run 🚀
+
 These instructions will get you a copy of the project up and running on a virtual or physical android device. Either install android studio and have a virtual machine and/or have a device where debugging through usb enabled.
 
 Start with cloning this repo on your local machine via cli or github-desktop:
