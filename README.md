@@ -155,5 +155,44 @@ rel="noopener noreferrer"
 </li>
 </p>
 <p>
-The app built with CLI instead of Expo, the reason for it that I wanted to create an in-app authentication. 
+The app built with react-native-CLI instead of Expo for the reason that I an in-app authentication wihtout a browiser redirect. 
 </p>
+## Run 🚀
+These instructions will get you a copy of the project up and running on a virtual or physical android device. Either install android studio and have a virtual machine and/or have a device where debugging through usb enabled. 
+
+Start with cloning this repo on your local machine via cli or github-desktop:
+
+```sh
+$ git clone https://github.com/AndrasE/usapp
+$ cd PROJECTNAME
+```
+To install and set up the library, run:
+```sh
+$ npm i
+```
+Get SHA certificate fingerprint keys
+```sh
+$ cd android && ./gradlew signingReport
+```
+Create a firebase android app with authentication and a real-time database. You may need to go to console.cloud.google.com to enable authentication. (firebase should auto-create it, but not 100% will happen)
+```sh
+$ insert SHA keys above
+```
+
+Add your own credentials:
+```sh
+cd PROJECTNAME && touch .env
+setup insert your own API keys
+```
+Serving the app:
+```sh
+$ npm start
+```
+Running the tests:
+```sh
+$ npm test
+```
+Building a distribution version:
+```sh
+$ npm run build
+```
