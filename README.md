@@ -186,10 +186,15 @@ Create a firebase android app with authentication and a real-time database. You 
 ```sh
 insert SHA keys above
 ```
-
+Add Firebase to your Android project
+<a
+ href="https://firebase.google.com/docs/android/setup"
+target="_blank"
+rel="noopener noreferrer"
+>Add Firebase to your Android project </a></p>
 Create a free OneSingal account. Get onesignal-id and onesignal-barer from app/settings
 ```sh
-Look for OneSignal App ID & Rest API Key
+look for OneSignal App ID & Rest API Key
 ```
 Add your own credentials:
 
@@ -197,6 +202,8 @@ Add your own credentials:
 $ cd PROJECTNAME && touch .env
 setup and insert your own API keys
 ```
+
+
 
 Serving the app:
 
