@@ -176,23 +176,25 @@ $ cd android && ./gradlew signingReport
 ```
 Create a firebase android app with authentication and a real-time database. You may need to go to console.cloud.google.com to enable authentication. (firebase should auto-create it, but not 100% will happen)
 ```sh
-$ insert SHA keys above
+insert SHA keys above
 ```
+Create a free OneSingal account. Get onesignal-id and onesignal-barer key 
 
 Add your own credentials:
 ```sh
 cd PROJECTNAME && touch .env
-setup insert your own API keys
+setup and insert your own API keys 
 ```
 Serving the app:
 ```sh
-$ npm start
+$ npx react-native start  
 ```
-Running the tests:
+
+Building a distribution version follow these steps:
 ```sh
-$ npm test
-```
-Building a distribution version:
-```sh
-$ npm run build
+<a
+ href="https://medium.com/geekculture/react-native-generate-apk-debug-and-release-apk-4e9981a2ea51"
+target="_blank"
+rel="noopener noreferrer"
+>React Native Generate Debug and Release APK</a>
 ```
