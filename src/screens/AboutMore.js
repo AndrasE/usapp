@@ -18,7 +18,7 @@ export default function AboutMore() {
         <LinearGradient
           start={{x: 0, y: 0}}
           end={{x: 1, y: 1}}
-          locations={[0.0, 0.59]}
+          locations={[0.0, 0.032]}
           colors={[theme.appbg1, theme.appbg2]}
           style={styles.linearGradientBackground}>
           <View style={styles.contentView}>
