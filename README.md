@@ -7,12 +7,13 @@
   with theme and text-size settings, lottie animations, 
   <br>push notifications and much more..
 </h3>
-<br/>
+
 <p align="center">
-  <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true" width="350">
+ <a href="https://youtu.be/I7POH4acHV8?si=ujz9tW3-b0x1LFU8"
+target="_blank"
+rel="noopener noreferrer">
+   <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true" width="350"> </a>
 </p>
-
-
 
 After investing some time in learning react-native, watching countless hours of tutorials, I managed to create this fully functional android chat-app using react native CLI. Feel free to install it and try it out. At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to hit me up of you would like to chat, search for user "rohadtsajt" in the app. 😊
 <br/>
