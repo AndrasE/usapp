@@ -9,9 +9,9 @@
 </h3>
 <br/>
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/w_1VowseA3g?si=AbOSrldfe1276KHX)](https://youtu.be/w_1VowseA3g?si=AbOSrldfe1276KHX)
+https://github.com/AndrasE/raw-readme/blob/main/usapp-demo
 
-## Hello there 👋
+https://github.com/K4KarolE/Magnetic_Drawing_Board/assets/89346643/0f077c8e-b8e3-47d5-b930-7b66317accf2
 
 After investing some time in learning react-native, watching countless hours of tutorials, I managed to create this fully functional android chat-app using react native CLI. Feel free to install it and try it out. At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to hit me up of you would like to chat, search for user "rohadtsajt" in the app. 😊
 <br/>
