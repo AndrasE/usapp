@@ -9,9 +9,9 @@
 </h3>
 <br/>
 
-<center>
+<p align="center">
 [![](https://markdown-videos-api.jorgenkh.no/youtube/dQw4w9WgXcQ)](https://youtu.be/dQw4w9WgXcQ)
-</center>
+</p>
 
 ## Hello there 👋
 
