@@ -9,6 +9,10 @@
 </h3>
 <br/>
 
+[![](https://markdown-videos-api.jorgenkh.no/youtube/{video_id})](https://youtu.be/{video_id})
+
+
+
 ## Hello there 👋
 
 After investing some time in learning react-native, watching countless hours of tutorials, I managed to create this fully functional android chat-app using react native CLI. Feel free to install it and try it out. At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to hit me up of you would like to chat, search for user "rohadtsajt" in the app. 😊
