@@ -9,7 +9,7 @@
 </h3>
 <br/>
 <p align="center">
-  <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.png?raw=true" width="350">
+  <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true" width="350">
 </p>
 
 
