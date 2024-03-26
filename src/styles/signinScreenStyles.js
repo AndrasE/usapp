@@ -44,7 +44,7 @@ const signinScreenStyles = (theme, textSize) =>
       textAlign: 'center',
       fontFamily: 'SpaceMonoRegular',
       color: theme.text1,
-      fontSize: textSize.nameHeader,
+      fontSize: textSize.nameHeader - 2,
       margin: 16,
       letterSpacing: 3,
     },
@@ -53,9 +53,9 @@ const signinScreenStyles = (theme, textSize) =>
       lineHeight: 25,
       fontFamily: 'SpaceMonoRegular',
       color: theme.text1,
-      fontSize: textSize.emailHeader,
+      fontSize: textSize.emailHeader - 2,
       margin: 16,
-      lineHeight: 28,
+      lineHeight: 24,
     },
     modalTextLink: {
       textDecorationLine: 'underline',
@@ -64,7 +64,6 @@ const signinScreenStyles = (theme, textSize) =>
       fontFamily: 'SpaceMonoRegular',
       color: theme.text1,
       fontSize: textSize.emailHeader,
-      marginBottom: 16,
       lineHeight: 28,
     },
     modalButtonView: {
