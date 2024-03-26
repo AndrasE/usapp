@@ -11,7 +11,7 @@
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/w_1VowseA3g?si=AbOSrldfe1276KHX)](https://youtu.be/w_1VowseA3g?si=AbOSrldfe1276KHX)
 
-<video src="https://github.com/rayytsn9/ROBOTT/assets/79029536/62f541aa-aa8c-43f5-9ead-4b7a2e0d7c2a" width="300" />
+<video src="https://github.com/rayytsn9/ROBOTT/assets/79029536/62f541aa-aa8c-43f5-9ead-4b7a2e0d7c2a" width="200" align="center"/>
 
 ## Hello there 👋
 
