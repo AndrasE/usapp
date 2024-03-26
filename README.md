@@ -9,7 +9,7 @@
 </h3>
 <br/>
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/w_1VowseA3g?si=AbOSrldfe1276KHX)](https://youtu.be/w_1VowseA3g?si=AbOSrldfe1276KHX)
+https://github.com/K4KarolE/Magnetic_Drawing_Board/assets/89346643/0f077c8e-b8e3-47d5-b930-7b66317accf2
 
 ## Hello there 👋
 
