@@ -165,8 +165,8 @@ The app built with react-native-CLI instead of Expo for the reason that I an in-
  href="https://github.com/AndrasE/usapp/blob/main/src/screens/AboutMore.js"
 target="_blank"
 rel="noopener noreferrer"
->here
-<a/>.
+>here.
+<a/>
 </p>
 
 ## Run 🚀
