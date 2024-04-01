@@ -160,13 +160,13 @@ rel="noopener noreferrer"
 </p>
 <p>
 The app built with react-native-CLI instead of Expo for the reason that I an in-app authentication wihtout a browiser redirect. <br/>
-  If you would like to read more about this project more install the app and head over to the about sections or acceess the the contet 
+ If you would like to read more about this project, install the app and head over to the about sections or access the content
 <a
  href="https://github.com/AndrasE/usapp/blob/main/src/screens/AboutMore.js"
 target="_blank"
 rel="noopener noreferrer"
 >here
-<a https://github.com/AndrasE/usapp/blob/main/src/screens/AboutMore.js
+<a/>.
 </p>
 
 ## Run 🚀
