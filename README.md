@@ -5,7 +5,7 @@
   Realtime android React Native chat app
   <br>
   with theme and text-size settings, lottie animations, 
-  <br>push notifications and more..
+  <br>push notifications and more
 </h3>
 
 <p align="center">
@@ -33,7 +33,7 @@ picture) to create a new database entry where chat-history and friends will be s
 The application integrates with OneSignal to enable push notifications, ensuring users
 stay updated with real-time messages and events.
 <p>
-At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to hit me up of you would like to chat, search for user "rohadtsajt" in the app. 😊
+At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to message me if you would like to chat, search for user "rohadtsajt" in the app.
 </p>
 <p>
 Packadges used: 
@@ -184,8 +184,8 @@ The app built with react-native-CLI instead of Expo for the reason that I an in-
  href="https://github.com/AndrasE/usapp/blob/main/src/screens/AboutMore.js"
 target="_blank"
 rel="noopener noreferrer"
->here.
-<a/>
+>here
+<a/>.
 </p>
 
 ## Run 🚀
