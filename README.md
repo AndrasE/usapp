@@ -30,8 +30,10 @@ User preferences, such as theme and text size, are preserved across sessions. Du
 initial login, the app collects essential user information (name, email, profile
 picture) to create a new database entry where chat-history and friends will be stored.
 </p>
+<p>
 The application integrates with OneSignal to enable push notifications, ensuring users
 stay updated with real-time messages and events.
+</p>
 <p>
 At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to message me if you would like to chat, search for user "rohadtsajt" in the app.
 </p>
@@ -178,8 +180,7 @@ rel="noopener noreferrer"
 </p>
 
 <p>
-The app built with react-native-CLI instead of Expo for the reason that I an in-app authentication wihtout a browiser redirect. <br/>
- If you would like to read more about this project, install the app and head over to the about sections or access the content
+The app built with react-native-CLI instead of Expo for the reason that I an in-app authentication wihtout a browiser redirect. If you would like to read more about this project, install the app and head over to the about sections or access the content
 <a
  href="https://github.com/AndrasE/usapp/blob/main/src/screens/AboutMore.js"
 target="_blank"
