@@ -8,12 +8,6 @@
   <br>push notifications and more
 </h3>
 
-<p align="center">
- <a href="https://youtu.be/w_1VowseA3g?si=4nr223Uw9BDL2BHc"
-target="_blank"
-rel="noopener noreferrer">
-   <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true" width="350"> </a>
-</p>
 <p>
 I have developed a fully functional Android chat application using React Native CLI. This
 project showcases my proficiency in React Native development, having invested
@@ -38,7 +32,16 @@ stay updated with real-time messages and events.
 At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to message me if you would like to chat, search for user "rohadtsajt" in the app.
 </p>
 <p>
-Packadges used: 
+
+<p align="center">
+ <a href="https://youtu.be/w_1VowseA3g?si=4nr223Uw9BDL2BHc"
+target="_blank"
+rel="noopener noreferrer">
+   <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true" width="350"> </a>
+</p>
+
+Packadges used:
+
 <li><a
  href="https://rnfirebase.io/"
 target="_blank"
@@ -217,8 +220,6 @@ Create a firebase android app with authentication and a real-time database. You 
 ```sh
 insert SHA keys above
 ```
-
-
 
 <p>
 <a
