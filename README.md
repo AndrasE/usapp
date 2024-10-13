@@ -3,9 +3,7 @@
 </p>
 <h3 align="center">
   Realtime android React Native chat app
-  <br>
-  with theme and text-size settings, lottie animations, 
-  <br>push notifications and more..
+
 </h3>
 
 <p align="center">
