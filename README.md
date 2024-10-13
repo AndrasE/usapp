@@ -218,7 +218,7 @@ Create a firebase android app with authentication and a real-time database. You 
 insert SHA keys above
 ```
 
-Add Firebase to your Android project:
+
 
 <p>
 <a
