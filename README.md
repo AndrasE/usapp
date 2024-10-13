@@ -8,6 +8,8 @@
   <br>push notifications and more
 </h3>
 
+## Hello there 👋
+
 <p>
 I have developed a fully functional Android chat application using React Native CLI. This
 project showcases my proficiency in React Native development, having invested
