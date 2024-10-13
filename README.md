@@ -35,66 +35,6 @@ stay updated with real-time messages and events.
 <p>
 At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to hit me up of you would like to chat, search for user "rohadtsajt" in the app. 😊
 </p>
-
-<p>
-Here are a few tutorials I found extremly useful: <br/>
-<a
-href="https://youtu.be/I7POH4acHV8?si=ujz9tW3-b0x1LFU8"
-target="_blank"
-rel="noopener noreferrer"
->React-native navigation</a>,
-<a
-href="https://youtu.be/mZXCOdIFg6Q?si=KGwVJEzNPHA6h1a_"
-target="_blank"
-rel="noopener noreferrer"
->Lottie & splash</a>,
-<a
-href="https://youtu.be/RkQpvlosGz0?si=jaUdyw3E8e13ly2e"
-target="_blank"
-rel="noopener noreferrer"
->React-native firebase signin 1</a>,
-<a
-href="https://youtu.be/8aARNaWR78Q?si=mJEqlk6ffdHqNXbN"
-target="_blank"
-rel="noopener noreferrer"
->React-native firebase signin 2</a>,
-<a
-href="https://youtu.be/RrGtyfo1wr0?si=_J5qp15yHs-VIO9Y"
-target="_blank"
-rel="noopener noreferrer"
->React-native firebase signin 3</a>,
-<a
-href="https://youtu.be/km1qm1Zz2lY?si=owQr0aFeMmk6fvqH"
-target="_blank"
-rel="noopener noreferrer"
->Theming</a>,
-<a
-href="https://youtu.be/PRGHWgTydyQ?si=b-pveeF2814-PduM"
-target="_blank"
-rel="noopener noreferrer"
->Asyncstorage</a>,
-<a
-href="https://youtu.be/Z0riAoqXrwo?si=dMS8Pf6LkjIvFCZK"
-target="_blank"
-rel="noopener noreferrer"
->Gifted-chat 1</a>,
-<a
-href="https://youtu.be/Z0riAoqXrwo?si=dMS8Pf6LkjIvFCZK"
-target="_blank"
-rel="noopener noreferrer"
->Gifted-chat 2</a>,
-<a
-href="https://youtu.be/Qcxa6dxfUFo?si=xZ3G5Cg0_FpmAU9Q"
-target="_blank"
-rel="noopener noreferrer"
->Push notifications 1</a>,
-<a
-href="https://youtu.be/X5kjfW1rfig?si=dW8S6h1CiG63fEMC"
-target="_blank"
-rel="noopener noreferrer"
->Push notifications 2</a>
-</br>
-</p>
 <p>
 Packadges used: 
 <li><a
@@ -176,6 +116,67 @@ rel="noopener noreferrer"
 >moment.js</a> formating dates
 </li>
 </p>
+
+<p>
+Here are a few tutorials I found extremly useful: <br/>
+<a
+href="https://youtu.be/I7POH4acHV8?si=ujz9tW3-b0x1LFU8"
+target="_blank"
+rel="noopener noreferrer"
+>React-native navigation</a>,
+<a
+href="https://youtu.be/mZXCOdIFg6Q?si=KGwVJEzNPHA6h1a_"
+target="_blank"
+rel="noopener noreferrer"
+>Lottie & splash</a>,
+<a
+href="https://youtu.be/RkQpvlosGz0?si=jaUdyw3E8e13ly2e"
+target="_blank"
+rel="noopener noreferrer"
+>React-native firebase signin 1</a>,
+<a
+href="https://youtu.be/8aARNaWR78Q?si=mJEqlk6ffdHqNXbN"
+target="_blank"
+rel="noopener noreferrer"
+>React-native firebase signin 2</a>,
+<a
+href="https://youtu.be/RrGtyfo1wr0?si=_J5qp15yHs-VIO9Y"
+target="_blank"
+rel="noopener noreferrer"
+>React-native firebase signin 3</a>,
+<a
+href="https://youtu.be/km1qm1Zz2lY?si=owQr0aFeMmk6fvqH"
+target="_blank"
+rel="noopener noreferrer"
+>Theming</a>,
+<a
+href="https://youtu.be/PRGHWgTydyQ?si=b-pveeF2814-PduM"
+target="_blank"
+rel="noopener noreferrer"
+>Asyncstorage</a>,
+<a
+href="https://youtu.be/Z0riAoqXrwo?si=dMS8Pf6LkjIvFCZK"
+target="_blank"
+rel="noopener noreferrer"
+>Gifted-chat 1</a>,
+<a
+href="https://youtu.be/Z0riAoqXrwo?si=dMS8Pf6LkjIvFCZK"
+target="_blank"
+rel="noopener noreferrer"
+>Gifted-chat 2</a>,
+<a
+href="https://youtu.be/Qcxa6dxfUFo?si=xZ3G5Cg0_FpmAU9Q"
+target="_blank"
+rel="noopener noreferrer"
+>Push notifications 1</a>,
+<a
+href="https://youtu.be/X5kjfW1rfig?si=dW8S6h1CiG63fEMC"
+target="_blank"
+rel="noopener noreferrer"
+>Push notifications 2</a>
+</br>
+</p>
+
 <p>
 The app built with react-native-CLI instead of Expo for the reason that I an in-app authentication wihtout a browiser redirect. <br/>
  If you would like to read more about this project, install the app and head over to the about sections or access the content
