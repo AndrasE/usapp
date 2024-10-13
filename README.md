@@ -15,20 +15,20 @@ rel="noopener noreferrer">
    <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true" width="350"> </a>
 </p>
 I have developed a fully functional Android chat application using React Native CLI. This
-                                project showcases my proficiency in React Native development, having invested
-                                significant time in learning and practicing the framework.
-                                <br />
-                                The application offers a seamless user experience, beginning with a splash screen that
-                                provides a brief introduction. Upon launch, the app determines whether the user has
-                                previously logged in. If so, it automatically restores their session. For new users or
-                                those logging in for the first time, the app directs them to the login screen.
-                                <br />
-                                User preferences, such as theme and text size, are preserved across sessions. During the
-                                initial login, the app collects essential user information (name, email, profile
-                                picture) to create a new database entry where chat-history and friends will be stored.
-                                <br />
-                                The application integrates with OneSignal to enable push notifications, ensuring users
-                                stay updated with real-time messages and events.
+project showcases my proficiency in React Native development, having invested
+significant time in learning and practicing the framework.
+<br />
+The application offers a seamless user experience, beginning with a splash screen that
+provides a brief introduction. Upon launch, the app determines whether the user has
+previously logged in. If so, it automatically restores their session. For new users or
+those logging in for the first time, the app directs them to the login screen.
+<br />
+User preferences, such as theme and text size, are preserved across sessions. During the
+initial login, the app collects essential user information (name, email, profile
+picture) to create a new database entry where chat-history and friends will be stored.
+<br />
+The application integrates with OneSignal to enable push notifications, ensuring users
+stay updated with real-time messages and events.
 
 At the root of the project, you will find us-app-debug.apk which you can install on your android device (you will need to enable 3rd-party installation). Feel free to hit me up of you would like to chat, search for user "rohadtsajt" in the app. 😊
 <br/>
@@ -212,7 +212,9 @@ Create a firebase android app with authentication and a real-time database. You 
 ```sh
 insert SHA keys above
 ```
+
 Add Firebase to your Android project:
+
 <p>
 <a
  href="https://firebase.google.com/docs/android/setup"
@@ -232,8 +234,6 @@ $ cd PROJECTNAME && touch .env
 setup and insert your own API keys
 ```
 
-
-
 Serving the app:
 
 ```sh
@@ -248,4 +248,3 @@ For building your own version of the apk follow these steps:
 target="_blank"
 rel="noopener noreferrer"
 >React Native Generate Debug and Release APK</a></p>
-
