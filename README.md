@@ -20,32 +20,32 @@ At the root of the project, you will find `us-app-debug.apk`, which you can inst
 
 ### Key Features
 
-- **User-Friendly Onboarding**: Includes a splash screen and automatic session restoration for returning users or redirects new users to the login screen.
-- **User Preferences**: Saves and restores theme and text-size preferences across sessions.
-- **Real-Time Chat**: Stores chat history and friends in a real-time database.
-- **Push Notifications**: Integrated with OneSignal for real-time message and event notifications.
-- **Social Authentication**: Supports Google sign-in via Firebase for quick user login.
-- **Pop-Up Modals**: Uses `react-native-modal` for intuitive pop-up windows.
-- **Seamless Animations**: Features Lottie animations and React Native Reanimated for smooth transitions.
-- **Custom Theming**: Allows users to select themes and text settings with a tri-state switch button.
-- **Linear Gradient Design**: Implements gradient backgrounds and buttons for enhanced UI.
-- **Gifted Chat UI**: Fully functional chat interface powered by `react-native-gifted-chat`.
+- User-Friendly Onboarding: Includes a splash screen and automatic session restoration for returning users or redirects new users to the login screen.
+- User Preferences: Saves and restores theme and text-size preferences across sessions.
+- Real-Time Chat: Stores chat history and friends in a real-time database.
+- Push Notifications: Integrated with OneSignal for real-time message and event notifications.
+- Social Authentication: Supports Google sign-in via Firebase for quick user login.
+- Pop-Up Modals: Uses `react-native-modal` for intuitive pop-up windows.
+- Seamless Animations: Features Lottie animations and React Native Reanimated for smooth transitions.
+- Custom Theming: Allows users to select themes and text settings with a tri-state switch button.
+- Linear Gradient Design: Implements gradient backgrounds and buttons for enhanced UI.
+- Gifted Chat UI: Fully functional chat interface powered by `react-native-gifted-chat`.
 
 ### Packages used
 
-- **[react-native-firebase](https://rnfirebase.io/)** - Responsible for authentication and connecting real-time database.
-- **[react-native-google-signin](https://github.com/react-native-google-signin/google-signin)** - Social authentication via Gmail using Firebase.
-- **[lottie-react-native](https://www.npmjs.com/package/lottie-react-native)** - Lottie animations.
-- **[react-native-reanimated](https://docs.swmansion.com/react-native-reanimated/)** - Fade-in animations.
-- **[react-native-async-storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage)** - Saving users' theme and text-size settings locally.
-- **[react-native-modal](https://www.npmjs.com/package/react-native-modal)** - Pop-up windows.
-- **[react-native-switch-selector](https://www.npmjs.com/package/react-native-switch-selector)** - Tri-state button for selecting theme and text settings.
-- **[react-native-linear-gradient](https://www.npmjs.com/package/react-native-linear-gradient)** - Linear gradient backgrounds and buttons combined with theming.
-- **[react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons)** - SVG icons.
-- **[react-native-gifted-chat](https://www.npmjs.com/package/react-native-gifted-chat?activeTab=versions)** - Complete chat UI.
-- **[react-native-onesignal](https://documentation.onesignal.com/docs/react-native-sdk-setup)** - Push notification and in-app messaging service.
-- **[react-native-axios](https://www.npmjs.com/package/react-native-axios)** - API calls to OneSignal / sending cloud messages.
-- **[moment.js](https://momentjs.com/)** - Date formatting.
+- [react-native-firebase](https://rnfirebase.io/) - Responsible for authentication and connecting real-time database.
+- [react-native-google-signin](https://github.com/react-native-google-signin/google-signin) - Social authentication via Gmail using Firebase.
+- [lottie-react-native](https://www.npmjs.com/package/lottie-react-native) - Lottie animations.
+- [react-native-reanimated](https://docs.swmansion.com/react-native-reanimated/) - Fade-in animations.
+- [react-native-async-storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage) - Saving users' theme and text-size settings locally.
+- [react-native-modal](https://www.npmjs.com/package/react-native-modal) - Pop-up windows.
+- [react-native-switch-selector](https://www.npmjs.com/package/react-native-switch-selector) - Tri-state button for selecting theme and text settings.
+- [react-native-linear-gradient](https://www.npmjs.com/package/react-native-linear-gradient) - Linear gradient backgrounds and buttons combined with theming.
+- [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons) - SVG icons.
+- [react-native-gifted-chat](https://www.npmjs.com/package/react-native-gifted-chat?activeTab=versions) - Complete chat UI.
+- [react-native-onesignal](https://documentation.onesignal.com/docs/react-native-sdk-setup) - Push notification and in-app messaging service.
+- [react-native-axios](https://www.npmjs.com/package/react-native-axios) - API calls to OneSignal / sending cloud messages.
+- [moment.js](https://momentjs.com/) - Date formatting.
 
 ### Useful Tutorials
 
@@ -89,6 +89,7 @@ insert SHA keys above
 [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup)
 
 Create a free OneSingal account. Get onesignal-id and onesignal-barer from app/settings:
+
 `
 look for OneSignal App ID & Rest API Key
 `
