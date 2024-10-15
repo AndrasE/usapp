@@ -1,10 +1,8 @@
-<h3 align="center">
-  <img src="https://github.com/AndrasE/raw-readme/blob/main/us-readme.png?raw=true" width="70">
-  <br>
-  Realtime Android React Native Chat App
-</h3>
+### ![](https://github.com/AndrasE/raw-readme/blob/main/us-readme.png?raw=true)
 
-## Hello there 👋
+Realtime android React Native chat app
+
+\## Hello there 👋
 
 I have developed a fully functional Android chat application using React Native CLI. This project showcases my proficiency in React Native development, having invested significant time in learning and practicing the framework.
 
