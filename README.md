@@ -41,6 +41,7 @@ rel="noopener noreferrer">
 <br/>
 
 <p>
+Key Features:
 <li>User-Friendly Onboarding - Includes a splash screen and automatic session restoration for returning users, or redirects new users to the login screen.</li>
 <li>User Preferences - Saves and restores theme and text-size preferences across sessions.</li>
 <li>Real-Time Chat - Stores chat history and friends in a real-time database.</li>
