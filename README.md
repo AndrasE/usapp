@@ -1,8 +1,8 @@
-<h3 align="center">
+<h2 align="center">
   <img src="https://github.com/AndrasE/raw-readme/blob/main/us-readme.png?raw=true" width="80">
   <br/>
   Realtime android React Native chat app
-</h3>
+</h2>
 
 ## Hello there 👋
 
