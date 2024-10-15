@@ -107,4 +107,5 @@ $ npx react-native start
 `
 
 For building your own version of the apk follow these steps:
+
 [React Native Generate Debug and Release APK](https://medium.com/geekculture/react-native-generate-apk-debug-and-release-apk-4e9981a2ea51)
