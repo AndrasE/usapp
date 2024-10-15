@@ -1,11 +1,7 @@
-<p align="center">
-  <img src="https://github.com/AndrasE/raw-readme/blob/main/us-readme.png?raw=true" width="80">
-</p>
 <h3 align="center">
-  Realtime android React Native chat app
+  <img src="https://github.com/AndrasE/raw-readme/blob/main/us-readme.png?raw=true" width="70">
   <br>
-  with theme and text-size settings, lottie animations, 
-  <br>push notifications and more
+  Realtime android React Native chat app
 </h3>
 
 ## Hello there 👋
@@ -42,8 +38,25 @@ rel="noopener noreferrer">
    <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true" width="350"> </a>
 </p>
 
-Packadges used:
+<br/>
 
+<p>
+<li>User-Friendly Onboarding - Includes a splash screen and automatic session restoration for returning users, or redirects new users to the login screen.</li>
+<li>User Preferences - Saves and restores theme and text-size preferences across sessions.</li>
+<li>Real-Time Chat - Stores chat history and friends in a real-time database.</li>
+<li>Push Notifications - Integrated with OneSignal for real-time message and event notifications.</li>
+<li>Social Authentication - Supports Google sign-in via Firebase for quick user login.</li>
+<li>Pop-Up Modals - Uses react-native-modal for intuitive pop-up windows.</li>
+<li>Seamless Animations - Features Lottie animations and React Native Reanimated for smooth transitions.</li>
+<li>Custom Theming - Allows users to select themes and text settings with a tri-state switch button.</li>
+<li>Linear Gradient Design - Implements gradient backgrounds and buttons for enhanced UI.</li>
+<li>Gifted Chat UI - Fully functional chat interface powered by react-native-gifted-chat.</li>
+</p>
+
+<br/>
+
+<p>
+Packadges used:
 <li><a
  href="https://rnfirebase.io/"
 target="_blank"
@@ -185,7 +198,7 @@ rel="noopener noreferrer"
 </p>
 
 <p>
-The app built with react-native-CLI instead of Expo for the reason that I an in-app authentication wihtout a browiser redirect. If you would like to read more about this project, install the app and head over to the about sections or access the content
+The app was built using React Native CLI instead of Expo to enable in-app authentication without a browser redirect. For more details about the project, you can install the app and check the "About" section or access the content directly
 <a
  href="https://github.com/AndrasE/usapp/blob/main/src/screens/AboutMore.js"
 target="_blank"
