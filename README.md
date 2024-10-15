@@ -1,5 +1,5 @@
 <h3 align="center">
-  <img src="https://github.com/AndrasE/raw-readme/blob/main/us-readme.png?raw=true" width="80">
+  <img src="https://github.com/AndrasE/raw-readme/blob/main/us-readme.png?raw=true" width="75">
   <br/>
   Realtime android React Native chat app
 </h3>
