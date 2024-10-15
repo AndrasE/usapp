@@ -16,7 +16,12 @@ The application integrates with OneSignal to enable push notifications, ensuring
 
 At the root of the project, you will find `us-app-debug.apk`, which you can install on your Android device (you will need to enable third-party installation). Feel free to message me if you would like to chat. Search for the user "rohadtsajt" in the app.
 
-[![A GIF showcasing the app's features](https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true)](https://youtu.be/w_1VowseA3g?si=4nr223Uw9BDL2BHc)
+<p align="center">
+ <a href="https://youtu.be/w_1VowseA3g?si=4nr223Uw9BDL2BHc"
+target="_blank"
+rel="noopener noreferrer">
+   <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true" width="350"> </a>
+</p>
 
 ### Key Features
 
