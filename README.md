@@ -3,7 +3,7 @@
   <br/>
   Realtime android React Native chat app
   <br/>
-  with Cloud messaging
+  with Authentication and Cloud messaging
 </h3>
 
 ## Hello there 👋
