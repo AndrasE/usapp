@@ -1,9 +1,7 @@
 <h3 align="center">
   <img src="https://github.com/AndrasE/raw-readme/blob/main/us-readme.png?raw=true" width="75">
   <br/>
-  Realtime android React Native chat app
-  <br/>
-  with Authentication and Cloud messaging
+  Realtime android React Native chat app with Authentication and Cloud messaging
 </h3>
 
 ## Hello there 👋
