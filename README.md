@@ -1,5 +1,7 @@
 <h3 align="center">
+    <a href="https://youtu.be/w_1VowseA3g?si=4nr223Uw9BDL2BHc" target="_blank" rel="noopener noreferrer">
   <img src="https://github.com/AndrasE/raw-readme/blob/main/us-readme.png?raw=true" width="75">
+    </a>
   <br/>
   Realtime android React Native chat app with Authentication and Cloud messaging
 </h3>
