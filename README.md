@@ -22,7 +22,7 @@ At the root of the project, you will find `us-app-debug.apk`, which you can inst
  <a href="https://youtu.be/w_1VowseA3g?si=4nr223Uw9BDL2BHc"
 target="_blank"
 rel="noopener noreferrer">
-   <img src="https://github.com/AndrasE/raw-readme/blob/main/us-app-yt.gif?raw=true" width="350"> </a>
+   <img src="https://github.com/AndrasE/raw-readme/blob/7c6d352ed14f3ce9e4847fe7cb7e175fe57a4f05/thumbs/us-app-yt.gif" width="350"> </a>
 </p>
 
 ### Key Features
